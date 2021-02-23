@@ -917,7 +917,8 @@ def circleplot(site,fit,i,ax,temperatures,legend=False,linewidth=2,title=None,ta
     #Add legend and title to plot
     if legend==True:
         ax.legend(fontsize=10);
-    ax.set_title(title,fontsize=20,loc='left')
+    if title!=None:
+        ax.set_title(title,fontsize=20,loc='left')
 
 def regplot(fit,ax,specimenlist,legend=False,title=None):
     """Plots B vs k for all specimens in a site given a BiCEP or unpooled fit"""
@@ -932,13 +933,13 @@ def regplot(fit,ax,specimenlist,legend=False,title=None):
         ax.plot([mink,maxk],[minB[c],maxB[c]],color='skyblue',alpha=0.12)
     except:
         Bs=fit['slope']*np.array(B_lab_list).T
-    ax.set_ylabel('Intensity, $\mu$T',fontsize=15)
-    ax.set_xlabel(r'$\vec{k}$',fontsize=15);
+    ax.set_xlabel(r'$\vec{k}$');
     ax.plot(np.percentile(fit['k'],(2.5,97.5),axis=0),[np.median(Bs,axis=0),np.median(Bs,axis=0)],'k')
     ax.plot([np.median(fit['k'],axis=0),np.median(fit['k'],axis=0)],np.percentile(Bs,(2.5,97.5),axis=0),'k')
     ax.plot(np.median(fit['k'],axis=0),np.median(Bs,axis=0),'o',markerfacecolor='lightgreen',markeredgecolor='k')
     ax.axvline(0,color='k',linewidth=1)
-    ax.set_title(title,fontsize=20,loc='left')
+    if title!=None:
+        ax.set_title(title,fontsize=20,loc='left')
 
 def display_gui():
     """Displays the specimen plots for BiCEP GUI"""
@@ -967,7 +968,6 @@ def plot_site_plot(fit):
     regplot(fit,ax_2[0],specimenlist)
     ax_2[0].yaxis.tick_right()
     ax_2[1].yaxis.tick_right()
-    ax_2[0].set_ylabel(None)
     ax_2[1].yaxis.set_label_position('right')
     ax_2[0].set_ylim(min(np.percentile(fit['int_real'],2.5,axis=0))*0.9,max(np.percentile(fit['int_real'],97.5,axis=0))*1.1)
     ax_2[0].set_xlim(min(min(np.percentile(fit['k'],2.5,axis=0))*1.1,min(np.percentile(fit['k'],2.5,axis=0))*0.9),max(max(np.percentile(fit['k'],97.5,axis=0))*1.1,max(np.percentile(fit['k'],97.5,axis=0))*0.9))
@@ -1214,7 +1214,7 @@ def save_figures(a):
     """Saves figures from GUI depending on widgets"""
     objdict={'Specimen Plot':fig,'Site Plot':fig_2}
     value={'Specimen Plot':specimen_wid.value,'Site Plot':site_wid.value}
-    objdict[figchoice.value].savefig(value[figchoice.value]+'_BiCEP_fit.'+sitefigformats.value)
+    objdict[figchoice.value].savefig(value[figchoice.value]+'_BiCEP_fit.'+figformats.value)
 
 
 
@@ -1338,4 +1338,4 @@ specpage=widgets.Accordion([fullbox])
 sitepage=widgets.Accordion([fullbox2])
 specpage.set_title(0,'Specimen Processing')
 sitepage.set_title(0,'Site Processing')
-gui=widgets.HBox([specpage,sitepage])
+gui=widgets.VBox([specpage,sitepage])
