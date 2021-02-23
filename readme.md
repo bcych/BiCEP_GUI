@@ -10,7 +10,7 @@
 
 - To use BiCEP GUI, we recommend using the Earthref jupyterhub at http://jupyterhub.earthref.org. To run the GUI from this site, first run the Bicep-GUI-Setup notebook by clicking on this and pressing the run button until you reach the end of the notebook. Note that this setup may take several minutes.
 
-![Run button in jupyterhub](https://github.com/bcych/BiCEP_GUI/readme-image/jupyterhub-run.png)
+![Run button in jupyterhub](https://raw.githubusercontent.com/bcych/BiCEP_GUI/master/readme-image/jupyterhub-run.png)
 
 - You will then have a directory called BiCEP_GUI in your jupyterhub. Navigate to this.
 
@@ -18,15 +18,17 @@
 
 - Upload your measurements.txt, specimens.txt, samples.txt and sites.txt files to the BiCEP_GUI directory using the upload button in jupyterhub.
 
-![Upload button in jupyterhub](https://github.com/bcych/BiCEP_GUI/readme-image/jupyterhub-run.png)
+![Upload button in jupyterhub](https://raw.githubusercontent.com/bcych/BiCEP_GUI/master/readme-image/jupyterhub-upload.png)
 
 ## Using BiCEP GUI
 
 - Open the BiCEP GUI notebook in your folder. Press the "App Mode" button to launch the GUI.
 
-- On Launch you should have a GUI with the following layout:
+![Upload button in jupyterhub](https://raw.githubusercontent.com/bcych/BiCEP_GUI/master/readme-image/jupyterhub-appmode.png)
 
-![GUI layout](https://github.com/bcych/BiCEP_GUI/readme-image/GUI_layout.png)
+- On launch you should have a GUI with the following layout:
+
+![GUI layout](https://raw.githubusercontent.com/bcych/BiCEP_GUI/master/readme-image/GUI_layout.png)
 
 1. The Convert MagIC data button converts your measurements, sites, specimens files into a csv format that BiCEP_GUI uses, and calls it arai_data.csv. Paleointensity experiments where more than 25% of the NRM was remaining at the highest temperature step are not included in the new file, as it assumed that these are still being worked on. Anisotropy (TRM or ARM), Cooling Rate and Non Linear TRM corrections should be correctly implemented.
 
