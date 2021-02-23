@@ -1,0 +1,32 @@
+tab 	sites
+age	age_unit	citations	description	geologic_classes	geologic_types	height	int_abs	int_abs_sigma	int_abs_sigma_perc	int_n_samples	lat	lithologies	location	lon	method_codes	result_quality	result_type	site	vadm	vadm_n_samples	vadm_sigma
+		10.1029/2005GC001141:This study		Extrusive:Igneous	Glassy Margin							Submarine Basaltic Glass	EPR					1991-1992 Eruption Site			
+		10.1029/93jb01160:This study		Extrusive:Igneous	Glassy Margin							Submarine Basaltic Glass	EPR					BBQ			
+		10.1016/j.pepi.2014.12.007:This study		Archeologic	Brick							Not Specified	Finland					BR06			
+		10.1111/j.1365-246X.2012.05412.x:This study		Extrusive:Igneous	Lava Flow							Basalt	Hawaii					Hawaii 1960 Flow			
+		10.1029/2010JB007844:This study		Extrusive:Igneous	Lava Flow							Basalt	Paracutin					P			
+		10.1016/j.pepi.2008.03.006:This study		Extrusive:Igneous	Lava Flow							Andesite	Sakurajima					SW			
+		10.1016/j.pepi.2008.03.006:This study		Extrusive:Igneous	Lava Flow							Andesite	Sakurajima					TS			
+		10.1029/2010JB007844:This study		Extrusive:Igneous	Lava Flow							Basalt	Vesuvius					VM			
+		10.1029/2005GC001141:This study		Extrusive:Igneous	Lava Flow							Basalt	Hawaii					hw108			
+		10.1029/2005GC001141:This study		Extrusive:Igneous	Lava Flow							Basalt	Hawaii					hw123			
+		10.1029/2005GC001141:This study		Extrusive:Igneous	Lava Flow							Basalt	Hawaii					hw126			
+		10.1029/2005GC001141:This study		Extrusive:Igneous	Lava Flow							Basalt	Hawaii					hw128			
+		10.1029/2005GC001141:This study		Extrusive:Igneous	Lava Flow							Basalt	Hawaii					hw201			
+		10.1029/2005GC001141:This study		Extrusive:Igneous	Lava Flow							Basalt	Hawaii					hw226			
+		10.1029/2005GC001141:This study		Extrusive:Igneous	Lava Flow							Basalt	Hawaii					hw241			
+		10.1111/j.1365-246X.2012.05412.x:This study		Extrusive:Igneous	Lava Flow							Basalt	Krafla					kf			
+		10.1016/j.epsl.2011.08.024:This study		Synthetic	Slag							Not Specified	HUJI					remag-rs61			
+		10.1016/j.epsl.2011.08.024:This study		Synthetic	Slag							Not Specified	HUJI					remag-rs62			
+		10.1016/j.epsl.2011.08.024:This study		Synthetic	Slag							Not Specified	HUJI					remag-rs63			
+		10.1016/j.epsl.2011.08.024:This study		Synthetic	Slag							Not Specified	HUJI					remag-rs78			
+		10.1016/j.epsl.2009.12.022:This study		Synthetic	Slag							Not Specified	HUJI					rs25			
+		10.1016/j.epsl.2009.12.022:This study		Synthetic	Slag							Not Specified	HUJI					rs26			
+		10.1016/j.epsl.2009.12.022:This study		Synthetic	Slag							Not Specified	HUJI					rs27			
+		This study																ET1			
+		This study																ET2			
+		This study																ET3			
+		This study		Igneous:Extrusive	Pyroclastite						-23.352612903225808	Volcaniclastic	Lascar	292.25680645161293	GE-WGS84			LV			
+		This study		Igneous:Extrusive	Pyroclastite						46.24549999999999	Volcaniclastic	Mt. St. Helens	237.8135	GE-WGS84			MSH1			
+		This study:10.1029/2008GC002072:10.1016/j.pepi.2014.12.007:10.1186/BF03352899:10.1002/ggge.20174:10.1002/ggge.20199	All sites from Tauxe & Santos (2019) combined into one site as all were given a Fresh TRM, original sites were lava flows of various ages, see Santos & Tauxe (2019) for more information	Extrusive:Igneous	Lava flow							Basalt:Trachyte:Andesite			LP-PI-BT-IZZI	g	i	FreshTRM			
+		10.1016/S1474-7065(03)00122-0:This study		Synthetic	Powder													Synthetic60			

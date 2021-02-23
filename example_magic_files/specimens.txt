@@ -1,0 +1,568 @@
+tab	specimens
+specimen	experiments	sample	aniso_alt	aniso_ftest	aniso_ftest12	aniso_ftest23	aniso_s	aniso_s_n_measurements	aniso_s_sigma	aniso_type	aniso_v1	aniso_v2	aniso_v3	geologic_classes	geologic_types	lithologies	meas_step_max	meas_step_min	description	software_packages	int_abs	citations	method_codes	result_quality	result_type	size
+A-1-3		A												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1111/j.1365-246X.2012.05412.x:This study
+A-2-3		A												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1111/j.1365-246X.2012.05412.x:This study
+A-3-3		A												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1111/j.1365-246X.2012.05412.x:This study
+A-4-3		A												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1111/j.1365-246X.2012.05412.x:This study
+A-4-4L		A												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1111/j.1365-246X.2012.05412.x:This study
+A-5-3		A												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1111/j.1365-246X.2012.05412.x:This study
+AL2360-1a		AL2360-1												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL2360-1b		AL2360-1												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL2360-1c		AL2360-1												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL2360-1d		AL2360-1												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL2360-1e		AL2360-1												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL2742-4a		AL2742-4												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL2742-4b		AL2742-4												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL2742-4e		AL2742-4												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL2742-4f		AL2742-4												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL2742-4g		AL2742-4												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL2770-3a		AL2770-3												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL2770-3b		AL2770-3												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL2770-3c		AL2770-3												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL2844-2a		AL2844-2												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL2844-2b		AL2844-2												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL2852-2a		AL2852-2												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL2852-2b		AL2852-2												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL2852-2c		AL2852-2												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL2852-2d		AL2852-2												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL2852-2e		AL2852-2												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL2852-2f		AL2852-2												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3023-1a		AL3023-1												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3023-1b		AL3023-1												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3028-2a		AL3028-2												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3028-2b		AL3028-2												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3029-4a		AL3029-4												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3029-4b		AL3029-4												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3029-4c		AL3029-4												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3029-5a		AL3029-5												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3031-1a		AL3031-1												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3031-1b		AL3031-1												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3031-1c		AL3031-1												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3031-1d		AL3031-1												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3034-2a		AL3034-2												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3034-2d		AL3034-2												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3034-2e		AL3034-2												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3034-5a		AL3034-5												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3034-5b		AL3034-5												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3034-5d		AL3034-5												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3035-2a		AL3035-2												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3035-2b		AL3035-2												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3035-2h		AL3035-2												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3035-2i		AL3035-2												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3035-2j		AL3035-2												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3156-1a		AL3156-1												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3156-1b		AL3156-1												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3159-1a		AL3159-1												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3159-1b		AL3159-1												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3159-1g		AL3159-1												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3166-1a		AL3166-1												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3166-1b		AL3166-1												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3166-1g		AL3166-1												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+AL3166-1h		AL3166-1												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+B-1-3		B												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1111/j.1365-246X.2012.05412.x:This study
+B-10-1		B												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1111/j.1365-246X.2012.05412.x:This study
+B-2-1		B												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1111/j.1365-246X.2012.05412.x:This study
+B-3-3		B												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1111/j.1365-246X.2012.05412.x:This study
+B-4-3		B												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1111/j.1365-246X.2012.05412.x:This study
+B-5-1		B												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1111/j.1365-246X.2012.05412.x:This study
+B-6-3		B												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1111/j.1365-246X.2012.05412.x:This study
+B-7-3		B												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1111/j.1365-246X.2012.05412.x:This study
+B-8-1		B												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1111/j.1365-246X.2012.05412.x:This study
+B-9-3		B												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1111/j.1365-246X.2012.05412.x:This study
+B-9-4L		B												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1111/j.1365-246X.2012.05412.x:This study
+BR06-3F		BR06												Archeologic	Brick	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2014.12.007:This study
+BR06-4F		BR06												Archeologic	Brick	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2014.12.007:This study
+BR06-5F		BR06												Archeologic	Brick	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2014.12.007:This study
+C-1-3		C												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1111/j.1365-246X.2012.05412.x:This study
+C-2-3		C												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1111/j.1365-246X.2012.05412.x:This study
+C-3-3		C												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1111/j.1365-246X.2012.05412.x:This study
+C-4-1		C												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1111/j.1365-246X.2012.05412.x:This study
+C-4-4L		C												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1111/j.1365-246X.2012.05412.x:This study
+ET1_279BS		ET1																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+ET1_283E		ET1																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+ET1_287D		ET1																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+ET1_289D		ET1																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+ET1_311E		ET1																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+ET1_318A		ET1																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+ET2_182B		ET2																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+ET2_185A		ET2																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+ET2_187A		ET2																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+ET2_192A		ET2																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+ET2_196D		ET2																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+ET3_008A		ET3																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+ET3_023E2		ET3																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+ET3_059C		ET3																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+ET3_064C		ET3																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+ET3_146A		ET3																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+ET3_150B		ET3																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV10D3A		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV11A2		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV12A2A		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV12D1		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV12E2		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV14C3A		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV15B1		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV16A2B		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV16B1B		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV17A1A		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV18B3		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV19A2		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV19B1A		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV19C1		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV19D3		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV19E1		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV19F2		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV19G2B		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV20B1		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV20C2		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV21A2		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV21B1		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV21C1		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV22D1		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV23A2		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV25C3		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV26D2		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV27B2		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV28E3A		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV29B2A		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV30A3A		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV30B2		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV30D1		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV3B3		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV4A3		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV4C3		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV6A2		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV6C3A		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV6D1B		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV6G1		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV6I3A		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV7B1		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV7G1		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV7H1		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV9A2		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+LV9F2		LV																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M3B5		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M3C5		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M3G2		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M3L1		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M3O6		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M3S2		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M3U2		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M3V1		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M4F6		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M4G5		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M4M5		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M4S2		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M4T3		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M4U1		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M4V1		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M5B2		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M5D1		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M5E2		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M5G1		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M5M2		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M5N2		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M5N5		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M5P2		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M5Q1		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M5S2		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M5T2		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M5W2		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M6B7A		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M6C2		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M6D1		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M6E13		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M6G1		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M6K1		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M6L2		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M6M1		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M6O3		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M6P3		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M6Q2		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M6R4		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+M6U2		MSH																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+MGH1		Synthetic60																	Magnetite.	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study				0.023 microns
+SBG_2352-2b		SBG_2352-2												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/93jb01160:This study
+SBG_2352-2e		SBG_2352-2												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/93jb01160:This study
+SBG_2352-2g		SBG_2352-2												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/93jb01160:This study
+SBG_2358-4f		SBG_2358-4												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/93jb01160:This study
+SBG_2372-2e		SBG_2372-2												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/93jb01160:This study
+SBG_2372-2g		SBG_2372-2												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/93jb01160:This study
+SBG_2372-2h		SBG_2372-2												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/93jb01160:This study
+SBG_2372-3d		SBG_2372-3												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/93jb01160:This study
+SBG_2372-3e		SBG_2372-3												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/93jb01160:This study
+SBG_2372-3f		SBG_2372-3												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/93jb01160:This study
+SBG_2392-4c		SBG_2392-4												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/93jb01160:This study
+SBG_2392-4e		SBG_2392-4												Extrusive:Igneous:Submarine	Glassy Margin	Submarine Basaltic Glass				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/93jb01160:This study
+SW01-01A-2		SW01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+SW01-02A-2		SW01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+SW01-03A-2		SW01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+SW01-04A-2		SW01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+SW01-05A-2		SW01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+SW01-06A-2		SW01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+SW01-07A-2		SW01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+SW01-08A-2		SW01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+SW01-09A-2		SW01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+SW01-10A-2		SW01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+SW01-11A-2		SW01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+SW01-12A-2		SW01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+SW01-13A-2		SW01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+SW01-14A-2		SW01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+SW01-15A-2		SW01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+SW01-16A-2		SW01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+SW01-17A-2		SW01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+SW01-18A-2		SW01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+SW01-19A-2		SW01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS01-00A-2		TS01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS01-01A-2		TS01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS01-02A-2		TS01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS01-04A-1		TS01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS01-05A-2		TS01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS01-06A-3		TS01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS01-07A-2		TS01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS01-08A-2		TS01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS01-10A-2		TS01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS01-11A-2		TS01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS01-12A-2		TS01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS01-13A-2		TS01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS01-14A-2		TS01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS01-15A-2		TS01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS01-16A-2		TS01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS01-17A-2		TS01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS01-18A-2		TS01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS01-19A-2		TS01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS01-20A-2		TS01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS01-21A-2		TS01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS01-22A-2		TS01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS01-23A-2		TS01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS01-24A-2		TS01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS01-25A-2		TS01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS01-26A-2		TS01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS01-27A-2		TS01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS01-28A-2		TS01												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS02-01A-2		TS02												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS02-02A-2		TS02												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS02-03A-2		TS02												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS02-04A-2		TS02												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS02-05A-3		TS02												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS02-06A-2		TS02												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS02-07A-2		TS02												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS02-08A-2		TS02												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS02-09A-3		TS02												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS02-10A-3		TS02												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS02-11A-2		TS02												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS02-12A-2		TS02												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS02-13A-2		TS02												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS02-14A-2		TS02												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS02-15A-2		TS02												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS02-16A-2		TS02												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS02-17A-2		TS02												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS02-18A-2		TS02												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS02-19A-2		TS02												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS02-20A-3		TS02												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS02-21A-2		TS02												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS02-22A-2		TS02												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS02-23A-2		TS02												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS02-24A-2		TS02												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS02-25A-2		TS02												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+TS02-26A-2		TS02												Extrusive:Igneous	Lava flow	Andesite				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.pepi.2008.03.006:This study
+W1		Synthetic60																	Magnetite.	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study				0.7 microns
+W2		Synthetic60																	Magnetite.	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study				0.5 microns
+W3		Synthetic60																	Magnetite.	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study				0.5 microns
+W4		Synthetic60																	Magnetite.	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study				5.7 microns
+W5		Synthetic60																	Magnetite.	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study				8.3 microns
+W6		Synthetic60																	Magnetite.	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study				12.1 microns
+cr405g1-CZb		FreshTRM																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+cr418f-CZb		FreshTRM																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+cr423c-CZb		FreshTRM																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+hw108a1		hw108a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw108a1	hw108a1:LP-AN-ARM	hw108a		25.550328	45.119048	0.153775	0.689030 : 0.137184 : 0.173785 : 0.160414 : -0.032933 : -0.184904	9	0.069941	AARM	0.789192 : 14.7 : -16.9	0.124797 : 74.9 : 58.5	0.086010 : 293.1 : 25.7						Critical F: 2.6848	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			:LP-AN-ARM:AE-H	g
+hw108a2		hw108a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw108a3		hw108a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw108a4		hw108a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw108a5		hw108a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw108b1		hw108b												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw108b2		hw108b												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw108b3		hw108b												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw108b4		hw108b												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw108b5		hw108b												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw108c1		hw108c												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw108c1	hw108c1:LP-AN-ARM	hw108c		0.600776	0.159618	0.645809	0.341367 : 0.339664 : 0.318968 : -0.003641 : 0.009788 : -0.006335	9	0.020142	AARM	0.348551 : 314.6 : -21.1	0.337170 : 222.3 : -5.9	0.314279 : 297.3 : 68.0						Critical F: 2.6848	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			:LP-AN-ARM:AE-H	b
+hw108c10	hw108c10:LP-AN-ARM	hw108c		2.570336	3.182081	0.445998	0.346729 : 0.335061 : 0.318210 : 0.020241 : 0.002158 : 0.015368	9	0.016324	AARM	0.365926 : 214.2 : -16.3	0.324746 : 293.5 : 32.5	0.309329 : 146.8 : 52.7						Critical F: 2.6848	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			:LP-AN-ARM:AE-H	b
+hw108c10		hw108c												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw108c11		hw108c												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw108c11	hw108c11:LP-AN-ARM	hw108c		1.287479	0.250096	1.542766	0.351498 : 0.334487 : 0.314014 : 0.000263 : 0.011176 : -0.001978	9	0.017291	AARM	0.351610 : 358.7 : -3.4	0.339381 : 87.2 : 23.6	0.309009 : 96.4 : -66.2						Critical F: 2.6848	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			:LP-AN-ARM:AE-H	b
+hw108c12		hw108c												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw108c12	hw108c12:LP-AN-TRM	hw108c	2.14	0.8398770000000001	0.089488	1.162714	0.332309 : 0.320656 : 0.347034 : -0.035385 : -0.000514 : 0.001590	6.0	0.036902	ATRM	0.362499 : 139.7 : -5.7	0.346887 : 133.2 : 84.3	0.290614 : 229.7 : 0.6						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			LP-AN-TRM:AE-H	b
+hw108c13		hw108c												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw108c2		hw108c												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw108c3		hw108c												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw108c4		hw108c												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw108c5		hw108c												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw108c6		hw108c												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw108c7		hw108c												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw108c8		hw108c												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw108c9		hw108c												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw108c9	hw108c9:LP-AN-TRM	hw108c	2.77	0.491034	0.244919	0.373323	0.334542 : 0.330295 : 0.335163 : 0.000069 : 0.010721 : -0.003689	6.0	0.014863	ATRM	0.344549 : 295.8 : -50.2	0.334147 : 18.4 : 6.1	0.321304 : 103.4 : -39.2						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			LP-AN-TRM:AE-H	b
+hw123a1	hw123a1:LP-AN-ARM	hw123a		0.531110	0.539924	0.160998	0.340310 : 0.334641 : 0.325049 : -0.007071 : 0.004449 : -0.001270	9	0.014043	AARM	0.345718 : 324.0 : -10.0	0.331125 : 229.7 : -23.0	0.323156 : 255.9 : 64.7						Critical F: 2.6848	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			:LP-AN-ARM:AE-H	b
+hw123a1		hw123a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw123a10		hw123a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw123a11		hw123a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw123a12		hw123a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw123a2		hw123a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw123a3		hw123a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw123a3	hw123a3:LP-AN-ARM	hw123a		0.206030	0.141388	0.116444	0.333867 : 0.330151 : 0.335982 : 0.004131 : -0.001258 : 0.006593	9	0.016588	AARM	0.341882 : 193.4 : -46.1	0.333061 : 243.7 : 31.6	0.325056 : 135.3 : 27.0						Critical F: 2.6848	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			:LP-AN-ARM:AE-H	b
+hw123a4	hw123a4:LP-AN-ARM	hw123a		0.245832	0.004039	0.415907	0.324525 : 0.336247 : 0.339228 : 0.005022 : -0.000681 : 0.002442	9	0.017309	AARM	0.339633 : 22.1 : 78.6	0.338077 : 71.0 : -7.6	0.322290 : 159.8 : 8.5						Critical F: 2.6848	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			:LP-AN-ARM:AE-H	b
+hw123a4		hw123a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw123a5		hw123a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw123a6		hw123a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw123a7		hw123a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw123a8		hw123a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw123a9		hw123a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw123a9	hw123a9:LP-AN-ARM	hw123a		0.382525	0.001772	0.680680	0.336968 : 0.335241 : 0.327791 : -0.004181 : 0.007118 : 0.006444	9	0.016707	AARM	0.340494 : 155.7 : -13.1	0.339499 : 75.5 : 36.0	0.320006 : 229.1 : 51.0						Critical F: 2.6848	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			:LP-AN-ARM:AE-H	b
+hw126a1		hw126a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw126a2		hw126a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw126a3		hw126a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw126a4		hw126a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw126a4	hw126a4:LP-AN-ARM	hw126a		0.699905	0.258720	0.645137	0.355912 : 0.335729 : 0.308359 : 0.001149 : 0.006308 : -0.006072	9	0.027206	AARM	0.356681 : 1.0 : -7.0	0.337111 : 89.5 : 12.3	0.306208 : 300.2 : 75.8						Critical F: 2.6848	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			:LP-AN-ARM:AE-H	b
+hw126a5	hw126a5:LP-AN-ARM	hw126a		0.687039	0.034760	1.061325	0.341275 : 0.335277 : 0.323448 : 0.003065 : 0.011248 : -0.009473	9	0.018936	AARM	0.345858 : 161.1 : 29.4	0.340865 : 61.2 : 16.9	0.313277 : 305.2 : 55.2						Critical F: 2.6848	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			:LP-AN-ARM:AE-H	b
+hw126a5		hw126a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw126a6		hw126a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw126a7		hw126a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw126a8		hw126a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw126b1		hw126b												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw126b1	hw126b1:LP-AN-TRM	hw126b	2.17	0.443412	0.151069	0.426497	0.333133 : 0.327338 : 0.339530 : -0.006768 : -0.003819 : 0.001754	6.0	0.013475999999999998	ATRM	0.342420 : 317.8 : 53.2	0.335013 : 334.1 : -35.7	0.322567 : 58.5 : 7.8						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			LP-AN-TRM:AE-H	b
+hw126b2		hw126b												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw126b2	hw126b2:LP-AN-TRM	hw126b	2.25	13.006412	5.562377	11.000451	0.328253 : 0.334439 : 0.337308 : -0.024508 : 0.004054 : -0.002619	6.0	0.006301	ATRM	0.357195 : 311.2 : -13.5	0.336179 : 317.2 : 76.4	0.306626 : 41.5 : -1.4						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			LP-AN-TRM:AE-H	g
+hw126b3		hw126b												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw126b4	hw126b4:LP-AN-TRM	hw126b	1.94	2.825047	1.839745	1.6923009999999998	0.334985 : 0.330397 : 0.334618 : -0.009258 : -0.000512 : 0.005364	6.0	0.00586	ATRM	0.344420 : 325.7 : 25.7	0.333180 : 112.0 : 59.9	0.322400 : 48.6 : -14.5						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			LP-AN-TRM:AE-H	b
+hw126b4		hw126b												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw126b5		hw126b												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw128a1		hw128a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw128a10	hw128a10:LP-AN-TRM	hw128a	2.23	8.626330000000001	6.260368	4.5670480000000016	0.302898 : 0.345663 : 0.351439 : -0.007008 : 0.016807 : -0.010543	6.0	0.010308	ATRM	0.368035 : 106.8 : 49.1	0.331560 : 266.8 : 39.2	0.300405 : 185.1 : -10.0						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			LP-AN-TRM:AE-H	g
+hw128a10		hw128a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw128a11		hw128a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw128a11	hw128a11:LP-AN-TRM	hw128a	5.54	0.305598	0.356124	0.06487000000000001	0.323716 : 0.331140 : 0.345144 : -0.013301 : 0.012557 : -0.009647	6.0	0.037808	ATRM	0.359145 : 127.3 : 48.5	0.327237 : 306.9 : 41.5	0.313618 : 37.1 : 0.2						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			LP-AN-TRM:AE-H	b
+hw128a2		hw128a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw128a3		hw128a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw128a4		hw128a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw128a4	hw128a4:LP-AN-TRM	hw128a	1.25	3.968362	0.270368	5.906455	0.325017 : 0.327772 : 0.347211 : -0.016853 : 0.004232 : 0.000438	6.0	0.009508	ATRM	0.348888 : 123.5 : 63.0	0.341896 : 135.5 : -26.5	0.309216 : 223.1 : 4.8						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			LP-AN-TRM:AE-H	g
+hw128a5		hw128a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw128a6		hw128a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw128a7		hw128a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw128a7	hw128a7:LP-AN-TRM	hw128a	0.82	5.10375	1.910443	4.671791000000002	0.334164 : 0.336991 : 0.328845 : -0.000496 : -0.012443 : -0.016893	6.0	0.008468999999999999	ATRM	0.352998 : 220.5 : 40.9	0.336444 : 307.6 : -3.4	0.310558 : 33.7 : 48.9						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			LP-AN-TRM:AE-H	g
+hw128a8		hw128a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw128a9		hw128a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw128a9	hw128a9:LP-AN-TRM	hw128a	2.3	2.1022	3.3377790000000003	0.081686	0.324702 : 0.333389 : 0.341909 : -0.000914 : 0.015008 : 0.001652	6.0	0.010735	ATRM	0.353271 : 87.4 : 53.0	0.325534 : 337.6 : 14.3	0.321195 : 238.0 : 33.3						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			LP-AN-TRM:AE-H	b
+hw128b1		hw128b												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw128b2		hw128b												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw128b3		hw128b												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw128b4		hw128b												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw128b5		hw128b												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw128c1		hw128c												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw128c1	hw128c1:LP-AN-TRM	hw128c	1.24	15.094056	9.623001	9.245826	0.328947 : 0.317830 : 0.353223 : -0.012319 : -0.004349 : -0.014508	6.0	0.006129	ATRM	0.360044 : 175.6 : 64.2	0.333156 : 316.5 : 20.5	0.306800 : 52.2 : 14.9						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			LP-AN-TRM:AE-H	g
+hw128c2	hw128c2:LP-AN-TRM	hw128c	1.43	10.53271	13.300503	1.698093	0.336301 : 0.325140 : 0.338559 : -0.006874 : -0.000532 : 0.018706	6.0	0.00584	ATRM	0.357001 : 166.9 : -44.8	0.326881 : 106.3 : 26.3	0.316119 : 35.5 : -33.6						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			LP-AN-TRM:AE-H	g
+hw128c2		hw128c												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw128c3	hw128c3:LP-AN-TRM	hw128c	0.96	9.032962	3.4434949999999995	8.184867	0.333421 : 0.320992 : 0.345587 : -0.006515 : -0.012384 : -0.003142	6.0	0.005622	ATRM	0.350752 : 266.2 : 67.7	0.335998 : 161.2 : 6.1	0.313250 : 248.8 : -21.4						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			LP-AN-TRM:AE-H	g
+hw128c3		hw128c												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw128c4	hw128c4:LP-AN-TRM	hw128c	1.95	5.075321	6.875276	0.6041380000000001	0.319176 : 0.346261 : 0.334563 : -0.005727 : 0.012637 : -0.002664	6.0	0.0077810000000000015	ATRM	0.355419 : 281.6 : -31.8	0.326567 : 280.4 : 58.2	0.318014 : 191.2 : -0.5						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			LP-AN-TRM:AE-H	g
+hw128c4		hw128c												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw128c5		hw128c												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw128d1		hw128d												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw128d1	hw128d1:LP-AN-TRM	hw128d	10.03	4.085909	2.531001	2.5764150000000003	0.347593 : 0.315698 : 0.336709 : 0.027176 : 0.002706 : -0.018470	6.0	0.016257	ATRM	0.370019 : 205.4 : 25.0	0.333442 : 64.8 : 58.9	0.296539 : 303.7 : 17.3						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			LP-AN-TRM:AE-H	g
+hw128d2	hw128d2:LP-AN-TRM	hw128d	4.91	9.394615	3.589854	8.500674	0.315665 : 0.328128 : 0.356208 : 0.016825 : 0.006475 : 0.003056	6.0	0.008074	ATRM	0.358855 : 58.5 : 69.6	0.337219 : 54.4 : -20.4	0.303926 : 144.9 : -1.3						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			LP-AN-TRM:AE-H	g
+hw128d2		hw128d												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw128d3		hw128d												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw128d4		hw128d												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw128d5		hw128d												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw128d5	hw128d5:LP-AN-TRM	hw128d	13.75	1.741111	1.599225	0.6474949999999999	0.333907 : 0.341296 : 0.324797 : -0.005995 : 0.013823 : -0.007798	6.0	0.012792	ATRM	0.353438 : 299.3 : -29.0	0.330560 : 209.4 : 0.2	0.316002 : 299.7 : 61.0						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			LP-AN-TRM:AE-H	b
+hw201a1		hw201a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw201a10		hw201a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw201a11	hw201a11:LP-AN-TRM	hw201a	6.1	1.166743	1.7036330000000002	0.09074	0.326940 : 0.323850 : 0.349210 : -0.002076 : -0.002097 : -0.005405	6.0	0.012541	ATRM	0.350547 : 195.3 : 77.0	0.327398 : 325.3 : 8.5	0.322055 : 236.8 : -9.8						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			LP-AN-TRM:AE-H	b
+hw201a11		hw201a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw201a12	hw201a12:LP-AN-TRM	hw201a	3.98	2.885545	3.1282810000000003	0.750297	0.323434 : 0.328553 : 0.348013 : -0.004927 : 0.002828 : -0.006658	6.0	0.008237999999999999	ATRM	0.350434 : 145.6 : 71.2	0.329829 : 293.8 : 16.2	0.319738 : 26.5 : 9.4						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			LP-AN-TRM:AE-H	b
+hw201a12		hw201a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw201a2		hw201a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw201a3		hw201a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw201a3	hw201a3:LP-AN-TRM	hw201a	11.56	0.239271	0.004461	0.401785	0.327905 : 0.337569 : 0.334526 : -0.003506 : 0.001298 : 0.007053	6.0	0.017168	ATRM	0.339544 : 134.3 : -38.5	0.337923 : 80.1 : 36.3	0.322533 : 196.0 : 30.8						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			LP-AN-TRM:AE-H	b
+hw201a4		hw201a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw201a5		hw201a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw201a6	hw201a6:LP-AN-TRM	hw201a	8.11	0.552995	0.0050490000000000005	0.96201	0.327136 : 0.338523 : 0.334341 : 0.001501 : -0.001625 : 0.007443	6.0	0.011629	ATRM	0.339489 : 298.1 : 43.8	0.338321 : 240.7 : -29.3	0.322190 : 351.2 : -32.0						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			LP-AN-TRM:AE-H	b
+hw201a6		hw201a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw201a7		hw201a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw201a8		hw201a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw201a9		hw201a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw226a-SZb		FreshTRM																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+hw226a1		hw226a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw226a2		hw226a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw226a3		hw226a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw226a4		hw226a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw226a5		hw226a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw226a6		hw226a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw226b1		hw226b												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw226b2	hw226b2:LP-AN-TRM	hw226b	1.63	4.749436	0.726065	6.078062	0.342283 : 0.323755 : 0.333961 : 0.002189 : 0.026500 : 0.000394	6.0	0.01156	ATRM	0.356055 : 79.1 : 49.7	0.342125 : 177.1 : 6.7	0.301820 : 272.6 : 39.5						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			LP-AN-TRM:AE-H	g
+hw226b2		hw226b												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw226b3		hw226b												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw226b3	hw226b3:LP-AN-TRM	hw226b	4.22	1.379721	0.757428	0.971337	0.334086 : 0.317901 : 0.348013 : 0.000937 : 0.006558 : 0.001060	6.0	0.012562	ATRM	0.349477 : 68.8 : 77.3	0.334016 : 1.3 : -4.9	0.316507 : 272.3 : 11.7						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			LP-AN-TRM:AE-H	b
+hw226b4	hw226b4:LP-AN-TRM	hw226b	4.49	14.029018	1.526311	19.344535	0.328040 : 0.325193 : 0.346767 : -0.029577 : 0.016010 : 0.005167	6.0	0.008594	ATRM	0.361162 : 127.3 : 33.7	0.346147 : 339.4 : 51.8	0.292691 : 48.3 : -15.9						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			LP-AN-TRM:AE-H	g
+hw226b4		hw226b												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw226b5		hw226b												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw226b6		hw226b												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw241a1		hw241a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw241a2		hw241a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw241a3		hw241a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw241a4		hw241a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw241a5		hw241a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw241a6		hw241a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw241d1		hw241d												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw241d2		hw241d												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw241d3		hw241d												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw241d4		hw241d												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw241d5		hw241d												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw241d6		hw241d												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw241e1	hw241e1:LP-AN-TRM	hw241e	4.71	3.545985	5.7014	0.12004	0.330203 : 0.343651 : 0.326145 : -0.013820 : -0.014893 : 0.006378	6.0	0.011012	ATRM	0.359921 : 300.3 : 25.5	0.322737 : 197.6 : 24.6	0.317342 : 69.8 : 53.2						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			LP-AN-TRM:AE-H	g
+hw241e1		hw241e												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw241e2	hw241e2:LP-AN-ARM	hw241e		0.947431	1.010888	0.256275	0.344806 : 0.327381 : 0.327812 : 0.010528 : 0.002545 : -0.005570	9	0.014446	AARM	0.350475 : 23.5 : -10.2	0.329934 : 97.4 : 56.8	0.319591 : 299.7 : 31.2						Critical F: 2.6848	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			:LP-AN-ARM:AE-H	b
+hw241e2		hw241e												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw241e3		hw241e												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw241e3	hw241e3:LP-AN-ARM	hw241e		1.098446	1.631625	0.075937	0.358120 : 0.318278 : 0.323602 : -0.001337 : 0.005115 : -0.013995	9	0.022445	AARM	0.363279 : 355.9 : -19.8	0.322734 : 246.9 : -42.1	0.313987 : 284.4 : 41.3						Critical F: 2.6848	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			:LP-AN-ARM:AE-H	b
+hw241e4	hw241e4:LP-AN-TRM	hw241e	1.26	3.113787	3.83197	0.5520689999999999	0.350748 : 0.325377 : 0.323874 : -0.009312 : 0.005333 : -0.000541	6.0	0.009394	ATRM	0.353960 : 341.2 : -4.2	0.327955 : 246.3 : -48.8	0.318084 : 254.9 : 40.9						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			LP-AN-TRM:AE-H	g
+hw241e4		hw241e												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw241e5		hw241e												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+hw241e5	hw241e5:LP-AN-TRM	hw241e	3.92	1.444231	0.0046630000000000005	2.593306	0.327632 : 0.334207 : 0.338161 : -0.011783 : -0.005627 : -0.008114	6.0	0.012107	ATRM	0.343304 : 135.3 : 19.5	0.342134 : 261.9 : 59.4	0.314562 : 216.8 : -22.7						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			LP-AN-TRM:AE-H	b
+hw241e6	hw241e6:LP-AN-TRM	hw241e	8.64	2.6714830000000003	1.210001	2.176329	0.329998 : 0.326163 : 0.343839 : -0.014959 : -0.022091 : -0.002680	6.0	0.01553	ATRM	0.360240 : 290.8 : 50.2	0.336080 : 162.8 : 27.2	0.303680 : 237.8 : -26.6						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			LP-AN-TRM:AE-H	b
+hw241e6		hw241e												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2005GC001141:This study
+jm009c1-CZb		FreshTRM																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+jm009d1-CZb		FreshTRM																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+jm009f2-CZb		FreshTRM																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+jm009i2-CZb		FreshTRM																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+jm011d1-CZb		FreshTRM																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+kf011		kf												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1111/j.1365-246X.2012.05412.x:This study
+kf031		kf												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1111/j.1365-246X.2012.05412.x:This study
+kf072		kf												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1111/j.1365-246X.2012.05412.x:This study
+mc109d-SZb		FreshTRM																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+mc109e-SZb		FreshTRM																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+mc111d-SZb		FreshTRM																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+mc111e-SZb		FreshTRM																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+mc117a-SZb		FreshTRM																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+mc117b-SZb		FreshTRM																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+mc117d-SZb		FreshTRM																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+mc117e-SZb		FreshTRM																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+mc120b-SZb		FreshTRM																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+mc120c-SZb		FreshTRM																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+mc167d2-SZb		FreshTRM																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+p1ay		p1ay												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p1c-stub1		p1c-stub1												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p1cy_u		p1cy_u												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p1cz_u		p1cz_u												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p1e_u		p1e_u												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p1fx_u		p1fx_u												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p1fy_u		p1fy_u												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p1ga_u		p1ga_u												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p1gb_u		p1gb_u												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p1gc_u		p1gc_u												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p1h_u		p1h_u												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p1hb_u		p1hb_u												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p1ka_u		p1ka_u												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p1kb_u		p1kb_u												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p1kc_u		p1kc_u												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p1kd_u		p1kd_u												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p1l_u		p1l_u												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p1my		p1my												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p1na_u		p1na_u												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p1nb		p1nb												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p1o_u		p1o_u												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p2aa_u		p2aa_u												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p2ab_u		p2ab_u												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p2ac_u		p2ac_u												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p2ad		p2ad												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p2b_u		p2b_u												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p2d		p2d												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p2ey_u		p2ey_u												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p2kx_u		p2kx_u												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p2na_u		p2na_u												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p2nb_u		p2nb_u												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p2o_u		p2o_u												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p2q		p2q												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p2qc		p2qc												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p2rl_u		p2rl_u												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+p2s_u		p2s_u												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+remag-rs61a		remag-rs61												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2011.08.024:This study
+remag-rs61c		remag-rs61												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2011.08.024:This study
+remag-rs61e		remag-rs61												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2011.08.024:This study
+remag-rs61f		remag-rs61												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2011.08.024:This study
+remag-rs61h		remag-rs61												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2011.08.024:This study
+remag-rs61i		remag-rs61												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2011.08.024:This study
+remag-rs62a		remag-rs62												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2011.08.024:This study
+remag-rs62b		remag-rs62												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2011.08.024:This study
+remag-rs62e		remag-rs62												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2011.08.024:This study
+remag-rs62f		remag-rs62												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2011.08.024:This study
+remag-rs62g		remag-rs62												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2011.08.024:This study
+remag-rs62h		remag-rs62												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2011.08.024:This study
+remag-rs63a		remag-rs63												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2011.08.024:This study
+remag-rs63f		remag-rs63												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2011.08.024:This study
+remag-rs63g		remag-rs63												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2011.08.024:This study
+remag-rs63i		remag-rs63												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2011.08.024:This study
+remag-rs63j		remag-rs63												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2011.08.024:This study
+remag-rs78a		remag-rs78												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2011.08.024:This study
+remag-rs78e		remag-rs78												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2011.08.024:This study
+remag-rs78f		remag-rs78												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2011.08.024:This study
+remag-rs78g		remag-rs78												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2011.08.024:This study
+remag-rs78i		remag-rs78												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2011.08.024:This study
+rs25a	rs25a:LP-AN-TRM	rs25	3.61	7.412739	6.139348	3.275311	0.353311 : 0.362048 : 0.284641 : -0.030255 : -0.001259 : -0.006658	6	0.017254	ATRM	0.388361 : 311.1 : -1.9	0.327900 : 221.3 : 7.7	0.283739 : 27.3 : 82.1						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			:LP-AN-TRM:AE-H	g
+rs25a		rs25												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2009.12.022:This study
+rs25b	rs25b:LP-AN-TRM	rs25	0.92	0.461324	0.286651	0.289895	0.333078 : 0.327986 : 0.338936 : 0.001230 : 0.004223 : -0.001324	6	0.009416	ATRM	0.340477 : 111.0 : 70.8	0.333347 : 14.6 : 2.2	0.326177 : 103.9 : -19.1						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			:LP-AN-TRM:AE-H	b
+rs25b		rs25												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2009.12.022:This study
+rs25c	rs25c:LP-AN-TRM	rs25	1.20	9.201061	1.666902	11.253825	0.318283 : 0.326285 : 0.355433 : 0.023126 : -0.018281 : 0.024368	6	0.012666	ATRM	0.368781 : 329.6 : 66.2	0.345655 : 232.1 : 3.3	0.285565 : 320.6 : -23.5						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			:LP-AN-TRM:AE-H	g
+rs25c		rs25												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2009.12.022:This study
+rs25d	rs25d:LP-AN-TRM	rs25	2.45	1.274365	1.421507	0.307143	0.316360 : 0.343167 : 0.340473 : 0.019477 : -0.018122 : -0.008849	6	0.025105	ATRM	0.368112 : 242.7 : 36.1	0.325782 : 59.9 : 53.9	0.306106 : 151.7 : 1.3						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			:LP-AN-TRM:AE-H	b
+rs25d		rs25												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2009.12.022:This study
+rs25e		rs25												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2009.12.022:This study
+rs25e	rs25e:LP-AN-TRM	rs25	3.95	1.621231	0.171495	2.247440	0.331277 : 0.330912 : 0.337811 : 0.021999 : -0.009315 : 0.008544	6	0.018030	ATRM	0.353115 : 225.5 : 2.4	0.342556 : 321.8 : 69.2	0.304329 : 314.5 : -20.7						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			:LP-AN-TRM:AE-H	b
+rs26a		rs26												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2009.12.022:This study
+rs26a	rs26a:LP-AN-TRM	rs26	2.03	1.016943	0.042029	1.605196	0.335458 : 0.324830 : 0.339713 : 0.005676 : 0.001548 : -0.001489	6	0.008671	ATRM	0.340188 : 184.6 : 70.7	0.337674 : 25.9 : 18.0	0.322137 : 113.8 : -6.5						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			:LP-AN-TRM:AE-H	b
+rs26b		rs26												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2009.12.022:This study
+rs26b	rs26b:LP-AN-TRM	rs26	2.68	1.518229	1.240341	0.684952	0.329949 : 0.337300 : 0.332751 : 0.015595 : -0.012766 : -0.000337	6	0.014877	ATRM	0.354758 : 237.5 : 26.5	0.331327 : 6.6 : 51.7	0.313915 : 133.8 : 25.5						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			:LP-AN-TRM:AE-H	b
+rs26c		rs26												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2009.12.022:This study
+rs26c	rs26c:LP-AN-TRM	rs26	12.46	1.164151	0.365563	1.164693	0.306672 : 0.353920 : 0.339408 : 0.026510 : 0.001745 : -0.005276	6	0.030112	ATRM	0.365818 : 65.8 : -1.2	0.340070 : 145.6 : 82.9	0.294112 : 155.9 : -7.0						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			:LP-AN-TRM:AE-H	b
+rs26d	rs26d:LP-AN-TRM	rs26	1.06	5.913223	2.987679	4.452203	0.329223 : 0.330921 : 0.339856 : -0.006706 : -0.029774 : -0.018292	6	0.013255	ATRM	0.368119 : 245.1 : 50.8	0.335717 : 327.7 : -6.0	0.296163 : 53.0 : 38.5						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			:LP-AN-TRM:AE-H	g
+rs26d		rs26												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2009.12.022:This study
+rs26e	rs26e:LP-AN-TRM	rs26	26.39	2.548973	1.005375	2.264918	0.363601 : 0.287017 : 0.349382 : 0.036023 : -0.046348 : -0.014438	6	0.040838	ATRM	0.400911 : 214.2 : 36.4	0.343003 : 170.1 : -44.3	0.256086 : 105.3 : 23.7						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			:LP-AN-TRM:AE-H	b
+rs26e		rs26												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2009.12.022:This study
+rs27a	rs27a:LP-AN-TRM	rs27	0.51	1.544121	1.670309	0.403650	0.328883 : 0.335501 : 0.335616 : 0.007136 : 0.005399 : 0.009365	6	0.009728	ATRM	0.348100 : 47.5 : 39.6	0.330320 : 277.6 : 37.8	0.321580 : 343.4 : -27.9						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			:LP-AN-TRM:AE-H	b
+rs27a		rs27												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2009.12.022:This study
+rs27b		rs27												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2009.12.022:This study
+rs27b	rs27b:LP-AN-TRM	rs27	5.14	0.348875	0.432794	0.060086	0.325180 : 0.347292 : 0.327527 : -0.006572 : -0.012320 : -0.002135	6	0.028210	ATRM	0.354091 : 101.0 : -23.7	0.327844 : 351.3 : -37.5	0.318065 : 35.3 : 43.1						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			:LP-AN-TRM:AE-H	b
+rs27c	rs27c:LP-AN-TRM	rs27	0.57	2.655028	1.246949	2.109461	0.312302 : 0.351363 : 0.336335 : 0.014358 : -0.004185 : -0.000769	6	0.013584	ATRM	0.356936 : 72.0 : -11.6	0.335483 : 66.1 : 78.4	0.307581 : 161.7 : 1.2						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			:LP-AN-TRM:AE-H	b
+rs27c		rs27												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2009.12.022:This study
+rs27d		rs27												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2009.12.022:This study
+rs27d	rs27d:LP-AN-TRM	rs27	0.67	20.076555	4.876551	22.331378	0.372608 : 0.284905 : 0.342487 : -0.034555 : -0.030369 : 0.002555	6	0.012795	ATRM	0.388477 : 336.5 : 17.4	0.348517 : 208.0 : 63.3	0.263006 : 73.0 : 19.6						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			:LP-AN-TRM:AE-H	g
+rs27e	rs27e:LP-AN-TRM	rs27	0.53	3.857248	0.339292	5.524014	0.341524 : 0.324248 : 0.334228 : -0.018151 : -0.016352 : -0.007102	6	0.012241	ATRM	0.353619 : 322.0 : 13.0	0.343535 : 211.0 : 57.3	0.302847 : 59.5 : 29.4						Critical F: 3.1059	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69			:LP-AN-TRM:AE-H	g
+rs27e		rs27												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2009.12.022:This study
+rs27f		rs27												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2009.12.022:This study
+rs27g		rs27												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2009.12.022:This study
+rs27h		rs27												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2009.12.022:This study
+rs27i		rs27												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2009.12.022:This study
+rs27j		rs27												Synthetic	Slag	Not Specified				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1016/j.epsl.2009.12.022:This study
+sc02e1-CZb		FreshTRM																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+sc03f-CZb		FreshTRM																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+sc03h-CZb		FreshTRM																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+sc06d-CZb		FreshTRM																		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		This study		g
+vm1a		vm1a												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+vm1c		vm1c												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+vm1dy		vm1dy												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+vm1f		vm1f												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+vm1g		vm1g												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+vm1hx		vm1hx												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+vm1i		vm1i												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+vm1kx		vm1kx												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+vm1mx		vm1mx												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+vm1my		vm1my												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+vm1nx		vm1nx												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+vm1o		vm1o												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+vm1q		vm1q												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+vm1ry		vm1ry												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+vm1s		vm1s												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+vm2ay		vm2ay												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+vm2by		vm2by												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
+vm2dy		vm2dy												Extrusive:Igneous	Lava flow	Basalt				pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69		10.1029/2010JB007844:This study
