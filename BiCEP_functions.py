@@ -28,8 +28,7 @@ def get_mad(IZZI):
     """Calculates the free Maximum Angle of Deviation (MAD) of Kirshvink et al (1980)"""
     pca=PCA(n_components=3)
     fit=pca.fit(IZZI.loc[:,'NRM_x':'NRM_z'].values).explained_variance_
-    MAD=np.degrees(np.arctan(np.sqrt((fit[2]+fit[1])/(fit[0]))))
-    return MAD
+    return np.degrees(np.arctan(np.sqrt((fit[2]+fit[1])/(fit[0]))))
 
 def TaubinSVD(x,y):
     """
@@ -64,9 +63,11 @@ def TaubinSVD(x,y):
     A = np.concatenate([A, [(-1. * Zmean * A[0])]], axis=0)
     a, b = (-1 * A[1:3]) / A[0] / 2 + centroid
     r = np.sqrt(A[1]*A[1]+A[2]*A[2]-4*A[0]*A[3])/abs(A[0])/2
-    errors=[]
-    for i in list(range(0,len(Xprime)-1)):
-        errors.append((np.sqrt((Xprime[i]-a)**2+(Yprime[i]-b)**2)-r)**2)
+    errors = [
+        (np.sqrt((Xprime[i] - a) ** 2 + (Yprime[i] - b) ** 2) - r) ** 2
+        for i in list(range(len(Xprime) - 1))
+    ]
+
     sigma=np.sqrt((sum(errors))/(len(Xprime)-1))
 
 
