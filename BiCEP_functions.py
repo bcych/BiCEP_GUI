@@ -695,17 +695,19 @@ def generate_arai_plot_table(outputname):
 
     #Tensor for ATRM
     ipmag.atrm_magic('measurements.txt',output_spec_file='specimens_atrm.txt')
-    spec_atrm=pd.read_csv('specimens_atrm.txt',sep='\t',skiprows=1)
-    for specimen in spec_atrm.specimen.unique():
-        temps.loc[temps.specimen==specimen,'s_tensor']=spec_atrm.loc[spec_atrm.specimen==specimen,'aniso_s'].iloc[0]
-        temps.loc[temps.specimen==specimen,'aniso_type']=':LP-AN-TRM'
+    try:
+        spec_atrm=pd.read_csv('specimens_atrm.txt',sep='\t',skiprows=1)
+        for specimen in spec_atrm.specimen.unique():
+            temps.loc[temps.specimen==specimen,'s_tensor']=spec_atrm.loc[spec_atrm.specimen==specimen,'aniso_s'].iloc[0]
+            temps.loc[temps.specimen==specimen,'aniso_type']=':LP-AN-TRM'
 
     #Tensor for AARM
     ipmag.aarm_magic('measurements.txt',output_spec_file='specimens_aarm.txt')
-    spec_aarm=pd.read_csv('specimens_aarm.txt',sep='\t',skiprows=1)
-    for specimen in spec_aarm.specimen.unique():
-        temps.loc[temps.specimen==specimen,'s_tensor']=spec_aarm.loc[spec_aarm.specimen==specimen,'aniso_s'].iloc[0]
-        temps.loc[temps.specimen==specimen,'aniso_type']=':LP-AN-ARM'
+    try:    
+        spec_aarm=pd.read_csv('specimens_aarm.txt',sep='\t',skiprows=1)
+        for specimen in spec_aarm.specimen.unique():
+            temps.loc[temps.specimen==specimen,'s_tensor']=spec_aarm.loc[spec_aarm.specimen==specimen,'aniso_s'].iloc[0]
+            temps.loc[temps.specimen==specimen,'aniso_type']=':LP-AN-ARM'
 
     #Add Anisotropy tensors to specimen tables.
     if len(spec_atrm.specimen.unique())>0:
