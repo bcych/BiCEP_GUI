@@ -700,7 +700,9 @@ def generate_arai_plot_table(outputname):
         for specimen in spec_atrm.specimen.unique():
             temps.loc[temps.specimen==specimen,'s_tensor']=spec_atrm.loc[spec_atrm.specimen==specimen,'aniso_s'].iloc[0]
             temps.loc[temps.specimen==specimen,'aniso_type']=':LP-AN-TRM'
-
+        spec=pd.concat([spec_atrm,spec],ignore_index=True)
+    except:
+        pass
     #Tensor for AARM
     ipmag.aarm_magic('measurements.txt',output_spec_file='specimens_aarm.txt')
     try:    
@@ -708,24 +710,10 @@ def generate_arai_plot_table(outputname):
         for specimen in spec_aarm.specimen.unique():
             temps.loc[temps.specimen==specimen,'s_tensor']=spec_aarm.loc[spec_aarm.specimen==specimen,'aniso_s'].iloc[0]
             temps.loc[temps.specimen==specimen,'aniso_type']=':LP-AN-ARM'
-
+        spec=pd.concat([spec_aarm,spec],ignore_index=True)
+    except:
+        pass
     #Add Anisotropy tensors to specimen tables.
-    if len(spec_atrm.specimen.unique())>0:
-        cols = spec.columns.difference(spec_atrm.columns)
-        cols=np.append(cols.values,'specimen')
-        spec_1=pd.merge(spec.loc[:,cols],spec_atrm,how='right',left_on='specimen',right_on='specimen')
-        if len(spec_aarm.specimen.unique())>0:
-            spec_2=pd.merge(spec.loc[:,cols],spec_aarm,how='right',left_on='specimen',right_on='specimen')
-            spec=pd.concat([spec_2,spec_1])
-        else:
-            spec=spec_1
-
-    elif len(spec_aarm.specimen.unique())>0:
-        cols = spec.columns.difference(spec_aarm.columns)
-        cols=np.append(cols.values,'specimen')
-        spec=pd.merge(spec.loc[:,cols],spec_aarm,how='right',left_on='specimen',right_on='specimen')
-
-
     spec=spec.drop_duplicates(subset=['specimen'])
     spec=spec.fillna('')
     specdict=spec.to_dict('records')
@@ -757,12 +745,15 @@ def generate_arai_plot_table(outputname):
         norm_moments=magn_moments/avg_moment
         croven=max(crs)
         crlog=np.log(croven/crs)
-        m,c=np.polyfit(crlog,norm_moments,1)
-        sample=specframe['sample'].iloc[0]
-        cr_real=samples[samples['sample']==sample].cooling_rate.values/5.256e+11
-        cr_reallog=np.log(croven/cr_real)
-        cfactor=1/(c+m*cr_reallog)[0]
-        temps.loc[temps.specimen==specimen,'correction']=temps.loc[temps.specimen==specimen,'correction']*cfactor
+        try: 
+            m,c=np.polyfit(crlog,norm_moments,1)
+            sample=specframe['sample'].iloc[0]
+            cr_real=samples[samples['sample']==sample].cooling_rate.values/5.256e+11
+            cr_reallog=np.log(croven/cr_real)
+            cfactor=1/(c+m*cr_reallog)[0]
+            temps.loc[temps.specimen==specimen,'correction']=temps.loc[temps.specimen==specimen,'correction']*cfactor
+        except TypeError:
+            print('Something went wrong with estimating the cooling rate correction for specimen '+specimen+ '. Check that you used the right cooling rate.')
 
     #Save the dataframe to output.
     temps=temps.dropna(subset=['site'])
