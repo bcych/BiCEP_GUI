@@ -694,31 +694,23 @@ def generate_arai_plot_table(outputname):
     print("Couldn't find Anisotropy Tensors, Generating...")
 
     #Tensor for ATRM
-    ipmag.atrm_magic('measurements.txt',output_spec_file='specimens_atrm.txt')
+    ipmag.atrm_magic('measurements.txt')
     try:
-        spec_atrm=pd.read_csv('specimens_atrm.txt',sep='\t',skiprows=1)
+        spec_atrm=pd.read_csv('specimens.txt',sep='\t',skiprows=1)
         for specimen in spec_atrm.specimen.unique():
             temps.loc[temps.specimen==specimen,'s_tensor']=spec_atrm.loc[spec_atrm.specimen==specimen,'aniso_s'].iloc[0]
             temps.loc[temps.specimen==specimen,'aniso_type']=':LP-AN-TRM'
-        spec=pd.concat([spec_atrm,spec],ignore_index=True)
     except:
         pass
     #Tensor for AARM
-    ipmag.aarm_magic('measurements.txt',output_spec_file='specimens_aarm.txt')
-    try:    
-        spec_aarm=pd.read_csv('specimens_aarm.txt',sep='\t',skiprows=1)
+    ipmag.aarm_magic('measurements.txt')
+    try:
+        spec_aarm=pd.read_csv('specimens.txt',sep='\t',skiprows=1)
         for specimen in spec_aarm.specimen.unique():
             temps.loc[temps.specimen==specimen,'s_tensor']=spec_aarm.loc[spec_aarm.specimen==specimen,'aniso_s'].iloc[0]
             temps.loc[temps.specimen==specimen,'aniso_type']=':LP-AN-ARM'
-        spec=pd.concat([spec_aarm,spec],ignore_index=True)
     except:
         pass
-    #Add Anisotropy tensors to specimen tables.
-    spec=spec.drop_duplicates(subset=['specimen'])
-    spec=spec.fillna('')
-    specdict=spec.to_dict('records')
-    pmag.magic_write('specimens.txt',specdict,'specimens')
-
 
     #Get the best fitting hyperbolic tangent for the NLT correction.
     temps['NLT_beta']=np.nan
@@ -745,7 +737,7 @@ def generate_arai_plot_table(outputname):
         norm_moments=magn_moments/avg_moment
         croven=max(crs)
         crlog=np.log(croven/crs)
-        try: 
+        try:
             m,c=np.polyfit(crlog,norm_moments,1)
             sample=specframe['sample'].iloc[0]
             cr_real=samples[samples['sample']==sample].cooling_rate.values/5.256e+11
@@ -1173,21 +1165,28 @@ def save_magic_tables(a):
     """Saves data from the currently displayed site to the GUI"""
     fit=fits[site_wid.value]
     sitestable=pd.read_csv('sites.txt',skiprows=1,sep='\t')
-    sitestable.loc[sitestable.site==site_wid.value,'int_abs_min']=round(np.percentile(fit['int_site'],2.5),1)
-    sitestable.loc[sitestable.site==site_wid.value,'int_abs_max']=round(np.percentile(fit['int_site'],97.5),1)
-    sitestable.loc[sitestable.site==site_wid.value,'int_abs']=round(np.percentile(fit['int_site'],50),1)
+    sitestable.loc[sitestable.site==site_wid.value,'int_abs_min']=round(np.percentile(fit['int_site'],2.5),1)/1e6
+    sitestable.loc[sitestable.site==site_wid.value,'int_abs_max']=round(np.percentile(fit['int_site'],97.5),1)/1e6
+    sitestable.loc[sitestable.site==site_wid.value,'int_abs']=round(np.percentile(fit['int_site'],50),1)/1e6
     specimenstable=pd.read_csv('specimens.txt',skiprows=1,sep='\t')
     speclist=specimen_wid.options
     for i in range(len(speclist)):
         specimen=speclist[i]
-        specimenstable.loc[specimenstable.specimen==specimen,'int_abs_min']=round(np.percentile(fit['int_real'][:,i],2.5),1)
-        specimenstable.loc[specimenstable.specimen==specimen,'int_abs_max']=round(np.percentile(fit['int_real'][:,i],97.5),1)
-        specimenstable.loc[specimenstable.specimen==specimen,'int_abs']=round(np.percentile(fit['int_real'][:,i],50),1)
+        specimenstable.loc[specimenstable.specimen==specimen,'int_abs_min']=round(np.percentile(fit['int_real'][:,i],2.5),1)/1e6
+        specimenstable.loc[specimenstable.specimen==specimen,'int_abs_max']=round(np.percentile(fit['int_real'][:,i],97.5),1)/1e6
+        specimenstable.loc[specimenstable.specimen==specimen,'int_abs']=round(np.percentile(fit['int_real'][:,i],50),1)/1e6
         specimenstable.loc[specimenstable.specimen==specimen,'int_k_min']=round(np.percentile(fit['k'][:,i],2.5),3)
         specimenstable.loc[specimenstable.specimen==specimen,'int_k_max']=round(np.percentile(fit['k'][:,i],97.5),3)
         specimenstable.loc[specimenstable.specimen==specimen,'int_k']=round(np.percentile(fit['k'][:,i],50),3)
         specimenstable.loc[specimenstable.specimen==specimen,'meas_step_min']=ktemp[specimen][0,0]
         specimenstable.loc[specimenstable.specimen==specimen,'meas_step_max']=ktemp[specimen][0,1]
+        method_codes=spec_methods_codes[specimen].split(':')
+        method_codes=set(method_codes)
+        newstr=''
+        for code in method_codes[:-1]:
+            newstr+=code
+            newstr+=':'
+        newstr+=method_codes[-1]
         specimenstable.loc[specimenstable.specimen==specimen,'method_codes']=spec_method_codes[specimen]
 
         extra_columns=spec_extra_columns[specimen]
