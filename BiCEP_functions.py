@@ -141,7 +141,7 @@ def prep_data_for_fitting(IZZI_filtered,IZZI_original):
 
     #Get Cooling Rate Correction
     if IZZI_original.correction.iloc[0]!=1:
-        methcodes+=':LP-CR-TRM' #method code for cooling rate correction
+        methcodes+=':DA-CR-TRM' #method code for cooling rate correction
         extracolumnsdict['int_corr_cooling_rate']=IZZI_original.correction.iloc[0]
 
 
@@ -697,18 +697,22 @@ def generate_arai_plot_table(outputname):
     ipmag.atrm_magic('measurements.txt')
     try:
         spec_atrm=pd.read_csv('specimens.txt',sep='\t',skiprows=1)
+        spec_atrm=spec_atrm.dropna(subset=['method_codes'])
+        spec_atrm=spec_atrm[spec_atrm.method_codes.str.contains('LP-AN-TRM')]
         for specimen in spec_atrm.specimen.unique():
             temps.loc[temps.specimen==specimen,'s_tensor']=spec_atrm.loc[spec_atrm.specimen==specimen,'aniso_s'].iloc[0]
-            temps.loc[temps.specimen==specimen,'aniso_type']=':LP-AN-TRM'
+            temps.loc[temps.specimen==specimen,'aniso_type']=':DA-AC-ATRM'
     except:
         pass
     #Tensor for AARM
     ipmag.aarm_magic('measurements.txt')
     try:
         spec_aarm=pd.read_csv('specimens.txt',sep='\t',skiprows=1)
+        spec_aarm=spec_aarm.dropna(subset=['method_codes'])
+        spec_aarm=spec_aarm[spec_aarm.method_codes.str.contains('LP-AN-ARM')]
         for specimen in spec_aarm.specimen.unique():
             temps.loc[temps.specimen==specimen,'s_tensor']=spec_aarm.loc[spec_aarm.specimen==specimen,'aniso_s'].iloc[0]
-            temps.loc[temps.specimen==specimen,'aniso_type']=':LP-AN-ARM'
+            temps.loc[temps.specimen==specimen,'aniso_type']=':DA-AC-AARM'
     except:
         pass
 
@@ -1171,32 +1175,33 @@ def save_magic_tables(a):
     specimenstable=pd.read_csv('specimens.txt',skiprows=1,sep='\t')
     speclist=specimen_wid.options
     for i in range(len(speclist)):
+
         specimen=speclist[i]
-        specimenstable.loc[specimenstable.specimen==specimen,'int_abs_min']=round(np.percentile(fit['int_real'][:,i],2.5),1)/1e6
-        specimenstable.loc[specimenstable.specimen==specimen,'int_abs_max']=round(np.percentile(fit['int_real'][:,i],97.5),1)/1e6
-        specimenstable.loc[specimenstable.specimen==specimen,'int_abs']=round(np.percentile(fit['int_real'][:,i],50),1)/1e6
-        specimenstable.loc[specimenstable.specimen==specimen,'int_k_min']=round(np.percentile(fit['k'][:,i],2.5),3)
-        specimenstable.loc[specimenstable.specimen==specimen,'int_k_max']=round(np.percentile(fit['k'][:,i],97.5),3)
-        specimenstable.loc[specimenstable.specimen==specimen,'int_k']=round(np.percentile(fit['k'][:,i],50),3)
-        specimenstable.loc[specimenstable.specimen==specimen,'meas_step_min']=ktemp[specimen][0,0]
-        specimenstable.loc[specimenstable.specimen==specimen,'meas_step_max']=ktemp[specimen][0,1]
-        method_codes=spec_methods_codes[specimen].split(':')
-        method_codes=set(method_codes)
+        specfilter=(~specimenstable.method_codes.str.contains('LP-AN').fillna(False))&(specimenstable.specimen==specimen)
+        specimenstable.loc[specfilter,'int_abs_min']=round(np.percentile(fit['int_real'][:,i],2.5),1)/1e6
+        specimenstable.loc[specfilter,'int_abs_max']=round(np.percentile(fit['int_real'][:,i],97.5),1)/1e6
+        specimenstable.loc[specfilter,'int_abs']=round(np.percentile(fit['int_real'][:,i],50),1)/1e6
+        specimenstable.loc[specfilter,'int_k_min']=round(np.percentile(fit['k'][:,i],2.5),3)
+        specimenstable.loc[specfilter,'int_k_max']=round(np.percentile(fit['k'][:,i],97.5),3)
+        specimenstable.loc[specfilter,'int_k']=round(np.percentile(fit['k'][:,i],50),3)
+        specimenstable.loc[specfilter,'meas_step_min']=ktemp[specimen][0,0]
+        specimenstable.loc[specfilter,'meas_step_max']=ktemp[specimen][0,1]
+        method_codes=spec_method_codes[specimen].split(':')
+        method_codes=list(set(method_codes))
         newstr=''
         for code in method_codes[:-1]:
             newstr+=code
             newstr+=':'
         newstr+=method_codes[-1]
-        specimenstable.loc[specimenstable.specimen==specimen,'method_codes']=spec_method_codes[specimen]
+        specimenstable.loc[specfilter,'method_codes']=spec_method_codes[specimen]
 
         extra_columns=spec_extra_columns[specimen]
         for col in extra_columns.keys():
-            specimenstable.loc[specimenstable.specimen==specimen,col]=extra_columns[col]
+            specimenstable.loc[specfilter,col]=extra_columns[col]
     sitestable.loc[sitestable.site==site_wid.value,'method_codes']=site_method_codes[site_wid.value]
     specimenstable['meas_step_unit']='Kelvin'
     sitestable=sitestable.fillna('')
     specimenstable=specimenstable.fillna('')
-    specimenstable=specimenstable.drop_duplicates(subset=['specimen'])
     sitesdict=sitestable.to_dict('records')
     specimensdict=specimenstable.to_dict('records')
     pmag.magic_write('sites.txt',sitesdict,'sites')
@@ -1304,7 +1309,7 @@ n_samples_wid=widgets.IntSlider(min=3000,max=100000,value=30000,step=1000,descri
 method_wid=widgets.Dropdown(options=['Slow, more accurate','Fast, less accurate'],description='Sampler:')
 process_wid=widgets.Button(description='Process Site Data')
 process_wid.on_click(get_site_dist)
-rhatlabel=widgets.Button(description='R_hat:',disabled=True)
+rhatlabel=widgets.Button(descriptixon='R_hat:',disabled=True)
 nefflabel=widgets.Button(description='n_eff:',disabled=True)
 banclabel=widgets.Button(description='B_anc:',disabled=True,display='flex',flex_flow='column',align_items='stretch',layout=widgets.Layout(width='auto', height=rhatlabel.layout.height))
 sampler_diag=widgets.HBox([rhatlabel,nefflabel])
