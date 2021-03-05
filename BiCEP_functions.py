@@ -543,132 +543,135 @@ def convert_intensity_measurements(measurements):
     data_array=np.empty(shape=(16,0))
     for specimen in specimens:
             print('Working on:',specimen)
-            araiblock,field=sortarai(measurements[measurements.specimen==specimen],specimen, Zdiff=False,version=3) #Get arai data
-            sitename=measurements[measurements.specimen==specimen].site.unique()
-            first_Z,first_I,ptrm_check,ptrm_tail,zptrm_check,GammaChecks=araiblock #Split NRM and PTRM values into step types
-            B_lab=np.full(len(first_Z),field) #Lab field used
-            m=len(first_Z)
-            NRM_dec_max=first_Z[m-1][1]
-            NRM_inc_max=first_Z[m-1][2]
-            NRM_int_max=first_Z[m-1][3]
-            PTRM_dec_max=first_I[m-1][1]
-            PTRM_inc_max=first_I[m-1][2]
-            PTRM_int_max=first_I[m-1][3]
-            NRM_vector_max=pmag.dir2cart([NRM_dec_max,NRM_inc_max,NRM_int_max])
-            PTRM_vector_max=pmag.dir2cart([PTRM_dec_max,PTRM_inc_max,PTRM_int_max])
-            PTRM_vector_max=PTRM_vector_max-NRM_vector_max
-            NRMS=[first_Z[i][3] for i in list(range(len(first_Z)))]
-            first_Z=np.array(first_Z)
-            first_I=np.array(first_I)
+            try:
+                araiblock,field=sortarai(measurements[measurements.specimen==specimen],specimen, Zdiff=False,version=3) #Get arai data
+                sitename=measurements[measurements.specimen==specimen].site.unique()
+                first_Z,first_I,ptrm_check,ptrm_tail,zptrm_check,GammaChecks=araiblock #Split NRM and PTRM values into step types
+                B_lab=np.full(len(first_Z),field) #Lab field used
+                m=len(first_Z)
+                NRM_dec_max=first_Z[m-1][1]
+                NRM_inc_max=first_Z[m-1][2]
+                NRM_int_max=first_Z[m-1][3]
+                PTRM_dec_max=first_I[m-1][1]
+                PTRM_inc_max=first_I[m-1][2]
+                PTRM_int_max=first_I[m-1][3]
+                NRM_vector_max=pmag.dir2cart([NRM_dec_max,NRM_inc_max,NRM_int_max])
+                PTRM_vector_max=pmag.dir2cart([PTRM_dec_max,PTRM_inc_max,PTRM_int_max])
+                PTRM_vector_max=PTRM_vector_max-NRM_vector_max
+                NRMS=[first_Z[i][3] for i in list(range(len(first_Z)))]
+                first_Z=np.array(first_Z)
+                first_I=np.array(first_I)
 
 
-            if min(NRMS)/NRMS[0]<0.25:
-                if(len(first_Z))>1:
-                    sample=np.full(len(first_Z),measurements[measurements.specimen==specimen]['sample'].unique()[0]) #Get sample name
-                    site=np.full(len(first_Z),measurements[measurements.specimen==specimen].site.unique()[0]) #Get site name
-                    specarray=np.full(len(first_Z),specimen)
-                    temp_step=first_Z[:,0] #Gets the temperature in kelvin we use
-                    NRM=first_Z[:,3] #NRM value (in first_Z dataframe)
-                    zbinary=first_Z[:,5]#Is it a ZI or an IZ step?
-                    zbinary=zbinary.astype('object')
-                    zbinary[zbinary==1]='ZI'
-                    zbinary[zbinary==0]='IZ'
-                    steptype=zbinary
-                    PTRM=first_I[:,3] #PTRM value (in first_I dataframe)
-                    PTRM_sigma=first_I[:,4]
+                if min(NRMS)/NRMS[0]<0.25:
+                    if(len(first_Z))>1:
+                        sample=np.full(len(first_Z),measurements[measurements.specimen==specimen]['sample'].unique()[0]) #Get sample name
+                        site=np.full(len(first_Z),measurements[measurements.specimen==specimen].site.unique()[0]) #Get site name
+                        specarray=np.full(len(first_Z),specimen)
+                        temp_step=first_Z[:,0] #Gets the temperature in kelvin we use
+                        NRM=first_Z[:,3] #NRM value (in first_Z dataframe)
+                        zbinary=first_Z[:,5]#Is it a ZI or an IZ step?
+                        zbinary=zbinary.astype('object')
+                        zbinary[zbinary==1]='ZI'
+                        zbinary[zbinary==0]='IZ'
+                        steptype=zbinary
+                        PTRM=first_I[:,3] #PTRM value (in first_I dataframe)
+                        PTRM_sigma=first_I[:,4]
 
-                    NRM_dec=first_Z[:,1]
-                    NRM_inc=first_Z[:,2]
-                    NRM_int=NRM
-                    NRM_sigma=first_Z[:,4]
+                        NRM_dec=first_Z[:,1]
+                        NRM_inc=first_Z[:,2]
+                        NRM_int=NRM
+                        NRM_sigma=first_Z[:,4]
 
-                    NRM_vector=pmag.dir2cart(np.array([NRM_dec,NRM_inc,NRM_int]).T)
-                    PTRM_vector=pmag.dir2cart(np.array([first_I[:,1],first_I[:,2],first_I[:,3]]).T)
+                        NRM_vector=pmag.dir2cart(np.array([NRM_dec,NRM_inc,NRM_int]).T)
+                        PTRM_vector=pmag.dir2cart(np.array([first_I[:,1],first_I[:,2],first_I[:,3]]).T)
 
-                    NRM_x=NRM_vector[:,0]
-                    NRM_y=NRM_vector[:,1]
-                    NRM_z=NRM_vector[:,2]
-
-                    PTRM_x=PTRM_vector[:,0]
-                    PTRM_y=PTRM_vector[:,1]
-                    PTRM_z=PTRM_vector[:,2]
-
-                    newarray=np.array([specarray,sample,site,NRM,PTRM,NRM_x,NRM_y,NRM_z,PTRM_x,PTRM_y,PTRM_z,NRM_sigma,PTRM_sigma,B_lab,steptype,temp_step])
-                    data_array=np.concatenate((data_array,newarray),axis=1)
-
-                    #Doing PTRM Checks Part
-                    ptrm_check=np.array(ptrm_check)
-                    temp_step=ptrm_check[:,0]
-                    smallarray=data_array
-                    sample=np.full(len(ptrm_check),measurements[measurements.specimen==specimen]['sample'].unique()[0]) #Get sample name
-                    site=np.full(len(ptrm_check),measurements[measurements.specimen==specimen].site.unique()[0]) #Get site name
-                    specarray=np.full(len(ptrm_check),specimen)
-                    B_lab=np.full(len(ptrm_check),field)
-                    PTRM=ptrm_check[:,3]
-                    PTRM_sigma=ptrm_check[:,4]
-                    intersect=data_array[:,(data_array[0]==specimen)&(np.in1d(data_array[-1].astype('float'),temp_step.astype('float')))]
-                    NRM_vector=np.array([intersect[5],intersect[6],intersect[7]])
-                    NRM_sigma=intersect[11]
-                    PTRM_vector=pmag.dir2cart(np.array([ptrm_check[:,1],ptrm_check[:,2],ptrm_check[:,3]]).T)
-                    NRM_x=NRM_vector[0]
-                    NRM_y=NRM_vector[1]
-                    NRM_z=NRM_vector[2]
-
-
-                    PTRM_x=PTRM_vector[:,0]
-                    PTRM_y=PTRM_vector[:,1]
-                    PTRM_z=PTRM_vector[:,2]
-                    NRM=intersect[3]
-                    steptype=np.full(len(ptrm_check),'P')
-                    if len(NRM)==len(PTRM):
-
-                        newarray=np.array([specarray,sample,site,NRM,PTRM,NRM_x,NRM_y,NRM_z,PTRM_x,PTRM_y,PTRM_z,NRM_sigma,PTRM_sigma,B_lab,steptype,temp_step])
-                        data_array=np.concatenate((data_array,newarray),axis=1)
-                    else:
-                        diff=np.setdiff1d(temp_step,intersect[-1])
-                        for i in diff:
-                            print('PTRM check at '+str(i)+'K has no corresponding infield measurement, ignoring')
-                        newarray=np.array([specarray[temp_step!=diff],sample[temp_step!=diff],site[temp_step!=diff],NRM,PTRM[temp_step!=diff],NRM_x,NRM_y,NRM_z,PTRM_x[temp_step!=diff],PTRM_y[temp_step!=diff],PTRM_z[temp_step!=diff],NRM_sigma,PTRM_sigma[temp_step!=diff],B_lab[temp_step!=diff],steptype[temp_step!=diff],temp_step[temp_step!=diff]])
-                        data_array=np.concatenate((data_array,newarray),axis=1)
-
-                    #Add PTRM tail checks
-                    ptrm_tail=np.array(ptrm_tail)
-
-                    if len(ptrm_tail)>1:
-                        temp_step=ptrm_tail[:,0]
-                        sample=np.full(len(ptrm_tail),measurements[measurements.specimen==specimen]['sample'].unique()[0]) #Get sample name
-                        site=np.full(len(ptrm_tail),measurements[measurements.specimen==specimen].site.unique()[0]) #Get site name
-                        specarray=np.full(len(ptrm_tail),specimen)
-                        B_lab=np.full(len(ptrm_tail),field)
-                        intersect=data_array[:,(data_array[0]==specimen)&(np.in1d(data_array[-1].astype('float'),temp_step.astype('float')))&(data_array[-2]!='P')]
-                        NRM=ptrm_tail[:,3]
-                        NRM_sigma=ptrm_tail[:,4]
-                        NRM_vector=pmag.dir2cart(np.array([ptrm_tail[:,1],ptrm_tail[:,2],ptrm_tail[:,3]]).T)
-                        PTRM_vector=np.array([intersect[8],intersect[9],intersect[10]])
-                        PTRM_sigma=intersect[12]
-                        PTRM_x=PTRM_vector[0]
-                        PTRM_y=PTRM_vector[1]
-                        PTRM_z=PTRM_vector[2]
                         NRM_x=NRM_vector[:,0]
                         NRM_y=NRM_vector[:,1]
                         NRM_z=NRM_vector[:,2]
-                        PTRM=intersect[4]
 
-                        steptype=np.full(len(ptrm_tail),'T')
+                        PTRM_x=PTRM_vector[:,0]
+                        PTRM_y=PTRM_vector[:,1]
+                        PTRM_z=PTRM_vector[:,2]
 
-                        if len(PTRM)==len(NRM):
+                        newarray=np.array([specarray,sample,site,NRM,PTRM,NRM_x,NRM_y,NRM_z,PTRM_x,PTRM_y,PTRM_z,NRM_sigma,PTRM_sigma,B_lab,steptype,temp_step])
+                        data_array=np.concatenate((data_array,newarray),axis=1)
+
+                        #Doing PTRM Checks Part
+                        ptrm_check=np.array(ptrm_check)
+                        temp_step=ptrm_check[:,0]
+                        smallarray=data_array
+                        sample=np.full(len(ptrm_check),measurements[measurements.specimen==specimen]['sample'].unique()[0]) #Get sample name
+                        site=np.full(len(ptrm_check),measurements[measurements.specimen==specimen].site.unique()[0]) #Get site name
+                        specarray=np.full(len(ptrm_check),specimen)
+                        B_lab=np.full(len(ptrm_check),field)
+                        PTRM=ptrm_check[:,3]
+                        PTRM_sigma=ptrm_check[:,4]
+                        intersect=data_array[:,(data_array[0]==specimen)&(np.in1d(data_array[-1].astype('float'),temp_step.astype('float')))]
+                        NRM_vector=np.array([intersect[5],intersect[6],intersect[7]])
+                        NRM_sigma=intersect[11]
+                        PTRM_vector=pmag.dir2cart(np.array([ptrm_check[:,1],ptrm_check[:,2],ptrm_check[:,3]]).T)
+                        NRM_x=NRM_vector[0]
+                        NRM_y=NRM_vector[1]
+                        NRM_z=NRM_vector[2]
+
+
+                        PTRM_x=PTRM_vector[:,0]
+                        PTRM_y=PTRM_vector[:,1]
+                        PTRM_z=PTRM_vector[:,2]
+                        NRM=intersect[3]
+                        steptype=np.full(len(ptrm_check),'P')
+                        if len(NRM)==len(PTRM):
+
                             newarray=np.array([specarray,sample,site,NRM,PTRM,NRM_x,NRM_y,NRM_z,PTRM_x,PTRM_y,PTRM_z,NRM_sigma,PTRM_sigma,B_lab,steptype,temp_step])
                             data_array=np.concatenate((data_array,newarray),axis=1)
                         else:
                             diff=np.setdiff1d(temp_step,intersect[-1])
                             for i in diff:
-                                print('PTRM tail check at '+str(i)+'K has no corresponding zero field measurement, ignoring')
-                            newarray=np.array([specarray[temp_step!=diff],sample[temp_step!=diff],site[temp_step!=diff],NRM[temp_step!=diff],PTRM,NRM_x[temp_step!=diff],NRM_y[temp_step!=diff],NRM_z[temp_step!=diff],PTRM_x,PTRM_y,PTRM_z,NRM_sigma[temp_step!=diff],PTRM_sigma,B_lab[temp_step!=diff],steptype[temp_step!=diff],temp_step[temp_step!=diff]])
+                                print('PTRM check at '+str(i)+'K has no corresponding infield measurement, ignoring')
+                            newarray=np.array([specarray[temp_step!=diff],sample[temp_step!=diff],site[temp_step!=diff],NRM,PTRM[temp_step!=diff],NRM_x,NRM_y,NRM_z,PTRM_x[temp_step!=diff],PTRM_y[temp_step!=diff],PTRM_z[temp_step!=diff],NRM_sigma,PTRM_sigma[temp_step!=diff],B_lab[temp_step!=diff],steptype[temp_step!=diff],temp_step[temp_step!=diff]])
                             data_array=np.concatenate((data_array,newarray),axis=1)
+
+                        #Add PTRM tail checks
+                        ptrm_tail=np.array(ptrm_tail)
+
+                        if len(ptrm_tail)>1:
+                            temp_step=ptrm_tail[:,0]
+                            sample=np.full(len(ptrm_tail),measurements[measurements.specimen==specimen]['sample'].unique()[0]) #Get sample name
+                            site=np.full(len(ptrm_tail),measurements[measurements.specimen==specimen].site.unique()[0]) #Get site name
+                            specarray=np.full(len(ptrm_tail),specimen)
+                            B_lab=np.full(len(ptrm_tail),field)
+                            intersect=data_array[:,(data_array[0]==specimen)&(np.in1d(data_array[-1].astype('float'),temp_step.astype('float')))&(data_array[-2]!='P')]
+                            NRM=ptrm_tail[:,3]
+                            NRM_sigma=ptrm_tail[:,4]
+                            NRM_vector=pmag.dir2cart(np.array([ptrm_tail[:,1],ptrm_tail[:,2],ptrm_tail[:,3]]).T)
+                            PTRM_vector=np.array([intersect[8],intersect[9],intersect[10]])
+                            PTRM_sigma=intersect[12]
+                            PTRM_x=PTRM_vector[0]
+                            PTRM_y=PTRM_vector[1]
+                            PTRM_z=PTRM_vector[2]
+                            NRM_x=NRM_vector[:,0]
+                            NRM_y=NRM_vector[:,1]
+                            NRM_z=NRM_vector[:,2]
+                            PTRM=intersect[4]
+
+                            steptype=np.full(len(ptrm_tail),'T')
+
+                            if len(PTRM)==len(NRM):
+                                newarray=np.array([specarray,sample,site,NRM,PTRM,NRM_x,NRM_y,NRM_z,PTRM_x,PTRM_y,PTRM_z,NRM_sigma,PTRM_sigma,B_lab,steptype,temp_step])
+                                data_array=np.concatenate((data_array,newarray),axis=1)
+                            else:
+                                diff=np.setdiff1d(temp_step,intersect[-1])
+                                for i in diff:
+                                    print('PTRM tail check at '+str(i)+'K has no corresponding zero field measurement, ignoring')
+                                newarray=np.array([specarray[temp_step!=diff],sample[temp_step!=diff],site[temp_step!=diff],NRM[temp_step!=diff],PTRM,NRM_x[temp_step!=diff],NRM_y[temp_step!=diff],NRM_z[temp_step!=diff],PTRM_x,PTRM_y,PTRM_z,NRM_sigma[temp_step!=diff],PTRM_sigma,B_lab[temp_step!=diff],steptype[temp_step!=diff],temp_step[temp_step!=diff]])
+                                data_array=np.concatenate((data_array,newarray),axis=1)
+                    else:
+                        print(specimen,'in site',sitename[0],'Not included, not a thellier experiment')
                 else:
-                    print(specimen,'in site',sitename[0],'Not included, not a thellier experiment')
-            else:
-                print(specimen,'in site',sitename[0],'Not included, demagnetization not completed')
+                    print(specimen,'in site',sitename[0],'Not included, demagnetization not completed')
+            except:
+                print('Something went wrong with specimen '+specimen+'. Could not convert from MagIC format')
     temps=pd.DataFrame(data_array.T,columns=['specimen','sample','site','NRM','PTRM','NRM_x','NRM_y','NRM_z','PTRM_x','PTRM_y','PTRM_z','NRM_sigma','PTRM_sigma','B_lab','steptype','temp_step'])
     return(temps)
 
