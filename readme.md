@@ -6,7 +6,7 @@
 
 - Planned features include: Changing orientation of Zijderveld plot, ability to save figures separately.
 
-## Setup
+## Setup - jupyterhub
 
 - To use BiCEP GUI, we recommend using the Earthref jupyterhub at http://jupyterhub.earthref.org. To run the GUI from this site, first run the Bicep-GUI-Setup notebook by clicking on this and pressing the run button until you reach the end of the notebook. Note that this setup may take several minutes.
 
@@ -20,9 +20,25 @@
 
 ![Upload button in jupyterhub](https://raw.githubusercontent.com/bcych/BiCEP_GUI/master/readme-image/jupyterhub-upload.png)
 
+- If you encounter any problems using the jupyterhub site, try pressing "Control Panel" in the top right and "Stop My Server". You will then be offered the opportunity to restart your jupyterhub server.
+
+## Setup - local machine
+
+- To use BiCEP GUI on a local machine, you will need Anaconda python. Follow the install instructions at https://docs.anaconda.com/anaconda/install/
+
+- You will need several packages installed to use BiCEP GUI. At the command line, run `pip install pmagpy pystan sklearn ipympl voila tornado --upgrade` to install the required packages for BiCEP GUI. If you already have PmagP
+
+- Using the command line, navigate to the directory you want your BiCEP GUI folder to be in and clone using the command `git clone https://github.com/bcych/BiCEP_GUI`
+
+- Navigate to the newly created BiCEP_GUI directory, and run the "compile_models.py" python script. This compiles the pystan models as C++ code on your system. Note that if you are on Mac OS Catalina, this may not work if you are using bash as your shell, either switch to zsh or use the jupyterhub method.
+
+- Before using BiCEP GUI on your own data, you will need to upload MagIC formatted files containing your paleointensity data. You create these files using pmag_gui, part of the PmagPy package. For help with this, see the tutorial at https://github.com/ltauxe/PmagPy_tutorials
+
+- Copy and paste your measurements.txt, specimens.txt, samples.txt and sites.txt files into the BiCEP_GUI directory.
+
 ## Using BiCEP GUI
 
-- Open the BiCEP GUI notebook in your folder. Press the "App Mode" button to launch the GUI.
+- Open the BiCEP GUI notebook in your folder. Press the "Appmode" button (or "Voila" button, located in the same place, if running on your own machine) to launch the GUI.
 
 ![Upload button in jupyterhub](https://raw.githubusercontent.com/bcych/BiCEP_GUI/master/readme-image/jupyterhub-appmode.png)
 
