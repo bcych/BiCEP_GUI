@@ -769,8 +769,11 @@ def maketempsfile(fname):
 def convert(a):
     """Converts data from MagIC format into BiCEP GUI format"""
     convert_button.description='Converting..'
-    generate_arai_plot_table('arai_data')
-    temps=maketempsfile('arai_data.csv')
+    try:
+        generate_arai_plot_table('arai_data')
+        temps=maketempsfile('arai_data.csv')
+    except:
+        print('Error! Something went wrong with converting MagIC data- did you add the MagIC files to the directory?')
     convert_button.description='Convert MagIC data'
 
 def plot_line_base(ax,specimen,min_temp,max_temp,GUI=False):
