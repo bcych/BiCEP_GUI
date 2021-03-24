@@ -535,6 +535,7 @@ def sortarai(datablock, s, Zdiff, **kwargs):
 def NLTsolver(fields,a,b):
     """Makes the non linear TRM correction"""
     return(a* np.tanh(b*fields))
+
 def convert_intensity_measurements(measurements):
     """Converts a measurements table with only intensity experiments into the internal data format used by the BiCEP method"""
     specimens=list(measurements.specimen.unique())#This function constructs the 'temps' dataframe (used to plot Arai plots)
@@ -725,7 +726,11 @@ def generate_arai_plot_table(outputname):
     for specimen in NLTcorrs.specimen.unique():
         meas_val=NLTcorrs[NLTcorrs['specimen']==specimen]
         try:
-            ab,cov = curve_fit(NLTsolver, meas_val['treat_dc_field'].values*1e6, meas_val['magn_moment'].values/meas_val['magn_moment'].iloc[-1], p0=(max(meas_val['magn_moment']/meas_val['magn_moment'].iloc[-1]),1e-2))
+            meas_val['magn_moment']=meas_val['magn_moment'].astype(float)
+            meas_val['treat_dc_field']=meas_val['treat_dc_field'].astype(float)
+            ab,cov = curve_fit(NLTsolver, meas_val['treat_dc_field'].values*1e6,
+                               meas_val['magn_moment'].values/meas_val['magn_moment'].iloc[-1],
+                               p0=(max(meas_val['magn_moment']/meas_val['magn_moment'].iloc[-1]),1e-2))
             temps.loc[temps.specimen==specimen,'NLT_beta']=ab[1]
         except RuntimeError:
             print("-W- WARNING: Can't fit tanh function to NLT data for "+specimen)
@@ -744,6 +749,7 @@ def generate_arai_plot_table(outputname):
         norm_moments=magn_moments/avg_moment
         croven=max(crs)
         crlog=np.log(croven/crs)
+        specframe['cooling_rate']=specframe.cooling_rate.astype(float)
         try:
             m,c=np.polyfit(crlog,norm_moments,1)
             sample=specframe['sample'].iloc[0]
