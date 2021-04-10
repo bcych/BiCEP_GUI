@@ -26,7 +26,7 @@
 
 - To use BiCEP GUI on a local machine, you will need Anaconda python. Follow the install instructions at https://docs.anaconda.com/anaconda/install/
 
-- You will need several packages installed to use BiCEP GUI. At the command line, run `pip install pmagpy pystan sklearn ipympl voila tornado --upgrade` to install the required packages for BiCEP GUI. If you already have PmagP
+- You will need several packages installed to use BiCEP GUI. At the command line, run `pip install pmagpy pystan sklearn ipympl voila tornado --upgrade` to install the required packages for BiCEP GUI.
 
 - Using the command line, navigate to the directory you want your BiCEP GUI folder to be in and clone using the command `git clone https://github.com/bcych/BiCEP_GUI`
 
