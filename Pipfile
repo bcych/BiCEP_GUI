@@ -4,15 +4,14 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-numpy = "==1.20.1"
-pystan = "==2.19.1.1"
-scikit-learn = "==0.24.1"
-pmagpy = "==4.2.78"
-voila = "==0.2.7"
-tornado = "==6.1"
-matplotlib = "==3.3.3"
-future = "==0.18.2"
-pandas = "==1.2.4"
+pystan = "==2.19"
+scikit-learn = "*"
+pmagpy = "*"
+voila = "*"
+tornado = "*"
+matplotlib = "*"
+future = "*"
+pandas = "*"
 
 [dev-packages]
 
