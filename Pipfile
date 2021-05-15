@@ -12,6 +12,7 @@ tornado = "*"
 matplotlib = "*"
 future = "*"
 pandas = "*"
+ipympl = "*"
 
 [dev-packages]
 
