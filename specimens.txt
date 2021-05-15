@@ -1,0 +1,568 @@
+tab 	specimens
+aniso_alt	aniso_ftest	aniso_ftest12	aniso_ftest23	aniso_ftest_quality	aniso_p	aniso_s	aniso_s_n_measurements	aniso_s_sigma	aniso_tilt_correction	aniso_type	aniso_v1	aniso_v2	aniso_v3	citations	description	experiments	geologic_classes	geologic_types	int_abs	int_abs_max	int_abs_min	int_corr_aniso	int_k	int_k_max	int_k_min	lithologies	meas_step_max	meas_step_min	meas_step_unit	method_codes	result_quality	result_type	sample	size	software_packages	specimen
+														10.1111/j.1365-246X.2012.05412.x:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				A		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	A-1-3
+														10.1111/j.1365-246X.2012.05412.x:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				A		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	A-2-3
+														10.1111/j.1365-246X.2012.05412.x:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				A		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	A-3-3
+														10.1111/j.1365-246X.2012.05412.x:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				A		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	A-4-3
+														10.1111/j.1365-246X.2012.05412.x:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				A		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	A-4-4L
+														10.1111/j.1365-246X.2012.05412.x:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				A		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	A-5-3
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL2360-1		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL2360-1a
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL2360-1		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL2360-1b
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL2360-1		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL2360-1c
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL2360-1		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL2360-1d
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL2360-1		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL2360-1e
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL2742-4		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL2742-4a
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL2742-4		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL2742-4b
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL2742-4		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL2742-4e
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL2742-4		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL2742-4f
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL2742-4		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL2742-4g
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL2770-3		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL2770-3a
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL2770-3		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL2770-3b
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL2770-3		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL2770-3c
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL2844-2		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL2844-2a
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL2844-2		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL2844-2b
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL2852-2		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL2852-2a
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL2852-2		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL2852-2b
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL2852-2		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL2852-2c
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL2852-2		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL2852-2d
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL2852-2		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL2852-2e
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL2852-2		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL2852-2f
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3023-1		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3023-1a
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3023-1		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3023-1b
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3028-2		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3028-2a
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3028-2		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3028-2b
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3029-4		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3029-4a
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3029-4		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3029-4b
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3029-4		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3029-4c
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3029-5		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3029-5a
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3031-1		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3031-1a
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3031-1		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3031-1b
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3031-1		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3031-1c
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3031-1		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3031-1d
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3034-2		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3034-2a
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3034-2		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3034-2d
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3034-2		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3034-2e
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3034-5		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3034-5a
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3034-5		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3034-5b
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3034-5		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3034-5d
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3035-2		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3035-2a
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3035-2		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3035-2b
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3035-2		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3035-2h
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3035-2		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3035-2i
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3035-2		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3035-2j
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3156-1		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3156-1a
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3156-1		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3156-1b
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3159-1		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3159-1a
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3159-1		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3159-1b
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3159-1		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3159-1g
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3166-1		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3166-1a
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3166-1		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3166-1b
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3166-1		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3166-1g
+														10.1029/2005GC001141:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				AL3166-1		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	AL3166-1h
+														10.1111/j.1365-246X.2012.05412.x:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				B		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	B-1-3
+														10.1111/j.1365-246X.2012.05412.x:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				B		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	B-10-1
+														10.1111/j.1365-246X.2012.05412.x:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				B		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	B-2-1
+														10.1111/j.1365-246X.2012.05412.x:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				B		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	B-3-3
+														10.1111/j.1365-246X.2012.05412.x:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				B		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	B-4-3
+														10.1111/j.1365-246X.2012.05412.x:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				B		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	B-5-1
+														10.1111/j.1365-246X.2012.05412.x:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				B		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	B-6-3
+														10.1111/j.1365-246X.2012.05412.x:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				B		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	B-7-3
+														10.1111/j.1365-246X.2012.05412.x:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				B		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	B-8-1
+														10.1111/j.1365-246X.2012.05412.x:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				B		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	B-9-3
+														10.1111/j.1365-246X.2012.05412.x:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				B		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	B-9-4L
+														10.1016/j.pepi.2014.12.007:This study			Archeologic	Brick								Not Specified			Kelvin				BR06		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	BR06-3F
+														10.1016/j.pepi.2014.12.007:This study			Archeologic	Brick								Not Specified			Kelvin				BR06		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	BR06-4F
+														10.1016/j.pepi.2014.12.007:This study			Archeologic	Brick								Not Specified			Kelvin				BR06		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	BR06-5F
+														10.1111/j.1365-246X.2012.05412.x:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				C		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	C-1-3
+														10.1111/j.1365-246X.2012.05412.x:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				C		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	C-2-3
+														10.1111/j.1365-246X.2012.05412.x:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				C		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	C-3-3
+														10.1111/j.1365-246X.2012.05412.x:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				C		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	C-4-1
+														10.1111/j.1365-246X.2012.05412.x:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				C		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	C-4-4L
+														This study															Kelvin		g		ET1		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	ET1_279BS
+														This study															Kelvin		g		ET1		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	ET1_283E
+														This study															Kelvin		g		ET1		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	ET1_287D
+														This study															Kelvin		g		ET1		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	ET1_289D
+														This study															Kelvin		g		ET1		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	ET1_311E
+														This study															Kelvin		g		ET1		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	ET1_318A
+														This study															Kelvin		g		ET2		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	ET2_182B
+														This study															Kelvin		g		ET2		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	ET2_185A
+														This study															Kelvin		g		ET2		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	ET2_187A
+														This study															Kelvin		g		ET2		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	ET2_192A
+														This study															Kelvin		g		ET2		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	ET2_196D
+														This study															Kelvin		g		ET3		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	ET3_008A
+														This study															Kelvin		g		ET3		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	ET3_023E2
+														This study															Kelvin		g		ET3		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	ET3_059C
+														This study															Kelvin		g		ET3		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	ET3_064C
+														This study															Kelvin		g		ET3		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	ET3_146A
+														This study															Kelvin		g		ET3		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	ET3_150B
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV10D3A
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV11A2
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV12A2A
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV12D1
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV12E2
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV14C3A
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV15B1
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV16A2B
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV16B1B
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV17A1A
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV18B3
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV19A2
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV19B1A
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV19C1
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV19D3
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV19E1
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV19F2
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV19G2B
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV20B1
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV20C2
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV21A2
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV21B1
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV21C1
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV22D1
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV23A2
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV25C3
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV26D2
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV27B2
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV28E3A
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV29B2A
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV30A3A
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV30B2
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV30D1
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV3B3
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV4A3
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV4C3
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV6A2
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV6C3A
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV6D1B
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV6G1
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV6I3A
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV7B1
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV7G1
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV7H1
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV9A2
+														This study															Kelvin		g		LV		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	LV9F2
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M3B5
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M3C5
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M3G2
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M3L1
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M3O6
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M3S2
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M3U2
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M3V1
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M4F6
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M4G5
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M4M5
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M4S2
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M4T3
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M4U1
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M4V1
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M5B2
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M5D1
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M5E2
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M5G1
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M5M2
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M5N2
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M5N5
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M5P2
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M5Q1
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M5S2
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M5T2
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M5W2
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M6B7A
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M6C2
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M6D1
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M6E13
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M6G1
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M6K1
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M6L2
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M6M1
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M6O3
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M6P3
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M6Q2
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M6R4
+														This study															Kelvin		g		MSH		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	M6U2
+														This study	Magnetite.														Kelvin				Synthetic60	0.023 microns	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	MGH1
+														10.1029/93jb01160:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				SBG_2352-2		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SBG_2352-2b
+														10.1029/93jb01160:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				SBG_2352-2		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SBG_2352-2e
+														10.1029/93jb01160:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				SBG_2352-2		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SBG_2352-2g
+														10.1029/93jb01160:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				SBG_2358-4		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SBG_2358-4f
+														10.1029/93jb01160:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				SBG_2372-2		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SBG_2372-2e
+														10.1029/93jb01160:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				SBG_2372-2		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SBG_2372-2g
+														10.1029/93jb01160:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				SBG_2372-2		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SBG_2372-2h
+														10.1029/93jb01160:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				SBG_2372-3		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SBG_2372-3d
+														10.1029/93jb01160:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				SBG_2372-3		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SBG_2372-3e
+														10.1029/93jb01160:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				SBG_2372-3		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SBG_2372-3f
+														10.1029/93jb01160:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				SBG_2392-4		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SBG_2392-4c
+														10.1029/93jb01160:This study			Extrusive:Igneous:Submarine	Glassy Margin								Submarine Basaltic Glass			Kelvin				SBG_2392-4		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SBG_2392-4e
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				SW01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SW01-01A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				SW01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SW01-02A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				SW01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SW01-03A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				SW01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SW01-04A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				SW01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SW01-05A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				SW01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SW01-06A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				SW01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SW01-07A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				SW01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SW01-08A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				SW01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SW01-09A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				SW01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SW01-10A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				SW01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SW01-11A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				SW01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SW01-12A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				SW01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SW01-13A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				SW01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SW01-14A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				SW01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SW01-15A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				SW01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SW01-16A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				SW01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SW01-17A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				SW01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SW01-18A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				SW01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	SW01-19A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS01-00A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS01-01A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS01-02A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS01-04A-1
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS01-05A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS01-06A-3
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS01-07A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS01-08A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS01-10A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS01-11A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS01-12A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS01-13A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS01-14A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS01-15A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS01-16A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS01-17A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS01-18A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS01-19A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS01-20A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS01-21A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS01-22A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS01-23A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS01-24A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS01-25A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS01-26A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS01-27A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS01		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS01-28A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS02		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS02-01A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS02		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS02-02A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS02		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS02-03A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS02		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS02-04A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS02		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS02-05A-3
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS02		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS02-06A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS02		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS02-07A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS02		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS02-08A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS02		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS02-09A-3
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS02		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS02-10A-3
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS02		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS02-11A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS02		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS02-12A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS02		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS02-13A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS02		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS02-14A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS02		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS02-15A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS02		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS02-16A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS02		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS02-17A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS02		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS02-18A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS02		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS02-19A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS02		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS02-20A-3
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS02		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS02-21A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS02		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS02-22A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS02		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS02-23A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS02		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS02-24A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS02		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS02-25A-2
+														10.1016/j.pepi.2008.03.006:This study			Extrusive:Igneous	Lava flow								Andesite			Kelvin				TS02		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	TS02-26A-2
+														This study	Magnetite.														Kelvin				Synthetic60	0.7 microns	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	W1
+														This study	Magnetite.														Kelvin				Synthetic60	0.5 microns	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	W2
+														This study	Magnetite.														Kelvin				Synthetic60	0.5 microns	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	W3
+														This study	Magnetite.														Kelvin				Synthetic60	5.7 microns	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	W4
+														This study	Magnetite.														Kelvin				Synthetic60	8.3 microns	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	W5
+														This study	Magnetite.														Kelvin				Synthetic60	12.1 microns	pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	W6
+														This study															Kelvin		g		FreshTRM		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	cr405g1-CZb
+														This study															Kelvin		g		FreshTRM		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	cr418f-CZb
+														This study															Kelvin		g		FreshTRM		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	cr423c-CZb
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw108a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw108a1
+	25.550328	45.119048	0.153775	g	9.17556	0.6890302:0.13718441:0.1737854:0.16041374:-0.032933183:-0.18490373	9.0	0.069941	-1.0	AARM	0.789192:14.7:-16.9	0.124797:74.9:58.5	0.086010:293.1:25.7	This study	Critical F: 2.6848	hw108a1:LP-AN-ARM													Kelvin	:LP-AN-ARM:AE-H	g		hw108a		pmagpy-4.2.69	hw108a1
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw108a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw108a2
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw108a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw108a3
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw108a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw108a4
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw108a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw108a5
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw108b		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw108b1
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw108b		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw108b2
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw108b		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw108b3
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw108b		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw108b4
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw108b		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw108b5
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw108c		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw108c1
+	0.600776	0.159618	0.645809	b	1.109048	0.34136745:0.3396644:0.3189682:-0.0036405984:0.009787763:-0.006334905	9.0	0.020142	-1.0	AARM	0.348551:314.6:-21.1	0.337170:222.3:-5.9	0.314279:297.3:68.0	This study	Critical F: 2.6848	hw108c1:LP-AN-ARM													Kelvin	:LP-AN-ARM:AE-H	b		hw108c		pmagpy-4.2.69	hw108c1
+	2.570336	3.182081	0.445998	b	1.182966	0.34672946:0.33506054:0.31821:0.020241126:0.002158469:0.015367816	9.0	0.016324	-1.0	AARM	0.365926:214.2:-16.3	0.324746:293.5:32.5	0.309329:146.8:52.7	This study	Critical F: 2.6848	hw108c10:LP-AN-ARM													Kelvin	:LP-AN-ARM:AE-H	b		hw108c		pmagpy-4.2.69	hw108c10
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw108c		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw108c10
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw108c		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw108c11
+	1.287479	0.250096	1.542766	b	1.137863	0.35149816:0.3344875:0.31401438:0.00026327136:0.0111759985:-0.0019784935	9.0	0.017291	-1.0	AARM	0.351610:358.7:-3.4	0.339381:87.2:23.6	0.309009:96.4:-66.2	This study	Critical F: 2.6848	hw108c11:LP-AN-ARM													Kelvin	:LP-AN-ARM:AE-H	b		hw108c		pmagpy-4.2.69	hw108c11
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw108c		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw108c12
+2.14	0.8398770000000001	0.089488	1.162714			0.332309 : 0.320656 : 0.347034 : -0.035385 : -0.000514 : 0.001590	6.0	0.036902		ATRM	0.362499 : 139.7 : -5.7	0.346887 : 133.2 : 84.3	0.290614 : 229.7 : 0.6		Critical F: 3.1059	hw108c12:LP-AN-TRM													Kelvin	LP-AN-TRM:AE-H	b		hw108c		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw108c12
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw108c		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw108c13
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw108c		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw108c2
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw108c		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw108c3
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw108c		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw108c4
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw108c		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw108c5
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw108c		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw108c6
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw108c		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw108c7
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw108c		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw108c8
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw108c		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw108c9
+2.77	0.491034	0.244919	0.373323			0.334542 : 0.330295 : 0.335163 : 0.000069 : 0.010721 : -0.003689	6.0	0.014863		ATRM	0.344549 : 295.8 : -50.2	0.334147 : 18.4 : 6.1	0.321304 : 103.4 : -39.2		Critical F: 3.1059	hw108c9:LP-AN-TRM													Kelvin	LP-AN-TRM:AE-H	b		hw108c		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw108c9
+	0.53111	0.539924	0.160998	b	1.069817	0.3403104:0.3346408:0.3250488:-0.0070707616:0.0044493093:-0.0012702771	9.0	0.014043	-1.0	AARM	0.345718:324.0:-10.0	0.331125:229.7:-23.0	0.323156:255.9:64.7	This study	Critical F: 2.6848	hw123a1:LP-AN-ARM													Kelvin	:LP-AN-ARM:AE-H	b		hw123a		pmagpy-4.2.69	hw123a1
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw123a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw123a1
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw123a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw123a10
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw123a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw123a11
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw123a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw123a12
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw123a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw123a2
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw123a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw123a3
+	0.20603	0.141388	0.116444	b	1.051764	0.33386737:0.3301509:0.33598167:0.004131449:-0.0012582106:0.006593227	9.0	0.016588	-1.0	AARM	0.341882:193.4:-46.1	0.333061:243.7:31.6	0.325056:135.3:27.0	This study	Critical F: 2.6848	hw123a3:LP-AN-ARM													Kelvin	:LP-AN-ARM:AE-H	b		hw123a		pmagpy-4.2.69	hw123a3
+	0.245832	0.004039	0.415907	b	1.053809	0.3245247:0.3362471:0.3392282:0.005022276:-0.0006812692:0.0024415099	9.0	0.017309	-1.0	AARM	0.339633:22.1:78.6	0.338077:71.0:-7.6	0.322290:159.8:8.5	This study	Critical F: 2.6848	hw123a4:LP-AN-ARM													Kelvin	:LP-AN-ARM:AE-H	b		hw123a		pmagpy-4.2.69	hw123a4
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw123a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw123a4
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw123a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw123a5
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw123a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw123a6
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw123a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw123a7
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw123a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw123a8
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw123a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw123a9
+	0.382525	0.001772	0.68068	b	1.064022	0.33696845:0.33524075:0.32779077:-0.0041805548:0.007117806:0.0064439587	9.0	0.016707	-1.0	AARM	0.340494:155.7:-13.1	0.339499:75.5:36.0	0.320006:229.1:51.0	This study	Critical F: 2.6848	hw123a9:LP-AN-ARM													Kelvin	:LP-AN-ARM:AE-H	b		hw123a		pmagpy-4.2.69	hw123a9
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow	3.66e-05	3.78e-05	3.54e-05		0.026	0.119	-0.068	Basalt	783.0	273.0	Kelvin	IE-BICEP			hw126a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw126a1
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow	3.1899999999999996e-05	3.26e-05	3.1e-05		0.351	0.421	0.254	Basalt	783.0	273.0	Kelvin	IE-BICEP			hw126a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw126a2
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow	2.71e-05	2.86e-05	2.5699999999999998e-05		0.415	0.547	0.286	Basalt	783.0	273.0	Kelvin	IE-BICEP			hw126a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw126a3
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow	3.3700000000000006e-05	3.51e-05	3.24e-05	0.8658512144883013	0.035	0.139	-0.07	Basalt	783.0	273.0	Kelvin	IE-BICEP:DA-AC-AARM:DA-AC-AARM:DA-AC-AARM			hw126a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw126a4
+	0.699905	0.25872	0.645137	b	1.164833	0.35591182:0.33572888:0.30835935:0.0011492625:0.006307717:-0.0060717473	9.0	0.027206	-1.0	AARM	0.356681:1.0:-7.0	0.337111:89.5:12.3	0.306208:300.2:75.8	This study	Critical F: 2.6848	hw126a4:LP-AN-ARM													Kelvin	:LP-AN-ARM:AE-H	b		hw126a		pmagpy-4.2.69	hw126a4
+	0.687039	0.03476	1.061325	b	1.104003	0.34127524:0.33527684:0.32344794:0.0030651048:0.011247861:-0.009473283	9.0	0.018936	-1.0	AARM	0.345858:161.1:29.4	0.340865:61.2:16.9	0.313277:305.2:55.2	This study	Critical F: 2.6848	hw126a5:LP-AN-ARM													Kelvin	:LP-AN-ARM:AE-H	b		hw126a		pmagpy-4.2.69	hw126a5
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow	3.53e-05	3.61e-05	3.46e-05	1.000688924360998	0.041	0.108	-0.027	Basalt	783.0	273.0	Kelvin	IE-BICEP:DA-AC-AARM:DA-AC-AARM:DA-AC-AARM			hw126a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw126a5
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow	1.76e-05	1.93e-05	1.63e-05		0.855	1.098	0.646	Basalt	773.0	273.0	Kelvin	IE-BICEP			hw126a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw126a6
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow	3.14e-05	3.59e-05	2.83e-05		0.239	0.494	-0.072	Basalt	573.0	273.0	Kelvin	IE-BICEP			hw126a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw126a7
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw126a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw126a8
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow	3.65e-05	3.78e-05	3.53e-05	1.0057907455937813	-0.026	0.052	-0.106	Basalt	783.0	273.0	Kelvin	IE-BICEP:DA-AC-ATRM:DA-AC-ATRM:DA-AC-ATRM			hw126b		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw126b1
+2.17	0.443412	0.151069	0.426497			0.333133 : 0.327338 : 0.339530 : -0.006768 : -0.003819 : 0.001754	6.0	0.0134759999999999		ATRM	0.342420 : 317.8 : 53.2	0.335013 : 334.1 : -35.7	0.322567 : 58.5 : 7.8		Critical F: 3.1059	hw126b1:LP-AN-TRM													Kelvin	LP-AN-TRM:AE-H	b		hw126b		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw126b1
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow	3.73e-05	3.8700000000000006e-05	3.59e-05	1.036898810756196	-0.038	0.051	-0.129	Basalt	783.0	273.0	Kelvin	IE-BICEP:DA-AC-ATRM:DA-AC-ATRM:DA-AC-ATRM			hw126b		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw126b2
+2.25	13.006412	5.562377	11.000451			0.328253 : 0.334439 : 0.337308 : -0.024508 : 0.004054 : -0.002619	6.0	0.006301		ATRM	0.357195 : 311.2 : -13.5	0.336179 : 317.2 : 76.4	0.306626 : 41.5 : -1.4		Critical F: 3.1059	hw126b2:LP-AN-TRM													Kelvin	LP-AN-TRM:AE-H	g		hw126b		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw126b2
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow	3.6200000000000006e-05	3.75e-05	3.5e-05		-0.008	0.077	-0.095	Basalt	783.0	273.0	Kelvin	IE-BICEP			hw126b		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw126b3
+1.94	2.825047	1.839745	1.6923009999999998			0.334985 : 0.330397 : 0.334618 : -0.009258 : -0.000512 : 0.005364	6.0	0.00586		ATRM	0.344420 : 325.7 : 25.7	0.333180 : 112.0 : 59.9	0.322400 : 48.6 : -14.5		Critical F: 3.1059	hw126b4:LP-AN-TRM													Kelvin	LP-AN-TRM:AE-H	b		hw126b		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw126b4
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow	3.76e-05	3.91e-05	3.61e-05	0.989418350939009	-0.061	0.032	-0.158	Basalt	783.0	273.0	Kelvin	IE-BICEP:DA-AC-ATRM:DA-AC-ATRM:DA-AC-ATRM			hw126b		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw126b4
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow	3.77e-05	3.95e-05	3.6e-05		-0.104	-0.007	-0.207	Basalt	783.0	273.0	Kelvin	IE-BICEP			hw126b		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw126b5
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw128a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128a1
+2.23	8.626330000000001	6.260368	4.5670480000000016			0.302898 : 0.345663 : 0.351439 : -0.007008 : 0.016807 : -0.010543	6.0	0.010308		ATRM	0.368035 : 106.8 : 49.1	0.331560 : 266.8 : 39.2	0.300405 : 185.1 : -10.0		Critical F: 3.1059	hw128a10:LP-AN-TRM													Kelvin	LP-AN-TRM:AE-H	g		hw128a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128a10
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw128a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128a10
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw128a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128a11
+5.54	0.305598	0.356124	0.06487			0.323716 : 0.331140 : 0.345144 : -0.013301 : 0.012557 : -0.009647	6.0	0.037808		ATRM	0.359145 : 127.3 : 48.5	0.327237 : 306.9 : 41.5	0.313618 : 37.1 : 0.2		Critical F: 3.1059	hw128a11:LP-AN-TRM													Kelvin	LP-AN-TRM:AE-H	b		hw128a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128a11
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw128a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128a2
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw128a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128a3
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw128a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128a4
+1.25	3.968362	0.270368	5.906455			0.325017 : 0.327772 : 0.347211 : -0.016853 : 0.004232 : 0.000438	6.0	0.009508		ATRM	0.348888 : 123.5 : 63.0	0.341896 : 135.5 : -26.5	0.309216 : 223.1 : 4.8		Critical F: 3.1059	hw128a4:LP-AN-TRM													Kelvin	LP-AN-TRM:AE-H	g		hw128a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128a4
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw128a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128a5
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw128a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128a6
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw128a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128a7
+0.82	5.10375	1.910443	4.671791000000002			0.334164 : 0.336991 : 0.328845 : -0.000496 : -0.012443 : -0.016893	6.0	0.0084689999999999		ATRM	0.352998 : 220.5 : 40.9	0.336444 : 307.6 : -3.4	0.310558 : 33.7 : 48.9		Critical F: 3.1059	hw128a7:LP-AN-TRM													Kelvin	LP-AN-TRM:AE-H	g		hw128a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128a7
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw128a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128a8
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw128a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128a9
+2.3	2.1022	3.3377790000000003	0.081686			0.324702 : 0.333389 : 0.341909 : -0.000914 : 0.015008 : 0.001652	6.0	0.010735		ATRM	0.353271 : 87.4 : 53.0	0.325534 : 337.6 : 14.3	0.321195 : 238.0 : 33.3		Critical F: 3.1059	hw128a9:LP-AN-TRM													Kelvin	LP-AN-TRM:AE-H	b		hw128a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128a9
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw128b		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128b1
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw128b		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128b2
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw128b		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128b3
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw128b		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128b4
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw128b		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128b5
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw128c		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128c1
+1.24	15.094056	9.623001	9.245826			0.328947 : 0.317830 : 0.353223 : -0.012319 : -0.004349 : -0.014508	6.0	0.006129		ATRM	0.360044 : 175.6 : 64.2	0.333156 : 316.5 : 20.5	0.306800 : 52.2 : 14.9		Critical F: 3.1059	hw128c1:LP-AN-TRM													Kelvin	LP-AN-TRM:AE-H	g		hw128c		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128c1
+1.43	10.53271	13.300503	1.698093			0.336301 : 0.325140 : 0.338559 : -0.006874 : -0.000532 : 0.018706	6.0	0.00584		ATRM	0.357001 : 166.9 : -44.8	0.326881 : 106.3 : 26.3	0.316119 : 35.5 : -33.6		Critical F: 3.1059	hw128c2:LP-AN-TRM													Kelvin	LP-AN-TRM:AE-H	g		hw128c		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128c2
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw128c		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128c2
+0.96	9.032962	3.4434949999999995	8.184867			0.333421 : 0.320992 : 0.345587 : -0.006515 : -0.012384 : -0.003142	6.0	0.005622		ATRM	0.350752 : 266.2 : 67.7	0.335998 : 161.2 : 6.1	0.313250 : 248.8 : -21.4		Critical F: 3.1059	hw128c3:LP-AN-TRM													Kelvin	LP-AN-TRM:AE-H	g		hw128c		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128c3
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw128c		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128c3
+1.95	5.075321	6.875276	0.6041380000000001			0.319176 : 0.346261 : 0.334563 : -0.005727 : 0.012637 : -0.002664	6.0	0.007781		ATRM	0.355419 : 281.6 : -31.8	0.326567 : 280.4 : 58.2	0.318014 : 191.2 : -0.5		Critical F: 3.1059	hw128c4:LP-AN-TRM													Kelvin	LP-AN-TRM:AE-H	g		hw128c		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128c4
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw128c		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128c4
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw128c		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128c5
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw128d		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128d1
+10.03	4.085909	2.531001	2.5764150000000003			0.347593 : 0.315698 : 0.336709 : 0.027176 : 0.002706 : -0.018470	6.0	0.016257		ATRM	0.370019 : 205.4 : 25.0	0.333442 : 64.8 : 58.9	0.296539 : 303.7 : 17.3		Critical F: 3.1059	hw128d1:LP-AN-TRM													Kelvin	LP-AN-TRM:AE-H	g		hw128d		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128d1
+4.91	9.394615	3.589854	8.500674			0.315665 : 0.328128 : 0.356208 : 0.016825 : 0.006475 : 0.003056	6.0	0.008074		ATRM	0.358855 : 58.5 : 69.6	0.337219 : 54.4 : -20.4	0.303926 : 144.9 : -1.3		Critical F: 3.1059	hw128d2:LP-AN-TRM													Kelvin	LP-AN-TRM:AE-H	g		hw128d		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128d2
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw128d		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128d2
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw128d		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128d3
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw128d		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128d4
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw128d		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128d5
+13.75	1.741111	1.599225	0.6474949999999999			0.333907 : 0.341296 : 0.324797 : -0.005995 : 0.013823 : -0.007798	6.0	0.012792		ATRM	0.353438 : 299.3 : -29.0	0.330560 : 209.4 : 0.2	0.316002 : 299.7 : 61.0		Critical F: 3.1059	hw128d5:LP-AN-TRM													Kelvin	LP-AN-TRM:AE-H	b		hw128d		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw128d5
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw201a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw201a1
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw201a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw201a10
+6.1	1.166743	1.7036330000000002	0.09074			0.326940 : 0.323850 : 0.349210 : -0.002076 : -0.002097 : -0.005405	6.0	0.012541		ATRM	0.350547 : 195.3 : 77.0	0.327398 : 325.3 : 8.5	0.322055 : 236.8 : -9.8		Critical F: 3.1059	hw201a11:LP-AN-TRM													Kelvin	LP-AN-TRM:AE-H	b		hw201a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw201a11
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw201a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw201a11
+3.98	2.885545	3.1282810000000003	0.750297			0.323434 : 0.328553 : 0.348013 : -0.004927 : 0.002828 : -0.006658	6.0	0.0082379999999999		ATRM	0.350434 : 145.6 : 71.2	0.329829 : 293.8 : 16.2	0.319738 : 26.5 : 9.4		Critical F: 3.1059	hw201a12:LP-AN-TRM													Kelvin	LP-AN-TRM:AE-H	b		hw201a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw201a12
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw201a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw201a12
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw201a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw201a2
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw201a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw201a3
+11.56	0.239271	0.004461	0.401785			0.327905 : 0.337569 : 0.334526 : -0.003506 : 0.001298 : 0.007053	6.0	0.017168		ATRM	0.339544 : 134.3 : -38.5	0.337923 : 80.1 : 36.3	0.322533 : 196.0 : 30.8		Critical F: 3.1059	hw201a3:LP-AN-TRM													Kelvin	LP-AN-TRM:AE-H	b		hw201a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw201a3
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw201a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw201a4
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw201a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw201a5
+8.11	0.552995	0.005049	0.96201			0.327136 : 0.338523 : 0.334341 : 0.001501 : -0.001625 : 0.007443	6.0	0.011629		ATRM	0.339489 : 298.1 : 43.8	0.338321 : 240.7 : -29.3	0.322190 : 351.2 : -32.0		Critical F: 3.1059	hw201a6:LP-AN-TRM													Kelvin	LP-AN-TRM:AE-H	b		hw201a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw201a6
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw201a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw201a6
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw201a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw201a7
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw201a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw201a8
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw201a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw201a9
+														This study															Kelvin		g		FreshTRM		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw226a-SZb
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw226a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw226a1
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw226a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw226a2
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw226a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw226a3
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw226a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw226a4
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw226a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw226a5
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw226a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw226a6
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw226b		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw226b1
+1.63	4.749436	0.726065	6.078062			0.342283 : 0.323755 : 0.333961 : 0.002189 : 0.026500 : 0.000394	6.0	0.01156		ATRM	0.356055 : 79.1 : 49.7	0.342125 : 177.1 : 6.7	0.301820 : 272.6 : 39.5		Critical F: 3.1059	hw226b2:LP-AN-TRM													Kelvin	LP-AN-TRM:AE-H	g		hw226b		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw226b2
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw226b		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw226b2
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw226b		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw226b3
+4.22	1.379721	0.757428	0.971337			0.334086 : 0.317901 : 0.348013 : 0.000937 : 0.006558 : 0.001060	6.0	0.012562		ATRM	0.349477 : 68.8 : 77.3	0.334016 : 1.3 : -4.9	0.316507 : 272.3 : 11.7		Critical F: 3.1059	hw226b3:LP-AN-TRM													Kelvin	LP-AN-TRM:AE-H	b		hw226b		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw226b3
+4.49	14.029018	1.526311	19.344535			0.328040 : 0.325193 : 0.346767 : -0.029577 : 0.016010 : 0.005167	6.0	0.008594		ATRM	0.361162 : 127.3 : 33.7	0.346147 : 339.4 : 51.8	0.292691 : 48.3 : -15.9		Critical F: 3.1059	hw226b4:LP-AN-TRM													Kelvin	LP-AN-TRM:AE-H	g		hw226b		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw226b4
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw226b		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw226b4
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw226b		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw226b5
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw226b		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw226b6
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw241a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw241a1
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw241a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw241a2
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw241a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw241a3
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw241a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw241a4
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw241a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw241a5
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw241a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw241a6
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw241d		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw241d1
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw241d		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw241d2
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw241d		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw241d3
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw241d		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw241d4
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw241d		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw241d5
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw241d		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw241d6
+4.71	3.545985	5.7014	0.12004			0.330203 : 0.343651 : 0.326145 : -0.013820 : -0.014893 : 0.006378	6.0	0.011012		ATRM	0.359921 : 300.3 : 25.5	0.322737 : 197.6 : 24.6	0.317342 : 69.8 : 53.2		Critical F: 3.1059	hw241e1:LP-AN-TRM													Kelvin	LP-AN-TRM:AE-H	g		hw241e		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw241e1
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw241e		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw241e1
+	0.947431	1.010888	0.256275	b	1.096633	0.34480602:0.3273815:0.3278124:0.010528112:0.0025452033:-0.005570058	9.0	0.014446	-1.0	AARM	0.350475:23.5:-10.2	0.329934:97.4:56.8	0.319591:299.7:31.2	This study	Critical F: 2.6848	hw241e2:LP-AN-ARM													Kelvin	:LP-AN-ARM:AE-H	b		hw241e		pmagpy-4.2.69	hw241e2
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw241e		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw241e2
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw241e		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw241e3
+	1.098446	1.631625	0.075937	b	1.156987	0.35811976:0.3182785:0.32360178:-0.0013374878:0.0051150364:-0.013995361	9.0	0.022445	-1.0	AARM	0.363279:355.9:-19.8	0.322734:246.9:-42.1	0.313987:284.4:41.3	This study	Critical F: 2.6848	hw241e3:LP-AN-ARM													Kelvin	:LP-AN-ARM:AE-H	b		hw241e		pmagpy-4.2.69	hw241e3
+1.26	3.113787	3.83197	0.5520689999999999			0.350748 : 0.325377 : 0.323874 : -0.009312 : 0.005333 : -0.000541	6.0	0.009394		ATRM	0.353960 : 341.2 : -4.2	0.327955 : 246.3 : -48.8	0.318084 : 254.9 : 40.9		Critical F: 3.1059	hw241e4:LP-AN-TRM													Kelvin	LP-AN-TRM:AE-H	g		hw241e		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw241e4
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw241e		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw241e4
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw241e		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw241e5
+3.92	1.444231	0.004663	2.593306			0.327632 : 0.334207 : 0.338161 : -0.011783 : -0.005627 : -0.008114	6.0	0.012107		ATRM	0.343304 : 135.3 : 19.5	0.342134 : 261.9 : 59.4	0.314562 : 216.8 : -22.7		Critical F: 3.1059	hw241e5:LP-AN-TRM													Kelvin	LP-AN-TRM:AE-H	b		hw241e		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw241e5
+8.64	2.6714830000000003	1.210001	2.176329			0.329998 : 0.326163 : 0.343839 : -0.014959 : -0.022091 : -0.002680	6.0	0.01553		ATRM	0.360240 : 290.8 : 50.2	0.336080 : 162.8 : 27.2	0.303680 : 237.8 : -26.6		Critical F: 3.1059	hw241e6:LP-AN-TRM													Kelvin	LP-AN-TRM:AE-H	b		hw241e		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw241e6
+														10.1029/2005GC001141:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				hw241e		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	hw241e6
+														This study															Kelvin		g		FreshTRM		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	jm009c1-CZb
+														This study															Kelvin		g		FreshTRM		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	jm009d1-CZb
+														This study															Kelvin		g		FreshTRM		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	jm009f2-CZb
+														This study															Kelvin		g		FreshTRM		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	jm009i2-CZb
+														This study															Kelvin		g		FreshTRM		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	jm011d1-CZb
+														10.1111/j.1365-246X.2012.05412.x:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				kf		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	kf011
+														10.1111/j.1365-246X.2012.05412.x:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				kf		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	kf031
+														10.1111/j.1365-246X.2012.05412.x:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				kf		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	kf072
+														This study															Kelvin		g		FreshTRM		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	mc109d-SZb
+														This study															Kelvin		g		FreshTRM		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	mc109e-SZb
+														This study															Kelvin		g		FreshTRM		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	mc111d-SZb
+														This study															Kelvin		g		FreshTRM		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	mc111e-SZb
+														This study															Kelvin		g		FreshTRM		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	mc117a-SZb
+														This study															Kelvin		g		FreshTRM		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	mc117b-SZb
+														This study															Kelvin		g		FreshTRM		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	mc117d-SZb
+														This study															Kelvin		g		FreshTRM		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	mc117e-SZb
+														This study															Kelvin		g		FreshTRM		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	mc120b-SZb
+														This study															Kelvin		g		FreshTRM		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	mc120c-SZb
+														This study															Kelvin		g		FreshTRM		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	mc167d2-SZb
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p1ay		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p1ay
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p1c-stub1		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p1c-stub1
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p1cy_u		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p1cy_u
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p1cz_u		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p1cz_u
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p1e_u		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p1e_u
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p1fx_u		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p1fx_u
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p1fy_u		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p1fy_u
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p1ga_u		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p1ga_u
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p1gb_u		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p1gb_u
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p1gc_u		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p1gc_u
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p1h_u		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p1h_u
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p1hb_u		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p1hb_u
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p1ka_u		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p1ka_u
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p1kb_u		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p1kb_u
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p1kc_u		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p1kc_u
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p1kd_u		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p1kd_u
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p1l_u		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p1l_u
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p1my		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p1my
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p1na_u		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p1na_u
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p1nb		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p1nb
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p1o_u		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p1o_u
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p2aa_u		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p2aa_u
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p2ab_u		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p2ab_u
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p2ac_u		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p2ac_u
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p2ad		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p2ad
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p2b_u		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p2b_u
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p2d		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p2d
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p2ey_u		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p2ey_u
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p2kx_u		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p2kx_u
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p2na_u		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p2na_u
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p2nb_u		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p2nb_u
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p2o_u		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p2o_u
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p2q		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p2q
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p2qc		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p2qc
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p2rl_u		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p2rl_u
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				p2s_u		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	p2s_u
+														10.1016/j.epsl.2011.08.024:This study			Synthetic	Slag								Not Specified			Kelvin				remag-rs61		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	remag-rs61a
+														10.1016/j.epsl.2011.08.024:This study			Synthetic	Slag								Not Specified			Kelvin				remag-rs61		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	remag-rs61c
+														10.1016/j.epsl.2011.08.024:This study			Synthetic	Slag								Not Specified			Kelvin				remag-rs61		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	remag-rs61e
+														10.1016/j.epsl.2011.08.024:This study			Synthetic	Slag								Not Specified			Kelvin				remag-rs61		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	remag-rs61f
+														10.1016/j.epsl.2011.08.024:This study			Synthetic	Slag								Not Specified			Kelvin				remag-rs61		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	remag-rs61h
+														10.1016/j.epsl.2011.08.024:This study			Synthetic	Slag								Not Specified			Kelvin				remag-rs61		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	remag-rs61i
+														10.1016/j.epsl.2011.08.024:This study			Synthetic	Slag								Not Specified			Kelvin				remag-rs62		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	remag-rs62a
+														10.1016/j.epsl.2011.08.024:This study			Synthetic	Slag								Not Specified			Kelvin				remag-rs62		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	remag-rs62b
+														10.1016/j.epsl.2011.08.024:This study			Synthetic	Slag								Not Specified			Kelvin				remag-rs62		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	remag-rs62e
+														10.1016/j.epsl.2011.08.024:This study			Synthetic	Slag								Not Specified			Kelvin				remag-rs62		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	remag-rs62f
+														10.1016/j.epsl.2011.08.024:This study			Synthetic	Slag								Not Specified			Kelvin				remag-rs62		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	remag-rs62g
+														10.1016/j.epsl.2011.08.024:This study			Synthetic	Slag								Not Specified			Kelvin				remag-rs62		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	remag-rs62h
+														10.1016/j.epsl.2011.08.024:This study			Synthetic	Slag								Not Specified			Kelvin				remag-rs63		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	remag-rs63a
+														10.1016/j.epsl.2011.08.024:This study			Synthetic	Slag								Not Specified			Kelvin				remag-rs63		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	remag-rs63f
+														10.1016/j.epsl.2011.08.024:This study			Synthetic	Slag								Not Specified			Kelvin				remag-rs63		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	remag-rs63g
+														10.1016/j.epsl.2011.08.024:This study			Synthetic	Slag								Not Specified			Kelvin				remag-rs63		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	remag-rs63i
+														10.1016/j.epsl.2011.08.024:This study			Synthetic	Slag								Not Specified			Kelvin				remag-rs63		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	remag-rs63j
+														10.1016/j.epsl.2011.08.024:This study			Synthetic	Slag								Not Specified			Kelvin				remag-rs78		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	remag-rs78a
+														10.1016/j.epsl.2011.08.024:This study			Synthetic	Slag								Not Specified			Kelvin				remag-rs78		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	remag-rs78e
+														10.1016/j.epsl.2011.08.024:This study			Synthetic	Slag								Not Specified			Kelvin				remag-rs78		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	remag-rs78f
+														10.1016/j.epsl.2011.08.024:This study			Synthetic	Slag								Not Specified			Kelvin				remag-rs78		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	remag-rs78g
+														10.1016/j.epsl.2011.08.024:This study			Synthetic	Slag								Not Specified			Kelvin				remag-rs78		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	remag-rs78i
+0.0	7.458539	6.177262	3.295533	g	1.368727	0.3533106:0.36204824:0.28464115:-0.030255325:-0.0012594276:-0.006658432	6.0	0.017201	-1.0	ATRM	0.388361:311.1:-1.9	0.327900:221.3:7.7	0.283739:27.3:82.1	This study	Critical F: 3.1059	rs25a:LP-AN-TRM													Kelvin	:LP-AN-TRM:AE-H	g		rs25		pmagpy-4.2.69	rs25a
+														10.1016/j.epsl.2009.12.022:This study			Synthetic	Slag								Not Specified			Kelvin				rs25		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	rs25a
+0.0	0.464328	0.288518	0.291783	b	1.043841	0.33307847:0.32798597:0.33893552:0.0012304381:0.004222797:-0.0013244913	6.0	0.009386	-1.0	ATRM	0.340477:111.0:70.8	0.333347:14.6:2.2	0.326177:103.9:-19.1	This study	Critical F: 3.1059	rs25b:LP-AN-TRM													Kelvin	:LP-AN-TRM:AE-H	b		rs25		pmagpy-4.2.69	rs25b
+														10.1016/j.epsl.2009.12.022:This study			Synthetic	Slag								Not Specified			Kelvin				rs25		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	rs25b
+0.0	9.466417	1.714989	11.578517	g	1.29141	0.31828287:0.32628465:0.35543254:0.023126105:-0.018281102:0.024367886	6.0	0.012487	-1.0	ATRM	0.368781:329.6:66.2	0.345655:232.1:3.3	0.285565:320.6:-23.5	This study	Critical F: 3.1059	rs25c:LP-AN-TRM													Kelvin	:LP-AN-TRM:AE-H	g		rs25		pmagpy-4.2.69	rs25c
+														10.1016/j.epsl.2009.12.022:This study			Synthetic	Slag								Not Specified			Kelvin				rs25		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	rs25c
+0.0	1.206618	1.34595	0.290818	b	1.202563	0.3163601:0.34316683:0.34047312:0.019477207:-0.018121889:-0.008848608	6.0	0.0258	-1.0	ATRM	0.368112:242.7:36.1	0.325782:59.9:53.9	0.306106:151.7:1.3	This study	Critical F: 3.1059	rs25d:LP-AN-TRM													Kelvin	:LP-AN-TRM:AE-H	b		rs25		pmagpy-4.2.69	rs25d
+														10.1016/j.epsl.2009.12.022:This study			Synthetic	Slag								Not Specified			Kelvin				rs25		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	rs25d
+														10.1016/j.epsl.2009.12.022:This study			Synthetic	Slag								Not Specified			Kelvin				rs25		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	rs25e
+0.0	1.689563	0.178724	2.342166	b	1.160306	0.33127663:0.33091205:0.3378113:0.021999212:-0.009314966:0.00854376	6.0	0.017662	-1.0	ATRM	0.353115:225.5:2.4	0.342556:321.8:69.2	0.304329:314.5:-20.7	This study	Critical F: 3.1059	rs25e:LP-AN-TRM													Kelvin	:LP-AN-TRM:AE-H	b		rs25		pmagpy-4.2.69	rs25e
+														10.1016/j.epsl.2009.12.022:This study			Synthetic	Slag								Not Specified			Kelvin				rs26		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	rs26a
+0.0	1.050814	0.043429	1.65866	b	1.056036	0.33545765:0.32482955:0.33971283:0.0056758993:0.001548441:-0.0014894562	6.0	0.008531	-1.0	ATRM	0.340188:184.6:70.7	0.337674:25.9:18.0	0.322137:113.8:-6.5	This study	Critical F: 3.1059	rs26a:LP-AN-TRM													Kelvin	:LP-AN-TRM:AE-H	b		rs26		pmagpy-4.2.69	rs26a
+														10.1016/j.epsl.2009.12.022:This study			Synthetic	Slag								Not Specified			Kelvin				rs26		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	rs26b
+0.0	1.497568	1.223286	0.675536	b	1.130108	0.32994887:0.3373003:0.33275086:0.0155948615:-0.012766209:-0.00033669383	6.0	0.01498	-1.0	ATRM	0.354758:237.5:26.5	0.331327:6.6:51.7	0.313915:133.8:25.5	This study	Critical F: 3.1059	rs26b:LP-AN-TRM													Kelvin	:LP-AN-TRM:AE-H	b		rs26		pmagpy-4.2.69	rs26b
+														10.1016/j.epsl.2009.12.022:This study			Synthetic	Slag								Not Specified			Kelvin				rs26		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	rs26c
+0.0	1.185851	0.372378	1.186403	b	1.243802	0.30667198:0.3539205:0.33940756:0.026510015:0.0017454261:-0.0052762446	6.0	0.029835	-1.0	ATRM	0.365818:65.8:-1.2	0.340070:145.6:82.9	0.294112:155.9:-7.0	This study	Critical F: 3.1059	rs26c:LP-AN-TRM													Kelvin	:LP-AN-TRM:AE-H	b		rs26		pmagpy-4.2.69	rs26c
+0.0	6.012831	3.038006	4.5272	g	1.242962	0.32922265:0.3309213:0.33985597:-0.0067064785:-0.029773979:-0.018291978	6.0	0.013145	-1.0	ATRM	0.368119:245.1:50.8	0.335717:327.7:-6.0	0.296163:53.0:38.5	This study	Critical F: 3.1059	rs26d:LP-AN-TRM													Kelvin	:LP-AN-TRM:AE-H	g		rs26		pmagpy-4.2.69	rs26d
+														10.1016/j.epsl.2009.12.022:This study			Synthetic	Slag								Not Specified			Kelvin				rs26		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	rs26d
+0.0	1.645859	0.649166	1.462446	b	1.565534	0.3636011:0.2870169:0.34938198:0.03602306:-0.04634811:-0.014438142	6.0	0.050822	-1.0	ATRM	0.400911:214.2:36.4	0.343003:170.1:-44.3	0.256086:105.3:23.7	This study	Critical F: 3.1059	rs26e:LP-AN-TRM													Kelvin	:LP-AN-TRM:AE-H	b		rs26		pmagpy-4.2.69	rs26e
+														10.1016/j.epsl.2009.12.022:This study			Synthetic	Slag								Not Specified			Kelvin				rs26		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	rs26e
+0.0	1.547098	1.673532	0.404427	b	1.082469	0.32888263:0.33550128:0.33561605:0.0071361335:0.0053990614:0.009365299	6.0	0.009718	-1.0	ATRM	0.348100:47.5:39.6	0.330320:277.6:37.8	0.321580:343.4:-27.9	This study	Critical F: 3.1059	rs27a:LP-AN-TRM													Kelvin	:LP-AN-TRM:AE-H	b		rs27		pmagpy-4.2.69	rs27a
+														10.1016/j.epsl.2009.12.022:This study			Synthetic	Slag								Not Specified			Kelvin				rs27		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	rs27a
+														10.1016/j.epsl.2009.12.022:This study			Synthetic	Slag								Not Specified			Kelvin				rs27		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	rs27b
+0.0	0.344494	0.42736	0.059332	b	1.113265	0.32518032:0.3472922:0.32752746:-0.006572362:-0.012320141:-0.0021353292	6.0	0.028389	-1.0	ATRM	0.354091:101.0:-23.7	0.327844:351.3:-37.5	0.318065:35.3:43.1	This study	Critical F: 3.1059	rs27b:LP-AN-TRM													Kelvin	:LP-AN-TRM:AE-H	b		rs27		pmagpy-4.2.69	rs27b
+0.0	2.645385	1.24242	2.1018	b	1.160462	0.31230208:0.35136327:0.33633462:0.014357713:-0.004184573:-0.0007687569	6.0	0.013609	-1.0	ATRM	0.356936:72.0:-11.6	0.335483:66.1:78.4	0.307581:161.7:1.2	This study	Critical F: 3.1059	rs27c:LP-AN-TRM													Kelvin	:LP-AN-TRM:AE-H	b		rs27		pmagpy-4.2.69	rs27c
+														10.1016/j.epsl.2009.12.022:This study			Synthetic	Slag								Not Specified			Kelvin				rs27		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	rs27c
+														10.1016/j.epsl.2009.12.022:This study			Synthetic	Slag								Not Specified			Kelvin				rs27		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	rs27d
+0.0	19.70016	4.785153	21.912807	g	1.477066	0.372608:0.2849052:0.34248683:-0.03455518:-0.030369375:0.0025546206	6.0	0.012917	-1.0	ATRM	0.388477:336.5:17.4	0.348517:208.0:63.3	0.263006:73.0:19.6	This study	Critical F: 3.1059	rs27d:LP-AN-TRM													Kelvin	:LP-AN-TRM:AE-H	g		rs27		pmagpy-4.2.69	rs27d
+0.0	3.81003	0.335142	5.456472	g	1.167648	0.34152427:0.3242478:0.33422795:-0.01815103:-0.016351739:-0.007101778	6.0	0.012317	-1.0	ATRM	0.353619:322.0:13.0	0.343535:211.0:57.3	0.302847:59.5:29.4	This study	Critical F: 3.1059	rs27e:LP-AN-TRM													Kelvin	:LP-AN-TRM:AE-H	g		rs27		pmagpy-4.2.69	rs27e
+														10.1016/j.epsl.2009.12.022:This study			Synthetic	Slag								Not Specified			Kelvin				rs27		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	rs27e
+														10.1016/j.epsl.2009.12.022:This study			Synthetic	Slag								Not Specified			Kelvin				rs27		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	rs27f
+														10.1016/j.epsl.2009.12.022:This study			Synthetic	Slag								Not Specified			Kelvin				rs27		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	rs27g
+														10.1016/j.epsl.2009.12.022:This study			Synthetic	Slag								Not Specified			Kelvin				rs27		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	rs27h
+														10.1016/j.epsl.2009.12.022:This study			Synthetic	Slag								Not Specified			Kelvin				rs27		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	rs27i
+														10.1016/j.epsl.2009.12.022:This study			Synthetic	Slag								Not Specified			Kelvin				rs27		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	rs27j
+														This study															Kelvin		g		FreshTRM		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	sc02e1-CZb
+														This study															Kelvin		g		FreshTRM		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	sc03f-CZb
+														This study															Kelvin		g		FreshTRM		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	sc03h-CZb
+														This study															Kelvin		g		FreshTRM		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	sc06d-CZb
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				vm1a		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	vm1a
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				vm1c		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	vm1c
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				vm1dy		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	vm1dy
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				vm1f		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	vm1f
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				vm1g		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	vm1g
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				vm1hx		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	vm1hx
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				vm1i		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	vm1i
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				vm1kx		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	vm1kx
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				vm1mx		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	vm1mx
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				vm1my		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	vm1my
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				vm1nx		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	vm1nx
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				vm1o		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	vm1o
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				vm1q		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	vm1q
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				vm1ry		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	vm1ry
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				vm1s		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	vm1s
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				vm2ay		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	vm2ay
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				vm2by		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	vm2by
+														10.1029/2010JB007844:This study			Extrusive:Igneous	Lava flow								Basalt			Kelvin				vm2dy		pmagpy-4.2.69: thellier_gui.pmagpy-4.2.69	vm2dy
