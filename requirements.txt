@@ -3,3 +3,4 @@ scikit-learn==0.24.1
 pmagpy==4.2.78
 voila==0.2.7
 tornado==6.1
+matplotlib==3.3.3
