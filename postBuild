@@ -1,0 +1,2 @@
+#!/bin/bash
+python modules_and_scripts/compile_models.py
