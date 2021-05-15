@@ -853,7 +853,7 @@ class Specimen():
 
             #Find tangents to the circle:
             if tangent==True:
-                slope_ideal=-1/np.tan(np.median(fit['phi'][:,i]))/self.pTRMmax/self.NRM0
+                slope_ideal=-1/np.tan(np.median(fit['phi'][:,i]))/self.pTRMmax*self.NRM0
                 x_i=np.median(fit['dist_to_edge'][:,i])*np.cos(np.median(fit['phi'][:,i]))*self.pTRMmax/self.NRM0+minPTRM
                 y_i=np.median(fit['dist_to_edge'][:,i])*np.sin(np.median(fit['phi'][:,i]))+minNRM
 
@@ -1371,6 +1371,7 @@ def run_gui():
     -------
     None
     """
+    from ipyfilechooser import FileChooser
     def display_specimen_ring():
         """
         Displays a red circle around the currently selected
@@ -1604,7 +1605,7 @@ def run_gui():
         """
         global thellierData
         run_wid.description='Converting Data...'
-        thellierData=ThellierData(list(newfile_wid.value.keys())[0])
+        thellierData=ThellierData(newfile_wid.selected_filename)
         run_wid.description='Preparing GUI...'
         site_wid.options=thellierData.collections.keys()
         specimen_wid.options=thellierData[site_wid.value].specimens.keys()
@@ -1775,12 +1776,11 @@ def run_gui():
         style={"description_width":"initial"})
     save_wid=widgets.Button(description='Save Temperatures',disabled=True)
 
-    newfile_wid=widgets.FileUpload(description='Choose File',accept='.csv',
-                              style={"description_width":"initial"})
+    newfile_wid=FileChooser('.',description='Choose File',
+                              style={"description_width":"initial"},filter_pattern='*.csv')
     run_wid=widgets.Button(description='Start',
                                   style={"description_width":"initial"},disabled=True)
-
-    newfile_wid.observe(enablerun)
+    newfile_wid.register_callback(enablerun)
     figsave=widgets.Button(description='Save Figures',disabled=True)
     figchoice=widgets.Dropdown(options=['Specimen Plot','Site Plot'],layout=widgets.Layout(width='20%'))
     figformats=widgets.Dropdown(description='Format:',options=['pdf','png','jpg','svg','tiff'])

@@ -5,3 +5,4 @@ future
 pandas
 ipympl
 pystan==2.19
+ipyfilechooser
