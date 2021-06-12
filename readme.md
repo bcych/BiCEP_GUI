@@ -10,7 +10,7 @@
 
 - To use BiCEP GUI, we recommend using the Earthref jupyterhub at http://jupyterhub.earthref.org. To run the GUI from this site, first run the Bicep-GUI-Setup notebook by clicking on this and pressing the run button until you reach the end of the notebook. Note that this setup may take several minutes.
 
-![Run button in jupyterhub](https://raw.githubusercontent.com/bcych/BiCEP_GUI/master/readme-image/jupyterhub-run.png)
+![Run button in jupyterhub](readme-image/jupyterhub-run.png)
 
 - You will then have a directory called BiCEP_GUI in your jupyterhub. Navigate to this.
 
@@ -18,7 +18,7 @@
 
 - Upload your measurements.txt, specimens.txt, samples.txt and sites.txt files to the BiCEP_GUI directory using the upload button in jupyterhub.
 
-![Upload button in jupyterhub](https://raw.githubusercontent.com/bcych/BiCEP_GUI/master/readme-image/jupyterhub-upload.png)
+![Upload button in jupyterhub](readme-image/jupyterhub-upload.png)
 
 - If you encounter any problems using the jupyterhub site, try pressing "Control Panel" in the top right and "Stop My Server". You will then be offered the opportunity to restart your jupyterhub server.
 
@@ -26,41 +26,58 @@
 
 - To use BiCEP GUI on a local machine, you will need Anaconda python. Follow the install instructions at https://docs.anaconda.com/anaconda/install/
 
-- You will need several packages installed to use BiCEP GUI. At the command line, run `pip install pmagpy pystan sklearn ipympl voila tornado --upgrade` to install the required packages for BiCEP GUI. If you already have PmagP
-
 - Using the command line, navigate to the directory you want your BiCEP GUI folder to be in and clone using the command `git clone https://github.com/bcych/BiCEP_GUI`
 
-- Navigate to the newly created BiCEP_GUI directory, and run the "compile_models.py" python script. This compiles the pystan models as C++ code on your system. Note that if you are on Mac OS Catalina, this may not work if you are using bash as your shell, either switch to zsh or use the jupyterhub method.
+- Navigate to the newly created BiCEP_GUI directory and install the required python packages using the command `pip install requirements.txt`
+
+- Run the "compile_models.py" python script. This compiles the pystan models as C++ code on your system. Note that if you are on Mac OS Catalina, this may not work if you are using bash as your shell, either switch to zsh or use the jupyterhub method.
+
+- As an alternative to the previous two steps, you can install and compile the models by uncommenting and running the first cell in the notebook.
 
 - Before using BiCEP GUI on your own data, you will need to upload MagIC formatted files containing your paleointensity data. You create these files using pmag_gui, part of the PmagPy package. For help with this, see the tutorial at https://github.com/ltauxe/PmagPy_tutorials
 
 - Copy and paste your measurements.txt, specimens.txt, samples.txt and sites.txt files into the BiCEP_GUI directory.
 
+## Setup- Google Colab
+- Press the following button
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bcych/BiCEP_GUI/blob/master/BiCEP%20GUI.ipynb)
+
+- Upload your files to the notebook directory by pressing the "file" button to the left hand side, and then the "upload" button
+
+- Uncomment the first cell in the notebook and run it
+
+- Run remaining cells in the notebook to access the GUI.
+
 ## Using BiCEP GUI
 
 - Open the BiCEP GUI notebook in your folder. Press the "Appmode" button (or "Voila" button, located in the same place, if running on your own machine) to launch the GUI.
 
-![Upload button in jupyterhub](https://raw.githubusercontent.com/bcych/BiCEP_GUI/master/readme-image/jupyterhub-appmode.png)
+- Your MagIC data will automatically be converted to the BiCEP format. A logfile will be output to thellier_convert.log which you can check for errors.
+
+![Upload button in jupyterhub](readme-image/jupyterhub-appmode.png)
 
 - On launch you should have a GUI with the following layout:
 
-![GUI layout](https://raw.githubusercontent.com/bcych/BiCEP_GUI/master/readme-image/GUI_layout.png)
+![GUI layout](readme-image/GUI_layout.png)
 
-1. The Convert MagIC data button converts your measurements, sites, specimens files into a csv format that BiCEP_GUI uses, and calls it arai_data.csv. Paleointensity experiments where more than 25% of the NRM was remaining at the highest temperature step are not included in the new file, as it assumed that these are still being worked on. Anisotropy (TRM or ARM), Cooling Rate and Non Linear TRM corrections should be correctly implemented.
+On launch you should have a GUI with the above layout:
 
-2. File selection button. "Use new file" reads in your converted arai_data.csv file from step one. "Use example file" opens the example dataset used in Cych et al (in prep.). The example dataset is stored as arai_data_example.csv
+1. File selection button. Press select, choose your file, and press select again. Then press "Run" to import the data to the GUI. You cannot then select a new file.
 
-3. Site and specimen dropdowns. These dropdown menus allow you choose a particular paleointensity experiment.
+2. Site and specimen dropdowns. These dropdown menus allow you choose a particular paleointensity experiment.
 
-4. Minimum and maximum temperature steps (in Celcius) to use for the paleointensity experiment. We recommend using the Zijderveld plot (7.) to choose which set of temperatures to use. By default, we use all temperature steps to make a paleointensity estimate. Currently it is required to make an estimate for all specimens.
+3. Minimum and maximum temperature steps (in Celcius) to use for the paleointensity experiment. We recommend using the Zijderveld plot (7.) and pTRM checks to choose which set of temperatures to use. By default, we use all temperature steps to make a paleointensity estimate. Currently it is required to make an estimate for all specimens.
 
-5. Statistics about the direction and alteration of the ChRM used for paleointensity estimation. These may help with choosing which set of temperature steps to use. See the standard paleointensity definitons (Paterson et al, 2014, https://earthref.org/PmagPy/SPD/DL/SPD_v1.1.pdf).
+4. Statistics about the direction and alteration of the ChRM used for paleointensity estimation. These may help with choosing which set of temperature steps to use. See the standard paleointensity definitons (Paterson et al, 2014, https://earthref.org/PmagPy/SPD/DL/SPD_v1.1.pdf) for more information on these statistics. In addition to these statistics, we present the worst R_hat diagnostic for a specimen. If R_hat>1.1 or R_hat<0.9, it may indicate an issue with the sampler (see 13.). In this case, this box will show up as red, and the specimen may be excluded using the checkbox (8.))
 
-6. Arai plot with zero field first steps plotted as red circles, in field first steps plotted as blue circles, pTRM checks plotted as triangles, and pTRM tail checks plotted as squares. Additivity checks are not currently plotted. Circle fits from the BiCEP method will be plotted as green lines under the Arai plot after the site fit (9) has been performed. All plots can be rescaled using the "move" button (3rd symbol from the bottom on left side of plot) and right clicking and dragging, or the "zoom" button (2nd symbol from the bottom) and left clicking and dragging to zoom in, or right clicking and dragging to zoom out. The "home" button (second symbol from the top) resets the plot axis, as does changing the temperatures.
+4. Arai plot with zero field first steps plotted as red circles, in field first steps plotted as blue circles, pTRM checks plotted as triangles, and pTRM tail checks plotted as squares. Additivity checks are not currently plotted. Circle fits from the BiCEP method will be plotted as green lines under the Arai plot after the site fit (9) has been performed. All plots can be rescaled using the "move" button (3rd symbol from the bottom on left side of plot) and right clicking and dragging, or the "zoom" button (2nd symbol from the bottom) and left clicking and dragging to zoom in, or right clicking and dragging to zoom out. The "home" button (second symbol from the top) resets the plot axis, as does changing the temperatures.
 
-7. Zijderveld plot of the data, with x,y plotted as black circles and x,z plotted as red squares.
+5. Zijderveld plot of the data, with x,y plotted as black circles and x,z plotted as red squares.
 
-8. "Save Temperatures" button saves the temperatures used for that specimen to RAM and also to file. This must be done for each specimen individually before switching to another one. By default, all temperature steps are used for every specimen.
+7. Saves the temperatures used for that specimen to RAM. This must be done for each specimen individually to change temperatures before running the sampler (9.). By default, all temperature steps are used for every specimen.
+
+8. Checkbox for excluding a specimen. This should only be done if there is no reasonable interpretation of the specimen (e.g. alteration at low temperature, not demagnetizing to the origin).
 
 9. The "Process Site Data" button performs the BiCEP method on that site and calculates the site level paleointensity. Depending on the speed of your computer and the sampler parameters used (10), this may take a while to run, especially for sites with many specimens. Please be patient.
 
@@ -70,7 +87,7 @@
 
 12. Histogram of the site level paleointensities sampled from the posterior distribution. This corresponds to the distribution of intercepts of the blue lines in (12.).
 
-13. Diagnostics for the MCMC sampler (see Cych et al, in prep. or the Stan Documentation at https://mc-stan.org/docs/2_26/reference-manual/notation-for-samples-chains-and-draws.html, https://mc-stan.org/docs/2_26/reference-manual/effective-sample-size-section.html). 0.9<R_hat<1.1 and n_eff>1000 is desired, with R_hat=1.00 and n_eff>10000 being ideal. Tweak the sampler parameters (10.) or measure more specimens if these parameters give poor results (indicated by an amber color for n_eff<1000 or a red color for bad R_hat). Also displayed here is the 95% credible interval for the site.
+13. Diagnostics for the MCMC sampler (see Cych et al, in prep. or the Stan Documentation at https://mc-stan.org/docs/2_26/reference-manual/notation-for-samples-chains-and-draws.html, https://mc-stan.org/docs/2_26/reference-manual/effective-sample-size-section.html). 0.9<R_hat<1.1 and n_eff>1000 is desired, with R_hat=1.00 and n_eff>10000 being ideal. Tweak the sampler parameters (10.) or measure more specimens if these parameters give poor results (indicated by an amber color for n_eff<1000 or a red color for bad R_hat). Also displayed here is the 95% credible interval for the site and the Category (see Cych et al once again for an explanation). The color of the category box indicates how to proceed. Green (Category A or B): accept site, Amber (Category C or D): measure more specimens, Red (Category D): ignore site.
 
 14. Saves figures to file. Currently the Zijderveld plot and Arai plot have to be saved together (as do both site plots).
 

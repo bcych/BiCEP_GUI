@@ -1,4 +1,5 @@
 import pandas as pd
+import pandas as pd
 from importlib import reload # allows reloading of modules
 import numpy as np
 import matplotlib.pyplot as plt
@@ -19,17 +20,32 @@ import scipy as scipy
 import pickle
 from sklearn.decomposition import PCA
 from scipy.optimize import curve_fit
+import sys
 
-#The sortarai function from pmagpy, this will soon be modified so that additivity checks work.
 model_circle_fast=pickle.load(open('model_circle_fast.pkl','rb'))
 model_circle_slow=pickle.load(open('model_circle_slow.pkl','rb'))
 
-def get_mad(IZZI):
-    """Calculates the free Maximum Angle of Deviation (MAD) of Kirshvink et al (1980)"""
-    pca=PCA(n_components=3)
-    fit=pca.fit(IZZI.loc[:,'NRM_x':'NRM_z'].values).explained_variance_
-    MAD=np.degrees(np.arctan(np.sqrt((fit[2]+fit[1])/(fit[0]))))
-    return MAD
+def sufficient_statistics(ptrm, nrm):
+    """
+    inputs list of ptrm and nrm data and computes sufficent statistcs needed
+    for computations
+
+    Inputs
+    ------
+    ptrm: list
+    list of ptrm data
+
+    nrm: list
+    list of nrm data
+
+    Returns
+    -------
+    dict containing mean ptrm and nrm, and covariances in xx, xy and yy.
+    """
+
+    corr = np.cov( np.stack((ptrm, nrm), axis=0) )
+
+    return {'xbar': np.mean(ptrm), 'ybar': np.mean(nrm), 'S2xx': corr[0,0], 'S2yy': corr[1,1], 'S2xy': corr[0,1] }
 
 def TaubinSVD(x,y):
     """
@@ -68,28 +84,136 @@ def TaubinSVD(x,y):
     for i in list(range(0,len(Xprime)-1)):
         errors.append((np.sqrt((Xprime[i]-a)**2+(Yprime[i]-b)**2)-r)**2)
     sigma=np.sqrt((sum(errors))/(len(Xprime)-1))
-
-
     return a,b,r,sigma
+
+def bestfit_line(ptrm, nrm):
+    """
+    Returns the slope and intercept of the best fit line to a set of
+    pTRM and NRM data using York Regression
+
+    Inputs
+    ------
+    ptrm: list or array
+    list of pTRM data
+
+    nrm: list or array
+    list of NRM data
+
+    Returns
+    -------
+    dictionary of slope and intercept for best fitting line.
+    """
+    stat = sufficient_statistics(ptrm, nrm)
+
+    w = .5*(stat['S2xx'] - stat['S2yy'])/stat['S2xy']
+    m = -w-np.sqrt(w**2+1)
+    b = stat['ybar']-m*stat['xbar']
+    return {'slope': m, 'intercept': b }
 
 def get_drat(IZZI,IZZI_trunc,P):
     """Calculates the difference ratio (DRAT) of pTRM checks
-    (Selkin and Tauxe, 2000) to check for alteration"""
-    IZZI_reduced=IZZI[IZZI.temp_step.isin(P.temp_step)]
-    a=np.sum((IZZI_trunc.PTRM-np.mean(IZZI_trunc.PTRM))*(IZZI_trunc.NRM-np.mean(IZZI_trunc.NRM)))
-    b=a/np.abs(a)*np.sqrt(np.sum((IZZI_trunc.NRM-np.mean(IZZI_trunc.NRM))**2)/np.sum((IZZI_trunc.PTRM-np.mean(IZZI_trunc.PTRM))**2))
-    yint=np.mean(IZZI_trunc.NRM)-b*np.mean(IZZI_trunc.PTRM)
-    line={'slope':b,'intercept':yint}
+    (Selkin and Tauxe, 2000) to check for alteration
 
-    xprime=0.5*(IZZI_trunc.PTRM+(IZZI_trunc.NRM-line['intercept'])/line['slope'])
-    yprime=0.5*(IZZI_trunc.NRM+line['slope']*IZZI_trunc.PTRM+line['intercept'])
-    scalefactor=np.sqrt((min(xprime)-max(xprime))**2+(min(yprime)-max(yprime))**2)
-    absdiff=max(np.abs(P.PTRM.values-IZZI_reduced.PTRM.values)/scalefactor)*100
-    return(absdiff)
+    Inputs
+    ------
+    IZZI: pandas.DataFrame
+    DataFrame object in BiCEP format of all in field and
+    zero field measurements for a specimen.
+
+    IZZI_trunc: pandas.DataFrame
+    DataFrame object- same as IZZI but truncated only for temperatures
+    used in interpretation
+
+    P: pandas.DataFrame
+    DataFrame object containing pTRM checks up to the
+    maximum temperature of an interpretation
+
+    Returns
+    -------
+    absdiff: float
+    maximum DRAT for all pTRM check measurements.
+    returns zero if the interpretation is not valid.
+    """
+    try:
+        IZZI_reduced=IZZI[IZZI.temp_step.isin(P.temp_step)]
+        a=np.sum((IZZI_trunc.PTRM-np.mean(IZZI_trunc.PTRM))*(IZZI_trunc.NRM-np.mean(IZZI_trunc.NRM)))
+        b=a/np.abs(a)*np.sqrt(np.sum((IZZI_trunc.NRM-np.mean(IZZI_trunc.NRM))**2)/np.sum((IZZI_trunc.PTRM-np.mean(IZZI_trunc.PTRM))**2))
+        yint=np.mean(IZZI_trunc.NRM)-b*np.mean(IZZI_trunc.PTRM)
+        line={'slope':b,'intercept':yint}
+
+        xprime=0.5*(IZZI_trunc.PTRM+(IZZI_trunc.NRM-line['intercept'])/line['slope'])
+        yprime=0.5*(IZZI_trunc.NRM+line['slope']*IZZI_trunc.PTRM+line['intercept'])
+        scalefactor=np.sqrt((min(xprime)-max(xprime))**2+(min(yprime)-max(yprime))**2)
+        absdiff=max(np.abs(P.PTRM.values-IZZI_reduced.PTRM.values)/scalefactor)*100
+        return(absdiff)
+    except:
+        return 0
+
+def get_mad(IZZI,pca):
+    """
+    Calculates the free Maximum Angle of Deviation (MAD) of Kirshvink et al (1980)
+
+    Inputs
+    ------
+    IZZI: pandas.DataFrame
+    DataFrame object in BiCEP format of in field and
+    zero field measurements for a specimen (interpretation).
+
+    pca: scikitlearn.decomposition.PCA object
+    pca used to fit the vector direction.
+
+    Returns
+    -------
+    mad: float
+    maximum angle of deviation for that intepretation
+    """
+    try:
+        fit=pca.fit(IZZI.loc[:,'NRM_x':'NRM_z'].values).explained_variance_
+        return np.degrees(np.arctan(np.sqrt((fit[2]+fit[1])/(fit[0]))))
+    except:
+        return 0
+def get_dang(NRM_trunc_dirs,pca):
+    """
+    Calculates the Deviation Angle
+    Inputs
+    ------
+    NRM_trunc_dirs: numpy.ndarray
+    Vector directions for zero field measurements for specimen
+
+    pca: scikitlearn.decomposition.PCA object
+    pca used to fit the vector direction.
+
+    Returns
+    -------
+    dang: float
+    deviation angle for that intepretation
+    """
+    try:
+        length, vector=pca.explained_variance_[0], pca.components_[0]
+        NRM_vect=np.mean(NRM_trunc_dirs,axis=0)
+        NRM_mean_magn=np.sqrt(sum(NRM_vect**2))
+        vector_magn=np.sqrt(sum(vector**2))
+        return(np.degrees(np.arccos(np.abs(np.dot(NRM_vect,vector)/(NRM_mean_magn*vector_magn)))))
+    except:
+        return(0)
+
 
 def calculate_anisotropy_correction(IZZI):
-    """Calculates anisotropy correction factor for a
-    paleointensity interpretation, given an s tensor"""
+    """
+    Calculates anisotropy correction factor for a
+    paleointensity interpretation, given an s tensor
+
+    Inputs
+    ------
+    IZZI: pandas.DataFrame
+    DataFrame object in BiCEP format of in field and
+    zero field measurements for a specimen (interpretation).
+
+    Returns
+    -------
+    c: float
+    Anisotropy correction factor
+    """
 
     #Convert the s tensor into a numpy array
     strlist=IZZI['s_tensor'].iloc[0].split(':')
@@ -114,7 +238,25 @@ def calculate_anisotropy_correction(IZZI):
     return(c)
 
 def calculate_NLT_correction(IZZI,c):
-    """Calculates the correction for non linear TRM for a paleointensity interpretation, given the anisotropy and cooling rate corrections"""
+    """
+    Calculates the correction for non linear TRM for a paleointensity interpretation,
+    given the anisotropy and cooling rate corrections
+
+    Inputs
+    ------
+    IZZI: pandas.DataFrame
+    DataFrame object in BiCEP format of in field and
+    zero field measurements for a specimen (interpretation).
+
+    c: float
+    Combined Anisotropy and Cooling Rate correction-
+    needed because the nonlinearity is applied after this.
+
+    Returns
+    -------
+    c: float
+    NLT correction factor
+    """
     a=np.sum((IZZI.PTRM-np.mean(IZZI.PTRM))*(IZZI.NRM-np.mean(IZZI.NRM)))
     b=a/np.abs(a)*np.sqrt(np.sum((IZZI.NRM-np.mean(IZZI.NRM))**2)/np.sum((IZZI.PTRM-np.mean(IZZI.PTRM))**2))
     beta=IZZI['NLT_beta'].iloc[0]
@@ -123,164 +265,609 @@ def calculate_NLT_correction(IZZI,c):
     total_correction=(np.arctanh(correction*np.abs(b)*np.tanh(beta*B_lab)))/(np.abs(b)*beta*B_lab)
     return(total_correction)
 
-def prep_data_for_fitting(IZZI_filtered,IZZI_original):
-    """Returns the needed data for a paleointensity interpretation to perform the BiCEP method (Cych et al, in prep.), calculates all corrections for a specimen"""
 
-    specimen=IZZI_original.specimen.iloc[0] #Specimen name
-    methcodes='' #String For Method Codes
-    extracolumnsdict={} #Extra Column Information for MagIC export (corrections)
+class ThellierData():
+    """
+    Class which supports several methods using the BiCEP method in pandas.
+    Inputs
+    ------
+    datafile: string for file name in BiCEP format
+    """
 
-    #Calculate Anisotropy Correction:
-    if len(IZZI_original.dropna(subset=['s_tensor']))>0:
-        c=calculate_anisotropy_correction(IZZI_filtered)
-        extracolumnsdict['int_corr_aniso']=c
-        #Get method code depending on anisotropy type (AARM or ATRM)
-        methcodes+=IZZI_original['aniso_type'].iloc[0]
-    else:
-        c=1
+    def __init__(self,datafile):
+        self.data=pd.read_csv(datafile)
+        self.groupType='site'
+        self.collections={siteName:SpecimenCollection(self,siteName,self.groupType) for siteName in self.data[self.groupType].unique()}
 
-    #Get Cooling Rate Correction
-    if IZZI_original.correction.iloc[0]!=1:
-        methcodes+=':DA-CR-TRM' #method code for cooling rate correction
-        extracolumnsdict['int_corr_cooling_rate']=IZZI_original.correction.iloc[0]
+    def __repr__(self):
+        reprstr='Set of Thellier Data Containing the '+'S'+self.groupType[1:]+'s:\n'
+        for key in self.collections.keys():
+            reprstr+= key+'\t('+str(len(self.collections[key].specimens))+' specimens)\n'
+        return(reprstr)
+    def __getitem__(self,item):
+        return(self.collections[item])
 
-
-    #Calculate nonlinear TRM Correction
-    if len(IZZI_original.dropna(subset=['NLT_beta']))>0:
-        methcodes+=':DA-NL' #method code for nonlinear TRM correction
-        total_correction=calculate_NLT_correction(IZZI_filtered,c) #total correction (combination of all three corrections)
-        extracolumnsdict['int_corr_nlt']=total_correction/(c*IZZI_original.correction.iloc[0]) #NLT correction is total correction/original correction.
-    else:
-        total_correction=c*IZZI_original.correction.iloc[0]
-
-    #Converting Arai plot data to useable form
-    NRM0=IZZI_original.NRM.iloc[0]
-    NRMS=IZZI_filtered.NRM.values/NRM0
-    PTRMS=IZZI_filtered.PTRM.values/NRM0/total_correction #We divide our pTRMs by the total correction, because we scale the pTRM values so that the maximum pTRM is one, this doesn't affect the fit and just gets scaled back when converting the circle tangent slopes back to intensities as would be expected, but it's easier to apply this here.
-
-    PTRMmax=max(IZZI_original.PTRM/NRM0/total_correction) #We scale by our maximum pTRM to perform the circle fit.
-    line=bestfit_line(IZZI_original.PTRM/NRM0/total_correction,IZZI_original.NRM/NRM0) #best fitting line to the pTRMs
-    scale=np.sqrt((line['intercept']/line['slope'])**2+(line['intercept'])**2) #Flag- is this ever used?
-
-    PTRMS=PTRMS/PTRMmax  #Scales the pTRMs so the maximum pTRM is one
-
-    #We subtract the minimum pTRM and NRM to maintain aspect ratio and make circle fitting easier.
-    minPTRM=min(PTRMS)
-    minNRM=min(NRMS)
-    PTRMS=PTRMS-minPTRM
-    NRMS=NRMS-minNRM
-
-    #We perform the Taubin least squares circle fit to get values close to the Bayesian maximum likelihood to initialize our MCMC sampler at, this makes sampling a lot easier than initializing at a random point (which may have infinitely low probability).
-
-    x_c,y_c,R,sigma=TaubinSVD(PTRMS,NRMS) #Calculate x_c,y_c and R
-    dist_to_edge=abs(np.sqrt(x_c**2+y_c**2)-R) #Calculate D (dist_to_edge)
-    phi=np.radians(np.degrees(np.arctan(y_c/x_c))%180)
-    #Calculate (and ensure the sign of) k
-    if y_c<0:
-        k=-1/R
-    else:
-        k=1/R
-
-    B_lab=IZZI_filtered.B_lab.unique()[0]*1e6
-
-    return(scale,minPTRM,minNRM,PTRMmax,k,phi,dist_to_edge,sigma,PTRMS,NRMS,B_lab,methcodes,extracolumnsdict)
-
-
-def BiCEP_fit(specimenlist,temperatures=None,n_samples=30000,priorstd=20,model=None,**kwargs):
-    minPTRMs=[]
-    minNRMs=[]
-    IZZI_list=[]
-    B_lab_list=[]
-    klist=[]
-    NRM0s=[]
-    pTRMsList=np.array([])
-    NRMsList=np.array([])
-    lengths=[]
-    philist=[]
-    dist_to_edgelist=[]
-    B_ancs=[]
-    dmaxlist=[]
-    PTRMmaxlist=[]
-    centroidlist=[]
-    spec_old=''
-    newmethcodes={}
-    newcolumns={}
-    i=0
-    for specimen in specimenlist:
-        if spec_old==specimen:
-            i+=1
+    def switch_grouping(self):
+        if self.groupType=='site':
+            self.groupType='sample'
         else:
-            i=0
-        spec_old=specimen
-        IZZI_original=temps[(temps.specimen==specimen)&((temps.steptype=='IZ')|(temps.steptype=="ZI"))]
-        if temperatures==None:
-            IZZI_filtered=IZZI_original
+            self.groupType='site'
+        self.collections={siteName:SpecimenCollection(self,siteName,self.groupType) for siteName in self.data[self.groupType.unique()]}
+
+
+
+class SpecimenCollection():
+    """
+    Collection of specimens (site or sample, from ThellierData Dataset)
+
+    Parameters
+    ----------
+
+    parentData: ThellierData object
+    Set of Thellier Data the site/sample is derived from
+
+    collectionName: string
+    Name of specimen/site
+
+    key: string
+    Either 'site' for site or 'sample' for sample
+    """
+
+    def __init__(self,parentData,collectionName,key):
+        self.name=collectionName
+        self.key=key
+        self.data=parentData.data[parentData.data[self.key]==collectionName]
+        self.specimens={specimenName:Specimen(self,specimenName) for specimenName in self.data.specimen.unique()}
+        self.fit=None
+        self.methcodes='IE-BICEP'
+        self.artist=None
+
+
+    def __repr__(self):
+        reprstr='Site containing the specimens:\n'
+        for specimenName in self.specimens.keys():
+            reprstr+=specimenName+'\n'
+        return(reprstr)
+
+    def __getitem__(self,item):
+        return(self.specimens[item])
+
+
+    def BiCEP_fit(self,n_samples=30000,priorstd=5,model=None,**kwargs):
+        """
+        Performs the fitting routine using the BiCEP method for a given list of specimens from a single site.
+        Inputs
+        ------
+        Specimenlist: iterable of specimen names (strings)
+
+        """
+        minPTRMs=[]
+        minNRMs=[]
+        B_lab_list=[]
+        klist=[]
+        NRM0s=[]
+        pTRMsList=np.array([])
+        NRMsList=np.array([])
+        lengths=[]
+        philist=[]
+        dist_to_edgelist=[]
+        B_ancs=[]
+        dmaxlist=[]
+        PTRMmaxlist=[]
+        centroidlist=[]
+        i=0
+        #try:
+        for specimen in self.specimens.values():
+            if specimen.active==True:
+                specimen.save_changes()
+                minPTRM,minNRM,PTRMmax,k,phi,dist_to_edge,sigma,PTRMS,NRMS=specimen.BiCEP_prep()
+                NRM0=specimen.NRM0
+                minPTRMs.append(minPTRM)
+                minNRMs.append(minNRM)
+                line=bestfit_line(specimen.IZZI_trunc.PTRM,specimen.IZZI_trunc.NRM)
+                B_anc=-line['slope']*specimen.B_lab*specimen.IZZI_trunc.correction.iloc[0]
+                B_ancs.append(B_anc)
+                Pi,Pj=np.meshgrid(PTRMS,PTRMS)
+                Ni,Nj=np.meshgrid(NRMS,NRMS)
+                dmax=np.amax(np.sqrt((Pi-Pj)**2+(Ni-Nj)**2))
+                centroid=np.sqrt(np.mean(PTRMS)**2+np.mean(NRMS)**2)
+                B_lab_list.append(specimen.B_lab)
+                klist.append(k)
+                philist.append(phi)
+                dist_to_edgelist.append(dist_to_edge)
+                NRM0s.append(NRM0)
+                pTRMsList=np.append(pTRMsList,PTRMS)
+                NRMsList=np.append(NRMsList,NRMS)
+                lengths.append(int(len(PTRMS)))
+                dmaxlist.append(dmax)
+                PTRMmaxlist.append(PTRMmax)
+                centroidlist.append(centroid)
+
+        if model==None:
+            if len(specimenlist)<7:
+                model_circle=model_circle_slow
+            else:
+                model_circle=model_circle_fast
         else:
-            IZZI_filtered=IZZI_original[(IZZI_original.temp_step>=temperatures[specimen][i,0])&(IZZI_original.temp_step<=temperatures[specimen][i,1])]
+            model_circle=model
+        fit_circle=model_circle.sampling (
+            data={'I':len(pTRMsList),'M':len(lengths),'PTRM':pTRMsList,'NRM':NRMsList,'N':lengths,'PTRMmax':PTRMmaxlist,'B_labs':B_lab_list,'dmax':np.sqrt(dmaxlist),'centroid':centroidlist,'priorstd':priorstd},iter=n_samples,warmup=int(n_samples/2),
+            init=[{'k_scale':np.array(klist)*np.array(dist_to_edgelist),'phi':philist,'dist_to_edge':dist_to_edgelist,'int_real':B_ancs}]*4,**kwargs)
+        self.fit=fit_circle
+        #except:
+            #print('Something went wrong trying to do the BiCEP fit, try changing your temperature range')
 
+    def save_magic_tables(self):
+        """
+        Saves data from the currently displayed site to the GUI
 
-        scale,minPTRM,minNRM,PTRMmax,k,phi,dist_to_edge,sigma,PTRMS,NRMS,B_lab,methcodestr,extracolumnsdict=prep_data_for_fitting(IZZI_filtered,IZZI_original)
-        newcolumns[specimen]=extracolumnsdict
-        newmethcodes[specimen]=methcodestr
+        Inputs
+        ------
+        None
 
-        if len(IZZI_filtered)<=3:
-            print('Specimen Rejected- Too Few Points to make an interpretation')
-        NRM0=IZZI_filtered.NRM.iloc[0]
-        minPTRMs.append(minPTRM)
-        minNRMs.append(minNRM)
-        line=bestfit_line(IZZI_filtered.PTRM,IZZI_filtered.NRM)
-        B_anc=-line['slope']*B_lab*IZZI_filtered.correction.iloc[0]
-        B_ancs.append(B_anc)
-        Pi,Pj=np.meshgrid(PTRMS,PTRMS)
-        Ni,Nj=np.meshgrid(NRMS,NRMS)
-        dmax=np.amax(np.sqrt((Pi-Pj)**2+(Ni-Nj)**2))
-        centroid=np.sqrt(np.mean(PTRMS)**2+np.mean(NRMS)**2)
-        IZZI_list.append(IZZI_filtered)
-        B_lab_list.append(B_lab)
-        klist.append(k)
-        philist.append(phi)
-        dist_to_edgelist.append(dist_to_edge)
-        NRM0s.append(NRM0)
-        pTRMsList=np.append(pTRMsList,PTRMS)
-        NRMsList=np.append(NRMsList,NRMS)
-        lengths.append(int(len(PTRMS)))
-        dmaxlist.append(dmax)
-        PTRMmaxlist.append(PTRMmax)
-        centroidlist.append(centroid)
-    if model==None:
-        if len(specimenlist)<7:
-            model_circle=model_circle_slow
+        Returns
+        -------
+        None
+        """
+        fit=self.fit
+        sitestable=pd.read_csv(self.key+'s.txt',skiprows=1,sep='\t')
+        sitestable.loc[sitestable[self.key]==self.name,'int_abs_min']=round(np.percentile(fit['int_site'],2.5),1)/1e6
+        sitestable.loc[sitestable[self.key]==self.name,'int_abs_max']=round(np.percentile(fit['int_site'],97.5),1)/1e6
+        sitestable.loc[sitestable[self.key]==self.name,'int_abs']=round(np.percentile(fit['int_site'],50),1)/1e6
+        specimenstable=pd.read_csv('specimens.txt',skiprows=1,sep='\t')
+        speclist=[spec for spec in self.specimens.keys() if self.specimens[spec].active==True]
+        for i in range(len(speclist)):
+
+            specimen=speclist[i]
+            specfilter=(~specimenstable.method_codes.str.contains('LP-AN').fillna(False))&(specimenstable.specimen==specimen)
+            specimenstable.loc[specfilter,'int_abs_min']=round(np.percentile(fit['int_real'][:,i],2.5),1)/1e6
+            specimenstable.loc[specfilter,'int_abs_max']=round(np.percentile(fit['int_real'][:,i],97.5),1)/1e6
+            specimenstable.loc[specfilter,'int_abs']=round(np.percentile(fit['int_real'][:,i],50),1)/1e6
+            specimenstable.loc[specfilter,'int_k_min']=round(np.percentile(fit['k'][:,i],2.5),3)
+            specimenstable.loc[specfilter,'int_k_max']=round(np.percentile(fit['k'][:,i],97.5),3)
+            specimenstable.loc[specfilter,'int_k']=round(np.percentile(fit['k'][:,i],50),3)
+            specimenstable.loc[specfilter,'meas_step_min']=self[specimen].savedLowerTemp
+            specimenstable.loc[specfilter,'meas_step_max']=self[specimen].savedUpperTemp
+            method_codes=self[specimen].methcodes.split(':')
+            method_codes=list(set(method_codes))
+            newstr=''
+            for code in method_codes[:-1]:
+                newstr+=code
+                newstr+=':'
+            newstr+=method_codes[-1]
+            specimenstable.loc[specfilter,'method_codes']=self[specimen].methcodes
+
+            extra_columns=self[specimen].extracolumnsdict
+            for col in extra_columns.keys():
+                specimenstable.loc[specfilter,col]=extra_columns[col]
+        sitestable.loc[sitestable.site==self.name,'method_codes']=self.methcodes
+        specimenstable['meas_step_unit']='Kelvin'
+        sitestable=sitestable.fillna('')
+        specimenstable=specimenstable.fillna('')
+        sitesdict=sitestable.to_dict('records')
+        specimensdict=specimenstable.to_dict('records')
+        pmag.magic_write('sites.txt',sitesdict,'sites')
+        pmag.magic_write('specimens.txt',specimensdict,'specimens')
+
+    def regplot(self,ax,legend=False,title=None):
+        """
+        Plots B vs k for all specimens in a site given a BiCEP or unpooled fit
+
+        Inputs
+        ------
+        ax: matplotlib axis
+        axes to plot to
+
+        legend: bool
+        If set to True, plots a legend
+
+        title: str
+        Title for plot. Does not plot title if set to None.
+        """
+        B_lab_list=[]
+        for specimen in self.specimens.values():
+            B_lab_list.append(specimen.B_lab)
+        try:
+            Bs=self.fit['int_real']
+            ks=self.fit['k']
+            mink,maxk=np.amin(ks),np.amax(ks)
+            minB,maxB=self.fit['c']*mink+self.fit['int_site'],self.fit['c']*maxk+self.fit['int_site']
+            c=np.random.choice(range(len(minB)),100)
+            ax.plot([mink,maxk],[minB[c],maxB[c]],color='skyblue',alpha=0.12)
+        except:
+            Bs=self.fit['slope']*np.array(B_lab_list).T
+            ks=self.fit['k']
+        ax.set_xlabel(r'$\vec{k}$');
+        ax.plot(np.percentile(ks,(2.5,97.5),axis=0),[np.median(Bs,axis=0),np.median(Bs,axis=0)],'k')
+        ax.plot([np.median(ks,axis=0),np.median(ks,axis=0)],np.percentile(Bs,(2.5,97.5),axis=0),'k')
+        ax.plot(np.median(ks,axis=0),np.median(Bs,axis=0),'o',markerfacecolor='lightgreen',markeredgecolor='k')
+        ax.axvline(0,color='k',linewidth=1)
+        if title!=None:
+            ax.set_title(title,fontsize=20,loc='left')
+
+    def get_specimen_rhats(self):
+        """
+        Finds the worst Rhat va; for each specimen and assigns it to that specimen
+        """
+        rhats=self.fit.summary()['summary'][:,-1]
+        rhat_params=self.fit.summary()['summary_rownames']
+        specimenlist=[specimen for specimen in self.specimens.values()]
+        for i in list(range(len(specimenlist))):
+            rhats_specimen=rhats[np.char.find(rhat_params,'['+str(i+1)+']')!=-1]
+            worst_rhat_specimen=rhats_specimen[np.abs(rhats_specimen-1)==max(np.abs(rhats_specimen-1))][0]
+            specimenlist[i].rhat=worst_rhat_specimen
+
+    def histplot(self,ax,**kwargs):
+        """
+        Plots a histogram of the site level paleointensity estimate.
+
+        Inputs
+        ------
+        **kwargs:
+        arguments to be passed to the histogram plot
+
+        Returns
+        -------
+        None
+        """
+        ax.hist(self.fit['int_site'],bins=100,color='skyblue',density=True)
+        minB,maxB=np.percentile(self.fit['int_site'],(2.5,97.5))
+        ax.plot([minB,maxB],[0,0],'k',linewidth=4)
+        ax.set_xlabel('Intensity ($\mu$T)')
+        ax.set_ylabel('Probability Density')
+class Specimen():
+    """
+    Specimen from a given site or sample SpecimenCollection object.
+
+    Parameters
+    ----------
+
+    parentCollection: SpecimenCollection object
+    Site/Sample the specimen is derived from.
+
+    specimenName: string
+    Name of specimen
+    """
+    def __init__(self,parentCollection,specimenName):
+
+        #Inherent properties
+        self.parentCollection=parentCollection #Site or sample this specimen belongs to
+        self.name=specimenName
+        self.data=parentCollection.data[parentCollection.data.specimen==specimenName]
+        self.active=True #Used for BiCEP GUI- set to false if specimen excluded from analysis
+        self.methcodes='IE-BICEP' #Appended to when saving.
+        self.extracolumnsdict={} #Extra columns for e.g. corrections
+        self.rhat=1.
+
+        #Important constants for the specimen
+        self.B_lab=self.data.B_lab.iloc[0]*1e6
+        self.NRM0=self.data.NRM.iloc[0]
+        self.pTRMmax=max(self.data.PTRM)
+        self.temps=self.data.temp_step.unique()
+
+        #Interpretation temperatures
+        self.lowerTemp=min(self.temps)
+        self.upperTemp=max(self.temps)
+
+        #Saved interpretation temperatures- these are saved when the BiCEP_fit method is run.
+        self.savedLowerTemp=min(self.temps)
+        self.savedUpperTemp=max(self.temps)
+
+        #Definitions of Thellier Experiment Measurements (for plotting)
+        self.IZZI=self.data[(self.data.steptype=='IZ')|(self.data.steptype=='ZI')]
+        self.P=self.data[self.data.steptype=='P']
+        self.T=self.data[self.data.steptype=='T']
+        self.IZZI_trunc=self.IZZI[(self.IZZI.temp_step>=self.lowerTemp)&(self.IZZI.temp_step<=self.upperTemp)]
+        self.IZ=self.IZZI_trunc[self.IZZI_trunc.steptype=='IZ']
+        self.ZI=self.IZZI_trunc[self.IZZI_trunc.steptype=='ZI']
+        self.saved_IZZI_trunc=self.IZZI[(self.IZZI.temp_step>=self.lowerTemp)&(self.IZZI.temp_step<=self.upperTemp)]
+        self.saved_IZ=self.saved_IZZI_trunc[self.IZZI_trunc.steptype=='IZ']
+        self.saved_ZI=self.saved_IZZI_trunc[self.IZZI_trunc.steptype=='ZI']
+
+        #Definitions of Zijderveld Measurements (for plotting)
+        self.NRM_dirs=self.IZZI.loc[:,'NRM_x':'NRM_z'].values
+        self.NRM_trunc_dirs=self.IZZI_trunc.loc[:,'NRM_x':'NRM_z'].values
+
+        #SPD parameters/PCA fit to direction
+        self.drat=get_drat(self.IZZI,self.IZZI_trunc,self.P[(self.P.temp_step<=self.upperTemp)].iloc[:-1])
+        pca=PCA(n_components=3)
+        try:
+            self.pca=pca.fit(self.NRM_trunc_dirs)
+        except:
+            self.pca=pca.fit(self.NRM_dirs)
+        self.mad=get_mad(self.IZZI_trunc,self.pca)
+        self.dang=get_dang(self.NRM_trunc_dirs,self.pca)
+
+    def __repr__(self):
+        return('Specimen '+self.name+'in '+self.parentCollection.key+' '+self.parentCollection.name)
+
+    def change_temps(self,lowerTemp,upperTemp):
+        """
+        Changes temperature range (interpretation for specimen).
+        Recalculates SPD statistic and PCA for said specimen.
+
+        Inputs
+        ------
+        lowerTemp: float
+        Lower temperature (inclusive) for interpretation
+
+        upperTemp: float
+        Upper temperature (inclusive) for interpretation
+
+        Returns
+        -------
+        None
+        """
+        self.lowerTemp=lowerTemp
+        self.upperTemp=upperTemp
+        self.IZZI_trunc=self.IZZI[(self.IZZI.temp_step>=self.lowerTemp)&(self.IZZI.temp_step<=self.upperTemp)]
+        self.IZ=self.IZZI_trunc[self.IZZI_trunc.steptype=='IZ']
+        self.ZI=self.IZZI_trunc[self.IZZI_trunc.steptype=='ZI']
+        self.drat=get_drat(self.IZZI,self.IZZI_trunc,self.P[(self.P.temp_step<=self.upperTemp)].iloc[:-1])
+        pca=PCA(n_components=3)
+        self.NRM_trunc_dirs=self.IZZI_trunc.loc[:,'NRM_x':'NRM_z'].values
+        try:
+            self.pca=pca.fit(self.NRM_trunc_dirs)
+        except:
+            self.pca=pca.fit(self.NRM_dirs)
+        self.mad=get_mad(self.IZZI_trunc,self.pca)
+        self.dang=get_dang(self.NRM_trunc_dirs,self.pca)
+
+    def save_changes(self):
+        """
+        Commits temperature changes for use with the BiCEP method
+
+        Inputs
+        ------
+        None
+
+        Returns
+        -------
+        None
+        """
+        self.savedLowerTemp=self.lowerTemp
+        self.savedUpperTemp=self.upperTemp
+        self.saved_IZZI_trunc=self.IZZI_trunc
+        self.saved_IZ=self.IZ
+        self.saved_ZI=self.ZI
+
+    def plot_arai(self,ax,temps=True):
+        """
+        Plots data onto the Arai plot.
+
+        Inputs
+        ------
+        ax: matplotlib axis
+        axis for plot to be plotted on to
+
+        temps: bool
+        if True, plots temperatures on the Arai plot
+
+        Returns
+        -------
+        None
+        """
+        #IZZI_trunc=self.IZZI[(self.IZZI.temp_step>=self.lowerTemp)&(self.IZZI.temp_step<=self.upperTemp)]
+        lines=ax.plot(self.IZZI.PTRM/self.NRM0,self.IZZI.NRM/self.NRM0,'k',linewidth=1)
+        emptydots=ax.plot(self.IZZI.PTRM/self.NRM0,self.IZZI.NRM/self.NRM0,'o',markerfacecolor='None',markeredgecolor='black',label='Not Used')
+        ptrm_check=ax.plot(self.P.PTRM/self.NRM0,self.P.NRM/self.NRM0,'^',markerfacecolor='None',markeredgecolor='black',markersize=10,label='PTRM Check')
+        md_check=ax.plot(self.T.PTRM/self.NRM0,self.T.NRM/self.NRM0,'s',markerfacecolor='None',markeredgecolor='black',markersize=10)
+        ax.set_ylim(0,max(self.IZZI.NRM/self.NRM0)*1.1)
+        ax.set_xlim(0,self.pTRMmax/self.NRM0*1.1)
+        if self.active==True:
+            iz_plot=ax.plot(self.IZ.PTRM/self.NRM0,self.IZ.NRM/self.NRM0,'o',markerfacecolor='b',markeredgecolor='black',label='I step')
+            zi_plot=ax.plot(self.ZI.PTRM/self.NRM0,self.ZI.NRM/self.NRM0,'o',markerfacecolor='r',markeredgecolor='black',label='Z step')
+        ax.set_ylabel('NRM/NRM$_0$')
+        ax.set_xlabel('pTRM/NRM$_0$')
+        for temp in self.temps:
+            tempRow=self.IZZI[self.IZZI.temp_step==temp]
+            ax.text(tempRow.PTRM/self.NRM0,tempRow.NRM/self.NRM0,str(temp-273),alpha=0.5)
+    def plot_zijd(self,ax,temps=True):
+        """
+        Plots data onto the Zijderveld plot. Does not fit a line to this data.
+
+        Inputs
+        ------
+        ax: matplotlib axis
+        axis for plot to be plotted on to
+
+        temps: bool
+        if True, plots temperature values as text on plot.
+
+        Returns
+        -------
+        None
+        """
+        #Get the NRM data for the specimen
+        #Plot axis
+        ax.axvline(0,color='k',linewidth=1)
+        ax.axhline(0,color='k',linewidth=1)
+
+        #Plot NRM directions
+        ax.plot(self.NRM_dirs[:,0],self.NRM_dirs[:,1],'k')
+        ax.plot(self.NRM_dirs[:,0],self.NRM_dirs[:,2],'k')
+
+        #Plot NRM directions in currently selected temperature range as closed symbols
+        ax.plot(self.NRM_trunc_dirs[:,0],self.NRM_trunc_dirs[:,1],'ko')
+        ax.plot(self.NRM_trunc_dirs[:,0],self.NRM_trunc_dirs[:,2],'rs')
+
+        #Plot open circles for all NRM directions as closed symbols
+        ax.plot(self.NRM_dirs[:,0],self.NRM_dirs[:,1],'o',markerfacecolor='None',markeredgecolor='k')
+        ax.plot(self.NRM_dirs[:,0],self.NRM_dirs[:,2],'s',markerfacecolor='None',markeredgecolor='k')
+        length, vector=self.pca.explained_variance_[0], self.pca.components_[0]
+        vals=self.pca.transform(self.NRM_trunc_dirs)[:,0]
+        v = np.outer(vals,vector)
+
+        #Plot PCA line fit
+        ax.plot(self.pca.mean_[0]+v[:,0],self.pca.mean_[1]+v[:,1],'g')
+        ax.plot(self.pca.mean_[0]+v[:,0],self.pca.mean_[2]+v[:,2],'g')
+        if temps==True:
+            for i in range(len(self.temps)):
+                ax.text(self.NRM_dirs[i,0],self.NRM_dirs[i,1],str(self.temps[i]-273),alpha=0.5)
+
+        ax.set_xlabel('x, $Am^2$')
+        ax.set_ylabel('y,z, $Am^2$')
+        ax.axis('equal')
+        ax.relim()
+
+    def BiCEP_prep(self):
+        """
+        Returns the needed data for a paleointensity interpretation to
+        perform the BiCEP method, calculates all corrections for a specimen.
+        Performs scaling on the PTRM and NRM data. It performs the Taubin SVD circle fit
+        to find the maximum likelihood circle fit to initialize the BiCEP method sampler.
+
+        Inputs
+        ------
+        None
+
+        Returns
+        -------
+        minPTRM: float
+        Minimum scaled pTRM
+
+        maxNRM: float
+        Minimum scaled NRM
+
+        PTRMmax: float
+        Maximum total pTRM (scaled)
+
+        k: float
+        Best fitting k value using Taubin circle fit.
+
+        phi: float
+        Best fitting phi value using Taubin circle fit
+
+        dist_to_edge: float
+        Best fitting D value using Taubin circle fit.
+
+        sigma: float
+        Best fitting sigma value using Taubin circle fit.
+
+        PTRMS: numpy.ndarray()
+        Scaled and translated pTRM values
+
+        NRMS: numpy.ndarray()
+        Scaled and translated NRM values.
+        """
+
+        #Calculate Anisotropy Correction:
+        if len(self.IZZI.dropna(subset=['s_tensor']))>0:
+            c=calculate_anisotropy_correction(self.saved_IZZI_trunc)
+            self.extracolumnsdict['int_corr_aniso']=c
+            #Get method code depending on anisotropy type (AARM or ATRM)
+            self.methcodes+=self.IZZI['aniso_type'].iloc[0]
         else:
-            model_circle=model_circle_fast
-    else:
-        model_circle=model
-    fit_circle=model_circle.sampling (
-        data={'I':len(pTRMsList),'M':len(lengths),'PTRM':pTRMsList,'NRM':NRMsList,'N':lengths,'PTRMmax':PTRMmaxlist,'B_labs':B_lab_list,'dmax':np.sqrt(dmaxlist),'centroid':centroidlist,'priorstd':priorstd},iter=n_samples,warmup=int(n_samples/2),
-        init=[{'k_scale':np.array(klist)*np.array(dist_to_edgelist),'phi':philist,'dist_to_edge':dist_to_edgelist,'int_real':B_ancs}]*4,**kwargs)
+            c=1
 
-    return(fit_circle,newmethcodes,newcolumns)
+        #Get Cooling Rate Correction
+        if self.IZZI.correction.iloc[0]!=1:
+            self.methcodes+=':DA-CR-TRM' #method code for cooling rate correction
+            self.extracolumnsdict['int_corr_cooling_rate']=self.IZZI.correction.iloc[0]
 
-def sufficient_statistics(ptrm, nrm):
-    """
-    inputs list of ptrm and nrm data and computes sufficent statistcs needed
-    for computations
-    """
 
-    corr = np.cov( np.stack((ptrm, nrm), axis=0) )
+        #Calculate nonlinear TRM Correction
+        if len(self.IZZI.dropna(subset=['NLT_beta']))>0:
+            self.methcodes+=':DA-NL' #method code for nonlinear TRM correction
+            total_correction=calculate_NLT_correction(self.saved_IZZI_trunc,c) #total correction (combination of all three corrections)
+            self.extracolumnsdict['int_corr_nlt']=total_correction/(c*self.IZZI.correction.iloc[0]) #NLT correction is total correction/original correction.
+        else:
+            total_correction=c*self.IZZI.correction.iloc[0]
 
-    return {'xbar': np.mean(ptrm), 'ybar': np.mean(nrm), 'S2xx': corr[0,0], 'S2yy': corr[1,1], 'S2xy': corr[0,1] }
+        #Converting Arai plot data to useable form
+        NRMS=self.saved_IZZI_trunc.NRM.values/self.NRM0
+        PTRMS=self.saved_IZZI_trunc.PTRM.values/self.NRM0/total_correction #We divide our pTRMs by the total correction, because we scale the pTRM values so that the maximum pTRM is one, this doesn't affect the fit and just gets scaled back when converting the circle tangent slopes back to intensities as would be expected, but it's easier to apply this here.
 
-def bestfit_line(ptrm, nrm):
-    """
-    returns the slope and intercept of the best fit line to a set of points with NRM and PTRM using Bayesian maximum likelihood estimate
-    """
-    stat = sufficient_statistics(ptrm, nrm)
+        PTRMmax=max(self.IZZI.PTRM/self.NRM0/total_correction) #We scale by our maximum pTRM to perform the circle fit.
+        line=bestfit_line(self.IZZI.PTRM/self.NRM0/total_correction,self.IZZI.NRM/self.NRM0) #best fitting line to the pTRMs
 
-    w = .5*(stat['S2xx'] - stat['S2yy'])/stat['S2xy']
-    m = -w-np.sqrt(w**2+1)
-    b = stat['ybar']-m*stat['xbar']
+        PTRMS=PTRMS/PTRMmax  #Scales the pTRMs so the maximum pTRM is one
 
-    return {'slope': m, 'intercept': b }
+        #We subtract the minimum pTRM and NRM to maintain aspect ratio and make circle fitting easier.
+        minPTRM=min(PTRMS)
+        minNRM=min(NRMS)
+        PTRMS=PTRMS-minPTRM
+        NRMS=NRMS-minNRM
+
+        #We perform the Taubin least squares circle fit to get values close to the Bayesian maximum likelihood to initialize our MCMC sampler at, this makes sampling a lot easier than initializing at a random point (which may have infinitely low probability).
+
+        x_c,y_c,R,sigma=TaubinSVD(PTRMS,NRMS) #Calculate x_c,y_c and R
+        dist_to_edge=abs(np.sqrt(x_c**2+y_c**2)-R) #Calculate D (dist_to_edge)
+        phi=np.radians(np.degrees(np.arctan(y_c/x_c))%180)
+
+        #Calculate (and ensure the sign of) k
+        if y_c<0:
+            k=-1/R
+        else:
+            k=1/R
+
+        return(minPTRM,minNRM,PTRMmax,k,phi,dist_to_edge,sigma,PTRMS,NRMS)
+
+    def plot_circ(self,ax,legend=False,linewidth=2,title=None,tangent=False):
+        """
+        Plots circle fits sampled from the posterior distribution
+        (using the BiCEP method) to the Arai plot data. Plots tangent
+        to the circle as a slope if tangent=True
+
+        Inputs
+        ------
+        ax: matplotlib axis
+        axis to be used for plot.
+
+        legend: bool
+        If True plots a legend.
+
+        linewidth: float
+        Width of circle fit lines on plot
+
+        title: str
+        Title for plot
+
+        tangent: bool
+        If set to True, plots best fitting tangent to circle.
+        """
+
+        #Get information on maximum pTRM for rescaling of circle
+        fit=self.parentCollection.fit
+        speclist=np.array([specimen for specimen in self.parentCollection.specimens.keys() if self.parentCollection.specimens[specimen].active==True])
+        try:
+            i=np.where(speclist==self.name)[0][0]
+        except:
+            return
+        if fit!=None:
+            minNRM=min(self.saved_IZZI_trunc.NRM/self.NRM0)
+            minPTRM=min(self.saved_IZZI_trunc.PTRM/self.NRM0)
+
+
+            #Parameters for the circle fit
+            c=np.random.choice(range(len(fit['R'][:,i])),100)
+            thetas=np.linspace(0,2*np.pi,1000)
+            NRM0=self.NRM0
+
+            #Circle x and y values for circle plot.
+            xs=(fit['x_c'][c,i][:,np.newaxis])*self.pTRMmax/self.NRM0+minPTRM+fit['R'][c,i][:,np.newaxis]*np.cos(thetas)*self.pTRMmax/self.NRM0
+            ys=fit['y_c'][c,i][:,np.newaxis]+minNRM+fit['R'][c,i][:,np.newaxis]*np.sin(thetas)
+
+            #Plot Circles
+            ax.plot(xs.T,ys.T,'-',color='lightgreen',alpha=0.2,linewidth=linewidth,zorder=-1);
+            ax.plot(100,100,'-',color='lightgreen',label='Circle Fits');
+
+            #Find tangents to the circle:
+            if tangent==True:
+                slope_ideal=-1/np.tan(np.median(fit['phi'][:,i]))/self.pTRMmax*self.NRM0
+                x_i=np.median(fit['dist_to_edge'][:,i])*np.cos(np.median(fit['phi'][:,i]))*self.pTRMmax/self.NRM0+minPTRM
+                y_i=np.median(fit['dist_to_edge'][:,i])*np.sin(np.median(fit['phi'][:,i]))+minNRM
+
+                ax.plot(x_i,y_i,'ko')
+                c=y_i-slope_ideal*x_i
+                d=-c/slope_ideal
+                ax.plot([0,d],[c,0],'k',linestyle='--')
+
+            #Add legend and title to plot
+            if legend==True:
+                ax.legend(fontsize=10);
+            if title!=None:
+                ax.set_title(title,fontsize=20,loc='left')
 
 def sortarai(datablock, s, Zdiff, **kwargs):
     """
@@ -519,15 +1106,13 @@ def sortarai(datablock, s, Zdiff, **kwargs):
             # difference - if negative, negative tail!
             ptrm_tail.append([temp, dec, inc, str, sig])
         else:
-            print(
-                s, '  has a tail check with no first zero field step - check input file! for step', temp - 273.)
+            logstring+=s+ '  has a tail check with no first zero field step - check input file! for step'+str( temp - 273.)+'\n'
+
 #
 # final check
 #
     if len(first_Z) != len(first_I):
-        print(len(first_Z), len(first_I))
-        print(" Something wrong with this specimen! Better fix it or delete it ")
-        input(" press return to acknowledge message")
+        logstring+=" Something wrong with this specimen! Better fix it or delete it "
     araiblock = (first_Z, first_I, ptrm_check,
                  ptrm_tail, zptrm_check, GammaChecks)
     return araiblock, field
@@ -542,8 +1127,11 @@ def convert_intensity_measurements(measurements):
     #this may take a while to run depending on the number of specimens.
     #Constructs initial empty 'temps' dataframe
     data_array=np.empty(shape=(16,0))
+    logstring=''
     for specimen in specimens:
-            print('Working on:',specimen)
+            logstring+='Working on: '+specimen+'\n'
+            clear_output(wait=True)
+            print('Working on: '+specimen)
             try:
                 araiblock,field=sortarai(measurements[measurements.specimen==specimen],specimen, Zdiff=False,version=3) #Get arai data
                 sitename=measurements[measurements.specimen==specimen].site.unique()
@@ -629,7 +1217,7 @@ def convert_intensity_measurements(measurements):
                         else:
                             diff=np.setdiff1d(temp_step,intersect[-1])
                             for i in diff:
-                                print('PTRM check at '+str(i)+'K has no corresponding infield measurement, ignoring')
+                                logstring+='Working on: '+specimen+'\n'
                             newarray=np.array([specarray[temp_step!=diff],sample[temp_step!=diff],site[temp_step!=diff],NRM,PTRM[temp_step!=diff],NRM_x,NRM_y,NRM_z,PTRM_x[temp_step!=diff],PTRM_y[temp_step!=diff],PTRM_z[temp_step!=diff],NRM_sigma,PTRM_sigma[temp_step!=diff],B_lab[temp_step!=diff],steptype[temp_step!=diff],temp_step[temp_step!=diff]])
                             data_array=np.concatenate((data_array,newarray),axis=1)
 
@@ -664,29 +1252,39 @@ def convert_intensity_measurements(measurements):
                             else:
                                 diff=np.setdiff1d(temp_step,intersect[-1])
                                 for i in diff:
-                                    print('PTRM tail check at '+str(i)+'K has no corresponding zero field measurement, ignoring')
+                                    logstring+='PTRM tail check at '+str(i)+'K has no corresponding zero field measurement, ignoring'+'\n'
                                 newarray=np.array([specarray[temp_step!=diff],sample[temp_step!=diff],site[temp_step!=diff],NRM[temp_step!=diff],PTRM,NRM_x[temp_step!=diff],NRM_y[temp_step!=diff],NRM_z[temp_step!=diff],PTRM_x,PTRM_y,PTRM_z,NRM_sigma[temp_step!=diff],PTRM_sigma,B_lab[temp_step!=diff],steptype[temp_step!=diff],temp_step[temp_step!=diff]])
                                 data_array=np.concatenate((data_array,newarray),axis=1)
                     else:
-                        print(specimen,'in site',sitename[0],'Not included, not a thellier experiment')
+                        logstring+=specimen+' in site '+sitename[0]+' Not included, not a thellier experiment'+'\n'
                 else:
-                    print(specimen,'in site',sitename[0],'Not included, demagnetization not completed')
+                    logstring+=specimen+' in site '+sitename[0]+' Not included, demagnetization not completed'+'\n'
             except:
-                print('Something went wrong with specimen '+specimen+'. Could not convert from MagIC format')
+                logstring+='Something went wrong with specimen '+specimen+'. Could not convert from MagIC format'+'\n'
     temps=pd.DataFrame(data_array.T,columns=['specimen','sample','site','NRM','PTRM','NRM_x','NRM_y','NRM_z','PTRM_x','PTRM_y','PTRM_z','NRM_sigma','PTRM_sigma','B_lab','steptype','temp_step'])
     return(temps)
 
 def generate_arai_plot_table(outputname):
-
     """
-    Generates a DataFrame with points on an Araiplot. Inputs: outputname (must be string)
+    Generates a DataFrame with Thellier Data for a Dataset, stores it as a csv.
+
+    Inputs
+    ------
+    outputname: (str)
+    name of file to output (no extension)
+
+    Returns
+    -------
+    None
     """
     #This cell constructs the 'measurements' dataframe with samples and sites added
+    logstring=""
     status,measurements=cb.add_sites_to_meas_table('./')
     measurements=measurements[measurements.specimen.str.contains('#')==False]
     measurements_old=measurements
     measurements=measurements[measurements.experiment.str.contains('LP-PI-TRM')]
     temps=convert_intensity_measurements(measurements)
+    clear_output(wait=True)
 
     temps['correction']=1
     temps['s_tensor']=np.nan
@@ -695,7 +1293,7 @@ def generate_arai_plot_table(outputname):
     spec=pd.read_csv('specimens.txt',skiprows=1,sep='\t')
 
     #Create the anisotropy tensors if they don't already exist.
-    print("Couldn't find Anisotropy Tensors, Generating...")
+    logstring+="Couldn't find Anisotropy Tensors, Generating..."+'\n'
 
     #Tensor for ATRM
     ipmag.atrm_magic('measurements.txt')
@@ -733,7 +1331,7 @@ def generate_arai_plot_table(outputname):
                                p0=(max(meas_val['magn_moment']/meas_val['magn_moment'].iloc[-1]),1e-2))
             temps.loc[temps.specimen==specimen,'NLT_beta']=ab[1]
         except RuntimeError:
-            print("-W- WARNING: Can't fit tanh function to NLT data for "+specimen)
+            logstring+="-W- WARNING: Can't fit tanh function to NLT data for "+specimen+'\n'
 
     #Get the cooling rate correction
     meas_cool=measurements_old[measurements_old.method_codes.str.contains('LP-CR-TRM')].dropna(subset=['description'])
@@ -758,593 +1356,513 @@ def generate_arai_plot_table(outputname):
             cfactor=1/(c+m*cr_reallog)[0]
             temps.loc[temps.specimen==specimen,'correction']=temps.loc[temps.specimen==specimen,'correction']*cfactor
         except TypeError:
-            print('Something went wrong with estimating the cooling rate correction for specimen '+specimen+ '. Check that you used the right cooling rate.')
+            logstring+='Something went wrong with estimating the cooling rate correction for specimen '+specimen+ '. Check that you used the right cooling rate.'
 
     #Save the dataframe to output.
+    logfile=open("thellier_convert.log","w")
+    logfile.write(logstring)
+    logfile.close()
+    clear_output(wait=True)
+    print('Data conversion finished- check thellier_convert.log for errors')
     temps=temps.dropna(subset=['site'])
     temps.to_csv(outputname+'.csv',index=False)
 
 
-def maketempsfile(fname):
-    """Imports a csv file to this module for use"""
-    temps=pd.read_csv(fname)
-    temps.set_index([list(range(0,len(temps)))]) #Make sure indexes are unique
-    specimens = temps.specimen.unique() #Get specimen list
-    return(temps)
+def run_gui():
+    """
+    Main function for the BiCEP GUI
 
-def convert(a):
-    """Converts data from MagIC format into BiCEP GUI format"""
-    convert_button.description='Converting..'
-    try:
-        generate_arai_plot_table('arai_data')
-        temps=maketempsfile('arai_data.csv')
-    except:
-        print('Error! Something went wrong with converting MagIC data- did you add the MagIC files to the directory?')
-    convert_button.description='Convert MagIC data'
+    Inputs:
+    ------
+    None
 
-def plot_line_base(ax,specimen,min_temp,max_temp,GUI=False):
-    """Plots data onto the Arai plot. Does not fit a line to this data"""
-    specdf=temps[temps.specimen==specimen]
+    Returns:
+    -------
+    None
+    """
+    from ipyfilechooser import FileChooser
+    def display_specimen_ring():
+        """
+        Displays a red circle around the currently selected
+        specimen in the site plot of BiCEP GUI
 
-    IZZI=specdf[(specdf.steptype=='IZ')|(specdf.steptype=='ZI')]
-    IZZI_trunc=IZZI[(IZZI.temp_step>=min_temp+273)&(IZZI.temp_step<=max_temp+273)]
-    P=specdf[(specdf.steptype=='P')]
-    T=specdf[(specdf.steptype=='T')]
-    if GUI==True:
-        try:
-            P_trunc=P[(P.temp_step<=max_temp+273)].iloc[:-1]
-            drat=get_drat(IZZI,IZZI_trunc,P_trunc)
-            dratbox.description='DRAT: %2.1f'%drat
-        except:
-            dratbox.description='DRAT: '
-    NRM0=specdf.iloc[0].NRM
-    PTRMmax=max(specdf.PTRM)/NRM0
-    lines=ax.plot(IZZI.PTRM/NRM0,IZZI.NRM/NRM0,'k',linewidth=1)
-    emptydots=ax.plot(IZZI.PTRM/NRM0,IZZI.NRM/NRM0,'o',markerfacecolor='None',markeredgecolor='black',label='Not Used')
-    ptrm_check=ax.plot(P.PTRM/NRM0,P.NRM/NRM0,'^',markerfacecolor='None',markeredgecolor='black',markersize=10,label='PTRM Check')
-    md_check=ax.plot(T.PTRM/NRM0,T.NRM/NRM0,'s',markerfacecolor='None',markeredgecolor='black',markersize=10)
-    ax.set_ylim(0,max(IZZI.NRM/NRM0)*1.1)
-    ax.set_xlim(0,PTRMmax*1.1)
+        Inputs:
+        -------
+        None
 
-    IZ=IZZI_trunc[IZZI_trunc.steptype=='IZ']
-    ZI=IZZI_trunc[IZZI_trunc.steptype=='ZI']
-
-    iz_plot=ax.plot(IZ.PTRM/NRM0,IZ.NRM/NRM0,'o',markerfacecolor='b',markeredgecolor='black',label='I step')
-    zi_plot=ax.plot(ZI.PTRM/NRM0,ZI.NRM/NRM0,'o',markerfacecolor='r',markeredgecolor='black',label='Z step')
-    ax.set_ylabel('NRM/NRM$_0$')
-    ax.set_xlabel('PTRM/NRM$_0$')
-    return(lines,emptydots,ptrm_check,md_check,iz_plot,zi_plot)
-
-def plot_zijd(ax,specimen,min_temp,max_temp):
-    """Plots Zijderveld plot of zero field steps for a paleointensity experiment"""
-    #Get the NRM data for the specimen
-    IZZI=temps.loc[(temps.specimen==specimen)&((temps.steptype=='IZ')|(temps.steptype=='ZI'))]
-    IZZI_trunc=IZZI[(temps.temp_step>=min_temp+273)&(temps.temp_step<=max_temp+273)]
-    NRM_dirs=IZZI.loc[:,'NRM_x':'NRM_z'].values
-    NRM_trunc_dirs=IZZI_trunc.loc[:,'NRM_x':'NRM_z'].values
-    try:
-        mad=get_mad(IZZI_trunc)
-        madbox.description='MAD: %2.1f'%mad
-    except:
-        madbox.description='MAD: '
-
-    #Plot axis
-    ax.axvline(0,color='k',linewidth=1)
-    ax.axhline(0,color='k',linewidth=1)
-
-    #Plot NRM directions
-    ax.plot(NRM_dirs[:,0],NRM_dirs[:,1],'k')
-    ax.plot(NRM_dirs[:,0],NRM_dirs[:,2],'k')
-
-    #Plot NRM directions in currently selected temperature range as closed symbols
-    ax.plot(NRM_trunc_dirs[:,0],NRM_trunc_dirs[:,1],'ko')
-    ax.plot(NRM_trunc_dirs[:,0],NRM_trunc_dirs[:,2],'rs')
-
-    #Plot open circles for all NRM directions as closed symbols
-    ax.plot(NRM_dirs[:,0],NRM_dirs[:,1],'o',markerfacecolor='None',markeredgecolor='k')
-    ax.plot(NRM_dirs[:,0],NRM_dirs[:,2],'s',markerfacecolor='None',markeredgecolor='k')
-
-    #Perform PCA fit to data
-    if len(IZZI_trunc)>2:
-        pca=PCA(n_components=3)
-        pca=pca.fit(NRM_trunc_dirs)
-        length, vector=pca.explained_variance_[0], pca.components_[0]
-        vals=pca.transform(NRM_trunc_dirs)[:,0]
-        v = np.outer(vals,vector)
-
-        #Plot PCA line fit
-        ax.plot(pca.mean_[0]+v[:,0],pca.mean_[1]+v[:,1],'g')
-        ax.plot(pca.mean_[0]+v[:,0], pca.mean_[2]+v[:,2],'g')
-
-        #
-        NRM_vect=np.mean(NRM_trunc_dirs,axis=0)
-        NRM_mean_magn=np.sqrt(sum(NRM_vect**2))
-        vector_magn=np.sqrt(sum(vector**2))
-        dang=np.degrees(np.arccos(np.abs(np.dot(NRM_vect,vector)/(NRM_mean_magn*vector_magn))))
-
-        dangbox.description='DANG: %2.1f'%dang
-    else:
-        dangbox.description='DANG: '
-
-    ax.set_xlabel('x, $Am^2$')
-    ax.set_ylabel('y,z, $Am^2$')
-    ax.axis('equal')
-    ax.relim()
-
-def circleplot(site,fit,i,ax,temperatures,legend=False,linewidth=2,title=None,tangent=False):
-    """Plots Circle fits sampled from the posterior distribution
-    (using the BiCEP method) to the Arai plot data. Plots tangent
-    to the circle as a slope if tangent=True"""
-
-    #Get information on maximum pTRM for rescaling of circle
-    specimenlist=temps[temps.site==site].specimen.unique()
-    specimen=specimenlist[i]
-    specdf=temps[temps.specimen==specimen]
-    IZZI=specdf[(specdf.steptype=='IZ')|(specdf.steptype=='ZI')]
-    NRM0=specdf.NRM.iloc[0]
-    PTRMmax=max(IZZI.PTRM)/NRM0
-    if temperatures!=None:
-        IZZI_trunc=IZZI[(IZZI.temp_step>=temperatures[specimen][0,0])&(IZZI.temp_step<=temperatures[specimen][0,1])]
-    else:
-        IZZI_trunc=IZZI
-    minNRM=min(IZZI_trunc.NRM/NRM0)
-    minPTRM=min(IZZI_trunc.PTRM/NRM0)
-
-
-    #Parameters for the circle fit
-    c=np.random.choice(range(len(fit['R'][:,i])),100)
-    thetas=np.linspace(0,2*np.pi,1000)
-    NRM0=temps[temps.specimen==specimen].iloc[0].NRM
-
-    #Circle x and y values for circle plot.
-    xs=(fit['x_c'][c,i][:,np.newaxis])*PTRMmax+minPTRM+fit['R'][c,i][:,np.newaxis]*np.cos(thetas)*PTRMmax
-    ys=fit['y_c'][c,i][:,np.newaxis]+minNRM+fit['R'][c,i][:,np.newaxis]*np.sin(thetas)
-
-    #Plot Circles
-    ax.plot(xs.T,ys.T,'-',color='lightgreen',alpha=0.2,linewidth=linewidth,zorder=-1);
-    ax.plot(100,100,'-',color='lightgreen',label='Circle Fits');
-
-    #Find tangents to the circle:
-    if tangent==True:
-        slope_ideal=-1/np.tan(np.median(fit['phi'][:,i]))/PTRMmax
-        x_i=np.median(fit['dist_to_edge'][:,i])*np.cos(np.median(fit['phi'][:,i]))*PTRMmax+minPTRM
-        y_i=np.median(fit['dist_to_edge'][:,i])*np.sin(np.median(fit['phi'][:,i]))+minNRM
-
-        ax.plot(x_i,y_i,'ko')
-        c=y_i-slope_ideal*x_i
-        d=-c/slope_ideal
-        ax.plot([0,d],[c,0],'k',linestyle='--')
-
-    #Add legend and title to plot
-    if legend==True:
-        ax.legend(fontsize=10);
-    if title!=None:
-        ax.set_title(title,fontsize=20,loc='left')
-
-def regplot(fit,ax,specimenlist,legend=False,title=None):
-    """Plots B vs k for all specimens in a site given a BiCEP or unpooled fit"""
-    B_lab_list=[]
-    for specimen in specimenlist:
-        B_lab_list.append(temps[temps.specimen==specimen].B_lab.unique()*1e6)
-    try:
-        Bs=fit['int_real']
-        mink,maxk=np.amin(fit['k']),np.amax(fit['k'])
-        minB,maxB=fit['c']*mink+fit['int_site'],fit['c']*maxk+fit['int_site']
-        c=np.random.choice(range(len(minB)),100)
-        ax.plot([mink,maxk],[minB[c],maxB[c]],color='skyblue',alpha=0.12)
-    except:
-        Bs=fit['slope']*np.array(B_lab_list).T
-    ax.set_xlabel(r'$\vec{k}$');
-    ax.plot(np.percentile(fit['k'],(2.5,97.5),axis=0),[np.median(Bs,axis=0),np.median(Bs,axis=0)],'k')
-    ax.plot([np.median(fit['k'],axis=0),np.median(fit['k'],axis=0)],np.percentile(Bs,(2.5,97.5),axis=0),'k')
-    ax.plot(np.median(fit['k'],axis=0),np.median(Bs,axis=0),'o',markerfacecolor='lightgreen',markeredgecolor='k')
-    ax.axvline(0,color='k',linewidth=1)
-    if title!=None:
-        ax.set_title(title,fontsize=20,loc='left')
-
-def display_gui():
-    """Displays the specimen plots for BiCEP GUI"""
-    for axis in ax:
-        axis.cla()
-    plot_line_base(ax[0],specimen_wid.value,lower_temp_wid.value,upper_temp_wid.value,GUI=True) #Base Arai plot
-    plot_zijd(ax[1],specimen_wid.value,lower_temp_wid.value,upper_temp_wid.value) #Zijderveld plot
-
-    try:
-        fit=fits[site_wid.value]
-        specimenlist=np.array(specimen_wid.options)
-        specimen=specimen_wid.value
-        i=np.where(np.array(specimenlist)==specimen)[0][0]
-        circleplot(site_wid.value,fit,i,ax[0],ktemp)
-    except:
-        pass
-    fig.set_tight_layout(True)
-    fig_2.set_tight_layout(True)
-
-def plot_site_plot(fit):
-    """Plots the plot of k vs B_anc and the histogram for the site fits on BiCEP GUI"""
-    ax_2[0].axhline(np.median(fit['int_site']),color='k')
-    ax_2[1].axhline(np.median(fit['int_site']),color='k')
-    ax_2[1].hist(fit['int_site'],color='skyblue',bins=100,density=True,orientation='horizontal')
-    specimenlist=specimen_wid.options
-    regplot(fit,ax_2[0],specimenlist)
-    ax_2[0].yaxis.tick_right()
-    ax_2[1].yaxis.tick_right()
-    ax_2[1].yaxis.set_label_position('right')
-    ax_2[0].set_ylim(min(np.percentile(fit['int_real'],2.5,axis=0))*0.9,max(np.percentile(fit['int_real'],97.5,axis=0))*1.1)
-    ax_2[0].set_xlim(min(min(np.percentile(fit['k'],2.5,axis=0))*1.1,min(np.percentile(fit['k'],2.5,axis=0))*0.9),max(max(np.percentile(fit['k'],97.5,axis=0))*1.1,max(np.percentile(fit['k'],97.5,axis=0))*0.9))
-    currspec=specimen_wid.value
-    specindex=np.where(specimenlist==currspec)
-    specindex=specindex[0]
-    ax_2[0].plot(np.median(fit['k'][:,specindex]),np.median(fit['int_real'][:,specindex]),'o',markeredgecolor='r',markerfacecolor='r')
-    ax_2[1].set_ylabel('$B_{anc}$')
-    ax_2[1].set_xlabel('Probability Density')
-
-
-def display_site_plot():
-    """Updates everything needed once the BiCEP method has been applied to a site"""
-    try:
-        fit=fits[site_wid.value]
-        ax_2[0].cla()
-        ax_2[1].cla()
-        plot_site_plot(fit)
-        display_sampler_diags(fit)
-        display_specimen_ring()
-    except:
-        #If no fit for this site yet, delete everything and make a new plot!
-        ax_2[0].cla()
-        ax_2[1].cla()
-        rhatlabel.description='R_hat:'
-        nefflabel.description='n_eff:'
-        banclabel.description='B_anc:'
-
-def display_specimen_ring():
-    """Displays a red circle around the currently selected
-    specimen in the site plot of BiCEP GUI"""
-    try:
-        fit=fits[site_wid.value]
-        #Maybe not the most efficent way of doing things,
-        #need to loop through matplotlib elements to find
-        #any red circles that already exist
-
-        for line in ax_2[0].lines:
-            if line.properties()['markeredgecolor']=='r':
-                line.remove()
-        specimenlist=specimen_wid.options
+        Returns
+        -------
+        None
+        """
+        fit=thellierData[site_wid.value].fit
+        if thellierData[site_wid.value].artist!=None:
+            thellierData[site_wid.value].artist[0].set_marker(None)
         currspec=specimen_wid.value
-        specindex=np.where(np.array(specimenlist)==currspec)
-        ax_2[0].plot(np.median(fit['k'][:,specindex]),np.median(fit['int_real'][:,specindex]),'o',markeredgecolor='r',markerfacecolor='None')
-        circleplot(site_wid.value,fit,specindex,ax[0],temperatures)
-
-    except:
-        pass
+        speclist=np.array([specimen for specimen in specimen_wid.options if thellierData[site_wid.value][specimen].active==True])
+        specindex=np.where(speclist==currspec)
+        specindex=specindex[0][0]
+        thellierData[site_wid.value].artist=ax_2[0].plot(np.median(fit['k'][:,specindex]),np.median(fit['int_real'][:,specindex]),'o',markeredgecolor='r',markerfacecolor='None')
 
 
-def on_change(change):
-    """Update GUI on changing one of our site, specimen, temperature dropdowns"""
-    ax[0].cla()
-    #If we're changing the site dropdown, we need to replot the site plots and change the specimen options
-    if (change.owner==site_wid):
-        specimen_wid.options=temps[temps.site==site_wid.value].specimen.unique()
-        display_site_plot()
-    #If we're changing the site or specimen dropdown, we need to update the temperature steps.
-    if (change.owner==site_wid)|(change.owner==specimen_wid):
-        lower_temp_wid.options=temps[temps.specimen==specimen_wid.value].temp_step.unique()-273
-        upper_temp_wid.options=temps[temps.specimen==specimen_wid.value].temp_step.unique()-273
-        lower_temp_wid.value=temperatures[specimen_wid.value][0,0]
-        upper_temp_wid.value=temperatures[specimen_wid.value][0,1]
+    def display_specimen_plots():
+        """
+        Displays specimen level plots on the BiCEP GUI
 
-    #If we're changing the specimen plot, we display a red circle around the currently selected specimen on the site plot
-    if (change.owner==specimen_wid):
-        display_specimen_ring()
+        Inputs:
+        -------
+        None
 
-    #We always need to redraw the specimen dropdown.
-    display_gui()
+        Returns:
+        --------
+        None
+        """
+        ax[0].cla()
+        ax[1].cla()
+        thellierData[site_wid.value][specimen_wid.value].change_temps(lower_temp_wid.value+273,upper_temp_wid.value+273)
+        thellierData[site_wid.value][specimen_wid.value].plot_circ(ax[0])
+        thellierData[site_wid.value][specimen_wid.value].plot_arai(ax[0])
+        thellierData[site_wid.value][specimen_wid.value].plot_zijd(ax[1])
+        madbox.description='MAD: %1.2f'%thellierData[site_wid.value][specimen_wid.value].mad
+        dangbox.description='DANG: %1.2f'%thellierData[site_wid.value][specimen_wid.value].dang
+        dratbox.description='DRAT: %1.2f'%thellierData[site_wid.value][specimen_wid.value].drat
+        rhat=thellierData[site_wid.value][specimen_wid.value].rhat
+        rhatbox.description='R_hat: %1.2f'%thellierData[site_wid.value][specimen_wid.value].rhat
+        if (rhat==None)|(0.9<rhat<1.1):
+            rhatbox.button_style='info'
+        else:
+            rhatbox.button_style='danger'
+        fig.tight_layout()
 
+    def on_change(change):
+        """
+        Update GUI on changing one of our site, specimen, temperature dropdowns.
 
-def on_button_clicked(a):
-    """GUI function for saving specimen min and max temperatures (saves to file)"""
-    temperatures[specimen_wid.value]=np.array([[lower_temp_wid.value,upper_temp_wid.value]])
-    with open('specimen-temperatures.pickle', 'wb') as tempdict:
-        pickle.dump(temperatures, tempdict)
+        Inputs:
+        -------
+        change: Dropdown change object
+        Gives us information about which object was changed (owner),
+        the type of change (name, either value for a value change,
+        or options for all options changed),and the new value (new).
+        Note that these attributes are very important to avoid repeating
+        many operations, as the changing the site widget's value changes
+        the specimen widgets options, which then changes it's options.
+        This is the reason for the numerous if statements in this function.
 
-def get_sampler_diags(fit):
-    """Returns useful sampler diagnostics for a particular MCMC fit with pystan"""
-    rhat=fit.summary()['summary'][:,-1]
-    rhat_worst=rhat[np.abs(1-rhat)==max(np.abs(1-rhat))][0]
-    n_eff_int_site=int(fit.summary()['summary'][0,-2])
-    return rhat_worst,n_eff_int_site
+        Returns:
+        --------
+        None
+        """
+        #If we're changing the site dropdown, we need to replot the site plots and change the specimen options
+        if (change.owner==site_wid)&(change.name=='value'):
+            specimen_wid.options=thellierData[site_wid.value].specimens.keys()
+            fit=thellierData[site_wid.value].fit
+            display_site_plot(fit)
 
-def display_sampler_diags(fit):
-    """Displays the worst R_hat and n_eff for B_anc for the fit for the MCMC fit for a site in BiCEP_GUI"""
-    rhat_worst,n_eff_int_site=get_sampler_diags(fit)
-    if (rhat_worst>1.1)|(rhat_worst<0.9):
-        rhatlabel.button_style='danger'
-    else:
-        rhatlabel.button_style='success'
-    if n_eff_int_site<1000:
-        nefflabel.button_style='warning'
-    else:
-        nefflabel.button_style='success'
+        #If we're changing the specimen dropdown, we need to update the temperature steps.
+        if (change.owner==specimen_wid)&(change.name=='value'):
+            lower_temp_wid.options=thellierData[site_wid.value][change.new].temps-273
+            upper_temp_wid.options=thellierData[site_wid.value][change.new].temps-273
+            checkbox.value= not thellierData[site_wid.value][change.new].active
 
-    rhatlabel.description='R_hat: %1.2f'%rhat_worst
-    nefflabel.description='n_eff:'+str(n_eff_int_site)
-    minB,maxB=np.percentile(fit['int_site'],(2.5,97.5),axis=0)
-    banclabel.description='B_anc %3.1f'%minB+'- %3.1f'%maxB+' μT'
-
-def get_site_dist(a):
-    """Runs the MCMC sampler and updates the GUI"""
-    process_wid.description='Processing..'
-    for ax in ax_2:
-        ax.cla()
-    specimenlist=np.array(specimen_wid.options)
-    methods={'Slow, more accurate':model_circle_slow,'Fast, less accurate':model_circle_fast}
-    for key in temperatures:
-        ktemp[key]=temperatures[key]+273
-    fit,newmethcodes,newcolumns=BiCEP_fit(specimenlist,ktemp,model=methods[method_wid.value],priorstd=5,n_samples=n_samples_wid.value)
-    plot_site_plot(fit)
-    display_sampler_diags(fit)
-    fits[site_wid.value]=fit
-    for specimen in newmethcodes.keys():
-        spec_method_codes[specimen]+=newmethcodes[specimen]
-        spec_extra_columns[specimen]=newcolumns[specimen]
-    display_specimen_ring()
-    display_gui()
-    process_wid.description='Process Site Data'
-
-def newfile(a):
-    """Sets up the GUI with a new file converted from arai data"""
-    global been_pressed
-    if been_pressed==False:
-        global temps,site_wid,specimen_wid,lower_temp_wid,upper_temp_wid,save_wid,temperatures,fig,ax,spec_method_codes,site_method_codes
-        been_pressed=True
-        temps=pd.read_csv('arai_data.csv')
-        spec_method_codes={specimen:'IE-BICEP' for specimen in temps.specimen.unique()}
-        site_method_codes={site:'IE-BICEP' for site in temps.site.unique()}
-        try:
-            with open("specimen-temperatures.pickle",'rb') as tempdict:
-                temperatures=pickle.load(tempdict)
-            if len(np.intersect1d(tempdict.keys(),temps.specimen.unique()))==0:
-                temperatures={specimen:np.array([[temps[temps.specimen==specimen].temp_step.unique()[0]-273,temps[temps.specimen==specimen].temp_step.unique()[-1]-273]]) for specimen in temps.specimen.unique()}
-            else:
+            #Additionally, we need to make sure the plot changes if the temperature steps were the exact same as last time.
+            if (lower_temp_wid.value!=thellierData[site_wid.value][change.new].savedLowerTemp-273)&(upper_temp_wid.value!=thellierData[site_wid.value][change.new].savedUpperTemp-273):
                 pass
-        except:
-            temperatures={specimen:np.array([[temps[temps.specimen==specimen].temp_step.unique()[0]-273,temps[temps.specimen==specimen].temp_step.unique()[-1]-273]]) for specimen in temps.specimen.unique()}
+            else:
+                display_specimen_plots()
+                try:
+                    display_specimen_ring()
+                except:
+                    pass
+            lower_temp_wid.value=thellierData[site_wid.value][change.new].savedLowerTemp-273
+            upper_temp_wid.value=thellierData[site_wid.value][change.new].savedUpperTemp-273
 
-        site_wid.options=temps.site.unique()
+        #If we're changing the specimen plot, we display a red circle around the currently selected specimen on the site plot
+        #if (change.owner==specimen_wid):
+            #display_specimen_ring()
 
-        specimen_wid.options=temps[temps.site==site_wid.value].specimen.unique()
+        if (change.name=='value')&((change.owner==lower_temp_wid)|(change.owner==upper_temp_wid)):
+            display_specimen_plots()
 
-        lower_temp_wid.options=temps[temps.specimen==specimen_wid.value].temp_step.unique()-273
+    def save_temps(a):
+        """
+        Saves changes to specimen temperatures
 
-        upper_temp_wid.options=temps[temps.specimen==specimen_wid.value].temp_step.unique()-273
+        Inputs:
+        ------
+        a: Button pressed object
+        has no practical use.
+
+        Returns:
+        -------
+        None
+        """
+        thellierData[site_wid.value][specimen_wid.value].save_changes();
+
+    def get_sampler_diags(fit):
+        """
+        Returns useful sampler diagnostics for a particular MCMC fit with pystan
+
+        Inputs
+        ------
+        fit: StanFit object
+        model fit to site/sample
+
+        Returns
+        -------
+        rhat_worst: float
+        worst rhat of all parameters
+
+        n_eff_int_site: float
+        Effective number of pseudosamples of B_anc
+        """
+        rhat=fit.summary()['summary'][:,-1]
+        rhat_worst=rhat[np.abs(1-rhat)==max(np.abs(1-rhat))][0]
+        n_eff_int_site=int(fit.summary()['summary'][0,-2])
+        return rhat_worst,n_eff_int_site
+
+    def display_sampler_diags(fit):
+        """
+        Displays the worst R_hat and n_eff, B_anc
+        and Category or Grade for the BiCEP fit
+
+        Inputs
+        ------
+        fit: StanFit object
+        model fit to site/sample
+
+        Returns:
+        --------
+        None
+        """
+        rhat_worst,n_eff_int_site=get_sampler_diags(fit)
+        if (rhat_worst>1.1)|(rhat_worst<0.9):
+            rhatlabel.button_style='danger'
+        else:
+            rhatlabel.button_style='success'
+        if n_eff_int_site<1000:
+            nefflabel.button_style='warning'
+        else:
+            nefflabel.button_style='success'
+
+        rhatlabel.description='R_hat: %1.2f'%rhat_worst
+        nefflabel.description='n_eff:'+str(n_eff_int_site)
+        minB,maxB=np.percentile(fit['int_site'],(2.5,97.5),axis=0)
+        banclabel.description='B_anc %3.1f'%minB+'- %3.1f'%maxB+' μT'
+        cdiff=np.diff(np.percentile(fit['c'],(2.5,97.5),axis=0))/np.percentile(fit['int_site'],50)
+        Bdiff=np.diff([minB,maxB])/np.percentile(fit['int_site'],50)
+
+        if (cdiff>=1)&(Bdiff>=0.4):
+            gradelabel.description='Category: D'
+            if(fit['k'].shape[1])<5:
+                gradelabel.button_style='warning'
+            else:
+                gradelabel.button_style='danger'
+        elif(cdiff<1)&(Bdiff>=0.4):
+            gradelabel.description='Category: C'
+            gradelabel.button_style='warning'
+        elif(cdiff>=1)&(Bdiff<0.4):
+            gradelabel.description='Category: B'
+            gradelabel.button_style='success'
+        elif(cdiff<1)&(Bdiff<0.4):
+            gradelabel.description='Category: A'
+            gradelabel.button_style='success'
+
+
+    def get_site_dist(a):
+        """
+        Runs the MCMC sampler and updates the GUI
+
+        Inputs:
+        ------
+        a: Button pressed object
+        has no practical use.
+
+        Returns:
+        -------
+        None
+        """
+        process_wid.description='Processing..'
+
+        if method_wid.value=='Slow, more accurate':
+            model=model_circle_slow
+        elif method_wid.value=='Fast, less accurate':
+            model=model_circle_fast
+
+        thellierData[site_wid.value].BiCEP_fit(model=model)
+        fit=thellierData[site_wid.value].fit
+        display_sampler_diags(fit)
+        #display_specimen_ring()
+        display_site_plot(fit)
+        process_wid.description='Process Site Data'
+        ax[0].cla()
+        thellierData[site_wid.value][specimen_wid.value].plot_circ(ax[0])
+        thellierData[site_wid.value][specimen_wid.value].plot_arai(ax[0])
+        thellierData[site_wid.value].get_specimen_rhats()
+
+    def run(a):
+        """
+        Runs the GUI after selecting a file.
+
+        Inputs:
+        ------
+        a: Button pressed object
+        Has no practical use
+
+        Returns
+        -------
+        None
+        """
+        global thellierData
+        run_wid.description='Converting Data...'
+        thellierData=ThellierData(newfile_wid.selected_filename)
+        run_wid.description='Preparing GUI...'
+        site_wid.options=thellierData.collections.keys()
+        specimen_wid.options=thellierData[site_wid.value].specimens.keys()
+
+        lower_temp_wid.options=thellierData[site_wid.value][specimen_wid.value].temps-273
+        upper_temp_wid.options=thellierData[site_wid.value][specimen_wid.value].temps-273
+        lower_temp_wid.value=thellierData[site_wid.value][specimen_wid.value].lowerTemp-273
+        upper_temp_wid.value=thellierData[site_wid.value][specimen_wid.value].upperTemp-273
+
         site_wid.observe(on_change)
         specimen_wid.observe(on_change)
         lower_temp_wid.observe(on_change)
         upper_temp_wid.observe(on_change)
-        save_wid.on_click(on_button_clicked)
-        display_gui()
-    else:
-        pass
+        save_wid.on_click(save_temps)
+        checkbox.observe(activate_deactivate)
 
-def examplefile(a):
-    """Sets up the GUI with the example dataset of Cych et al (in prep)"""
-    global been_pressed
-    if been_pressed==False:
-        global temps,site_wid,specimen_wid,lower_temp_wid,upper_temp_wid,save_wid,temperatures,fig,ax,spec_method_codes,site_method_codes
-        temps=pd.read_csv('arai_data_example.csv')
-        been_pressed=True
-        spec_method_codes={specimen:'IE-BICEP' for specimen in temps.specimen.unique()}
-        site_method_codes={site:'IE-BICEP' for site in temps.site.unique()}
-        try:
-            with open("specimen-temperatures.pickle",'rb') as tempdict:
-                temperatures=pickle.load(tempdict)
-            if len(np.intersect1d(tempdict.keys(),temps.specimen.unique()))==0:
-                temperatures={specimen:np.array([[temps[temps.specimen==specimen].temp_step.unique()[0]-273,temps[temps.specimen==specimen].temp_step.unique()[-1]-273]]) for specimen in temps.specimen.unique()}
-            else:
-                pass
-        except:
-            temperatures={specimen:np.array([[temps[temps.specimen==specimen].temp_step.unique()[0]-273,temps[temps.specimen==specimen].temp_step.unique()[-1]-273]]) for specimen in temps.specimen.unique()}
-
-        site_wid.options=temps.site.unique()
-
-        specimen_wid.options=temps[temps.site==site_wid.value].specimen.unique()
-
-        lower_temp_wid.options=temps[temps.specimen==specimen_wid.value].temp_step.unique()-273
-
-        upper_temp_wid.options=temps[temps.specimen==specimen_wid.value].temp_step.unique()-273
-
-        site_wid.observe(on_change)
-        specimen_wid.observe(on_change)
-        lower_temp_wid.observe(on_change)
-        upper_temp_wid.observe(on_change)
-        save_wid.on_click(on_button_clicked)
-        display_gui()
-    else:
-        pass
-
-
-row_layout_buttons = widgets.Layout(
-    width='60%',
-    display='flex',
-    flex_flow='row',
-    justify_content='space-around',
-    margin='1000px left'
-)
-row_layout = widgets.Layout(
-    width='100%',
-    display='flex',
-    flex_flow='row',
-    justify_content='space-around'
-)
-
-def save_magic_tables(a):
-    """Saves data from the currently displayed site to the GUI"""
-    fit=fits[site_wid.value]
-    sitestable=pd.read_csv('sites.txt',skiprows=1,sep='\t')
-    sitestable.loc[sitestable.site==site_wid.value,'int_abs_min']=round(np.percentile(fit['int_site'],2.5),1)/1e6
-    sitestable.loc[sitestable.site==site_wid.value,'int_abs_max']=round(np.percentile(fit['int_site'],97.5),1)/1e6
-    sitestable.loc[sitestable.site==site_wid.value,'int_abs']=round(np.percentile(fit['int_site'],50),1)/1e6
-    specimenstable=pd.read_csv('specimens.txt',skiprows=1,sep='\t')
-    speclist=specimen_wid.options
-    for i in range(len(speclist)):
-
-        specimen=speclist[i]
-        specfilter=(~specimenstable.method_codes.str.contains('LP-AN').fillna(False))&(specimenstable.specimen==specimen)
-        specimenstable.loc[specfilter,'int_abs_min']=round(np.percentile(fit['int_real'][:,i],2.5),1)/1e6
-        specimenstable.loc[specfilter,'int_abs_max']=round(np.percentile(fit['int_real'][:,i],97.5),1)/1e6
-        specimenstable.loc[specfilter,'int_abs']=round(np.percentile(fit['int_real'][:,i],50),1)/1e6
-        specimenstable.loc[specfilter,'int_k_min']=round(np.percentile(fit['k'][:,i],2.5),3)
-        specimenstable.loc[specfilter,'int_k_max']=round(np.percentile(fit['k'][:,i],97.5),3)
-        specimenstable.loc[specfilter,'int_k']=round(np.percentile(fit['k'][:,i],50),3)
-        specimenstable.loc[specfilter,'meas_step_min']=ktemp[specimen][0,0]
-        specimenstable.loc[specfilter,'meas_step_max']=ktemp[specimen][0,1]
-        method_codes=spec_method_codes[specimen].split(':')
-        method_codes=list(set(method_codes))
-        newstr=''
-        for code in method_codes[:-1]:
-            newstr+=code
-            newstr+=':'
-        newstr+=method_codes[-1]
-        specimenstable.loc[specfilter,'method_codes']=spec_method_codes[specimen]
-
-        extra_columns=spec_extra_columns[specimen]
-        for col in extra_columns.keys():
-            specimenstable.loc[specfilter,col]=extra_columns[col]
-    sitestable.loc[sitestable.site==site_wid.value,'method_codes']=site_method_codes[site_wid.value]
-    specimenstable['meas_step_unit']='Kelvin'
-    sitestable=sitestable.fillna('')
-    specimenstable=specimenstable.fillna('')
-    sitesdict=sitestable.to_dict('records')
-    specimensdict=specimenstable.to_dict('records')
-    pmag.magic_write('sites.txt',sitesdict,'sites')
-    pmag.magic_write('specimens.txt',specimensdict,'specimens')
-
-def save_figures(a):
-    """Saves figures from GUI depending on widgets"""
-    objdict={'Specimen Plot':fig,'Site Plot':fig_2}
-    value={'Specimen Plot':specimen_wid.value,'Site Plot':site_wid.value}
-    objdict[figchoice.value].savefig(value[figchoice.value]+'_BiCEP_fit.'+figformats.value)
+        display_specimen_plots()
+        process_wid.disabled=False
+        save_wid.disabled=False
+        savetables.disabled=False
+        figsave.disabled=False
+        newfile_wid.disabled=True
+        checkbox.disabled=False
+        run_wid.description='Running'
+        run_wid.disabled=True
 
 
 
 
-
-
-
-#Objects global to all the functions in this module
-fits={} #Fits for various sites are stored here- this can use a lot of memory!
-ktemp={} #Temperatures (In Kelvin) used for a specimen at the time a site fit has been performed. Only done once site fit is performed.
-spec_extra_columns={} #Additional columns for the MagIC tables, e.g. if corrections were applied.
-
-
-
-#GUI widgets- these widgets are what are used in the BiCEP_GUI notebook/voila page, which allows you to display them.
-#Their interaction is linked to the functions in this module.
-
-
-#File picker widget- probably not necessary as sites, specimens etc already there.
-convert_button = widgets.Button(description='Convert MagIC Data')
-
-convert_button.on_click(convert)
-
-
-#Been_pressed flag stops you from loading a new dataset when one is already loaded (this breaks the GUI because the dropdown boxes try and update their options before they know what those options are).
-global been_pressed
-been_pressed=False
-
-
-#Specimen/Interpretation Selection, Arai plot etc.
-site_wid= widgets.Dropdown(
-    description='Site:')
-
-specimen_wid= widgets.Dropdown(
-    options=[],
-    description='Specimen:')
-
-lower_temp_wid=widgets.Dropdown(
-    options=[],
-    description='Temperatures (Low):',
-    style={"description_width":"initial"}
+    row_layout_buttons = widgets.Layout(
+        width='60%',
+        display='flex',
+        flex_flow='row',
+        justify_content='space-around',
+        margin='1000px left'
+    )
+    row_layout = widgets.Layout(
+        width='100%',
+        display='flex',
+        flex_flow='row',
+        justify_content='space-around'
     )
 
-upper_temp_wid=widgets.Dropdown(
-    options=[],
-    description='(High):',
-    style={"description_width":"initial"})
 
-save_wid=widgets.Button(description='Save Temperatures')
+    def display_site_plot(fit):
+        """
+        Displays the site plots for BiCEP GUI
+
+        Inputs
+        ------
+        fit: StanFit object
+        BiCEP fit for that site/sample
+
+        Returns
+        -------
+        None
+        """
+        ax_2[0].cla()
+        ax_2[1].cla()
+        try:
+            thellierData[site_wid.value].regplot(ax_2[0])
+            ax_2[0].axhline(np.median(fit['int_site']),color='k')
+            ax_2[1].axhline(np.median(fit['int_site']),color='k')
+            ax_2[1].hist(fit['int_site'],color='skyblue',bins=100,density=True,orientation='horizontal')
+            ax_2[0].set_ylim(min(np.percentile(fit['int_real'],2.5,axis=0))*0.9,max(np.percentile(fit['int_real'],97.5,axis=0))*1.1)
+            ax_2[0].set_xlim(min(min(np.percentile(fit['k'],2.5,axis=0))*1.1,min(np.percentile(fit['k'],2.5,axis=0))*0.9),max(max(np.percentile(fit['k'],97.5,axis=0))*1.1,max(np.percentile(fit['k'],97.5,axis=0))*0.9))
+            ax_2[1].set_ylabel('$B_{anc}$')
+            ax_2[1].set_xlabel('Probability Density')
+            try:
+                display_specimen_ring()
+            except:
+                pass
+        except:
+            rhatlabel.description='R_hat:'
+            nefflabel.description='n_eff:'
+            banclabel.description='B_anc:'
+            gradelabel.description='Category: '
+            banclabel.button_style='info'
+            nefflabel.button_style='info'
+            rhatlabel.button_style='info'
+            gradelabel.button_style='info'
+        fig_2.tight_layout();
+
+    def save_magic_tables(a):
+        """
+        Saves data from the currently displayed site to the GUI
+
+        Inputs:
+        ------
+        a: Button pressed object
+        Has no practical use
+
+        Returns
+        -------
+        None
+        """
+        try:
+            thellierData[site_wid.value].save_magic_tables()
+        except:
+            pass
+
+    def save_figures(a):
+        """
+        Saves figures from GUI to file
+
+        Inputs:
+        ------
+        a: Button pressed object
+        Has no practical use
+
+        Returns
+        -------
+        None
+        """
+
+        objdict={'Specimen Plot':fig,'Site Plot':fig_2}
+        value={'Specimen Plot':specimen_wid.value,'Site Plot':site_wid.value}
+        objdict[figchoice.value].savefig(value[figchoice.value]+'_BiCEP_fit.'+figformats.value)
 
 
-newfile_wid=widgets.Button(description='Use New File',
-                          style={"description_width":"initial"})
-examplefile_wid=widgets.Button(description='Use Example File',
-                              style={"description_width":"initial"})
-figsave=widgets.Button(description='Save Figures')
-figchoice=widgets.Dropdown(options=['Specimen Plot','Site Plot'])
-figformats=widgets.Dropdown(description='Format:',options=['pdf','png','jpg','svg','tiff'])
-figsave.on_click(save_figures)
-newfile_wid.on_click(newfile)
-examplefile_wid.on_click(examplefile)
+    def enablerun(a):
+        """
+        Enables running the GUI after choosing a file
 
-madbox=widgets.Button(description='MAD:',disabled=True)
-dangbox=widgets.Button(description='DANG:',disabled=True)
-dratbox=widgets.Button(description='DRAT:',disabled=True)
-filebox=widgets.HBox([newfile_wid,examplefile_wid],grid_area="filebox")
-tempbox=widgets.VBox([lower_temp_wid,upper_temp_wid],grid_area="tempbox")
-specbox=widgets.VBox([site_wid,specimen_wid],grid_area="specbox")
+        Inputs:
+        ------
+        a: Button pressed object
+        Has no practical use
 
-savebox=widgets.HBox([save_wid,figsave,figchoice,figformats])
-dirbox=widgets.HBox([madbox,dangbox])
-critbox=widgets.VBox([dirbox,dratbox])
-specplots=widgets.Output(grid_area="specplots")
-dropdowns=widgets.HBox([specbox,tempbox,critbox],grid_area="dropdowns")
+        Returns
+        -------
+        None
+        """
+        run_wid.disabled=False
 
-#fullbox gives the entire specimen processing box
-fullbox=widgets.Box(children=[filebox,dropdowns,specplots,savebox],title='Specimen Processing',
-        layout=widgets.Layout(
-            width='100%',
-            flex_flow='column',
-            align_content='space-around',
-            align_items='flex-start')
-       )
-#Make a plot in the specplots box
-with specplots:
-    fig,ax=plt.subplots(1,2,figsize=(9,3))
-    fig.canvas.header_visible = False
-    plt.tight_layout()
-dangbox.button_style='info'
-madbox.button_style='info'
-dratbox.button_style='info'
+    def activate_deactivate(a):
+        """
+        Function that excludes/includes a specimen depending on activation/deactivation
 
-#GUI widgets for the site processing box
-n_samples_wid=widgets.IntSlider(min=3000,max=100000,value=30000,step=1000,description='n samples')
-method_wid=widgets.Dropdown(options=['Slow, more accurate','Fast, less accurate'],description='Sampler:')
-process_wid=widgets.Button(description='Process Site Data')
-process_wid.on_click(get_site_dist)
-rhatlabel=widgets.Button(descriptixon='R_hat:',disabled=True)
-nefflabel=widgets.Button(description='n_eff:',disabled=True)
-banclabel=widgets.Button(description='B_anc:',disabled=True,display='flex',flex_flow='column',align_items='stretch',layout=widgets.Layout(width='auto', height=rhatlabel.layout.height))
-sampler_diag=widgets.HBox([rhatlabel,nefflabel])
-sampler_buttons=widgets.VBox([sampler_diag,banclabel])
-sampler_pars=widgets.VBox([n_samples_wid,method_wid])
-sampler_line=widgets.HBox([sampler_pars,sampler_buttons])
-banclabel.button_style='info'
-nefflabel.button_style='info'
-rhatlabel.button_style='info'
-siteplots=widgets.Output()
-with siteplots:
-    fig_2,ax_2=plt.subplots(1,2,figsize=(6.4,3),sharey=True)
-    fig_2.canvas.header_visible = False
+        Inputs:
+        ------
+        a: interact object
+        Has no practical use
+
+        Returns
+        -------
+        None
+        """
+        thellierData[site_wid.value][specimen_wid.value].active= not checkbox.value
 
 
+    site_wid= widgets.Dropdown(
+        description='Site:')
 
-savetables=widgets.Button(description='Save to MagIC tables')
-savetables.on_click(save_magic_tables)
-sitesave=widgets.HBox([savetables])
+    specimen_wid= widgets.Dropdown(
+        options=[],
+        description='Specimen:')
 
-fullbox2=widgets.VBox([process_wid,sampler_line,siteplots,sitesave],title='Site Processing')
-specpage=widgets.Accordion([fullbox])
-sitepage=widgets.Accordion([fullbox2])
-specpage.set_title(0,'Specimen Processing')
-sitepage.set_title(0,'Site Processing')
-gui=widgets.VBox([specpage,sitepage])
+    lower_temp_wid=widgets.Dropdown(
+        options=[],
+        description='Temperatures (Low):',
+        style={"description_width":"initial"}
+        )
+
+    upper_temp_wid=widgets.Dropdown(
+        options=[],
+        description='(High):',
+        style={"description_width":"initial"})
+    save_wid=widgets.Button(description='Save Temperatures',disabled=True)
+
+    newfile_wid=FileChooser('.',description='Choose File',
+                              style={"description_width":"initial"},filter_pattern='*.csv')
+    run_wid=widgets.Button(description='Start',
+                                  style={"description_width":"initial"},disabled=True)
+    newfile_wid.register_callback(enablerun)
+    figsave=widgets.Button(description='Save Figures',disabled=True)
+    figchoice=widgets.Dropdown(options=['Specimen Plot','Site Plot'],layout=widgets.Layout(width='20%'))
+    figformats=widgets.Dropdown(description='Format:',options=['pdf','png','jpg','svg','tiff'])
+    figsave.on_click(save_figures)
+    run_wid.on_click(run)
+
+    madbox=widgets.Button(description='MAD:',disabled=True)
+    dangbox=widgets.Button(description='DANG:',disabled=True)
+    dratbox=widgets.Button(description='DRAT:',disabled=True)
+    rhatbox=widgets.Button(description='R_hat:',disabled=True)
+    filebox=widgets.HBox([newfile_wid,run_wid],grid_area="filebox")
+    tempbox=widgets.VBox([lower_temp_wid,upper_temp_wid],grid_area="tempbox")
+    specbox=widgets.VBox([site_wid,specimen_wid],grid_area="specbox")
+    checkbox=widgets.Checkbox(description='Exclude Specimen',disabled=True,indent=False,layout=widgets.Layout(width='15%'))
+    savebox=widgets.HBox([save_wid,checkbox,figsave,figchoice,figformats],grid_area="savebox",layout=row_layout)
+    dirbox=widgets.HBox([madbox,dangbox])
+    dratrhatbox=widgets.HBox([dratbox,rhatbox])
+    critbox=widgets.VBox([dirbox,dratrhatbox])
+    specplots=widgets.Output(grid_area="specplots")
+    dropdowns=widgets.HBox([specbox,tempbox,critbox],grid_area="dropdowns")
+
+    #fullbox gives the entire specimen processing box
+    fullbox=widgets.Box(children=[filebox,dropdowns,specplots,savebox],title='Specimen Processing',
+            layout=widgets.Layout(
+                width='100%',
+                flex_flow='column',
+                align_content='space-around',
+                align_items='flex-start')
+           )
+    #Make a plot in the specplots box
+    with specplots:
+        fig,ax=plt.subplots(1,2,figsize=(9,3))
+        fig.canvas.header_visible = False
+        plt.tight_layout()
+    dangbox.button_style='info'
+    madbox.button_style='info'
+    dratbox.button_style='info'
+    rhatbox.button_style='info'
+    #GUI widgets for the site processing box
+    n_samples_wid=widgets.IntSlider(min=3000,max=100000,value=30000,step=1000,description='n samples')
+    method_wid=widgets.Dropdown(options=['Slow, more accurate','Fast, less accurate'],description='Sampler:')
+    process_wid=widgets.Button(description='Process Site Data',disabled=True)
+    process_wid.on_click(get_site_dist)
+
+    rhatlabel=widgets.Button(description='R_hat:',disabled=True)
+    nefflabel=widgets.Button(description='n_eff:',disabled=True)
+    banclabel=widgets.Button(description='B_anc:',disabled=True)
+
+    gradelabel=widgets.Button(description='Category:',disabled=True)
+    sampler_diag=widgets.HBox([rhatlabel,nefflabel])
+    sampler_results=widgets.HBox([banclabel,gradelabel])
+    sampler_buttons=widgets.VBox([sampler_diag,sampler_results])
+    sampler_pars=widgets.VBox([n_samples_wid,method_wid])
+    sampler_line=widgets.HBox([sampler_pars,sampler_buttons])
+    banclabel.button_style='info'
+    nefflabel.button_style='info'
+    rhatlabel.button_style='info'
+    gradelabel.button_style='info'
+    siteplots=widgets.Output()
+    with siteplots:
+        fig_2,ax_2=plt.subplots(1,2,figsize=(6.4,3),sharey=True)
+        fig_2.canvas.header_visible = False
+
+
+
+    savetables=widgets.Button(description='Save to MagIC tables',disabled=True)
+    savetables.on_click(save_magic_tables)
+    sitesave=widgets.HBox([savetables])
+
+    fullbox2=widgets.VBox([process_wid,sampler_line,siteplots,sitesave],title='Site Processing')
+    specpage=widgets.Accordion([fullbox])
+    sitepage=widgets.Accordion([fullbox2])
+    specpage.set_title(0,'Specimen Processing')
+    sitepage.set_title(0,'Site Processing')
+    gui=widgets.VBox([specpage,sitepage])
+    display(gui)
