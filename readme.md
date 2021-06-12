@@ -38,17 +38,6 @@
 
 - Copy and paste your measurements.txt, specimens.txt, samples.txt and sites.txt files into the BiCEP_GUI directory.
 
-## Setup- Google Colab
-- Press the following button
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bcych/BiCEP_GUI/blob/master/BiCEP%20GUI.ipynb)
-
-- Upload your files to the notebook directory by pressing the "file" button to the left hand side, and then the "upload" button
-
-- Uncomment the first cell in the notebook and run it
-
-- Run remaining cells in the notebook to access the GUI.
-
 ## Using BiCEP GUI
 
 - Open the BiCEP GUI notebook in your folder. Press the "Appmode" button (or "Voila" button, located in the same place, if running on your own machine) to launch the GUI.
