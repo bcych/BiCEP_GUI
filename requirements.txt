@@ -1,0 +1,9 @@
+scikit-learn==0.24.1
+pmagpy
+tornado
+future
+pandas
+ipympl
+pystan==2.19
+ipyfilechooser
+voila
