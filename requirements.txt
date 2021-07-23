@@ -2,8 +2,9 @@ scikit-learn==0.24.1
 pmagpy
 tornado
 future
-pandas
+pandas==1.2.4
 ipympl
 pystan==2.19
-ipyfilechooser
+ipyfilechooser==0.4.3
 voila
+arviz
