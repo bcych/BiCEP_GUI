@@ -1347,16 +1347,19 @@ def generate_arai_plot_table(outputname):
         norm_moments=magn_moments/avg_moment
         croven=max(crs)
         crlog=np.log(croven/crs)
-        specframe['cooling_rate']=specframe.cooling_rate.astype(float)
         try:
-            m,c=np.polyfit(crlog,norm_moments,1)
-            sample=specframe['sample'].iloc[0]
-            cr_real=samples[samples['sample']==sample].cooling_rate.values/5.256e+11
-            cr_reallog=np.log(croven/cr_real)
-            cfactor=1/(c+m*cr_reallog)[0]
-            temps.loc[temps.specimen==specimen,'correction']=temps.loc[temps.specimen==specimen,'correction']*cfactor
-        except TypeError:
-            logstring+='Something went wrong with estimating the cooling rate correction for specimen '+specimen+ '. Check that you used the right cooling rate.'
+            specframe['cooling_rate']=specframe.cooling_rate.astype(float)
+            try:
+                m,c=np.polyfit(crlog,norm_moments,1)
+                sample=specframe['sample'].iloc[0]
+                cr_real=samples[samples['sample']==sample].cooling_rate.values/5.256e+11
+                cr_reallog=np.log(croven/cr_real)
+                cfactor=1/(c+m*cr_reallog)[0]
+                temps.loc[temps.specimen==specimen,'correction']=temps.loc[temps.specimen==specimen,'correction']*cfactor
+            except TypeError:
+                logstring+='Something went wrong with estimating the cooling rate correction for specimen '+specimen+ '. Check that you used the right cooling rate.'+'\n'
+        except AttributeError:
+            logstring+='Cooling rate correction for specimen '+specimen+' could not be calculated, original cooling rate unknown. Please add the original cooling rate (K/min) to a cooling_rate column in the measurements table.'
 
     #Save the dataframe to output.
     logfile=open("thellier_convert.log","w")
