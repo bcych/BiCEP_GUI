@@ -21,7 +21,6 @@ import pickle
 from sklearn.decomposition import PCA
 from scipy.optimize import curve_fit
 import sys
-import asyncio
 
 model_circle_fast=pickle.load(open('model_circle_fast.pkl','rb'))
 model_circle_slow=pickle.load(open('model_circle_slow.pkl','rb'))
@@ -1474,7 +1473,7 @@ def run_gui():
             #We need to change the plot to account for saved temperature steps if there are any.
             if (lower_temp_wid.value!=thellierData[site_wid.value][change.new].savedLowerTemp-273)|(upper_temp_wid.value!=thellierData[site_wid.value][change.new].savedUpperTemp-273):
                 #This is fiddly, but it prevents event loop from moving on after changing value
-                lower_temp_wid.unobserve(on_change) 
+                lower_temp_wid.unobserve(on_change)
                 upper_temp_wid.unobserve(on_change)
                 lower_temp_wid.value=thellierData[site_wid.value][change.new].savedLowerTemp-273
                 upper_temp_wid.value=thellierData[site_wid.value][change.new].savedUpperTemp-273
@@ -1489,7 +1488,7 @@ def run_gui():
                 display_specimen_ring()
             except:
                 pass
-            
+
         #If we're changing the specimen plot, we display a red circle around the currently selected specimen on the site plot
         #if (change.owner==specimen_wid):
             #display_specimen_ring()
