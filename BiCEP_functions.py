@@ -21,6 +21,7 @@ import pickle
 from sklearn.decomposition import PCA
 from scipy.optimize import curve_fit
 import sys
+import asyncio
 
 model_circle_fast=pickle.load(open('model_circle_fast.pkl','rb'))
 model_circle_slow=pickle.load(open('model_circle_slow.pkl','rb'))
@@ -292,7 +293,7 @@ class ThellierData():
             self.groupType='sample'
         else:
             self.groupType='site'
-        self.collections={siteName:SpecimenCollection(self,siteName,self.groupType) for siteName in self.data[self.groupType.unique()]}
+        self.collections={siteName:SpecimenCollection(self,siteName,self.groupType) for siteName in self.data[self.groupType].unique()}
 
 
 
@@ -382,9 +383,10 @@ class SpecimenCollection():
                 dmaxlist.append(dmax)
                 PTRMmaxlist.append(PTRMmax)
                 centroidlist.append(centroid)
+                i+=1
 
         if model==None:
-            if len(specimenlist)<7:
+            if i<7:
                 model_circle=model_circle_slow
             else:
                 model_circle=model_circle_fast
@@ -1334,33 +1336,36 @@ def generate_arai_plot_table(outputname):
             logstring+="-W- WARNING: Can't fit tanh function to NLT data for "+specimen+'\n'
 
     #Get the cooling rate correction
-    meas_cool=measurements_old[measurements_old.method_codes.str.contains('LP-CR-TRM')].dropna(subset=['description'])
-
-    for specimen in meas_cool.specimen.unique():
-        specframe=meas_cool[meas_cool.specimen==specimen]
-        vals=specframe.description.str.split(':').values
-        crs=np.array([])
-        for val in vals:
-            crs=np.append(crs,float(val[1]))
-        magn_moments=specframe['magn_moment'].values
-        avg_moment=np.mean(magn_moments[crs==max(crs)])
-        norm_moments=magn_moments/avg_moment
-        croven=max(crs)
-        crlog=np.log(croven/crs)
-        try:
-            specframe['cooling_rate']=specframe.cooling_rate.astype(float)
+    try:
+        meas_cool=measurements_old[measurements_old.method_codes.str.contains('CR-TRM')].dropna(subset=['description'])
+        samples=pd.read_csv('samples.txt',skiprows=1,sep='\t')
+        for specimen in meas_cool.specimen.unique():
+            specframe=meas_cool[meas_cool.specimen==specimen]
+            vals=specframe.description.str.split(':').values
+            crs=np.array([])
+            for val in vals:
+                crs=np.append(crs,float(val[1]))
+            magn_moments=specframe['magn_moment'].astype(float).values
+            avg_moment=np.mean(magn_moments[crs==max(crs)])
+            norm_moments=magn_moments/avg_moment
+            croven=max(crs)
+            crlog=np.log(croven/crs)
             try:
-                m,c=np.polyfit(crlog,norm_moments,1)
-                sample=specframe['sample'].iloc[0]
-                cr_real=samples[samples['sample']==sample].cooling_rate.values/5.256e+11
-                cr_reallog=np.log(croven/cr_real)
-                cfactor=1/(c+m*cr_reallog)[0]
-                temps.loc[temps.specimen==specimen,'correction']=temps.loc[temps.specimen==specimen,'correction']*cfactor
-            except TypeError:
-                logstring+='Something went wrong with estimating the cooling rate correction for specimen '+specimen+ '. Check that you used the right cooling rate.'+'\n'
-        except AttributeError:
-            logstring+='Cooling rate correction for specimen '+specimen+' could not be calculated, original cooling rate unknown. Please add the original cooling rate (K/min) to a cooling_rate column in the measurements table.'
-
+                specframe['cooling_rate']=specframe.cooling_rate.astype(float)
+            except AttributeError:
+                try:
+                    m,c=np.polyfit(crlog,norm_moments,1)
+                    sample=specframe['sample'].iloc[0]
+                    cr_real=samples[samples['sample']==sample].cooling_rate.values/5.256e+11
+                    cr_reallog=np.log(croven/cr_real)
+                    cfactor=1/(c+m*cr_reallog)[0]
+                    temps.loc[temps.specimen==specimen,'correction']=temps.loc[temps.specimen==specimen,'correction']*cfactor
+                except AttributeError:
+                    logstring+='Cooling rate correction for specimen '+specimen+' could not be calculated, original cooling rate unknown. Please add the original cooling rate (K/min) to a cooling_rate column in the specimens table. \n'
+                except:
+                    logstring+='Something went wrong with estimating the cooling rate correction for specimen '+specimen+ '. Check that you used the right cooling rate.'+'\n'
+    except KeyError:
+        logstring+="Measurements file does not contain a description for cooling rate corrections. Ignoring corrections. \n"
     #Save the dataframe to output.
     logfile=open("thellier_convert.log","w")
     logfile.write(logstring)
@@ -1466,19 +1471,25 @@ def run_gui():
             lower_temp_wid.options=thellierData[site_wid.value][change.new].temps-273
             upper_temp_wid.options=thellierData[site_wid.value][change.new].temps-273
             checkbox.value= not thellierData[site_wid.value][change.new].active
-
+            #We need to change the plot to account for saved temperature steps if there are any.
+            if (lower_temp_wid.value!=thellierData[site_wid.value][change.new].savedLowerTemp-273)|(upper_temp_wid.value!=thellierData[site_wid.value][change.new].savedUpperTemp-273):
+                #This is fiddly, but it prevents event loop from moving on after changing value
+                lower_temp_wid.unobserve(on_change) 
+                upper_temp_wid.unobserve(on_change)
+                lower_temp_wid.value=thellierData[site_wid.value][change.new].savedLowerTemp-273
+                upper_temp_wid.value=thellierData[site_wid.value][change.new].savedUpperTemp-273
+                upper_temp_wid.observe(on_change)
+                lower_temp_wid.observe(on_change)
+                display_specimen_plots()
             #Additionally, we need to make sure the plot changes if the temperature steps were the exact same as last time.
-            if (lower_temp_wid.value!=thellierData[site_wid.value][change.new].savedLowerTemp-273)&(upper_temp_wid.value!=thellierData[site_wid.value][change.new].savedUpperTemp-273):
-                pass
             else:
                 display_specimen_plots()
-                try:
-                    display_specimen_ring()
-                except:
-                    pass
-            lower_temp_wid.value=thellierData[site_wid.value][change.new].savedLowerTemp-273
-            upper_temp_wid.value=thellierData[site_wid.value][change.new].savedUpperTemp-273
-
+            #Finally, we need to display a ring around the specimen for the site level plot
+            try:
+                display_specimen_ring()
+            except:
+                pass
+            
         #If we're changing the specimen plot, we display a red circle around the currently selected specimen on the site plot
         #if (change.owner==specimen_wid):
             #display_specimen_ring()
