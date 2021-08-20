@@ -492,7 +492,7 @@ class SpecimenCollection():
         """
         rhats=self.fit.summary()['summary'][:,-1]
         rhat_params=self.fit.summary()['summary_rownames']
-        specimenlist=[specimen for specimen in self.specimens.values()]
+        specimenlist=[specimen for specimen in self.specimens.values() if specimen.active==True]
         for i in list(range(len(specimenlist))):
             rhats_specimen=rhats[np.char.find(rhat_params,'['+str(i+1)+']')!=-1]
             worst_rhat_specimen=rhats_specimen[np.abs(rhats_specimen-1)==max(np.abs(rhats_specimen-1))][0]
@@ -686,25 +686,25 @@ class Specimen():
 
         #Plot NRM directions
         ax.plot(self.NRM_dirs[:,0],self.NRM_dirs[:,1],'k')
-        ax.plot(self.NRM_dirs[:,0],self.NRM_dirs[:,2],'k')
+        ax.plot(self.NRM_dirs[:,0],-self.NRM_dirs[:,2],'k')
 
         #Plot NRM directions in currently selected temperature range as closed symbols
         ax.plot(self.NRM_trunc_dirs[:,0],self.NRM_trunc_dirs[:,1],'ko')
-        ax.plot(self.NRM_trunc_dirs[:,0],self.NRM_trunc_dirs[:,2],'rs')
+        ax.plot(self.NRM_trunc_dirs[:,0],-self.NRM_trunc_dirs[:,2],'rs')
 
         #Plot open circles for all NRM directions as closed symbols
         ax.plot(self.NRM_dirs[:,0],self.NRM_dirs[:,1],'o',markerfacecolor='None',markeredgecolor='k')
-        ax.plot(self.NRM_dirs[:,0],self.NRM_dirs[:,2],'s',markerfacecolor='None',markeredgecolor='k')
+        ax.plot(self.NRM_dirs[:,0],-self.NRM_dirs[:,2],'s',markerfacecolor='None',markeredgecolor='k')
         length, vector=self.pca.explained_variance_[0], self.pca.components_[0]
         vals=self.pca.transform(self.NRM_trunc_dirs)[:,0]
         v = np.outer(vals,vector)
 
         #Plot PCA line fit
         ax.plot(self.pca.mean_[0]+v[:,0],self.pca.mean_[1]+v[:,1],'g')
-        ax.plot(self.pca.mean_[0]+v[:,0],self.pca.mean_[2]+v[:,2],'g')
+        ax.plot(self.pca.mean_[0]+v[:,0],-self.pca.mean_[2]-v[:,2],'g')
         if temps==True:
             for i in range(len(self.temps)):
-                ax.text(self.NRM_dirs[i,0],self.NRM_dirs[i,1],str(self.temps[i]-273),alpha=0.5)
+                ax.text(self.NRM_dirs[i,0],-self.NRM_dirs[i,2],str(self.temps[i]-273),alpha=0.5)
 
         ax.set_xlabel('x, $Am^2$')
         ax.set_ylabel('y,z, $Am^2$')
@@ -1439,6 +1439,7 @@ def run_gui():
         else:
             rhatbox.button_style='danger'
         fig.tight_layout()
+        ax[1].relim()
 
     def on_change(change):
         """
@@ -1461,7 +1462,7 @@ def run_gui():
         """
         #If we're changing the site dropdown, we need to replot the site plots and change the specimen options
         if (change.owner==site_wid)&(change.name=='value'):
-            specimen_wid.options=thellierData[site_wid.value].specimens.keys()
+            specimen_wid.options=np.sort(thellierData[site_wid.value].specimens.keys())
             fit=thellierData[site_wid.value].fit
             display_site_plot(fit)
 
@@ -1630,7 +1631,7 @@ def run_gui():
         thellierData=ThellierData(newfile_wid.selected_filename)
         run_wid.description='Preparing GUI...'
         site_wid.options=thellierData.collections.keys()
-        specimen_wid.options=thellierData[site_wid.value].specimens.keys()
+        specimen_wid.options=np.sort(thellierData[site_wid.value].specimens.keys())
 
         lower_temp_wid.options=thellierData[site_wid.value][specimen_wid.value].temps-273
         upper_temp_wid.options=thellierData[site_wid.value][specimen_wid.value].temps-273
