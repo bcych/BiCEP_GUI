@@ -1462,7 +1462,7 @@ def run_gui():
         """
         #If we're changing the site dropdown, we need to replot the site plots and change the specimen options
         if (change.owner==site_wid)&(change.name=='value'):
-            specimen_wid.options=np.sort(thellierData[site_wid.value].specimens.keys())
+            specimen_wid.options=np.sort(list(thellierData[site_wid.value].specimens.keys()))
             fit=thellierData[site_wid.value].fit
             display_site_plot(fit)
 
@@ -1631,7 +1631,7 @@ def run_gui():
         thellierData=ThellierData(newfile_wid.selected_filename)
         run_wid.description='Preparing GUI...'
         site_wid.options=thellierData.collections.keys()
-        specimen_wid.options=np.sort(thellierData[site_wid.value].specimens.keys())
+        specimen_wid.options=np.sort(list(thellierData[site_wid.value].specimens.keys()))
 
         lower_temp_wid.options=thellierData[site_wid.value][specimen_wid.value].temps-273
         upper_temp_wid.options=thellierData[site_wid.value][specimen_wid.value].temps-273
