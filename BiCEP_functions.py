@@ -1630,7 +1630,7 @@ def run_gui():
         run_wid.description='Converting Data...'
         thellierData=ThellierData(newfile_wid.selected_filename)
         run_wid.description='Preparing GUI...'
-        site_wid.options=thellierData.collections.keys()
+        site_wid.options=np.sort(list(thellierData.collections.keys()))
         specimen_wid.options=np.sort(list(thellierData[site_wid.value].specimens.keys()))
 
         lower_temp_wid.options=thellierData[site_wid.value][specimen_wid.value].temps-273
