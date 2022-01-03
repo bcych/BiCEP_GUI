@@ -277,7 +277,13 @@ class ThellierData():
     def __init__(self,datafile):
         self.data=pd.read_csv(datafile)
         self.groupType='site'
+        try:
+            self.redo=pd.read_csv('thellier_gui.redo',delim_whitespace=True,header=None)
+        except:
+            self.redo=None
+        
         self.collections={siteName:SpecimenCollection(self,siteName,self.groupType) for siteName in self.data[self.groupType].unique()}
+        
 
     def __repr__(self):
         reprstr='Set of Thellier Data Containing the '+'S'+self.groupType[1:]+'s:\n'
@@ -316,6 +322,7 @@ class SpecimenCollection():
     def __init__(self,parentData,collectionName,key):
         self.name=collectionName
         self.key=key
+        self.parentData=parentData
         self.data=parentData.data[parentData.data[self.key]==collectionName]
         self.specimens={specimenName:Specimen(self,specimenName) for specimenName in self.data.specimen.unique()}
         self.fit=None
@@ -546,13 +553,24 @@ class Specimen():
         self.pTRMmax=max(self.data.PTRM)
         self.temps=self.data.temp_step.unique()
 
-        #Interpretation temperatures
-        self.lowerTemp=min(self.temps)
-        self.upperTemp=max(self.temps)
+        #Try importing from redo file. Otherwise initiliaze to default interpretation using all measurements
+        redo=parentCollection.parentData.redo
+        try:
+            #Interpretation temperatures
+            self.lowerTemp=float(redo.loc[redo[0]==specimenName,1].iloc[0])
+            self.upperTemp=float(redo.loc[redo[0]==specimenName,2].iloc[0])
 
-        #Saved interpretation temperatures- these are saved when the BiCEP_fit method is run.
-        self.savedLowerTemp=min(self.temps)
-        self.savedUpperTemp=max(self.temps)
+            #Saved interpretation temperatures- these are saved when the BiCEP_fit method is run.
+            self.savedLowerTemp=float(redo.loc[redo[0]==specimenName,1].iloc[0])
+            self.savedUpperTemp=float(redo.loc[redo[0]==specimenName,2].iloc[0])
+        except:
+            #Interpretation temperatures
+            self.lowerTemp=min(self.temps)
+            self.upperTemp=max(self.temps)
+
+            #Saved interpretation temperatures- these are saved when the BiCEP_fit method is run.
+            self.savedLowerTemp=min(self.temps)
+            self.savedUpperTemp=max(self.temps)
 
         #Definitions of Thellier Experiment Measurements (for plotting)
         self.IZZI=self.data[(self.data.steptype=='IZ')|(self.data.steptype=='ZI')]
@@ -599,6 +617,7 @@ class Specimen():
         -------
         None
         """
+        
         self.lowerTemp=lowerTemp
         self.upperTemp=upperTemp
         self.IZZI_trunc=self.IZZI[(self.IZZI.temp_step>=self.lowerTemp)&(self.IZZI.temp_step<=self.upperTemp)]
@@ -631,6 +650,17 @@ class Specimen():
         self.saved_IZZI_trunc=self.IZZI_trunc
         self.saved_IZ=self.IZ
         self.saved_ZI=self.ZI
+        if type(self.parentCollection.parentData.redo)==type(None):
+            redo=pd.DataFrame({0:[],1:[],2:[]})
+        else:
+            redo=self.parentCollection.parentData.redo
+        if self.name in redo[0].unique():
+            redo.at[redo[0]==self.name,1]=self.lowerTemp
+            redo.at[redo[0]==self.name,2]=self.upperTemp
+        else:
+            redo=redo.append([[self.name,self.lowerTemp,self.upperTemp]])
+        self.parentCollection.parentData.redo=redo
+        redo.to_csv('thellier_gui.redo',header=None,index=False,sep=' ')
 
     def plot_arai(self,ax,temps=True):
         """
