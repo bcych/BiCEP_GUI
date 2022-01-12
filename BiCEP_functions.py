@@ -21,10 +21,10 @@ import pickle
 from sklearn.decomposition import PCA
 from scipy.optimize import curve_fit
 import sys
+import arviz as az
 
 model_circle_fast=pickle.load(open('model_circle_fast.pkl','rb'))
 model_circle_slow=pickle.load(open('model_circle_slow.pkl','rb'))
-
 def sufficient_statistics(ptrm, nrm):
     """
     inputs list of ptrm and nrm data and computes sufficent statistcs needed
@@ -265,6 +265,26 @@ def calculate_NLT_correction(IZZI,c):
     total_correction=(np.arctanh(correction*np.abs(b)*np.tanh(beta*B_lab)))/(np.abs(b)*beta*B_lab)
     return(total_correction)
 
+def extract_values(fit,var):
+    """
+    Extracts the data for variable in the BiCEP fit to a 1d numpy array
+
+    Inputs
+    ------
+    fit arviz InferenceData:
+    site level BiCEP fit object
+    
+    var str:
+    name of variable in fit
+
+    Returns
+    -------
+    values: array
+    1d array of values for that variable in the fit
+    """
+    values=fit.posterior[var].stack(sample=["chain", "draw"]).values
+    return(values)
+
 
 class ThellierData():
     """
@@ -325,7 +345,10 @@ class SpecimenCollection():
         self.parentData=parentData
         self.data=parentData.data[parentData.data[self.key]==collectionName]
         self.specimens={specimenName:Specimen(self,specimenName) for specimenName in self.data.specimen.unique()}
-        self.fit=None
+        try:
+            self.fit=az.from_netcdf(self.name+'.nc')
+        except:
+            self.fit=None
         self.methcodes='IE-BICEP'
         self.artist=None
 
@@ -401,9 +424,11 @@ class SpecimenCollection():
         fit_circle=model_circle.sampling (
             data={'I':len(pTRMsList),'M':len(lengths),'PTRM':pTRMsList,'NRM':NRMsList,'N':lengths,'PTRMmax':PTRMmaxlist,'B_labs':B_lab_list,'dmax':np.sqrt(dmaxlist),'centroid':centroidlist,'priorstd':priorstd},iter=n_samples,warmup=int(n_samples/2),
             init=[{'k_scale':np.array(klist)*np.array(dist_to_edgelist),'phi':philist,'dist_to_edge':dist_to_edgelist,'int_real':B_ancs}]*4,**kwargs)
-        self.fit=fit_circle
+        self.fit=az.from_pystan(fit_circle)
         #except:
             #print('Something went wrong trying to do the BiCEP fit, try changing your temperature range')
+
+
 
     def save_magic_tables(self):
         """
@@ -419,21 +444,21 @@ class SpecimenCollection():
         """
         fit=self.fit
         sitestable=pd.read_csv(self.key+'s.txt',skiprows=1,sep='\t')
-        sitestable.loc[sitestable[self.key]==self.name,'int_abs_min']=round(np.percentile(fit['int_site'],2.5),1)/1e6
-        sitestable.loc[sitestable[self.key]==self.name,'int_abs_max']=round(np.percentile(fit['int_site'],97.5),1)/1e6
-        sitestable.loc[sitestable[self.key]==self.name,'int_abs']=round(np.percentile(fit['int_site'],50),1)/1e6
+        sitestable.loc[sitestable[self.key]==self.name,'int_abs_min']=round(np.percentile(extract_values(fit,'int_site'),2.5),1)/1e6
+        sitestable.loc[sitestable[self.key]==self.name,'int_abs_max']=round(np.percentile(extract_values(fit,'int_site'),97.5),1)/1e6
+        sitestable.loc[sitestable[self.key]==self.name,'int_abs']=round(np.percentile(extract_values(fit,'int_site'),50),1)/1e6
         specimenstable=pd.read_csv('specimens.txt',skiprows=1,sep='\t')
         speclist=[spec for spec in self.specimens.keys() if self.specimens[spec].active==True]
         for i in range(len(speclist)):
 
             specimen=speclist[i]
             specfilter=(~specimenstable.method_codes.str.contains('LP-AN').fillna(False))&(specimenstable.specimen==specimen)
-            specimenstable.loc[specfilter,'int_abs_min']=round(np.percentile(fit['int_real'][:,i],2.5),1)/1e6
-            specimenstable.loc[specfilter,'int_abs_max']=round(np.percentile(fit['int_real'][:,i],97.5),1)/1e6
-            specimenstable.loc[specfilter,'int_abs']=round(np.percentile(fit['int_real'][:,i],50),1)/1e6
-            specimenstable.loc[specfilter,'int_k_min']=round(np.percentile(fit['k'][:,i],2.5),3)
-            specimenstable.loc[specfilter,'int_k_max']=round(np.percentile(fit['k'][:,i],97.5),3)
-            specimenstable.loc[specfilter,'int_k']=round(np.percentile(fit['k'][:,i],50),3)
+            specimenstable.loc[specfilter,'int_abs_min']=round(np.percentile(extract_values(fit,'int_real')[i],2.5),1)/1e6
+            specimenstable.loc[specfilter,'int_abs_max']=round(np.percentile(extract_values(fit,'int_real')[i],97.5),1)/1e6
+            specimenstable.loc[specfilter,'int_abs']=round(np.percentile(extract_values(fit,'int_real')[i],50),1)/1e6
+            specimenstable.loc[specfilter,'int_k_min']=round(np.percentile(extract_values(fit,'k')[i],2.5),3)
+            specimenstable.loc[specfilter,'int_k_max']=round(np.percentile(extract_values(fit,'k')[i],97.5),3)
+            specimenstable.loc[specfilter,'int_k']=round(np.percentile(extract_values(fit,'k')[i],50),3)
             specimenstable.loc[specfilter,'meas_step_min']=self[specimen].savedLowerTemp
             specimenstable.loc[specfilter,'meas_step_max']=self[specimen].savedUpperTemp
             method_codes=self[specimen].methcodes.split(':')
@@ -476,15 +501,17 @@ class SpecimenCollection():
         for specimen in self.specimens.values():
             B_lab_list.append(specimen.B_lab)
         try:
-            Bs=self.fit['int_real']
-            ks=self.fit['k']
+            Bs=extract_values(self.fit,'int_real').T
+            ks=extract_values(self.fit,'k').T
+            int_sites=extract_values(self.fit,'int_site')
+            cs=extract_values(self.fit,'c')
             mink,maxk=np.amin(ks),np.amax(ks)
-            minB,maxB=self.fit['c']*mink+self.fit['int_site'],self.fit['c']*maxk+self.fit['int_site']
+            minB,maxB=cs*mink+int_sites,cs*maxk+int_sites
             c=np.random.choice(range(len(minB)),100)
             ax.plot([mink,maxk],[minB[c],maxB[c]],color='skyblue',alpha=0.12)
         except:
-            Bs=self.fit['slope']*np.array(B_lab_list).T
-            ks=self.fit['k']
+            Bs=extract_values(self.fit,'slope').T*np.array(B_lab_list).T
+            ks=extract_values(self.fit,'k').T
         ax.set_xlabel(r'$\vec{k}$');
         ax.plot(np.percentile(ks,(2.5,97.5),axis=0),[np.median(Bs,axis=0),np.median(Bs,axis=0)],'k')
         ax.plot([np.median(ks,axis=0),np.median(ks,axis=0)],np.percentile(Bs,(2.5,97.5),axis=0),'k')
@@ -497,14 +524,22 @@ class SpecimenCollection():
         """
         Finds the worst Rhat va; for each specimen and assigns it to that specimen
         """
-        rhats=self.fit.summary()['summary'][:,-1]
-        rhat_params=self.fit.summary()['summary_rownames']
-        specimenlist=[specimen for specimen in self.specimens.values() if specimen.active==True]
-        for i in list(range(len(specimenlist))):
-            rhats_specimen=rhats[np.char.find(rhat_params,'['+str(i+1)+']')!=-1]
-            worst_rhat_specimen=rhats_specimen[np.abs(rhats_specimen-1)==max(np.abs(rhats_specimen-1))][0]
-            specimenlist[i].rhat=worst_rhat_specimen
-
+        rhats_orig=az.rhat(self.fit)
+        rhats=rhats_orig.to_stacked_array("rhats",sample_dims=[]).values
+        worst_rhat=rhats[(1-rhats)**2==max((1-rhats)**2)][0]
+        specrhatsarray=[]
+        specrhats=rhats_orig.drop_vars(['int_site','sd_site','c']).data_vars
+        for i in specrhats:
+            specrhatsarray.append(specrhats[i].values)
+        specrhatsarray=np.array(specrhatsarray)
+        speclist=[spec for spec in self.specimens.keys() if self.specimens[spec].active==True]
+        for j in range(len(speclist)):
+            spec=self[speclist[j]]
+            rhats_spec=specrhatsarray[:,j]
+            worst_rhat_spec=rhats_spec[(1-rhats_spec)**2==max((1-rhats_spec)**2)][0]
+            spec.rhat=worst_rhat_spec
+        return(worst_rhat)
+    
     def histplot(self,ax,**kwargs):
         """
         Plots a histogram of the site level paleointensity estimate.
@@ -518,8 +553,8 @@ class SpecimenCollection():
         -------
         None
         """
-        ax.hist(self.fit['int_site'],bins=100,color='skyblue',density=True)
-        minB,maxB=np.percentile(self.fit['int_site'],(2.5,97.5))
+        ax.hist(extract_values(self.fit,'int_site'),bins=100,color='skyblue',density=True)
+        minB,maxB=np.percentile(extract_values(self.fit,'int_site'),(2.5,97.5))
         ax.plot([minB,maxB],[0,0],'k',linewidth=4)
         ax.set_xlabel('Intensity ($\mu$T)')
         ax.set_ylabel('Probability Density')
@@ -542,7 +577,7 @@ class Specimen():
         self.parentCollection=parentCollection #Site or sample this specimen belongs to
         self.name=specimenName
         self.data=parentCollection.data[parentCollection.data.specimen==specimenName]
-        self.active=True #Used for BiCEP GUI- set to false if specimen excluded from analysis
+         
         self.methcodes='IE-BICEP' #Appended to when saving.
         self.extracolumnsdict={} #Extra columns for e.g. corrections
         self.rhat=1.
@@ -559,6 +594,10 @@ class Specimen():
             #Interpretation temperatures
             self.lowerTemp=float(redo.loc[redo[0]==specimenName,1].iloc[0])
             self.upperTemp=float(redo.loc[redo[0]==specimenName,2].iloc[0])
+            if self.lowerTemp==self.upperTemp:
+                self.active=False #Used for BiCEP GUI- set to false if specimen excluded from analysis
+            else:
+                self.active=True
 
             #Saved interpretation temperatures- these are saved when the BiCEP_fit method is run.
             self.savedLowerTemp=float(redo.loc[redo[0]==specimenName,1].iloc[0])
@@ -571,6 +610,7 @@ class Specimen():
             #Saved interpretation temperatures- these are saved when the BiCEP_fit method is run.
             self.savedLowerTemp=min(self.temps)
             self.savedUpperTemp=max(self.temps)
+            self.active=True
 
         #Definitions of Thellier Experiment Measurements (for plotting)
         self.IZZI=self.data[(self.data.steptype=='IZ')|(self.data.steptype=='ZI')]
@@ -871,13 +911,16 @@ class Specimen():
 
 
             #Parameters for the circle fit
-            c=np.random.choice(range(len(fit['R'][:,i])),100)
+            Rs=extract_values(fit,'R')[i]
+            x_cs=extract_values(fit,'x_c')[i]
+            y_cs=extract_values(fit,'y_c')[i]
+            c=np.random.choice(range(len(Rs)),100)
             thetas=np.linspace(0,2*np.pi,1000)
             NRM0=self.NRM0
 
             #Circle x and y values for circle plot.
-            xs=(fit['x_c'][c,i][:,np.newaxis])*self.pTRMmax/self.NRM0+minPTRM+fit['R'][c,i][:,np.newaxis]*np.cos(thetas)*self.pTRMmax/self.NRM0
-            ys=fit['y_c'][c,i][:,np.newaxis]+minNRM+fit['R'][c,i][:,np.newaxis]*np.sin(thetas)
+            xs=x_cs[c][:,np.newaxis]*self.pTRMmax/self.NRM0+minPTRM+Rs[c][:,np.newaxis]*np.cos(thetas)*self.pTRMmax/self.NRM0
+            ys=y_cs[c][:,np.newaxis]+minNRM+Rs[c][:,np.newaxis]*np.sin(thetas)
 
             #Plot Circles
             ax.plot(xs.T,ys.T,'-',color='lightgreen',alpha=0.2,linewidth=linewidth,zorder=-1);
@@ -885,9 +928,11 @@ class Specimen():
 
             #Find tangents to the circle:
             if tangent==True:
-                slope_ideal=-1/np.tan(np.median(fit['phi'][:,i]))/self.pTRMmax*self.NRM0
-                x_i=np.median(fit['dist_to_edge'][:,i])*np.cos(np.median(fit['phi'][:,i]))*self.pTRMmax/self.NRM0+minPTRM
-                y_i=np.median(fit['dist_to_edge'][:,i])*np.sin(np.median(fit['phi'][:,i]))+minNRM
+                phis=extract_values(fit,'phi')[i]
+                dists=extract_values(fit,'dist_to_edge')[i]
+                slope_ideal=-1/np.tan(np.median(phis))/self.pTRMmax*self.NRM0
+                x_i=np.median(dists)*np.cos(np.median(phis))*self.pTRMmax/self.NRM0+minPTRM
+                y_i=np.median(dists)*np.sin(np.median(phis))+minNRM
 
                 ax.plot(x_i,y_i,'ko')
                 c=y_i-slope_ideal*x_i
@@ -1438,7 +1483,9 @@ def run_gui():
         speclist=np.array([specimen for specimen in specimen_wid.options if thellierData[site_wid.value][specimen].active==True])
         specindex=np.where(speclist==currspec)
         specindex=specindex[0][0]
-        thellierData[site_wid.value].artist=ax_2[0].plot(np.median(fit['k'][:,specindex]),np.median(fit['int_real'][:,specindex]),'o',markeredgecolor='r',markerfacecolor='None')
+        ks=extract_values(fit,'k')[specindex]
+        int_reals=extract_values(fit,'int_real')[specindex]
+        thellierData[site_wid.value].artist=ax_2[0].plot(np.median(ks),np.median(int_reals),'o',markeredgecolor='r',markerfacecolor='None')
 
 
     def display_specimen_plots():
@@ -1494,7 +1541,12 @@ def run_gui():
         if (change.owner==site_wid)&(change.name=='value'):
             specimen_wid.options=np.sort(list(thellierData[site_wid.value].specimens.keys()))
             fit=thellierData[site_wid.value].fit
+            try:
+                display_sampler_diags(fit)
+            except:
+                pass
             display_site_plot(fit)
+            
 
         #If we're changing the specimen dropdown, we need to update the temperature steps.
         if (change.owner==specimen_wid)&(change.name=='value'):
@@ -1542,7 +1594,7 @@ def run_gui():
         """
         thellierData[site_wid.value][specimen_wid.value].save_changes();
 
-    def get_sampler_diags(fit):
+    def get_sampler_diags(site):
         """
         Returns useful sampler diagnostics for a particular MCMC fit with pystan
 
@@ -1559,9 +1611,8 @@ def run_gui():
         n_eff_int_site: float
         Effective number of pseudosamples of B_anc
         """
-        rhat=fit.summary()['summary'][:,-1]
-        rhat_worst=rhat[np.abs(1-rhat)==max(np.abs(1-rhat))][0]
-        n_eff_int_site=int(fit.summary()['summary'][0,-2])
+        rhat_worst=thellierData[site].get_specimen_rhats()
+        n_eff_int_site=int(az.ess(thellierData[site].fit.posterior)['int_site'].values*1)
         return rhat_worst,n_eff_int_site
 
     def display_sampler_diags(fit):
@@ -1578,7 +1629,7 @@ def run_gui():
         --------
         None
         """
-        rhat_worst,n_eff_int_site=get_sampler_diags(fit)
+        rhat_worst,n_eff_int_site=get_sampler_diags(site_wid.value)
         if (rhat_worst>1.1)|(rhat_worst<0.9):
             rhatlabel.button_style='danger'
         else:
@@ -1590,14 +1641,16 @@ def run_gui():
 
         rhatlabel.description='R_hat: %1.2f'%rhat_worst
         nefflabel.description='n_eff:'+str(n_eff_int_site)
-        minB,maxB=np.percentile(fit['int_site'],(2.5,97.5),axis=0)
+        int_sites=extract_values(fit,'int_site')
+        cs=extract_values(fit,'c')
+        minB,maxB=np.percentile(int_sites,(2.5,97.5),axis=0)
         banclabel.description='B_anc %3.1f'%minB+'- %3.1f'%maxB+' μT'
-        cdiff=np.diff(np.percentile(fit['c'],(2.5,97.5),axis=0))/np.percentile(fit['int_site'],50)
-        Bdiff=np.diff([minB,maxB])/np.percentile(fit['int_site'],50)
+        cdiff=np.diff(np.percentile(cs,(2.5,97.5),axis=0))/np.percentile(int_sites,50)
+        Bdiff=np.diff([minB,maxB])/np.percentile(int_sites,50)
 
         if (cdiff>=1)&(Bdiff>=0.4):
             gradelabel.description='Category: D'
-            if(fit['k'].shape[1])<5:
+            if(extract_values(fit,'k').shape[1])<5:
                 gradelabel.button_style='warning'
             else:
                 gradelabel.button_style='danger'
@@ -1632,11 +1685,13 @@ def run_gui():
         elif method_wid.value=='Fast, less accurate':
             model=model_circle_fast
 
-        thellierData[site_wid.value].BiCEP_fit(model=model)
+        thellierData[site_wid.value].BiCEP_fit(model=model,n_samples=n_samples_wid.value)
         fit=thellierData[site_wid.value].fit
         display_sampler_diags(fit)
+
         #display_specimen_ring()
         display_site_plot(fit)
+
         process_wid.description='Process Site Data'
         ax[0].cla()
         thellierData[site_wid.value][specimen_wid.value].plot_circ(ax[0])
@@ -1684,6 +1739,7 @@ def run_gui():
         checkbox.disabled=False
         run_wid.description='Running'
         run_wid.disabled=True
+        savenetcdf.disabled=False
 
 
 
@@ -1720,11 +1776,14 @@ def run_gui():
         ax_2[1].cla()
         try:
             thellierData[site_wid.value].regplot(ax_2[0])
-            ax_2[0].axhline(np.median(fit['int_site']),color='k')
-            ax_2[1].axhline(np.median(fit['int_site']),color='k')
-            ax_2[1].hist(fit['int_site'],color='skyblue',bins=100,density=True,orientation='horizontal')
-            ax_2[0].set_ylim(min(np.percentile(fit['int_real'],2.5,axis=0))*0.9,max(np.percentile(fit['int_real'],97.5,axis=0))*1.1)
-            ax_2[0].set_xlim(min(min(np.percentile(fit['k'],2.5,axis=0))*1.1,min(np.percentile(fit['k'],2.5,axis=0))*0.9),max(max(np.percentile(fit['k'],97.5,axis=0))*1.1,max(np.percentile(fit['k'],97.5,axis=0))*0.9))
+            int_sites=extract_values(fit,'int_site')
+            int_reals=extract_values(fit,'int_real')
+            ks=extract_values(fit,'k')
+            ax_2[0].axhline(np.median(int_sites),color='k')
+            ax_2[1].axhline(np.median(int_sites),color='k')
+            ax_2[1].hist(int_sites,color='skyblue',bins=100,density=True,orientation='horizontal')
+            ax_2[0].set_ylim(min(np.percentile(int_reals,2.5,axis=0))*0.9,max(np.percentile(int_reals,97.5,axis=0))*1.1)
+            ax_2[0].set_xlim(min(min(np.percentile(ks,2.5,axis=0))*1.1,min(np.percentile(ks,2.5,axis=0))*0.9),max(max(np.percentile(ks,97.5,axis=0))*1.1,max(np.percentile(ks,97.5,axis=0))*0.9))
             ax_2[1].set_ylabel('$B_{anc}$')
             ax_2[1].set_xlabel('Probability Density')
             try:
@@ -1808,6 +1867,28 @@ def run_gui():
         None
         """
         thellierData[site_wid.value][specimen_wid.value].active= not checkbox.value
+        if thellierData[site_wid.value][specimen_wid.value].active == False:
+            thellierData[site_wid.value][specimen_wid.value].change_temps(min(thellierData[site_wid.value][specimen_wid.value].temps),min(thellierData[site_wid.value][specimen_wid.value].temps))
+            thellierData[site_wid.value][specimen_wid.value].save_changes()
+    
+    
+    def save_to_netcdf(a):
+        """
+        Function that saves site fit to netCDF
+
+        Inputs:
+        ------
+        a: interact object
+        Has no practical use
+
+        Returns
+        -------
+        None
+        """
+        try:
+            thellierData[site_wid.value].fit.to_netcdf(site_wid.value+'.nc')
+        except:
+            pass
 
 
     site_wid= widgets.Dropdown(
@@ -1901,7 +1982,10 @@ def run_gui():
 
     savetables=widgets.Button(description='Save to MagIC tables',disabled=True)
     savetables.on_click(save_magic_tables)
-    sitesave=widgets.HBox([savetables])
+    savenetcdf=widgets.Button(description='Save to netCDF',disabled=True)
+    sitesave=widgets.HBox([savetables,savenetcdf])
+    savenetcdf.on_click(save_to_netcdf)
+    
 
     fullbox2=widgets.VBox([process_wid,sampler_line,siteplots,sitesave],title='Site Processing')
     specpage=widgets.Accordion([fullbox])
