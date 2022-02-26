@@ -695,8 +695,8 @@ class Specimen():
         else:
             redo=self.parentCollection.parentData.redo
         if self.name in redo[0].unique():
-            redo.at[redo[0]==self.name,1]=self.lowerTemp
-            redo.at[redo[0]==self.name,2]=self.upperTemp
+            redo.loc[redo[0]==self.name,1]=self.lowerTemp
+            redo.loc[redo[0]==self.name,2]=self.upperTemp
         else:
             redo=redo.append([[self.name,self.lowerTemp,self.upperTemp]])
         self.parentCollection.parentData.redo=redo
@@ -1412,10 +1412,12 @@ def generate_arai_plot_table(outputname):
     #Get the cooling rate correction
     try:
         meas_cool=measurements_old[measurements_old.method_codes.str.contains('CR-TRM')].dropna(subset=['description'])
+        meas_cool=meas_cool[meas_cool.method_codes.str.contains('LT-T-Z')==False] #Ignores zero field cooling rate measurements
         samples=pd.read_csv('samples.txt',skiprows=1,sep='\t')
+        samples=samples.dropna(subset=['cooling_rate']) #Get only things with cooling rates from sample table
         for specimen in meas_cool.specimen.unique():
             specframe=meas_cool[meas_cool.specimen==specimen]
-            vals=specframe.description.str.split(':').values
+            vals=specframe.description.str.split(':').values #Lab cooling rates used in "description" column.
             crs=np.array([])
             for val in vals:
                 crs=np.append(crs,float(val[1]))
@@ -1425,7 +1427,7 @@ def generate_arai_plot_table(outputname):
             croven=max(crs)
             crlog=np.log(croven/crs)
             try:
-                specframe['cooling_rate']=specframe.cooling_rate.astype(float)
+                specframe['cooling_rate']=specframe.cooling_rate.astype(float) #Original cooling rate from samples table
             except AttributeError:
                 try:
                     m,c=np.polyfit(crlog,norm_moments,1)
@@ -1433,7 +1435,7 @@ def generate_arai_plot_table(outputname):
                     cr_real=samples[samples['sample']==sample].cooling_rate.values/5.256e+11
                     cr_reallog=np.log(croven/cr_real)
                     cfactor=1/(c+m*cr_reallog)[0]
-                    temps.loc[temps.specimen==specimen,'correction']=temps.loc[temps.specimen==specimen,'correction']*cfactor
+                    temps.loc[temps.specimen==specimen,'correction']*=cfactor
                 except AttributeError:
                     logstring+='Cooling rate correction for specimen '+specimen+' could not be calculated, original cooling rate unknown. Please add the original cooling rate (K/min) to a cooling_rate column in the specimens table. \n'
                 except:
