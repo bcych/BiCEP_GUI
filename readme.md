@@ -28,15 +28,27 @@
 
 - Using the command line, navigate to the directory you want your BiCEP GUI folder to be in and clone using the command `git clone https://github.com/bcych/BiCEP_GUI`
 
-- Navigate to the newly created BiCEP_GUI directory and install the required python packages using the command `pip install requirements.txt`
+- Install PmagPy (follow instructions at https://earthref.org/PmagPy/cookbook/#x1-20001)
 
-- Run the "compile_models.py" python script. This compiles the pystan models as C++ code on your system. Note that if you are on Mac OS Catalina, this may not work if you are using bash as your shell, either switch to zsh or use the jupyterhub method.
+- You need to install a C++ 14 compatible compiler (gcc or clang) to compile the models for BiCEP GUI to work. This is done for you in the Mac OS environment. On Linux and Windows, follow installation instructions for gcc.
+
+- In Mac OS, using the terminal, navigate to the newly created BiCEP_GUI directory and install the required python packages using the command `conda env create -f environment_osx.yml`. In Linux or Windows, use the command `conda env create -f environment.yml`. If using windows, you will have to execute this command in the Anaconda prompt program rather than the default command prompt. This creates a controlled environment with the python packages you need to run BiCEP which will not mess up your other installed packages.
+
+- In the same console as before, type `conda activate BiCEP` to activate your BiCEP environment with all your packages pre installed. You will need to use this command every time you run BiCEP GUI. 
+
+- Run the "compile_models.py" python script. This compiles the pystan models as C++ code on your system. Note that if you are on Mac OS Catalina, this may not work if you are using bash as your shell, either switch to zsh or use the jupyterhub method. You only need to perform this step once.
 
 - As an alternative to the previous two steps, you can install and compile the models by uncommenting and running the first cell in the notebook.
+
+- To access the BiCEP GUI notebook, type `jupyter notebook` in the console.
 
 - Before using BiCEP GUI on your own data, you will need to upload MagIC formatted files containing your paleointensity data. You create these files using pmag_gui, part of the PmagPy package. For help with this, see the tutorial at https://github.com/ltauxe/PmagPy_tutorials
 
 - Copy and paste your measurements.txt, specimens.txt, samples.txt and sites.txt files into the BiCEP_GUI directory.
+
+## Alternative pip install
+
+- If you don't want to install into a special anaconda environment, you can also perform a pip install using the command `pip install -r requirements.txt`. Note that this is less version controlled than the anaconda environment and may break other packages you have installed. 
 
 ## Using BiCEP GUI
 
