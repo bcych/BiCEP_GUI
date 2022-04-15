@@ -1358,7 +1358,7 @@ def generate_arai_plot_table(outputname):
     status,measurements=cb.add_sites_to_meas_table('./')
     measurements=measurements[measurements.specimen.str.contains('#')==False]
     measurements_old=measurements
-    measurements=measurements[measurements.experiment.str.contains('LP-PI-TRM')]
+    measurements=measurements[measurements.method_codes.str.contains('LP-PI-TRM')]
     temps=convert_intensity_measurements(measurements)
     clear_output(wait=True)
 
