@@ -26,7 +26,6 @@ jobs:
           python compile_models.py
       - name: Build the JupyterLite site
         run: |
-          cp README.md content
           jupyter lite build --contents content
       - name: Upload (dist)
         uses: actions/upload-artifact@v2
