@@ -1891,7 +1891,7 @@ def run_gui():
             thellierData[site_wid.value].fit.to_netcdf(site_wid.value+'.nc')
         except:
             pass
-
+    plt.ioff()
 
     site_wid= widgets.Dropdown(
         description='Site:')
@@ -1937,9 +1937,12 @@ def run_gui():
     critbox=widgets.VBox([dirbox,dratrhatbox])
     specplots=widgets.Output(grid_area="specplots")
     dropdowns=widgets.HBox([specbox,tempbox,critbox],grid_area="dropdowns")
-
+    fig,ax=plt.subplots(1,2,figsize=(9,3))
+    fig.canvas.header_visible = False
+    plt.tight_layout()
+    
     #fullbox gives the entire specimen processing box
-    fullbox=widgets.Box(children=[filebox,dropdowns,specplots,savebox],title='Specimen Processing',
+    fullbox=widgets.Box(children=[filebox,dropdowns,fig.canvas,savebox],title='Specimen Processing',
             layout=widgets.Layout(
                 width='100%',
                 flex_flow='column',
@@ -1947,10 +1950,7 @@ def run_gui():
                 align_items='flex-start')
            )
     #Make a plot in the specplots box
-    with specplots:
-        fig,ax=plt.subplots(1,2,figsize=(9,3))
-        fig.canvas.header_visible = False
-        plt.tight_layout()
+
     dangbox.button_style='info'
     madbox.button_style='info'
     dratbox.button_style='info'
@@ -1975,11 +1975,13 @@ def run_gui():
     nefflabel.button_style='info'
     rhatlabel.button_style='info'
     gradelabel.button_style='info'
-    siteplots=widgets.Output()
-    with siteplots:
-        fig_2,ax_2=plt.subplots(1,2,figsize=(6.4,3),sharey=True)
-        fig_2.canvas.header_visible = False
-
+    #siteplots=widgets.Output()
+    
+    fig_2,ax_2=plt.subplots(1,2,figsize=(6.4,3),sharey=True)
+    fig_2.canvas.header_visible = False
+    plt.tight_layout()
+    
+    
 
 
     savetables=widgets.Button(description='Save to MagIC tables',disabled=True)
@@ -1989,10 +1991,12 @@ def run_gui():
     savenetcdf.on_click(save_to_netcdf)
     
 
-    fullbox2=widgets.VBox([process_wid,sampler_line,siteplots,sitesave],title='Site Processing')
+    fullbox2=widgets.VBox([process_wid,sampler_line,fig_2.canvas,sitesave],title='Site Processing')
     specpage=widgets.Accordion([fullbox])
     sitepage=widgets.Accordion([fullbox2])
     specpage.set_title(0,'Specimen Processing')
     sitepage.set_title(0,'Site Processing')
     gui=widgets.VBox([specpage,sitepage])
-    display(gui)
+ 
+    display(gui);
+    plt.ion()
