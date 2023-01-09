@@ -638,7 +638,7 @@ class Specimen():
         self.dang=get_dang(self.NRM_trunc_dirs,self.pca)
 
     def __repr__(self):
-        return('Specimen '+self.name+'in '+self.parentCollection.key+' '+self.parentCollection.name)
+        return('Specimen '+self.name+' in '+self.parentCollection.key+' '+self.parentCollection.name)
 
     def change_temps(self,lowerTemp,upperTemp):
         """
