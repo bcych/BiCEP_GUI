@@ -298,7 +298,7 @@ class ThellierData():
         self.data=pd.read_csv(datafile)
         self.groupType='site'
         try:
-            self.redo=pd.read_csv('thellier_gui.redo',delim_whitespace=True,header=None)
+            self.redo=pd.read_csv('bicep_gui.redo',delim_whitespace=True,header=None)
         except:
             self.redo=None
         
@@ -700,7 +700,7 @@ class Specimen():
         else:
             redo=redo.append([[self.name,self.lowerTemp,self.upperTemp]])
         self.parentCollection.parentData.redo=redo
-        redo.to_csv('thellier_gui.redo',header=None,index=False,sep=' ')
+        redo.to_csv('bicep_gui.redo',header=None,index=False,sep=' ')
 
     def plot_arai(self,ax,temps=True):
         """
