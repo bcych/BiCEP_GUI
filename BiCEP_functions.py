@@ -1338,7 +1338,7 @@ def convert_intensity_measurements(measurements):
             except:
                 logstring+='Something went wrong with specimen '+specimen+'. Could not convert from MagIC format'+'\n'
     temps=pd.DataFrame(data_array.T,columns=['specimen','sample','site','NRM','PTRM','NRM_x','NRM_y','NRM_z','PTRM_x','PTRM_y','PTRM_z','NRM_sigma','PTRM_sigma','B_lab','steptype','temp_step'])
-    return(temps)
+    return(temps,logstring)
 
 def generate_arai_plot_table(outputname):
     """
@@ -1359,7 +1359,9 @@ def generate_arai_plot_table(outputname):
     measurements=measurements[measurements.specimen.str.contains('#')==False]
     measurements_old=measurements
     measurements=measurements[measurements.method_codes.str.contains('LP-PI-TRM')]
-    temps=convert_intensity_measurements(measurements)
+    temps,output=convert_intensity_measurements(measurements)
+
+    logstring+=output
     clear_output(wait=True)
 
     temps['correction']=1
