@@ -1356,7 +1356,10 @@ def generate_arai_plot_table(outputname):
     #This cell constructs the 'measurements' dataframe with samples and sites added
     logstring=""
     status,measurements=cb.add_sites_to_meas_table('./')
-    measurements=measurements[measurements.specimen.str.contains('#')==False]
+    try:
+        measurements=measurements[measurements.specimen.str.contains('#')==False]
+    except AttributeError:
+        raise FileNotFoundError("No MagIC data files found, please put measurements, specimens, samples and sites tables in this folder")
     measurements_old=measurements
     measurements=measurements[measurements.method_codes.str.contains('LP-PI-TRM')]
     temps,output=convert_intensity_measurements(measurements)
