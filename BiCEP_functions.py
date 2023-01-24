@@ -1487,7 +1487,7 @@ def run_gui():
         if thellierData[site_wid.value].artist!=None:
             thellierData[site_wid.value].artist[0].set_marker(None)
         currspec=specimen_wid.value
-        speclist=np.array([specimen for specimen in specimen_wid.options if thellierData[site_wid.value][specimen].active==True])
+        speclist=np.array([specimen for specimen in thellierData[site_wid.value].specimens if thellierData[site_wid.value][specimen].active==True])
         specindex=np.where(speclist==currspec)
         specindex=specindex[0][0]
         ks=extract_values(fit,'k')[specindex]
