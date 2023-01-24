@@ -1,3 +1,4 @@
+pmagpy>=4.0.0
 scikit-learn==0.24.1
 tornado==6.1
 future==0.18.2
