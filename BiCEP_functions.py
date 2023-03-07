@@ -19,9 +19,9 @@ from pmagpy import contribution_builder as cb
 import scipy as scipy
 import pickle
 from scipy.optimize import curve_fit
+from sklearn.cluster import KMeans
 import sys
 import arviz as az
-
 model_circle_fast=pickle.load(open('model_circle_fast.pkl','rb'))
 model_circle_slow=pickle.load(open('model_circle_slow.pkl','rb'))
 def sufficient_statistics(ptrm, nrm):
@@ -557,6 +557,8 @@ class SpecimenCollection():
         ax.plot([minB,maxB],[0,0],'k',linewidth=4)
         ax.set_xlabel('Intensity ($\mu$T)')
         ax.set_ylabel('Probability Density')
+
+    
 class Specimen():
     """
     Specimen from a given site or sample SpecimenCollection object.
@@ -586,6 +588,7 @@ class Specimen():
         self.NRM0=self.data.NRM.iloc[0]
         self.pTRMmax=max(self.data.PTRM)
         self.temps=self.data.temp_step.unique()
+        
 
         #Try importing from redo file. Otherwise initiliaze to default interpretation using all measurements
         redo=parentCollection.parentData.redo
@@ -625,6 +628,7 @@ class Specimen():
         #Definitions of Zijderveld Measurements (for plotting)
         self.NRM_dirs=self.IZZI.loc[:,'NRM_x':'NRM_z'].values
         self.NRM_trunc_dirs=self.IZZI_trunc.loc[:,'NRM_x':'NRM_z'].values
+        self.plotting_temps=self.calc_plotting_temps()
 
         #SPD parameters/PCA fit to direction
         self.drat=get_drat(self.IZZI,self.IZZI_trunc,self.P[(self.P.baseline_temp<=self.upperTemp)])
@@ -701,7 +705,7 @@ class Specimen():
         self.parentCollection.parentData.redo=redo
         redo.to_csv('bicep_gui.redo',header=None,index=False,sep=' ')
 
-    def plot_arai(self,ax,temps=True):
+    def plot_arai(self,ax=None,temps=True):
         """
         Plots data onto the Arai plot.
 
@@ -717,6 +721,8 @@ class Specimen():
         -------
         None
         """
+        if ax==None:
+            fig,ax=plt.subplots()
         #IZZI_trunc=self.IZZI[(self.IZZI.temp_step>=self.lowerTemp)&(self.IZZI.temp_step<=self.upperTemp)]
         lines=ax.plot(self.IZZI.PTRM/self.NRM0,self.IZZI.NRM/self.NRM0,'k',linewidth=1)
         ptrm_base=self.IZZI[self.IZZI.temp_step.isin(self.P.baseline_temp)]
@@ -735,10 +741,12 @@ class Specimen():
             zi_plot=ax.plot(self.ZI.PTRM/self.NRM0,self.ZI.NRM/self.NRM0,'o',markerfacecolor='r',markeredgecolor='black',label='Z step')
         ax.set_ylabel('NRM/NRM$_0$')
         ax.set_xlabel('pTRM/NRM$_0$')
-        for temp in self.temps:
-            tempRow=self.IZZI[self.IZZI.temp_step==temp]
+        for i in self.plotting_temps:
+            tempRow=self.IZZI.iloc[i]
+            temp=tempRow.temp_step
             ax.text(tempRow.PTRM/self.NRM0,tempRow.NRM/self.NRM0,str(temp-273),alpha=0.5)
-    def plot_zijd(self,ax,temps=True):
+
+    def plot_zijd(self,ax=None,temps=True):
         """
         Plots data onto the Zijderveld plot. Does not fit a line to this data.
 
@@ -754,6 +762,8 @@ class Specimen():
         -------
         None
         """
+        if ax==None:
+            fig,ax=plt.subplots()
         #Get the NRM data for the specimen
         #Plot axis
         ax.axvline(0,color='k',linewidth=1)
@@ -761,30 +771,108 @@ class Specimen():
 
         #Plot NRM directions
         ax.plot(self.NRM_dirs[:,0],self.NRM_dirs[:,1],'k')
-        ax.plot(self.NRM_dirs[:,0],-self.NRM_dirs[:,2],'k')
+        ax.plot(self.NRM_dirs[:,0],self.NRM_dirs[:,2],'k')
 
         #Plot NRM directions in currently selected temperature range as closed symbols
         ax.plot(self.NRM_trunc_dirs[:,0],self.NRM_trunc_dirs[:,1],'ko')
-        ax.plot(self.NRM_trunc_dirs[:,0],-self.NRM_trunc_dirs[:,2],'rs')
+        ax.plot(self.NRM_trunc_dirs[:,0],self.NRM_trunc_dirs[:,2],'rs')
 
         #Plot open circles for all NRM directions as closed symbols
         ax.plot(self.NRM_dirs[:,0],self.NRM_dirs[:,1],'o',markerfacecolor='None',markeredgecolor='k')
-        ax.plot(self.NRM_dirs[:,0],-self.NRM_dirs[:,2],'s',markerfacecolor='None',markeredgecolor='k')
+        ax.plot(self.NRM_dirs[:,0],self.NRM_dirs[:,2],'s',markerfacecolor='None',markeredgecolor='k')
         length, vector=self.pca.explained_variance_[0], self.pca.components_[0]
         vals=self.pca.transform(self.NRM_trunc_dirs)[:,0]
         v = np.outer(vals,vector)
 
         #Plot PCA line fit
         ax.plot(self.pca.mean_[0]+v[:,0],self.pca.mean_[1]+v[:,1],'g')
-        ax.plot(self.pca.mean_[0]+v[:,0],-self.pca.mean_[2]-v[:,2],'g')
-        if temps==True:
-            for i in range(len(self.temps)):
-                ax.text(self.NRM_dirs[i,0],-self.NRM_dirs[i,2],str(self.temps[i]-273),alpha=0.5)
+        ax.plot(self.pca.mean_[0]+v[:,0],self.pca.mean_[2]+v[:,2],'g')
+
 
         ax.set_xlabel('x, $Am^2$')
         ax.set_ylabel('y,z, $Am^2$')
         ax.axis('equal')
-        ax.relim()
+        mins=np.amin(self.NRM_dirs,axis=0)
+        maxes=np.amax(self.NRM_dirs,axis=0)
+        x_margins=(maxes[0]-mins[0])/20
+        y_margins=(max(maxes[1:])-min(mins[1:]))/20
+
+        ax.set_xlim(mins[0]-x_margins,maxes[0]+x_margins)
+        ax.set_ylim(max(maxes[1:])+y_margins,min(mins[1:])-y_margins)
+        ax.ticklabel_format(scilimits=(0,0))
+        #Plot Temperature text on Zijderveld plot (uses clustering to do this).
+        if temps==True:
+            zijd_data=self.NRM_dirs
+            
+            zrange=np.max(zijd_data[:,2])-np.min(zijd_data[:,2])
+            yrange=np.max(zijd_data[:,1])-np.min(zijd_data[:,1])
+            if yrange>zrange:
+                textindex=1
+            else:
+                textindex=2
+            #Gradients are reasonably accurate, curvatures aren't
+            grads=np.gradient(zijd_data,axis=0)
+            gradgrads=np.gradient(grads,axis=0)
+            #If we have 0 in other directions, make gradient large
+            gradgrads[gradgrads==-np.inf]=-1e38
+            gradgrads[gradgrads==np.inf]=1e38
+            max_norm=np.sqrt(np.diff(ax.get_xlim())**2+np.diff(ax.get_ylim())**2)
+            for j in self.plotting_temps:
+                #Calculate normal to gradient
+                diff=1/grads[j]
+                diff[0]=-diff[0]
+                #Gradient should be in the direction away from curvature
+                diff=-np.sign(np.dot(gradgrads[j,[0,textindex]],diff[[0,textindex]]))*diff
+                diff=diff/np.linalg.norm(diff[[0,textindex]])
+                
+                tic_loc=zijd_data[j]+max_norm*diff*0.04
+
+                #Calculate text alignment
+                v_angle=np.degrees(np.arctan2(diff[textindex],np.abs(diff[0])))
+                h_angle=np.degrees(np.arctan2(np.abs(diff[textindex]),diff[0]))
+                if v_angle>45:
+                    va='top'
+                elif v_angle<-45:
+                    va='bottom'
+                else:
+                    va='center'
+                if h_angle<45:
+                    ha='left'
+                elif h_angle>135:
+                    ha='right'
+                else:
+                    ha='center'
+                
+                ax.text(tic_loc[0],tic_loc[textindex],str(int(self.temps[j]-273.0)),alpha=0.5,ha=ha,va=va)
+                ax.plot([zijd_data[j,0],tic_loc[0]],[zijd_data[j,textindex],tic_loc[textindex]],'k',lw=1,zorder=-1)
+
+
+
+
+    def calc_plotting_temps(self):
+        """
+        Uses k-means clustering to find the set of temperatures
+        to plot as text on the Arai/Zijderveld plot, without things
+        overlapping
+        """
+        zijd_data=self.NRM_dirs
+
+        zrange=np.max(zijd_data[:,2])-np.min(zijd_data[:,2])
+        yrange=np.max(zijd_data[:,1])-np.min(zijd_data[:,1])
+        if yrange>zrange:
+            textindex=1
+        else:
+            textindex=2
+
+        n_clusters=min(int(len(zijd_data)/2),8)
+        clusters=KMeans(n_clusters,random_state=0).fit_predict(zijd_data[:,[0,textindex]])
+
+        indices=[]
+        for i in range(n_clusters):
+            points=np.where(clusters==i)[0]
+            indices.append(points[int(len(points)/2)])
+        return(indices)
+
 
     def BiCEP_prep(self):
         """
