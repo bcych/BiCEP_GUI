@@ -18,7 +18,6 @@ from matplotlib import cm
 from pmagpy import contribution_builder as cb
 import scipy as scipy
 import pickle
-from sklearn.decomposition import PCA
 from scipy.optimize import curve_fit
 import sys
 import arviz as az
@@ -628,7 +627,7 @@ class Specimen():
         self.NRM_trunc_dirs=self.IZZI_trunc.loc[:,'NRM_x':'NRM_z'].values
 
         #SPD parameters/PCA fit to direction
-        self.drat=get_drat(self.IZZI,self.IZZI_trunc,self.P[(self.P.temp_step<=self.upperTemp)].iloc[:-1])
+        self.drat=get_drat(self.IZZI,self.IZZI_trunc,self.P[(self.P.baseline_temp<=self.upperTemp)])
         pca=PCA(n_components=3)
         try:
             self.pca=pca.fit(self.NRM_trunc_dirs)
@@ -663,7 +662,7 @@ class Specimen():
         self.IZZI_trunc=self.IZZI[(self.IZZI.temp_step>=self.lowerTemp)&(self.IZZI.temp_step<=self.upperTemp)]
         self.IZ=self.IZZI_trunc[self.IZZI_trunc.steptype=='IZ']
         self.ZI=self.IZZI_trunc[self.IZZI_trunc.steptype=='ZI']
-        self.drat=get_drat(self.IZZI,self.IZZI_trunc,self.P[(self.P.temp_step<=self.upperTemp)].iloc[:-1])
+        self.drat=get_drat(self.IZZI,self.IZZI_trunc,self.P[(self.P.baseline_temp<=self.upperTemp)])
         pca=PCA(n_components=3)
         self.NRM_trunc_dirs=self.IZZI_trunc.loc[:,'NRM_x':'NRM_z'].values
         try:
@@ -720,9 +719,15 @@ class Specimen():
         """
         #IZZI_trunc=self.IZZI[(self.IZZI.temp_step>=self.lowerTemp)&(self.IZZI.temp_step<=self.upperTemp)]
         lines=ax.plot(self.IZZI.PTRM/self.NRM0,self.IZZI.NRM/self.NRM0,'k',linewidth=1)
+        ptrm_base=self.IZZI[self.IZZI.temp_step.isin(self.P.baseline_temp)]
+        for i in range(len(ptrm_base)):
+            step_PTRMs=[ptrm_base.iloc[i].PTRM/self.NRM0,self.P.iloc[i].PTRM/self.NRM0,self.P.iloc[i].PTRM/self.NRM0]
+            step_NRMs=[ptrm_base.iloc[i].NRM/self.NRM0,ptrm_base.iloc[i].NRM/self.NRM0,self.P.iloc[i].NRM/self.NRM0]
+            ax.plot(step_PTRMs,step_NRMs,'k',lw=1,alpha=0.5)
         emptydots=ax.plot(self.IZZI.PTRM/self.NRM0,self.IZZI.NRM/self.NRM0,'o',markerfacecolor='None',markeredgecolor='black',label='Not Used')
         ptrm_check=ax.plot(self.P.PTRM/self.NRM0,self.P.NRM/self.NRM0,'^',markerfacecolor='None',markeredgecolor='black',markersize=10,label='PTRM Check')
         md_check=ax.plot(self.T.PTRM/self.NRM0,self.T.NRM/self.NRM0,'s',markerfacecolor='None',markeredgecolor='black',markersize=10)
+
         ax.set_ylim(0,max(self.IZZI.NRM/self.NRM0)*1.1)
         ax.set_xlim(0,self.pTRMmax/self.NRM0*1.1)
         if self.active==True:
@@ -1104,6 +1109,7 @@ def sortarai(datablock, s, Zdiff, **kwargs):
 
 
         brec = datablock[step - 1]  # take last record as baseline to subtract
+        btemp = float(brec[temp_key])
         pdec = float(brec[dec_key])
         pinc = float(brec[inc_key])
         pint = float(brec[momkey])
@@ -1124,17 +1130,20 @@ def sortarai(datablock, s, Zdiff, **kwargs):
             psig = np.radians(2)*np.sqrt(3)/np.sqrt(2)*dir1[2]
         psig=np.sqrt(sig**2+psig**2)
         if Zdiff == 0:
-            ptrm_check.append([temp, dir1[0], dir1[1], dir1[2], sig])
+            ptrm_check.append([temp, dir1[0], dir1[1], dir1[2], sig, btemp])
         else:
             ptrm_check.append([temp, 0., 0., I[2]], sig)
 # in case there are zero-field pTRM checks (not the SIO way)
     for temp in Treat_PZ:
+        logstring+= str(temp)
+        logstring+= str(treat_pz)+'\n'
         step = PZSteps[Treat_PZ.index(temp)]
         rec = datablock[step]
         dec = float(rec[dec_key])
         inc = float(rec[inc_key])
         str = float(rec[momkey])
         brec = datablock[step - 1]
+        btemp = float(brec[temp_key])
         pdec = float(brec[dec_key])
         pinc = float(brec[inc_key])
         pint = float(brec[momkey])
@@ -1154,7 +1163,7 @@ def sortarai(datablock, s, Zdiff, **kwargs):
             sig = np.radians(2)*np.sqrt(3)/np.sqrt(2)*str
             psig = np.radians(2)*np.sqrt(3)/np.sqrt(2)*dir1[2]
         psig=np.sqrt(sig**2+psig**2)
-        zptrm_check.append([temp, dir2[0], dir2[1], dir2[2],psig])
+        zptrm_check.append([temp, dir2[0], dir2[1], dir2[2], psig, btemp])
     # get pTRM tail checks together -
     for temp in Treat_M:
         # tail check step - just do a difference in magnitude!
@@ -1163,6 +1172,8 @@ def sortarai(datablock, s, Zdiff, **kwargs):
         dec = float(rec[dec_key])
         inc = float(rec[inc_key])
         str = float(rec[momkey])
+        brec = datablock[step - 1]  # take last record as baseline to subtract
+        btemp = float(brec[temp_key])
         if csd_key not in rec.keys():
             sig= np.radians(2)*np.sqrt(3)/np.sqrt(2)*str
         elif rec[csd_key]!=None:
@@ -1180,7 +1191,7 @@ def sortarai(datablock, s, Zdiff, **kwargs):
 #        d=cart2dir(I)
 #        ptrm_tail.append([temp,d[0],d[1],d[2]])
             # difference - if negative, negative tail!
-            ptrm_tail.append([temp, dec, inc, str, sig])
+            ptrm_tail.append([temp, dec, inc, str, sig, btemp])
         else:
             logstring+=s+ '  has a tail check with no first zero field step - check input file! for step'+str( temp - 273.)+'\n'
 
@@ -1202,7 +1213,7 @@ def convert_intensity_measurements(measurements):
     specimens=list(measurements.specimen.unique())#This function constructs the 'temps' dataframe (used to plot Arai plots)
     #this may take a while to run depending on the number of specimens.
     #Constructs initial empty 'temps' dataframe
-    data_array=np.empty(shape=(16,0))
+    data_array=np.empty(shape=(17,0))
     logstring=''
     for specimen in specimens:
             logstring+='Working on: '+specimen+'\n'
@@ -1258,8 +1269,9 @@ def convert_intensity_measurements(measurements):
                         PTRM_x=PTRM_vector[:,0]
                         PTRM_y=PTRM_vector[:,1]
                         PTRM_z=PTRM_vector[:,2]
+                        baseline_temp=np.full(len(specarray),np.nan)
 
-                        newarray=np.array([specarray,sample,site,NRM,PTRM,NRM_x,NRM_y,NRM_z,PTRM_x,PTRM_y,PTRM_z,NRM_sigma,PTRM_sigma,B_lab,steptype,temp_step])
+                        newarray=np.array([specarray,sample,site,NRM,PTRM,NRM_x,NRM_y,NRM_z,PTRM_x,PTRM_y,PTRM_z,NRM_sigma,PTRM_sigma,B_lab,steptype,temp_step,baseline_temp])
                         data_array=np.concatenate((data_array,newarray),axis=1)
 
                         #Doing PTRM Checks Part
@@ -1272,7 +1284,7 @@ def convert_intensity_measurements(measurements):
                         B_lab=np.full(len(ptrm_check),field)
                         PTRM=ptrm_check[:,3]
                         PTRM_sigma=ptrm_check[:,4]
-                        intersect=data_array[:,(data_array[0]==specimen)&(np.in1d(data_array[-1].astype('float'),temp_step.astype('float')))]
+                        intersect=data_array[:,(data_array[0]==specimen)&(np.in1d(data_array[-2].astype('float'),temp_step.astype('float')))]
                         NRM_vector=np.array([intersect[5],intersect[6],intersect[7]])
                         NRM_sigma=intersect[11]
                         PTRM_vector=pmag.dir2cart(np.array([ptrm_check[:,1],ptrm_check[:,2],ptrm_check[:,3]]).T)
@@ -1286,15 +1298,17 @@ def convert_intensity_measurements(measurements):
                         PTRM_z=PTRM_vector[:,2]
                         NRM=intersect[3]
                         steptype=np.full(len(ptrm_check),'P')
+                        baseline_temp=ptrm_check[:,-1]
+
                         if len(NRM)==len(PTRM):
 
-                            newarray=np.array([specarray,sample,site,NRM,PTRM,NRM_x,NRM_y,NRM_z,PTRM_x,PTRM_y,PTRM_z,NRM_sigma,PTRM_sigma,B_lab,steptype,temp_step])
+                            newarray=np.array([specarray,sample,site,NRM,PTRM,NRM_x,NRM_y,NRM_z,PTRM_x,PTRM_y,PTRM_z,NRM_sigma,PTRM_sigma,B_lab,steptype,temp_step,baseline_temp])
                             data_array=np.concatenate((data_array,newarray),axis=1)
                         else:
-                            diff=np.setdiff1d(temp_step,intersect[-1])
+                            diff=np.setdiff1d(temp_step,intersect[-2])
                             for i in diff:
-                                logstring+='Working on: '+specimen+'\n'
-                            newarray=np.array([specarray[temp_step!=diff],sample[temp_step!=diff],site[temp_step!=diff],NRM,PTRM[temp_step!=diff],NRM_x,NRM_y,NRM_z,PTRM_x[temp_step!=diff],PTRM_y[temp_step!=diff],PTRM_z[temp_step!=diff],NRM_sigma,PTRM_sigma[temp_step!=diff],B_lab[temp_step!=diff],steptype[temp_step!=diff],temp_step[temp_step!=diff]])
+                                logstring+='PTRM check at '+str(i)+'K has no corresponding zero field measurement, ignoring'+'\n'
+                            newarray=np.array([specarray[temp_step!=diff],sample[temp_step!=diff],site[temp_step!=diff],NRM,PTRM[temp_step!=diff],NRM_x,NRM_y,NRM_z,PTRM_x[temp_step!=diff],PTRM_y[temp_step!=diff],PTRM_z[temp_step!=diff],NRM_sigma,PTRM_sigma[temp_step!=diff],B_lab[temp_step!=diff],steptype[temp_step!=diff],temp_step[temp_step!=diff],baseline_temp[temp_step!=diff]])
                             data_array=np.concatenate((data_array,newarray),axis=1)
 
                         #Add PTRM tail checks
@@ -1306,7 +1320,8 @@ def convert_intensity_measurements(measurements):
                             site=np.full(len(ptrm_tail),measurements[measurements.specimen==specimen].site.unique()[0]) #Get site name
                             specarray=np.full(len(ptrm_tail),specimen)
                             B_lab=np.full(len(ptrm_tail),field)
-                            intersect=data_array[:,(data_array[0]==specimen)&(np.in1d(data_array[-1].astype('float'),temp_step.astype('float')))&(data_array[-2]!='P')]
+                            intersect=data_array[:,(data_array[0]==specimen)&(np.in1d(data_array[-2].astype('float'),temp_step.astype('float')))&(data_array[-3]!='P')]
+
                             NRM=ptrm_tail[:,3]
                             NRM_sigma=ptrm_tail[:,4]
                             NRM_vector=pmag.dir2cart(np.array([ptrm_tail[:,1],ptrm_tail[:,2],ptrm_tail[:,3]]).T)
@@ -1321,23 +1336,26 @@ def convert_intensity_measurements(measurements):
                             PTRM=intersect[4]
 
                             steptype=np.full(len(ptrm_tail),'T')
+                            baseline_temp=ptrm_tail[:,-1]
 
                             if len(PTRM)==len(NRM):
-                                newarray=np.array([specarray,sample,site,NRM,PTRM,NRM_x,NRM_y,NRM_z,PTRM_x,PTRM_y,PTRM_z,NRM_sigma,PTRM_sigma,B_lab,steptype,temp_step])
+                                newarray=np.array([specarray,sample,site,NRM,PTRM,NRM_x,NRM_y,NRM_z,PTRM_x,PTRM_y,PTRM_z,NRM_sigma,PTRM_sigma,B_lab,steptype,temp_step,baseline_temp])
                                 data_array=np.concatenate((data_array,newarray),axis=1)
                             else:
-                                diff=np.setdiff1d(temp_step,intersect[-1])
+                                diff=np.setdiff1d(temp_step,intersect[-2])
                                 for i in diff:
-                                    logstring+='PTRM tail check at '+str(i)+'K has no corresponding zero field measurement, ignoring'+'\n'
-                                newarray=np.array([specarray[temp_step!=diff],sample[temp_step!=diff],site[temp_step!=diff],NRM[temp_step!=diff],PTRM,NRM_x[temp_step!=diff],NRM_y[temp_step!=diff],NRM_z[temp_step!=diff],PTRM_x,PTRM_y,PTRM_z,NRM_sigma[temp_step!=diff],PTRM_sigma,B_lab[temp_step!=diff],steptype[temp_step!=diff],temp_step[temp_step!=diff]])
+                                    logstring+='PTRM tail check at '+str(i)+'K has no corresponding in field measurement, ignoring'+'\n'
+                                newarray=np.array([specarray[temp_step!=diff],sample[temp_step!=diff],site[temp_step!=diff],NRM[temp_step!=diff],PTRM,NRM_x[temp_step!=diff],NRM_y[temp_step!=diff],NRM_z[temp_step!=diff],PTRM_x,PTRM_y,PTRM_z,NRM_sigma[temp_step!=diff],PTRM_sigma,B_lab[temp_step!=diff],steptype[temp_step!=diff],temp_step[temp_step!=diff],baseline_temp[temp_step!=diff]])
                                 data_array=np.concatenate((data_array,newarray),axis=1)
+
+                        
                     else:
                         logstring+=specimen+' in site '+sitename[0]+' Not included, not a thellier experiment'+'\n'
                 else:
                     logstring+=specimen+' in site '+sitename[0]+' Not included, demagnetization not completed'+'\n'
             except:
                 logstring+='Something went wrong with specimen '+specimen+'. Could not convert from MagIC format'+'\n'
-    temps=pd.DataFrame(data_array.T,columns=['specimen','sample','site','NRM','PTRM','NRM_x','NRM_y','NRM_z','PTRM_x','PTRM_y','PTRM_z','NRM_sigma','PTRM_sigma','B_lab','steptype','temp_step'])
+    temps=pd.DataFrame(data_array.T,columns=['specimen','sample','site','NRM','PTRM','NRM_x','NRM_y','NRM_z','PTRM_x','PTRM_y','PTRM_z','NRM_sigma','PTRM_sigma','B_lab','steptype','temp_step','baseline_temp'])
     return(temps,logstring)
 
 def generate_arai_plot_table(outputname):
