@@ -12,3 +12,4 @@ dependencies:
   - ipyfilechooser=0.4.3
   - voila=0.2.4
   - arviz=0.11.4
+  - cartopy=0.18.0
