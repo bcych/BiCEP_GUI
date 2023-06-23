@@ -24,6 +24,8 @@ import sys
 import arviz as az
 model_circle_fast=pickle.load(open('model_circle_fast.pkl','rb'))
 model_circle_slow=pickle.load(open('model_circle_slow.pkl','rb'))
+
+__version__ = '0.9.01'
 def sufficient_statistics(ptrm, nrm):
     """
     inputs list of ptrm and nrm data and computes sufficent statistcs needed
@@ -443,23 +445,112 @@ class SpecimenCollection():
         """
         fit=self.fit
         sitestable=pd.read_csv(self.key+'s.txt',skiprows=1,sep='\t')
-        sitestable.loc[sitestable[self.key]==self.name,'int_abs_min']=round(np.percentile(extract_values(fit,'int_site'),2.5),1)/1e6
-        sitestable.loc[sitestable[self.key]==self.name,'int_abs_max']=round(np.percentile(extract_values(fit,'int_site'),97.5),1)/1e6
-        sitestable.loc[sitestable[self.key]==self.name,'int_abs']=round(np.percentile(extract_values(fit,'int_site'),50),1)/1e6
-        specimenstable=pd.read_csv('specimens.txt',skiprows=1,sep='\t')
-        speclist=[spec for spec in self.specimens.keys() if self.specimens[spec].active==True]
-        for i in range(len(speclist)):
+        
+        #Check if a row already exists for this site
+        sitesfilter=(sitestable[self.key]==self.name)&\
+            ((sitestable['method_codes'].str.contains('IE-BICEP')\
+                .fillna(False))\
+                    |(sitestable.method_codes.apply(type)==float))
+        #If there are no BiCEP data, add a new line
+        if len(sitestable[sitesfilter])==0:
+            
+            new_row_dict={}
+            for key in sitestable.columns:
+                req_keys=['site','location','citations',
+                'geologic_classes','lithologies','geologic_types','lat','lon',
+                'age','age_low','age_high','age_unit']
+                if key in req_keys:
+                    value = sitestable.loc[\
+                        sitestable[self.key]==self.name,key].iloc[0]
+                elif key == 'method_codes':
+                    value = self.methcodes
+                elif key == 'software_packages':
+                    value = 'BiCEP_GUI-'+__version__
+                else:
+                    value = np.nan
+                new_row_dict[key]=value
+            sitestable=sitestable.append(new_row_dict,ignore_index=True)
+        
+        #We have to redo the filter because it's the wrong shape otherwise
+        sitesfilter=(sitestable[self.key]==self.name)&\
+            ((sitestable['method_codes'].str.contains('IE-BICEP')\
+                .fillna(False))\
+                    |(sitestable.method_codes.apply(type)==float))
+        
+        extract_and_round = lambda param,percentile:\
+            round(np.percentile(extract_values(fit,param),percentile),1)
 
+        sitestable.loc[sitesfilter,'int_abs_min']=\
+            extract_and_round('int_site',2.5)/1e6
+        sitestable.loc[sitesfilter,'int_abs_max']=\
+            extract_and_round('int_site',97.5)/1e6
+        sitestable.loc[sitesfilter,'int_abs']=\
+            extract_and_round('int_site',50)/1e6
+        
+        if not np.any(np.isnan(sitestable.loc[sitesfilter,'lat'])):
+            sitestable.loc[sitesfilter,'vadm']\
+                = pmag.b_vdm(sitestable.loc[sitesfilter,'int_abs_min'],\
+                sitestable.loc[sitesfilter,'lat'])
+        
+        sitestable.loc[sitesfilter,'software_packages']='BiCEP_GUI-'+__version__
+
+        specimenstable=pd.read_csv('specimens.txt',skiprows=1,sep='\t')
+        speclist=[spec for spec in self.specimens.keys() \
+            if self.specimens[spec].active==True]
+
+        for i in range(len(speclist)):
             specimen=speclist[i]
-            specfilter=(~specimenstable.method_codes.str.contains('LP-AN').fillna(False))&(specimenstable.specimen==specimen)
-            specimenstable.loc[specfilter,'int_abs_min']=round(np.percentile(extract_values(fit,'int_real')[i],2.5),1)/1e6
-            specimenstable.loc[specfilter,'int_abs_max']=round(np.percentile(extract_values(fit,'int_real')[i],97.5),1)/1e6
-            specimenstable.loc[specfilter,'int_abs']=round(np.percentile(extract_values(fit,'int_real')[i],50),1)/1e6
-            specimenstable.loc[specfilter,'int_k_min']=round(np.percentile(extract_values(fit,'k')[i],2.5),3)
-            specimenstable.loc[specfilter,'int_k_max']=round(np.percentile(extract_values(fit,'k')[i],97.5),3)
-            specimenstable.loc[specfilter,'int_k']=round(np.percentile(extract_values(fit,'k')[i],50),3)
-            specimenstable.loc[specfilter,'meas_step_min']=self[specimen].savedLowerTemp
-            specimenstable.loc[specfilter,'meas_step_max']=self[specimen].savedUpperTemp
+            specfilter=(specimenstable.specimen==specimen)\
+                    &((specimenstable.method_codes.str.contains('IE-BICEP')\
+                        .fillna(False))\
+                            |(specimenstable.method_codes.apply(type)==float))
+            
+            #If there are no BiCEP data, use make a new line in the dataframe.
+            if len(specimenstable[specfilter])==0:
+                new_row_dict={}
+                for key in specimenstable.columns:
+                    req_keys=['citations','geologic_classes','lithologies',
+                    'geologic_types','sample','specimen']
+                    if key in req_keys:
+                        value = specimenstable.loc[\
+                            specimenstable.specimen==specimen,key].iloc[0]
+                    elif key == 'method_codes':
+                        value = self[specimen].methcodes
+                    elif key == 'software_packages':
+                        value = 'BiCEP_GUI-'+__version__
+                    else:
+                        value = np.nan
+                    new_row_dict[key]=value
+                specimenstable=specimenstable.append(new_row_dict,\
+                ignore_index=True)
+
+                specfilter=(specimenstable.specimen==specimen)\
+                    &((specimenstable.method_codes.str.contains('IE-BICEP')\
+                        .fillna(False))\
+                            |(specimenstable.method_codes.apply(type)==float))
+            extract_and_round = lambda param,percentile,j,prec:\
+            round(np.percentile(extract_values(fit,param)[j],percentile),prec)
+
+            specimenstable.loc[specfilter,'int_abs_min']\
+                =extract_and_round('int_real',2.5,i,1)/1e6
+            specimenstable.loc[specfilter,'int_abs_max']\
+                =extract_and_round('int_real',97.5,i,1)/1e6
+            specimenstable.loc[specfilter,'int_abs']\
+                =extract_and_round('int_real',2.5,i,1)/1e6
+            specimenstable.loc[specfilter,'int_k_min']\
+                =extract_and_round('k',2.5,i,3)/1e6
+            specimenstable.loc[specfilter,'int_k_max']\
+                =extract_and_round('k',97.5,i,3)/1e6
+            specimenstable.loc[specfilter,'int_k']\
+                =extract_and_round('k',50,i,3)/1e6
+            specimenstable.loc[specfilter,'meas_step_min']\
+                =self[specimen].savedLowerTemp
+            specimenstable.loc[specfilter,'meas_step_max']\
+                =self[specimen].savedUpperTemp
+            specimenstable.loc[specfilter,'software_packages']\
+                ='BiCEP_GUI-'+__version__
+            
+            #Sort out methodcodes
             method_codes=self[specimen].methcodes.split(':')
             method_codes=list(set(method_codes))
             newstr=''
@@ -467,12 +558,14 @@ class SpecimenCollection():
                 newstr+=code
                 newstr+=':'
             newstr+=method_codes[-1]
-            specimenstable.loc[specfilter,'method_codes']=self[specimen].methcodes
+            specimenstable.loc[specfilter,'method_codes']\
+                =self[specimen].methcodes
 
             extra_columns=self[specimen].extracolumnsdict
             for col in extra_columns.keys():
                 specimenstable.loc[specfilter,col]=extra_columns[col]
-        sitestable.loc[sitestable.site==self.name,'method_codes']=self.methcodes
+        
+        sitestable.loc[sitesfilter,'method_codes']=self.methcodes
         specimenstable['meas_step_unit']='Kelvin'
         sitestable=sitestable.fillna('')
         specimenstable=specimenstable.fillna('')
@@ -1927,10 +2020,14 @@ def run_gui():
         -------
         None
         """
+ 
         try:
             thellierData[site_wid.value].save_magic_tables()
         except:
-            pass
+            print('Error! Something went wrong saving to MagIC tables.')
+            print('Have you calculated an intensity estimate for this site?')
+
+
 
     def save_figures(a):
         """
