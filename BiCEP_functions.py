@@ -1756,8 +1756,8 @@ def run_gui():
         nefflabel.description='n_eff:'+str(n_eff_int_site)
         int_sites=extract_values(fit,'int_site')
         cs=extract_values(fit,'c')
-        minB,maxB=np.percentile(int_sites,(2.5,97.5),axis=0)
-        banclabel.description='B_anc %3.1f'%minB+'- %3.1f'%maxB+' μT'
+        minB,medB,maxB=np.percentile(int_sites,(2.5,50,97.5),axis=0)
+        banclabel.description='B_anc: %3.1f'%medB+' (%3.1f'%minB+'- %3.1f'%maxB+') μT'
         cdiff=np.diff(np.percentile(cs,(2.5,97.5),axis=0))/np.percentile(int_sites,50)
         Bdiff=np.diff([minB,maxB])/np.percentile(int_sites,50)
 
@@ -2071,10 +2071,9 @@ def run_gui():
     method_wid=widgets.Dropdown(options=['Slow, more accurate','Fast, less accurate'],description='Sampler:')
     process_wid=widgets.Button(description='Process Site Data',disabled=True)
     process_wid.on_click(get_site_dist)
-
-    rhatlabel=widgets.Button(description='R_hat:',disabled=True)
+    rhatlabel=widgets.Button(description='R_hat:',disabled=True,layout=widgets.Layout(width='60%'))
     nefflabel=widgets.Button(description='n_eff:',disabled=True)
-    banclabel=widgets.Button(description='B_anc:',disabled=True)
+    banclabel=widgets.Button(description='B_anc:',disabled=True,layout=widgets.Layout(width='60%'))
 
     gradelabel=widgets.Button(description='Category:',disabled=True)
     sampler_diag=widgets.HBox([rhatlabel,nefflabel])
