@@ -7,11 +7,11 @@ dependencies:
   - tornado=6.1
   - future=0.18.2
   - pandas=1.3.4
-  - ipympl=0.7.0
+  - ipympl=0.8.7
   - pystan=2.19.0.0
   - ipyfilechooser=0.4.3
   - voila=0.2.4
   - arviz=0.11.4
   - clang_osx-64=12.0.0
   - clangxx_osx-64=12.0.0
-  - matplotlib-base=3.1.3
+  - cartopy=0.18.0
