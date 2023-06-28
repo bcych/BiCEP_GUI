@@ -447,8 +447,9 @@ class SpecimenCollection():
         fit=self.fit
         sitestable=pd.read_csv(self.key+'s.txt',skiprows=1,sep='\t')
         #If no method codes row add one
-        for key in ['method_codes','int_abs','int_abs_sigma','int_abs_min',\
-            'int_abs_max','vadm','vadm_sigma']:
+        for key in ['method_codes','int_abs','int_abs_sigma',\
+            'int_abs_sigma_perc','int_abs_min','int_abs_max','vadm',\
+                'vadm_sigma']:
             if key not in sitestable.columns:
                 sitestable[key]=np.nan
             
@@ -497,14 +498,17 @@ class SpecimenCollection():
         sitestable.loc[sitesfilter,'int_abs_sigma']\
             =(sitestable.loc[sitesfilter,'int_abs_max']\
                 -sitestable.loc[sitesfilter,'int_abs_min'])/4
+        sitestable.loc[sitesfilter,'int_abs_sigma_perc']\
+            =np.round(sitestable.loc[sitesfilter,'int_abs_sigma']\
+                /sitestable.loc[sitesfilter,'int_abs']*100,2)
         
         if not np.any(np.isnan(sitestable.loc[sitesfilter,'lat'])):
             sitestable.loc[sitesfilter,'vadm']\
-                = pmag.b_vdm(sitestable.loc[sitesfilter,'int_abs'],\
-                sitestable.loc[sitesfilter,'lat'])
+                = np.round(pmag.b_vdm(sitestable.loc[sitesfilter,'int_abs'],\
+                sitestable.loc[sitesfilter,'lat']),2)
             sitestable.loc[sitesfilter,'vadm_sigma']\
-                = pmag.b_vdm(sitestable.loc[sitesfilter,'int_abs_sigma'],\
-                sitestable.loc[sitesfilter,'lat'])
+                = np.round(pmag.b_vdm(sitestable.loc[sitesfilter,'int_abs_sigma'],\
+                sitestable.loc[sitesfilter,'lat']),2)
             
         
         sitestable.loc[sitesfilter,'software_packages']='BiCEP_GUI-'+__version__
