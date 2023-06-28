@@ -25,7 +25,8 @@ import arviz as az
 model_circle_fast=pickle.load(open('model_circle_fast.pkl','rb'))
 model_circle_slow=pickle.load(open('model_circle_slow.pkl','rb'))
 
-__version__ = '0.9.01'
+__version__ = '0.9.02'
+
 def sufficient_statistics(ptrm, nrm):
     """
     inputs list of ptrm and nrm data and computes sufficent statistcs needed
@@ -445,10 +446,17 @@ class SpecimenCollection():
         """
         fit=self.fit
         sitestable=pd.read_csv(self.key+'s.txt',skiprows=1,sep='\t')
-        
+        #If no method codes row add one
+        for key in ['method_codes','int_abs','int_abs_sigma','int_abs_min',\
+            'int_abs_max','vadm','vadm_sigma']:
+            if key not in sitestable.columns:
+                sitestable[key]=np.nan
+            
+
+
         #Check if a row already exists for this site
         sitesfilter=(sitestable[self.key]==self.name)&\
-            ((sitestable['method_codes'].str.contains('IE-BICEP')\
+            ((sitestable['method_codes'].astype(str).str.contains('IE-BICEP')\
                 .fillna(False))\
                     |(sitestable.method_codes.apply(type)==float))
         #If there are no BiCEP data, add a new line
@@ -486,11 +494,18 @@ class SpecimenCollection():
             extract_and_round('int_site',97.5)/1e6
         sitestable.loc[sitesfilter,'int_abs']=\
             extract_and_round('int_site',50)/1e6
+        sitestable.loc[sitesfilter,'int_abs_sigma']\
+            =(sitestable.loc[sitesfilter,'int_abs_max']\
+                -sitestable.loc[sitesfilter,'int_abs_min'])/4
         
         if not np.any(np.isnan(sitestable.loc[sitesfilter,'lat'])):
             sitestable.loc[sitesfilter,'vadm']\
-                = pmag.b_vdm(sitestable.loc[sitesfilter,'int_abs_min'],\
+                = pmag.b_vdm(sitestable.loc[sitesfilter,'int_abs'],\
                 sitestable.loc[sitesfilter,'lat'])
+            sitestable.loc[sitesfilter,'vadm_sigma']\
+                = pmag.b_vdm(sitestable.loc[sitesfilter,'int_abs_sigma'],\
+                sitestable.loc[sitesfilter,'lat'])
+            
         
         sitestable.loc[sitesfilter,'software_packages']='BiCEP_GUI-'+__version__
 
