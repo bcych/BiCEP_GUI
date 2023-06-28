@@ -114,4 +114,4 @@ Tauxe, L., R. Shaar, L. Jonestrask, N. L. Swanson-Hysell, R. Minnett, A. A. P. K
 PmagPy and Stan are licensed under a 3-clause BSD license. See (https://opensource.org/licenses/BSD-3-Clause)
 
 ## Contact
-If you have any issues with this software, feature requests or want to collaborate, feel free to correspond with me at bcych@ucsd.edu or leave an issue or feature request on the github at http://github.com/bcych/BiCEP_GUI
+If you have any issues with this software, feature requests or want to collaborate, feel free to correspond with me at bcych@liverpool.ac.uk or leave an issue or feature request on the github at http://github.com/bcych/BiCEP_GUI
