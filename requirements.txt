@@ -1,4 +1,6 @@
-pmagpy>=4.0.0
+pmagpy==4.2.109
+notebook==6.4.11
+lxml == 5.1.0
 scikit-learn==0.24.1
 tornado==6.1
 future==0.18.2
@@ -7,5 +9,7 @@ ipympl==0.8.7
 pystan==2.19.0.0
 ipyfilechooser==0.4.3
 voila==0.2.4
+netcdf4==1.5.7
 arviz==0.11.4
-cartopy==0.18.0
+
+
