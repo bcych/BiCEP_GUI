@@ -25,7 +25,7 @@ import arviz as az
 model_circle_fast=pickle.load(open('model_circle_fast.pkl','rb'))
 model_circle_slow=pickle.load(open('model_circle_slow.pkl','rb'))
 
-__version__ = '0.9.02'
+__version__ = '0.9.03'
 
 def sufficient_statistics(ptrm, nrm):
     """

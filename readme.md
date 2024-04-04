@@ -22,17 +22,21 @@
 
 - If you encounter any problems using the jupyterhub site, try pressing "Control Panel" in the top right and "Stop My Server". You will then be offered the opportunity to restart your jupyterhub server.
 
-## Setup - local machine
+
+
+## Setup - conda
 
 - To use BiCEP GUI on a local machine, you will need Anaconda python. Follow the install instructions at https://docs.anaconda.com/anaconda/install/
 
 - Using the command line, navigate to the directory you want your BiCEP GUI folder to be in and clone using the command `git clone https://github.com/bcych/BiCEP_GUI`
 
-- Install PmagPy (follow instructions at https://earthref.org/PmagPy/cookbook/#x1-20001)
+- Install PmagPy (follow instructions at https://earthref.org/PmagPy/cookbook/#x1-20001). For best functionality, it is recommended to install version 4.2.109 through pip, and to 
 
 - You need to install a C++ 14 compatible compiler (gcc or clang) to compile the models for BiCEP GUI to work. This is done for you in the Mac OS environment. On Linux and Windows, follow installation instructions for gcc.
 
-- In Mac OS, using the terminal, navigate to the newly created BiCEP_GUI directory and install the required python packages using the command `conda env create -f environment_osx.yml`. In Linux or Windows, use the command `conda env create -f environment.yml`. If using windows, you will have to execute this command in the Anaconda prompt program rather than the default command prompt. This creates a controlled environment with the python packages you need to run BiCEP which will not mess up your other installed packages.
+- In Mac OS, using the terminal, navigate to the newly created BiCEP_GUI directory and install the required python packages using the command `conda env create -f environment_osx.yml`. In Linux or Windows, use the command `conda env create -f environment.yml`. If using windows, you will have to execute this command in the Anaconda prompt program rather than the default command prompt. This creates a controlled environment with the python packages you need to run BiCEP which will not mess up your other installed packages. This usually takes a long time (leave overnight).
+
+- If creating the anaconda environment takes a very long time and/or fails, this is usually due to cartopy, which is a requirement of pmagpy but has a very complicated install with anaconda. If you install PmagPy version 4.2.109 through pip, then you don't need cartopy, and can delete it from the `environment.yml` or `environment_osx.yml` files.
 
 - In the same console as before, type `conda activate BiCEP` to activate your BiCEP environment with all your packages pre installed. You will need to use this command every time you run BiCEP GUI. 
 
@@ -45,6 +49,16 @@
 - Before using BiCEP GUI on your own data, you will need to upload MagIC formatted files containing your paleointensity data. You create these files using pmag_gui, part of the PmagPy package. For help with this, see the tutorial at https://github.com/ltauxe/PmagPy_tutorials
 
 - Copy and paste your measurements.txt, specimens.txt, samples.txt and sites.txt files into the BiCEP_GUI directory.
+
+## Setup - docker container (recommended if struggling with other methods).
+
+- Docker allows you to install a special containerized version of the python packages required for BiCEP-GUI. 
+
+- First install docker, following the instructions at https://docs.docker.com/get-docker/
+
+- Navigate to the folder containing BiCEP-GUI and run the command `docker build -t bicep-gui ./`. On windows, installing docker desktop will require an install of WSL, and then you can use Ubuntu shell for this command.
+
+- Run the command `docker run -p 8888:8888 bicep-gui`. This will output a link in your terminal that looks something like`http://127.0.0.1:8888/?token=` followed by a random string. Copy this link and open it in your browser. You can now run BiCEP_GUI. Note that you will have to upload your files to the GUI like you would with the jupyterhub method.
 
 ## Alternative pip install
 
