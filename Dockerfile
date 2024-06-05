@@ -4,6 +4,8 @@ ADD . .
 
 RUN pip install -r requirements.txt
 
+RUN python compile_models.py
+
 EXPOSE 8888
 
 ENV NAME BiCEP
