@@ -60,6 +60,8 @@
 
 - Run the command `docker run -p 8888:8888 bicep-gui`. This will output a link in your terminal that looks something like`http://127.0.0.1:8888/?token=` followed by a random string. Copy this link and open it in your browser. You can now run BiCEP_GUI. Note that you will have to upload your files to the GUI like you would with the jupyterhub method.
 
+- Please note that changes made in the docker container don't persist after you shut it down, make sure to download your files from the jupyter notebook file browser (see jupyterhub instructions).
+
 ## Alternative pip install
 
 - If you don't want to install into a special anaconda environment, you can also perform a pip install using the command `pip install -r requirements.txt`. Note that this is less version controlled than the anaconda environment and may break other packages you have installed. 

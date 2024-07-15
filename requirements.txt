@@ -1,5 +1,5 @@
 pmagpy==4.2.109
-notebook==6.4.11
+notebook==6.4.10
 lxml == 5.1.0
 scikit-learn==0.24.1
 tornado==6.1
