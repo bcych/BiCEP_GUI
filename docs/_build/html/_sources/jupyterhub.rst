@@ -1,6 +1,7 @@
 JupyterHub Setup
 ============
 To use BiCEP GUI, we recommend using the Earthref jupyterhub at http://jupyterhub.earthref.org. To run the GUI from thissite, first run the Bicep-GUI-Setup notebook by clicking on this and pressing the run button until you reach the end of the notebook. Note that this setup may take several minutes.
+
 .. image:: readme-image/jupyterhub-run.png
   :width: 649
   :alt: JupyterHub run bar
