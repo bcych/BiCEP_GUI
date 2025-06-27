@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "BiCEP"
+version = "1.0.0"
+authors = [
+  { name="Brendan Cych", email="bcych@liverpool.ac.uk" },
+]
+description = "BiCEP GUI software"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "numpy",
+    "matplotlib",
+    "scipy",
+    "netcdf4",
+    "scikit-learn",
+    "tornado",
+    "future",
+    "pandas",
+    "ipympl",
+    "cmdstanpy",
+    "ipyfilechooser",
+    "voila",
+    "arviz",
+    "cartopy",
+    "jupyter"
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/bcych/BiCEP_GUI"
+Issues = "https://github.com/bcych/BiCEP_GUI/issues"
+Docs = "https://bcych.github.io/BiCEP_GUI/"
