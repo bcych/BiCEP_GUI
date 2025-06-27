@@ -9,7 +9,7 @@ jobs:
     - uses: actions/checkout@v4
     - name: Build HTML
       with:
-        pre-build-command: "apt install -y pandoc build-essential && python3 -m pip install -U sphinx sphinx-book-theme sphinx-copybutton sphinx-autobuild sphinxcontrib-mermaid sphinxcontrib-contentui nbsphinx sphinxcontrib-napoleon ipython jupyter numpy matplotlib scipy netcdf5 scikit-learn tornado future pandas ipympl cmdstanpy ipyfilechooser voila arviz cartopy pmagpy meson clang && sphinx-apidoc -f -o docs src/BiCEP/ && python3 -m build && python3 -m pip install -U ./"
+        pre-build-command: "apt install -y pandoc build-essential && python3 -m pip install -U sphinx sphinx-book-theme sphinx-copybutton sphinx-autobuild sphinxcontrib-mermaid sphinxcontrib-contentui nbsphinx sphinxcontrib-napoleon ipython jupyter numpy matplotlib scipy netcdf4 scikit-learn tornado future pandas ipympl cmdstanpy ipyfilechooser voila arviz cartopy pmagpy meson clang && sphinx-apidoc -f -o docs src/BiCEP/ && python3 -m build && python3 -m pip install -U ./"
       uses: ammaraskar/sphinx-action@0.4
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
