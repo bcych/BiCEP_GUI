@@ -9,7 +9,8 @@ Bias Corrected Estimation of Paleointensity (BiCEP, Cych et al, 2021) is a metho
    installation
    jupyterhub
    gui_usage_guide
-   code_usage_guide 
+   code_usage_guide
+   modules
    
 Reference
 ==================
