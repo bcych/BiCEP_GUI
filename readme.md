@@ -1,4 +1,4 @@
-# BiCEP_GUI
+# BiCEP GUI
 Bias Corrected Estimation of Paleointensity (BiCEP) is a method for estimating paleointenstities without excluding large numbers of specimens (https://doi.org/10.1029/2021GC009755). BiCEP_GUI is a GUI for running BiCEP on specimens.
 
 Installation instructions and documentation (including a worked example notebook) can be found at [https://bcych.github.io/BiCEP_GUI](https://bcych.github.io/BiCEP_GUI)
