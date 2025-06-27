@@ -1,0 +1,487 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>GUI usage guide &#8212; BiCEP_GUI-latest latest documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="_static/contentui.css?v=4cf5b151" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=b1def801"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/contentui.js?v=9ee86694"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gui_usage_guide';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="BiCEP Examples Notebook" href="code_usage_guide.html" />
+    <link rel="prev" title="JupyterHub Setup" href="jupyterhub.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">BiCEP_GUI-latest latest documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyterhub.html">JupyterHub Setup</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">GUI usage guide</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="code_usage_guide.html">BiCEP Examples Notebook</a></li>
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/gui_usage_guide.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>GUI usage guide</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">GUI usage guide</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-a-working-directory">Setting up a working directory</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#using-bicep-gui">Using BiCEP_GUI</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="gui-usage-guide">
+<h1>GUI usage guide<a class="headerlink" href="#gui-usage-guide" title="Link to this heading">#</a></h1>
+</section>
+<section id="setting-up-a-working-directory">
+<h1>Setting up a working directory<a class="headerlink" href="#setting-up-a-working-directory" title="Link to this heading">#</a></h1>
+<p>Create a working directory for your project of interest Put your magic files (sites.txt, samples.txt, specimens.txt and measurements.txt) into this folder. If running your code on JupyterHub, see the for the jupyterhub setup see the “Upload your files” step.</p>
+<p>Open the BiCEP_GUI notebook. In this notebook, check the first cell to contain the following code, so that the second cell contains the following code. Replace “my_filename” with your desired filename (no extension) and “my_working_directory” with the directory of your choice.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">generate_arai_plot_table</span><span class="p">(</span><span class="s1">&#39;my_filename&#39;</span><span class="p">,</span><span class="n">wd</span><span class="o">=</span><span class="s1">&#39;my_working_directory/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Running this cell will create a file called my_filename.csv in my_working_directory with all the arai plot data for your specimens. Note that some of your specimens may be missing from this file because their demagnetization was not fully completed (see thellier_gui.log for output).</p>
+</section>
+<section id="using-bicep-gui">
+<h1>Using BiCEP_GUI<a class="headerlink" href="#using-bicep-gui" title="Link to this heading">#</a></h1>
+<p>If you want, press the “Appmode” button (or “Voila” button), located in the top right corenr of your jupyter notebook. Otherwise just run through each of the cells in turn.</p>
+<a class="reference internal image-reference" href="_images/jupyterhub-appmode.png"><img alt="Appmode button" src="_images/jupyterhub-appmode.png" style="width: 649px;" />
+</a>
+<a class="reference internal image-reference" href="_images/file-selection.png"><img alt="File selection button" src="_images/file-selection.png" style="width: 184px;" />
+</a>
+<ol class="arabic simple">
+<li><p>File selection button. Press select, choose your file and press select again. Then press “run” to import the data to the GUI. You cannot then select a new file.</p></li>
+</ol>
+<a class="reference internal image-reference" href="_images/specimen-layout2.png"><img alt="Specimen Processing tab after loading a file." src="_images/specimen-layout2.png" style="width: 1081px;" />
+</a>
+<ol class="arabic simple" start="2">
+<li><p>Site and specimen dropdowns. These dropdown menus allow you to choose a particular paleointensity experiment.</p></li>
+<li><p>Minimum and maximum temperature steps (in Celcius) to use for the paleointensity experiment. We recommend using the Zijderveld plot (6.) and pTRM checks to choose which set of temperatures to use. We recommend either using the Zijderveld plot (6.) and pTRM checks to choose which set of temperatures to use. You can use the auto-interpreter tab to auto-interpret the “best range” of temperature steps according to the DANG, DRAT and MAD criteria.</p></li>
+<li><p>Statistics about the direction and alteration of the ChRM used for paleointensity estimation. These may help with choosing which set of temperature steps to use. See the standard paleointensity definitons (Paterson et al, 2014, <a class="reference external" href="https://earthref.org/PmagPy/SPD/DL/SPD_v1.1.pdf">https://earthref.org/PmagPy/SPD/DL/SPD_v1.1.pdf</a>) for more information on these statistics. In addition to these statistics, we present the worst R_hat diagnostic for a specimen. If R_hat&gt;1.1 or R_hat&lt;0.9, it may indicate an issue with the sampler (see 13.). In this case, this box will show up as red, and the specimen may be excluded using the checkbox (8.))</p></li>
+<li><p>Arai plot with zero field first steps plotted as red circles, in field first steps plotted as blue circles, pTRM checks plotted as triangles, and pTRM tail checks plotted as squares. Additivity checks are not currently plotted. Circle fits from the BiCEP method will be plotted as green lines under the Arai plot after the site fit (9) has been performed. All plots can be rescaled using the “move” button (3rd symbol from the bottom on left side of plot) and right clicking and dragging, or the “zoom” button (2nd symbol from the bottom) and left clicking and dragging to zoom in, or right clicking and dragging to zoom out. The “home” button (second symbol from the top) resets the plot axis, as does changing the temperatures.</p></li>
+<li><p>Zijderveld plot of the data, with x,y plotted as black circles and x,z plotted as red squares.</p></li>
+<li><p>Saves the temperatures used for that specimen to a “BiCEP_gui.redo” file. This must be done for each specimen individually to change temperatures before running the sampler (9.). By default, all temperature steps are used for every specimen. However, the auto-interpreter tab can be used to automatically pick temperature ranges.</p></li>
+<li><p>Checkbox for excluding a specimen. This should only be done if there is no reasonable interpretation of the specimen (e.g. alteration at low temperature, not demagnetizing to the origin).</p></li>
+<li><p>Saves figures to file. Currently the Zijderveld plot and Arai plot have to be saved together (as do both site plots). The dropdowns can be used</p></li>
+<li><p>The “auto-interpret” tab. Can be used to set threshold values for MAD, DANG and DRAT for auto-interpreting the data. The “Auto-Interpret” button will find the temperature range which satisfies these criteria whilst maximizing the FRAC criterion. The “MAD type” dropdown lets you choose whether you want MAD to be calculated for all temperature steps (mad_free) or only the zero-field first temperature steps (mad_coe).</p></li>
+</ol>
+<a class="reference internal image-reference" href="_images/auto-interpreter.png"><img alt="the auto-interpreter tab" src="_images/auto-interpreter.png" style="width: 639px;" />
+</a>
+<a class="reference internal image-reference" href="_images/site-layout.png"><img alt="the site processing tab" src="_images/site-layout.png" style="width: 738px;" />
+</a>
+<ol class="arabic simple" start="11">
+<li><p>The “Process Site Data” button performs the BiCEP method on that site and calculates the site level paleointensity. Depending on the speed of your computer and the sampler parameters used (10), this may take a while to run, especially for sites with many specimens. Please be patient. Progress can be monitored using the “Terminal output” tab.</p></li>
+<li><p>Parameters for the MCMC sampler for the BiCEP method. The “n samples” slider increases the number of samples used in the MCMC sampler. Smaller numbers will take less time to run but result in lower accuracy in the resulting probability distribution. The “Sampler” button changes the parameterization of the MCMC sampler slightly (mathematically, the model is the same, but the parameters being sampled from are specified slightly differently). The “Fast” sampler has a larger step-size and so may underestimate the tails of non-gaussian paleointensity estimates, leading to worse sampler diagnostics. The “Slow” sampler has a much smaller step size, and so will explore these regions in more detail, but is slower and may need more samples to explore the whole distribution. We recommend using the “fast” sampler by default, unless your sampling diagnostics are poor. Both samplers will yield identical results with an infinite number of samples.</p></li>
+<li><p>Plot of the estimated paleointensity for each specimen against Arai plot curvature. The currently displayed specimen in the Arai and Zijderveld plots has a red circle around it in this plot. The blue lines are samples from the posterior distribution for the relationship between specimen level paleointensity and curvature. The y intercept is the estimated site level paleointensity.</p></li>
+<li><p>Histogram of the site level paleointensities sampled from the posterior distribution. This corresponds to the distribution of intercepts of the blue lines in (11.).</p></li>
+<li><p>Diagnostics for the MCMC sampler (see the Stan Documentation at <a class="reference external" href="https://mc-stan.org/docs/reference-manual/analysis.html#notation-for-samples-chains-and-draws">https://mc-stan.org/docs/reference-manual/analysis.html#notation-for-samples-chains-and-draws</a>, <a class="reference external" href="https://mc-stan.org/docs/reference-manual/analysis.html#effective-sample-size.section">https://mc-stan.org/docs/reference-manual/analysis.html#effective-sample-size.section</a>). 0.9&lt;R_hat&lt;1.1 and n_eff&gt;1000 is desired, with R_hat=1.00 and n_eff&gt;10000 being ideal. Tweak the sampler parameters (10.) or measure more specimens if these parameters give poor results (indicated by an amber color for n_eff&lt;1000 or a red color for bad R_hat). Also displayed here is the 95% credible interval for the site and the Category (see the interpreting bicep results page). The color of the category box indicates how to proceed. Green (Category A or B): accept site, Amber (Category C or D): measure more specimens, Red (Category D): ignore site.</p></li>
+<li><p>Saves the results from the BiCEP method to the MagIC tables (site and specimen tables are altered).</p></li>
+<li><p>Saves the results from the BiCEP method to a netCDF file which will load the result back into memory when restarting the notebook (note, these files can be large).</p></li>
+<li><p>The “Terminal Output” tab shows the output of the terminal (to catch any errors in the GUI) and can be used to monitor the progress of the MCMC sampler.</p></li>
+</ol>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="jupyterhub.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">JupyterHub Setup</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="code_usage_guide.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">BiCEP Examples Notebook</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">GUI usage guide</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-a-working-directory">Setting up a working directory</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#using-bicep-gui">Using BiCEP_GUI</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Brendan Cych
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Brendan Cych.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
