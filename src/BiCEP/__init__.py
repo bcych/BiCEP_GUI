@@ -1,5 +1,6 @@
 from importlib import resources
 from cmdstanpy import install_cmdstan, cmdstan_path, CmdStanModel
+import platform
 
 pkg = __name__
 

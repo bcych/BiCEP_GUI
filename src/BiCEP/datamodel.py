@@ -1,4 +1,5 @@
 import nest_asyncio
+from numpy.linalg import LinAlgError
 
 nest_asyncio.apply()
 import pandas as pd
@@ -203,7 +204,7 @@ class SpecimenCollection:
             inits=model_init,
             iter_sampling=n_samples,
             iter_warmup=int(n_samples / 2),
-            **kwargs
+            **kwargs,
         )
 
         self.fit = az.from_cmdstanpy(fit_circle)
@@ -277,7 +278,9 @@ class SpecimenCollection:
                 else:
                     value = np.nan
                 new_row_dict[key] = value
-            sitestable = sitestable.append(new_row_dict, ignore_index=True)
+            sitestable = pd.concat(
+                [sitestable, pd.DataFrame(new_row_dict, index=[0])], ignore_index=True
+            )
 
         # We have to redo the filter because it's the wrong shape otherwise
         sitesfilter = (sitestable[self.key] == self.name) & (
@@ -362,7 +365,10 @@ class SpecimenCollection:
                     else:
                         value = np.nan
                     new_row_dict[key] = value
-                specimenstable = specimenstable.append(new_row_dict, ignore_index=True)
+                specimenstable = pd.concat(
+                    [specimenstable, pd.DataFrame(new_row_dict, index=[0])],
+                    ignore_index=True,
+                )
 
                 specfilter = (specimenstable.specimen == specimen) & (
                     (specimenstable.method_codes.str.contains("IE-BICEP").fillna(False))
@@ -1052,7 +1058,17 @@ class Specimen:
 
         # We perform the Taubin least squares circle fit to get values close to the Bayesian maximum likelihood to initialize our MCMC sampler at, this makes sampling a lot easier than initializing at a random point (which may have infinitely low probability).
 
-        x_c, y_c, R, sigma = TaubinSVD(PTRMS, NRMS)  # Calculate x_c,y_c and R
+        try:
+            x_c, y_c, R, sigma = TaubinSVD(PTRMS, NRMS)  # Calculate x_c,y_c and R
+        except LinAlgError:
+            raise LinAlgError(
+                "Could not get initial guess for circle fit to specimen "
+                + self.name
+                + "It has "
+                + len(PTRMS)
+                + "temperature steps included in the interpretation. Did you mean to exclude this specimen?"
+            )
+
         dist_to_edge = abs(np.sqrt(x_c**2 + y_c**2) - R)  # Calculate D (dist_to_edge)
         phi = np.radians(np.degrees(np.arctan(y_c / x_c)) % 180)
 
