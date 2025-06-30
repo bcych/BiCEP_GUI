@@ -324,12 +324,79 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bicep-conversion-module">BiCEP.conversion module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bicep-criteria-module">BiCEP.criteria module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bicep-datamodel-module">BiCEP.datamodel module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bicep-extract-module">BiCEP.extract module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bicep-gui-module">BiCEP.gui module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-contents">Module contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-BiCEP.conversion">BiCEP.conversion module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.conversion.NLTsolver"><code class="docutils literal notranslate"><span class="pre">NLTsolver()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.conversion.convert_intensity_measurements"><code class="docutils literal notranslate"><span class="pre">convert_intensity_measurements()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.conversion.generate_arai_plot_table"><code class="docutils literal notranslate"><span class="pre">generate_arai_plot_table()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.conversion.sortarai"><code class="docutils literal notranslate"><span class="pre">sortarai()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-BiCEP.criteria">BiCEP.criteria module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.criteria.TaubinSVD"><code class="docutils literal notranslate"><span class="pre">TaubinSVD()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.criteria.auto_interpret"><code class="docutils literal notranslate"><span class="pre">auto_interpret()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.criteria.bestfit_line"><code class="docutils literal notranslate"><span class="pre">bestfit_line()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.criteria.calculate_NLT_correction"><code class="docutils literal notranslate"><span class="pre">calculate_NLT_correction()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.criteria.calculate_anisotropy_correction"><code class="docutils literal notranslate"><span class="pre">calculate_anisotropy_correction()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.criteria.get_dang"><code class="docutils literal notranslate"><span class="pre">get_dang()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.criteria.get_drat"><code class="docutils literal notranslate"><span class="pre">get_drat()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.criteria.get_frac"><code class="docutils literal notranslate"><span class="pre">get_frac()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.criteria.get_mad"><code class="docutils literal notranslate"><span class="pre">get_mad()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.criteria.sufficient_statistics"><code class="docutils literal notranslate"><span class="pre">sufficient_statistics()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-BiCEP.datamodel">BiCEP.datamodel module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.Specimen"><code class="docutils literal notranslate"><span class="pre">Specimen</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.Specimen.BiCEP_prep"><code class="docutils literal notranslate"><span class="pre">Specimen.BiCEP_prep()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.Specimen.calc_plotting_temps"><code class="docutils literal notranslate"><span class="pre">Specimen.calc_plotting_temps()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.Specimen.change_temps"><code class="docutils literal notranslate"><span class="pre">Specimen.change_temps()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.Specimen.plot_arai"><code class="docutils literal notranslate"><span class="pre">Specimen.plot_arai()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.Specimen.plot_circ"><code class="docutils literal notranslate"><span class="pre">Specimen.plot_circ()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.Specimen.plot_zijd"><code class="docutils literal notranslate"><span class="pre">Specimen.plot_zijd()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.Specimen.save_changes"><code class="docutils literal notranslate"><span class="pre">Specimen.save_changes()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.SpecimenCollection"><code class="docutils literal notranslate"><span class="pre">SpecimenCollection</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.SpecimenCollection.BiCEP_fit"><code class="docutils literal notranslate"><span class="pre">SpecimenCollection.BiCEP_fit()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.SpecimenCollection.get_specimen_rhats"><code class="docutils literal notranslate"><span class="pre">SpecimenCollection.get_specimen_rhats()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.SpecimenCollection.histplot"><code class="docutils literal notranslate"><span class="pre">SpecimenCollection.histplot()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.SpecimenCollection.regplot"><code class="docutils literal notranslate"><span class="pre">SpecimenCollection.regplot()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.SpecimenCollection.save_magic_tables"><code class="docutils literal notranslate"><span class="pre">SpecimenCollection.save_magic_tables()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.ThellierData"><code class="docutils literal notranslate"><span class="pre">ThellierData</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.ThellierData.switch_grouping"><code class="docutils literal notranslate"><span class="pre">ThellierData.switch_grouping()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-BiCEP.extract">BiCEP.extract module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.extract.extract_values"><code class="docutils literal notranslate"><span class="pre">extract_values()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.extract.get_sampler_success"><code class="docutils literal notranslate"><span class="pre">get_sampler_success()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.extract.run_site_fit"><code class="docutils literal notranslate"><span class="pre">run_site_fit()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-BiCEP.gui">BiCEP.gui module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI"><code class="docutils literal notranslate"><span class="pre">GUI</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI.activate_deactivate"><code class="docutils literal notranslate"><span class="pre">GUI.activate_deactivate()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI.display_sampler_diags"><code class="docutils literal notranslate"><span class="pre">GUI.display_sampler_diags()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI.display_site_plot"><code class="docutils literal notranslate"><span class="pre">GUI.display_site_plot()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI.display_specimen_plots"><code class="docutils literal notranslate"><span class="pre">GUI.display_specimen_plots()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI.display_specimen_ring"><code class="docutils literal notranslate"><span class="pre">GUI.display_specimen_ring()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI.enablerun"><code class="docutils literal notranslate"><span class="pre">GUI.enablerun()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI.full_auto_interpreter"><code class="docutils literal notranslate"><span class="pre">GUI.full_auto_interpreter()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI.get_sampler_diags"><code class="docutils literal notranslate"><span class="pre">GUI.get_sampler_diags()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI.get_site_dist"><code class="docutils literal notranslate"><span class="pre">GUI.get_site_dist()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI.on_change"><code class="docutils literal notranslate"><span class="pre">GUI.on_change()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI.run"><code class="docutils literal notranslate"><span class="pre">GUI.run()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI.save_figures"><code class="docutils literal notranslate"><span class="pre">GUI.save_figures()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI.save_magic_tables"><code class="docutils literal notranslate"><span class="pre">GUI.save_magic_tables()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI.save_temps"><code class="docutils literal notranslate"><span class="pre">GUI.save_temps()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI.save_to_netcdf"><code class="docutils literal notranslate"><span class="pre">GUI.save_to_netcdf()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-BiCEP">Module contents</a></li>
 </ul>
             </nav>
         </div>
@@ -348,7 +415,7 @@ document.write(`
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="BiCEP.models.html">BiCEP.models package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="BiCEP.models.html#module-contents">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BiCEP.models.html#module-BiCEP.models">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -357,23 +424,860 @@ document.write(`
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
 </section>
-<section id="bicep-conversion-module">
-<h2>BiCEP.conversion module<a class="headerlink" href="#bicep-conversion-module" title="Link to this heading">#</a></h2>
+<section id="module-BiCEP.conversion">
+<span id="bicep-conversion-module"></span><h2>BiCEP.conversion module<a class="headerlink" href="#module-BiCEP.conversion" title="Link to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="BiCEP.conversion.NLTsolver">
+<span class="sig-prename descclassname"><span class="pre">BiCEP.conversion.</span></span><span class="sig-name descname"><span class="pre">NLTsolver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fields</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.conversion.NLTsolver" title="Link to this definition">#</a></dt>
+<dd><p>Makes the non linear TRM correction</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="BiCEP.conversion.convert_intensity_measurements">
+<span class="sig-prename descclassname"><span class="pre">BiCEP.conversion.</span></span><span class="sig-name descname"><span class="pre">convert_intensity_measurements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">measurements</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.conversion.convert_intensity_measurements" title="Link to this definition">#</a></dt>
+<dd><p>Converts a measurements table with only intensity experiments into the internal data format used by the BiCEP method</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="BiCEP.conversion.generate_arai_plot_table">
+<span class="sig-prename descclassname"><span class="pre">BiCEP.conversion.</span></span><span class="sig-name descname"><span class="pre">generate_arai_plot_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.conversion.generate_arai_plot_table" title="Link to this definition">#</a></dt>
+<dd><p>Generates a DataFrame with Thellier Data for a Dataset, stores it as a csv.</p>
+<section id="inputs">
+<h3>Inputs<a class="headerlink" href="#inputs" title="Link to this heading">#</a></h3>
+<p>outputname: (str)
+name of file to output (no extension)</p>
+<dl class="field-list simple">
+<dt class="field-odd">rtype<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
 </section>
-<section id="bicep-criteria-module">
-<h2>BiCEP.criteria module<a class="headerlink" href="#bicep-criteria-module" title="Link to this heading">#</a></h2>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="BiCEP.conversion.sortarai">
+<span class="sig-prename descclassname"><span class="pre">BiCEP.conversion.</span></span><span class="sig-name descname"><span class="pre">sortarai</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datablock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Zdiff</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.conversion.sortarai" title="Link to this definition">#</a></dt>
+<dd><blockquote>
+<div><p>sorts data block in to first_Z, first_I, etc.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>datablock</strong> (<em>Pandas DataFrame with Thellier-Tellier type data</em>)</p></li>
+<li><p><strong>s</strong> (<em>specimen name</em>)</p></li>
+<li><p><strong>Zdiff</strong> (<em>if True</em><em>, </em><em>take difference in Z values instead</em><em> of </em><em>vector difference</em>) – NB:  this should always be False</p></li>
+<li><p><strong>**kwargs</strong> – version : data model.  if not 3, assume data model = 2.5</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>araiblock</strong> (<em>[first_Z, first_I, ptrm_check,</em>) – ptrm_tail, zptrm_check, GammaChecks]</p></li>
+<li><p><strong>field</strong> (<em>lab field (in tesla)</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="bicep-datamodel-module">
-<h2>BiCEP.datamodel module<a class="headerlink" href="#bicep-datamodel-module" title="Link to this heading">#</a></h2>
+<section id="module-BiCEP.criteria">
+<span id="bicep-criteria-module"></span><h2>BiCEP.criteria module<a class="headerlink" href="#module-BiCEP.criteria" title="Link to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="BiCEP.criteria.TaubinSVD">
+<span class="sig-prename descclassname"><span class="pre">BiCEP.criteria.</span></span><span class="sig-name descname"><span class="pre">TaubinSVD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.criteria.TaubinSVD" title="Link to this definition">#</a></dt>
+<dd><p>Function from PmagPy
+algebraic circle fit
+input: list [[x_1, y_1], [x_2, y_2], ….]
+output: a, b, r.  a and b are the center of the fitting circle, and
+r is the radius</p>
+<blockquote>
+<div><dl>
+<dt>Algebraic circle fit by Taubin</dt><dd><ol class="upperalpha simple" start="7">
+<li><dl class="simple">
+<dt>Taubin, “Estimation Of Planar Curves, Surfaces And Nonplanar</dt><dd><p>Space Curves Defined By Implicit Equations, With
+Applications To Edge And Range Image Segmentation”,</p>
+</dd>
+</dl>
+</li>
+</ol>
+<p>IEEE Trans. PAMI, Vol. 13, pages 1115-1138, (1991)</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="BiCEP.criteria.auto_interpret">
+<span class="sig-prename descclassname"><span class="pre">BiCEP.criteria.</span></span><span class="sig-name descname"><span class="pre">auto_interpret</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">site</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dang</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mad_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mad_free'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.criteria.auto_interpret" title="Link to this definition">#</a></dt>
+<dd><p>Auto-Interpreter for BiCEP. Calculates MAD_coe, DANG and DRAT
+for every possible interpretation with 4 or more points on
+the Arai plot. Selects the interpretation that passes the
+criteria which has the highest FRAC.</p>
+<section id="id1">
+<h3>Inputs<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>site: BiCEP specimenCollection object
+Site/sample to calculate interpretations for</p>
+<p>mad: float
+MAD_Coe criterion threshold</p>
+<p>dang: float
+DANG criterion threshold</p>
+<p>DRAT: float
+DRAT criterion threshold</p>
+<dl class="field-list simple">
+<dt class="field-odd">rtype<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
 </section>
-<section id="bicep-extract-module">
-<h2>BiCEP.extract module<a class="headerlink" href="#bicep-extract-module" title="Link to this heading">#</a></h2>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="BiCEP.criteria.bestfit_line">
+<span class="sig-prename descclassname"><span class="pre">BiCEP.criteria.</span></span><span class="sig-name descname"><span class="pre">bestfit_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ptrm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nrm</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.criteria.bestfit_line" title="Link to this definition">#</a></dt>
+<dd><p>Returns the slope and intercept of the best fit line to a set of
+pTRM and NRM data using York Regression</p>
+<section id="id2">
+<h3>Inputs<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>ptrm: list or array
+list of pTRM data</p>
+<p>nrm: list or array
+list of NRM data</p>
+<dl class="field-list simple">
+<dt class="field-odd">rtype<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dictionary of slope and intercept for best fitting line.</p>
+</dd>
+</dl>
 </section>
-<section id="bicep-gui-module">
-<h2>BiCEP.gui module<a class="headerlink" href="#bicep-gui-module" title="Link to this heading">#</a></h2>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="BiCEP.criteria.calculate_NLT_correction">
+<span class="sig-prename descclassname"><span class="pre">BiCEP.criteria.</span></span><span class="sig-name descname"><span class="pre">calculate_NLT_correction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">IZZI</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.criteria.calculate_NLT_correction" title="Link to this definition">#</a></dt>
+<dd><p>Calculates the correction for non linear TRM for a paleointensity interpretation,
+given the anisotropy and cooling rate corrections</p>
+<section id="id3">
+<h3>Inputs<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>IZZI: pandas.DataFrame
+DataFrame object in BiCEP format of in field and
+zero field measurements for a specimen (interpretation).</p>
+<p>c: float
+Combined Anisotropy and Cooling Rate correction-
+needed because the nonlinearity is applied after this.</p>
+<dl class="field-list simple">
+<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>c</strong> (<em>float</em>)</p></li>
+<li><p><em>NLT correction factor</em></p></li>
+</ul>
+</dd>
+</dl>
 </section>
-<section id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Link to this heading">#</a></h2>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="BiCEP.criteria.calculate_anisotropy_correction">
+<span class="sig-prename descclassname"><span class="pre">BiCEP.criteria.</span></span><span class="sig-name descname"><span class="pre">calculate_anisotropy_correction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">IZZI</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.criteria.calculate_anisotropy_correction" title="Link to this definition">#</a></dt>
+<dd><p>Calculates anisotropy correction factor for a
+paleointensity interpretation, given an s tensor</p>
+<section id="id4">
+<h3>Inputs<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>IZZI: pandas.DataFrame
+DataFrame object in BiCEP format of in field and
+zero field measurements for a specimen (interpretation).</p>
+<dl class="field-list simple">
+<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>c</strong> (<em>float</em>)</p></li>
+<li><p><em>Anisotropy correction factor</em></p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="BiCEP.criteria.get_dang">
+<span class="sig-prename descclassname"><span class="pre">BiCEP.criteria.</span></span><span class="sig-name descname"><span class="pre">get_dang</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">NRM_trunc_dirs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pca</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.criteria.get_dang" title="Link to this definition">#</a></dt>
+<dd><p>Calculates the Deviation Angle
+Inputs
+——
+NRM_trunc_dirs: numpy.ndarray
+Vector directions for zero field measurements for specimen</p>
+<p>pca: scikitlearn.decomposition.PCA object
+pca used to fit the vector direction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>dang</strong> (<em>float</em>)</p></li>
+<li><p><em>deviation angle for that intepretation</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="BiCEP.criteria.get_drat">
+<span class="sig-prename descclassname"><span class="pre">BiCEP.criteria.</span></span><span class="sig-name descname"><span class="pre">get_drat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">IZZI</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">IZZI_trunc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">P</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.criteria.get_drat" title="Link to this definition">#</a></dt>
+<dd><p>Calculates the difference ratio (DRAT) of pTRM checks
+(Selkin and Tauxe, 2000) to check for alteration</p>
+<section id="id5">
+<h3>Inputs<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>IZZI: pandas.DataFrame
+DataFrame object in BiCEP format of all in field and
+zero field measurements for a specimen.</p>
+<p>IZZI_trunc: pandas.DataFrame
+DataFrame object- same as IZZI but truncated only for temperatures
+used in interpretation</p>
+<p>P: pandas.DataFrame
+DataFrame object containing pTRM checks up to the
+maximum temperature of an interpretation</p>
+<dl class="field-list simple">
+<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>absdiff</strong> (<em>float</em>)</p></li>
+<li><p><em>maximum DRAT for all pTRM check measurements.</em></p></li>
+<li><p><em>returns zero if the interpretation is not valid.</em></p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="BiCEP.criteria.get_frac">
+<span class="sig-prename descclassname"><span class="pre">BiCEP.criteria.</span></span><span class="sig-name descname"><span class="pre">get_frac</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">IZZI</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">IZZI_trunc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.criteria.get_frac" title="Link to this definition">#</a></dt>
+<dd><p>Calculates the NRM Fraction from VDS (Shaar and Tauxe, 2013)</p>
+<section id="id6">
+<h3>Inputs<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>specimen: BiCEP specimen object
+specimen to obtain FRAC from</p>
+<dl class="field-list simple">
+<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>FRAC</strong> (<em>float</em>)</p></li>
+<li><p><em>calculated FRAC</em></p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="BiCEP.criteria.get_mad">
+<span class="sig-prename descclassname"><span class="pre">BiCEP.criteria.</span></span><span class="sig-name descname"><span class="pre">get_mad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">IZZI</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pca</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.criteria.get_mad" title="Link to this definition">#</a></dt>
+<dd><p>Calculates the free Maximum Angle of Deviation (MAD) of Kirshvink et
+al (1980)</p>
+<section id="id7">
+<h3>Inputs<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>IZZI: pandas.DataFrame
+DataFrame object in BiCEP format of in field and
+zero field measurements for a specimen (interpretation).</p>
+<p>pca: scikitlearn.decomposition.PCA object
+pca used to fit the vector direction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mad</strong> (<em>float</em>)</p></li>
+<li><p><em>maximum angle of deviation for that intepretation</em></p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="BiCEP.criteria.sufficient_statistics">
+<span class="sig-prename descclassname"><span class="pre">BiCEP.criteria.</span></span><span class="sig-name descname"><span class="pre">sufficient_statistics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ptrm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nrm</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.criteria.sufficient_statistics" title="Link to this definition">#</a></dt>
+<dd><p>inputs list of ptrm and nrm data and computes sufficent statistcs
+needed for computations</p>
+<section id="id8">
+<h3>Inputs<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>ptrm: list
+list of ptrm data</p>
+<p>nrm: list
+list of nrm data</p>
+<dl class="field-list simple">
+<dt class="field-odd">rtype<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict containing mean ptrm and nrm, and covariances in xx, xy and yy.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+<section id="module-BiCEP.datamodel">
+<span id="bicep-datamodel-module"></span><h2>BiCEP.datamodel module<a class="headerlink" href="#module-BiCEP.datamodel" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="BiCEP.datamodel.Specimen">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">BiCEP.datamodel.</span></span><span class="sig-name descname"><span class="pre">Specimen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parentCollection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">specimenName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.datamodel.Specimen" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Specimen from a given site or sample SpecimenCollection object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parentCollection</strong> (<em>SpecimenCollection object</em>)</p></li>
+<li><p><strong>from.</strong> (<em>Site/Sample the specimen is derived</em>)</p></li>
+<li><p><strong>specimenName</strong> (<em>string</em>)</p></li>
+<li><p><strong>specimen</strong> (<em>Name of</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="BiCEP.datamodel.Specimen.BiCEP_prep">
+<span class="sig-name descname"><span class="pre">BiCEP_prep</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.datamodel.Specimen.BiCEP_prep" title="Link to this definition">#</a></dt>
+<dd><p>Returns the needed data for a paleointensity interpretation to
+perform the BiCEP method, calculates all corrections for a specimen.
+Performs scaling on the PTRM and NRM data. It performs the Taubin SVD circle fit
+to find the maximum likelihood circle fit to initialize the BiCEP method sampler.</p>
+<section id="id9">
+<h3>Inputs<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>None</p>
+<dl class="field-list simple">
+<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>minPTRM</strong> (<em>float</em>)</p></li>
+<li><p><em>Minimum scaled pTRM</em></p></li>
+<li><p><strong>maxNRM</strong> (<em>float</em>)</p></li>
+<li><p><em>Minimum scaled NRM</em></p></li>
+<li><p><strong>PTRMmax</strong> (<em>float</em>)</p></li>
+<li><p><em>Maximum total pTRM (scaled)</em></p></li>
+<li><p><strong>k</strong> (<em>float</em>)</p></li>
+<li><p><em>Best fitting k value using Taubin circle fit.</em></p></li>
+<li><p><strong>phi</strong> (<em>float</em>)</p></li>
+<li><p><em>Best fitting phi value using Taubin circle fit</em></p></li>
+<li><p><strong>dist_to_edge</strong> (<em>float</em>)</p></li>
+<li><p><em>Best fitting D value using Taubin circle fit.</em></p></li>
+<li><p><strong>sigma</strong> (<em>float</em>)</p></li>
+<li><p><em>Best fitting sigma value using Taubin circle fit.</em></p></li>
+<li><p><strong>PTRMS</strong> (<em>numpy.ndarray()</em>)</p></li>
+<li><p><em>Scaled and translated pTRM values</em></p></li>
+<li><p><strong>NRMS</strong> (<em>numpy.ndarray()</em>)</p></li>
+<li><p><em>Scaled and translated NRM values.</em></p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BiCEP.datamodel.Specimen.calc_plotting_temps">
+<span class="sig-name descname"><span class="pre">calc_plotting_temps</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.datamodel.Specimen.calc_plotting_temps" title="Link to this definition">#</a></dt>
+<dd><p>Uses k-means clustering to find the set of temperatures
+to plot as text on the Arai/Zijderveld plot, without things
+overlapping</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BiCEP.datamodel.Specimen.change_temps">
+<span class="sig-name descname"><span class="pre">change_temps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lowerTemp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upperTemp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.datamodel.Specimen.change_temps" title="Link to this definition">#</a></dt>
+<dd><p>Changes temperature range (interpretation for specimen).
+Recalculates SPD statistic and PCA for said specimen.</p>
+<section id="id10">
+<h3>Inputs<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p>lowerTemp: float
+Lower temperature (inclusive) for interpretation</p>
+<p>upperTemp: float
+Upper temperature (inclusive) for interpretation</p>
+<dl class="field-list simple">
+<dt class="field-odd">rtype<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BiCEP.datamodel.Specimen.plot_arai">
+<span class="sig-name descname"><span class="pre">plot_arai</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.datamodel.Specimen.plot_arai" title="Link to this definition">#</a></dt>
+<dd><p>Plots data onto the Arai plot.</p>
+<section id="id11">
+<h3>Inputs<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p>ax: matplotlib axis
+axis for plot to be plotted on to</p>
+<p>temps: bool
+if True, plots temperatures on the Arai plot</p>
+<dl class="field-list simple">
+<dt class="field-odd">rtype<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BiCEP.datamodel.Specimen.plot_circ">
+<span class="sig-name descname"><span class="pre">plot_circ</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linewidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tangent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.datamodel.Specimen.plot_circ" title="Link to this definition">#</a></dt>
+<dd><p>Plots circle fits sampled from the posterior distribution
+(using the BiCEP method) to the Arai plot data. Plots tangent
+to the circle as a slope if tangent=True</p>
+<section id="id12">
+<h3>Inputs<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<p>ax: matplotlib axis
+axis to be used for plot.</p>
+<p>legend: bool
+If True plots a legend.</p>
+<p>linewidth: float
+Width of circle fit lines on plot</p>
+<p>title: str
+Title for plot</p>
+<p>tangent: bool
+If set to True, plots best fitting tangent to circle.</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BiCEP.datamodel.Specimen.plot_zijd">
+<span class="sig-name descname"><span class="pre">plot_zijd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.datamodel.Specimen.plot_zijd" title="Link to this definition">#</a></dt>
+<dd><p>Plots data onto the Zijderveld plot. Does not fit a line to this data.</p>
+<section id="id13">
+<h3>Inputs<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<p>ax: matplotlib axis
+axis for plot to be plotted on to</p>
+<p>temps: bool
+if True, plots temperature values as text on plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">rtype<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BiCEP.datamodel.Specimen.save_changes">
+<span class="sig-name descname"><span class="pre">save_changes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.datamodel.Specimen.save_changes" title="Link to this definition">#</a></dt>
+<dd><p>Commits temperature changes for use with the BiCEP method</p>
+<section id="id14">
+<h3>Inputs<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<p>None</p>
+<dl class="field-list simple">
+<dt class="field-odd">rtype<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="BiCEP.datamodel.SpecimenCollection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">BiCEP.datamodel.</span></span><span class="sig-name descname"><span class="pre">SpecimenCollection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parentData</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collectionName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.datamodel.SpecimenCollection" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Collection of specimens (site or sample, from ThellierData Dataset)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parentData</strong> (<em>ThellierData object</em>)</p></li>
+<li><p><strong>from</strong> (<em>Set</em><em> of </em><em>Thellier Data the site/sample is derived</em>)</p></li>
+<li><p><strong>collectionName</strong> (<em>string</em>)</p></li>
+<li><p><strong>specimen/site</strong> (<em>Name of</em>)</p></li>
+<li><p><strong>key</strong> (<em>string</em>)</p></li>
+<li><p><strong>sample</strong> (<em>Either 'site' for site</em><em> or </em><em>'sample' for</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="BiCEP.datamodel.SpecimenCollection.BiCEP_fit">
+<span class="sig-name descname"><span class="pre">BiCEP_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">priorstd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.datamodel.SpecimenCollection.BiCEP_fit" title="Link to this definition">#</a></dt>
+<dd><p>Performs the fitting routine using the BiCEP method for a given list of specimens from a single site.
+Inputs
+——
+Specimenlist: iterable of specimen names (strings)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BiCEP.datamodel.SpecimenCollection.get_specimen_rhats">
+<span class="sig-name descname"><span class="pre">get_specimen_rhats</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.datamodel.SpecimenCollection.get_specimen_rhats" title="Link to this definition">#</a></dt>
+<dd><p>Finds the worst Rhat va; for each specimen and assigns it to that specimen</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BiCEP.datamodel.SpecimenCollection.histplot">
+<span class="sig-name descname"><span class="pre">histplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.datamodel.SpecimenCollection.histplot" title="Link to this definition">#</a></dt>
+<dd><p>Plots a histogram of the site level paleointensity estimate.</p>
+<section id="id15">
+<h3>Inputs<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<p><a href="#id16"><span class="problematic" id="id17">**</span></a>kwargs:
+arguments to be passed to the histogram plot</p>
+<dl class="field-list simple">
+<dt class="field-odd">rtype<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BiCEP.datamodel.SpecimenCollection.regplot">
+<span class="sig-name descname"><span class="pre">regplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.datamodel.SpecimenCollection.regplot" title="Link to this definition">#</a></dt>
+<dd><p>Plots B vs k for all specimens in a site given a BiCEP or unpooled fit</p>
+<section id="id18">
+<h3>Inputs<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
+<p>ax: matplotlib axis
+axes to plot to</p>
+<p>legend: bool
+If set to True, plots a legend</p>
+<p>title: str
+Title for plot. Does not plot title if set to None.</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BiCEP.datamodel.SpecimenCollection.save_magic_tables">
+<span class="sig-name descname"><span class="pre">save_magic_tables</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.datamodel.SpecimenCollection.save_magic_tables" title="Link to this definition">#</a></dt>
+<dd><p>Saves data from the currently displayed site to the GUI</p>
+<section id="id19">
+<h3>Inputs<a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
+<p>None</p>
+<dl class="field-list simple">
+<dt class="field-odd">rtype<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="BiCEP.datamodel.ThellierData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">BiCEP.datamodel.</span></span><span class="sig-name descname"><span class="pre">ThellierData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datafile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.datamodel.ThellierData" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class which supports several methods using the BiCEP method in pandas.
+Inputs
+——
+datafile: string for file name in BiCEP format</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="BiCEP.datamodel.ThellierData.switch_grouping">
+<span class="sig-name descname"><span class="pre">switch_grouping</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.datamodel.ThellierData.switch_grouping" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-BiCEP.extract">
+<span id="bicep-extract-module"></span><h2>BiCEP.extract module<a class="headerlink" href="#module-BiCEP.extract" title="Link to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="BiCEP.extract.extract_values">
+<span class="sig-prename descclassname"><span class="pre">BiCEP.extract.</span></span><span class="sig-name descname"><span class="pre">extract_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.extract.extract_values" title="Link to this definition">#</a></dt>
+<dd><p>Extracts the data for variable in the BiCEP fit to a 1d numpy array</p>
+<section id="id20">
+<h3>Inputs<a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
+<p>fit arviz InferenceData:
+site level BiCEP fit object</p>
+<p>var str:
+name of variable in fit</p>
+<dl class="field-list simple">
+<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>values</strong> (<em>array</em>)</p></li>
+<li><p><em>1d array of values for that variable in the fit</em></p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="BiCEP.extract.get_sampler_success">
+<span class="sig-prename descclassname"><span class="pre">BiCEP.extract.</span></span><span class="sig-name descname"><span class="pre">get_sampler_success</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">site</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">abs_tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">perc_tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">acceptSkew</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.extract.get_sampler_success" title="Link to this definition">#</a></dt>
+<dd><p>Checks for a BiCEP site result has a full width of its credible
+interval &lt;abs_tol μT or perc_tol% of the median. Additionally, checks that
+the sampler did not fail the rhat criterion (if it does, you may
+need to rerun this function on the site). The function also
+outputs a warning if the skewness of the distribution of the
+site mean intensity is highly skewed, which can be indicative of
+a result which cannot exclude zero. These results have a higher
+chance of being inaccurate because the mean is restricted to be
+greater than zero and so this may artificially reduce the
+uncertainty in the mean value.</p>
+<section id="id21">
+<h3>Inputs<a class="headerlink" href="#id21" title="Link to this heading">#</a></h3>
+<p>site: BiCEP specimenCollection object
+site/sample used to check for success.</p>
+<p>abs_tol: float
+absolute maximum limit for accurate specimen</p>
+<p>perc_tol: float
+absolute maximum percentage tolerance for accurate specimen</p>
+<p>acceptSkew: bool
+Whether we accept A- / B- results (default False)</p>
+<dl class="field-list simple">
+<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>True/False</strong> (<em>bool</em>)</p></li>
+<li><p><em>Whether the site has a successful result or not (an A or a B)</em></p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="BiCEP.extract.run_site_fit">
+<span class="sig-prename descclassname"><span class="pre">BiCEP.extract.</span></span><span class="sig-name descname"><span class="pre">run_site_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">site</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_specs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_nc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.extract.run_site_fit" title="Link to this definition">#</a></dt>
+<dd><p>Runs a BiCEP fit to a site, automatically choosing
+specimen level interpretations.</p>
+<section id="id22">
+<h3>Inputs<a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
+<p>site: BiCEP specimenCollection object.
+site/specimen to run fit on</p>
+<dl class="field-list simple">
+<dt class="field-odd">rtype<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+<section id="module-BiCEP.gui">
+<span id="bicep-gui-module"></span><h2>BiCEP.gui module<a class="headerlink" href="#module-BiCEP.gui" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="BiCEP.gui.GUI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">BiCEP.gui.</span></span><span class="sig-name descname"><span class="pre">GUI</span></span><a class="headerlink" href="#BiCEP.gui.GUI" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="BiCEP.gui.GUI.activate_deactivate">
+<span class="sig-name descname"><span class="pre">activate_deactivate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.gui.GUI.activate_deactivate" title="Link to this definition">#</a></dt>
+<dd><p>Function that excludes/includes a specimen depending on activation/deactivation</p>
+<section id="id23">
+<h3>Inputs:<a class="headerlink" href="#id23" title="Link to this heading">#</a></h3>
+<p>a: interact object
+Has no practical use</p>
+<dl class="field-list simple">
+<dt class="field-odd">rtype<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BiCEP.gui.GUI.display_sampler_diags">
+<span class="sig-name descname"><span class="pre">display_sampler_diags</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.gui.GUI.display_sampler_diags" title="Link to this definition">#</a></dt>
+<dd><p>Displays the worst R_hat and n_eff, B_anc
+and Category or Grade for the BiCEP fit</p>
+<section id="id24">
+<h3>Inputs<a class="headerlink" href="#id24" title="Link to this heading">#</a></h3>
+<p>fit: StanFit object
+model fit to site/sample</p>
+</section>
+<section id="returns">
+<h3>Returns:<a class="headerlink" href="#returns" title="Link to this heading">#</a></h3>
+<p>None</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BiCEP.gui.GUI.display_site_plot">
+<span class="sig-name descname"><span class="pre">display_site_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.gui.GUI.display_site_plot" title="Link to this definition">#</a></dt>
+<dd><p>Displays the site plots for BiCEP GUI</p>
+<section id="id25">
+<h3>Inputs<a class="headerlink" href="#id25" title="Link to this heading">#</a></h3>
+<p>fit: StanFit object
+BiCEP fit for that site/sample</p>
+<dl class="field-list simple">
+<dt class="field-odd">rtype<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BiCEP.gui.GUI.display_specimen_plots">
+<span class="sig-name descname"><span class="pre">display_specimen_plots</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.gui.GUI.display_specimen_plots" title="Link to this definition">#</a></dt>
+<dd><p>Displays specimen level plots on the BiCEP GUI</p>
+<section id="id26">
+<h3>Inputs:<a class="headerlink" href="#id26" title="Link to this heading">#</a></h3>
+<p>None</p>
+</section>
+<section id="id27">
+<h3>Returns:<a class="headerlink" href="#id27" title="Link to this heading">#</a></h3>
+<p>None</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BiCEP.gui.GUI.display_specimen_ring">
+<span class="sig-name descname"><span class="pre">display_specimen_ring</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.gui.GUI.display_specimen_ring" title="Link to this definition">#</a></dt>
+<dd><p>Displays a red circle around the currently selected
+specimen in the site plot of BiCEP GUI</p>
+<section id="id28">
+<h3>Inputs:<a class="headerlink" href="#id28" title="Link to this heading">#</a></h3>
+<p>None</p>
+<dl class="field-list simple">
+<dt class="field-odd">rtype<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BiCEP.gui.GUI.enablerun">
+<span class="sig-name descname"><span class="pre">enablerun</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.gui.GUI.enablerun" title="Link to this definition">#</a></dt>
+<dd><p>Enables running the GUI after choosing a file</p>
+<section id="id29">
+<h3>Inputs:<a class="headerlink" href="#id29" title="Link to this heading">#</a></h3>
+<p>a: Button pressed object
+Has no practical use</p>
+<dl class="field-list simple">
+<dt class="field-odd">rtype<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BiCEP.gui.GUI.full_auto_interpreter">
+<span class="sig-name descname"><span class="pre">full_auto_interpreter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.gui.GUI.full_auto_interpreter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BiCEP.gui.GUI.get_sampler_diags">
+<span class="sig-name descname"><span class="pre">get_sampler_diags</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">site</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.gui.GUI.get_sampler_diags" title="Link to this definition">#</a></dt>
+<dd><p>Returns useful sampler diagnostics for a particular MCMC fit with pystan</p>
+<section id="id30">
+<h3>Inputs<a class="headerlink" href="#id30" title="Link to this heading">#</a></h3>
+<p>fit: StanFit object
+model fit to site/sample</p>
+<dl class="field-list simple">
+<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rhat_worst</strong> (<em>float</em>)</p></li>
+<li><p><em>worst rhat of all parameters</em></p></li>
+<li><p><strong>n_eff_int_site</strong> (<em>float</em>)</p></li>
+<li><p><em>Effective number of pseudosamples of B_anc</em></p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BiCEP.gui.GUI.get_site_dist">
+<span class="sig-name descname"><span class="pre">get_site_dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.gui.GUI.get_site_dist" title="Link to this definition">#</a></dt>
+<dd><p>Runs the MCMC sampler and updates the GUI</p>
+<section id="id31">
+<h3>Inputs:<a class="headerlink" href="#id31" title="Link to this heading">#</a></h3>
+<p>a: Button pressed object
+has no practical use.</p>
+</section>
+<section id="id32">
+<h3>Returns:<a class="headerlink" href="#id32" title="Link to this heading">#</a></h3>
+<p>None</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BiCEP.gui.GUI.on_change">
+<span class="sig-name descname"><span class="pre">on_change</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">change</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.gui.GUI.on_change" title="Link to this definition">#</a></dt>
+<dd><p>Update GUI on changing one of our site, specimen, temperature dropdowns.</p>
+<section id="id33">
+<h3>Inputs:<a class="headerlink" href="#id33" title="Link to this heading">#</a></h3>
+<p>change: Dropdown change object
+Gives us information about which object was changed (owner),
+the type of change (name, either value for a value change,
+or options for all options changed),and the new value (new).
+Note that these attributes are very important to avoid repeating
+many operations, as the changing the site widget’s value changes
+the specimen widgets options, which then changes it’s options.
+This is the reason for the numerous if statements in this function.</p>
+</section>
+<section id="id34">
+<h3>Returns:<a class="headerlink" href="#id34" title="Link to this heading">#</a></h3>
+<p>None</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BiCEP.gui.GUI.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.gui.GUI.run" title="Link to this definition">#</a></dt>
+<dd><p>Runs the GUI after selecting a file.</p>
+<section id="id35">
+<h3>Inputs:<a class="headerlink" href="#id35" title="Link to this heading">#</a></h3>
+<p>a: Button pressed object
+Has no practical use</p>
+<dl class="field-list simple">
+<dt class="field-odd">rtype<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BiCEP.gui.GUI.save_figures">
+<span class="sig-name descname"><span class="pre">save_figures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.gui.GUI.save_figures" title="Link to this definition">#</a></dt>
+<dd><p>Saves figures from GUI to file</p>
+<section id="id36">
+<h3>Inputs:<a class="headerlink" href="#id36" title="Link to this heading">#</a></h3>
+<p>a: Button pressed object
+Has no practical use</p>
+<dl class="field-list simple">
+<dt class="field-odd">rtype<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BiCEP.gui.GUI.save_magic_tables">
+<span class="sig-name descname"><span class="pre">save_magic_tables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.gui.GUI.save_magic_tables" title="Link to this definition">#</a></dt>
+<dd><p>Saves data from the currently displayed site to the GUI</p>
+<section id="id37">
+<h3>Inputs:<a class="headerlink" href="#id37" title="Link to this heading">#</a></h3>
+<p>a: Button pressed object
+Has no practical use</p>
+<dl class="field-list simple">
+<dt class="field-odd">rtype<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BiCEP.gui.GUI.save_temps">
+<span class="sig-name descname"><span class="pre">save_temps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.gui.GUI.save_temps" title="Link to this definition">#</a></dt>
+<dd><p>Saves changes to specimen temperatures</p>
+<section id="id38">
+<h3>Inputs:<a class="headerlink" href="#id38" title="Link to this heading">#</a></h3>
+<p>a: Button pressed object
+has no practical use.</p>
+</section>
+<section id="id39">
+<h3>Returns:<a class="headerlink" href="#id39" title="Link to this heading">#</a></h3>
+<p>None</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BiCEP.gui.GUI.save_to_netcdf">
+<span class="sig-name descname"><span class="pre">save_to_netcdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.gui.GUI.save_to_netcdf" title="Link to this definition">#</a></dt>
+<dd><p>Function that saves site fit to netCDF</p>
+<section id="id40">
+<h3>Inputs:<a class="headerlink" href="#id40" title="Link to this heading">#</a></h3>
+<p>a: interact object
+Has no practical use</p>
+<dl class="field-list simple">
+<dt class="field-odd">rtype<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-BiCEP">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-BiCEP" title="Link to this heading">#</a></h2>
 </section>
 </section>
 
@@ -424,12 +1328,79 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bicep-conversion-module">BiCEP.conversion module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bicep-criteria-module">BiCEP.criteria module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bicep-datamodel-module">BiCEP.datamodel module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bicep-extract-module">BiCEP.extract module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bicep-gui-module">BiCEP.gui module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-contents">Module contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-BiCEP.conversion">BiCEP.conversion module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.conversion.NLTsolver"><code class="docutils literal notranslate"><span class="pre">NLTsolver()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.conversion.convert_intensity_measurements"><code class="docutils literal notranslate"><span class="pre">convert_intensity_measurements()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.conversion.generate_arai_plot_table"><code class="docutils literal notranslate"><span class="pre">generate_arai_plot_table()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.conversion.sortarai"><code class="docutils literal notranslate"><span class="pre">sortarai()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-BiCEP.criteria">BiCEP.criteria module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.criteria.TaubinSVD"><code class="docutils literal notranslate"><span class="pre">TaubinSVD()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.criteria.auto_interpret"><code class="docutils literal notranslate"><span class="pre">auto_interpret()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.criteria.bestfit_line"><code class="docutils literal notranslate"><span class="pre">bestfit_line()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.criteria.calculate_NLT_correction"><code class="docutils literal notranslate"><span class="pre">calculate_NLT_correction()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.criteria.calculate_anisotropy_correction"><code class="docutils literal notranslate"><span class="pre">calculate_anisotropy_correction()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.criteria.get_dang"><code class="docutils literal notranslate"><span class="pre">get_dang()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.criteria.get_drat"><code class="docutils literal notranslate"><span class="pre">get_drat()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.criteria.get_frac"><code class="docutils literal notranslate"><span class="pre">get_frac()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.criteria.get_mad"><code class="docutils literal notranslate"><span class="pre">get_mad()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.criteria.sufficient_statistics"><code class="docutils literal notranslate"><span class="pre">sufficient_statistics()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-BiCEP.datamodel">BiCEP.datamodel module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.Specimen"><code class="docutils literal notranslate"><span class="pre">Specimen</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.Specimen.BiCEP_prep"><code class="docutils literal notranslate"><span class="pre">Specimen.BiCEP_prep()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.Specimen.calc_plotting_temps"><code class="docutils literal notranslate"><span class="pre">Specimen.calc_plotting_temps()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.Specimen.change_temps"><code class="docutils literal notranslate"><span class="pre">Specimen.change_temps()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.Specimen.plot_arai"><code class="docutils literal notranslate"><span class="pre">Specimen.plot_arai()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.Specimen.plot_circ"><code class="docutils literal notranslate"><span class="pre">Specimen.plot_circ()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.Specimen.plot_zijd"><code class="docutils literal notranslate"><span class="pre">Specimen.plot_zijd()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.Specimen.save_changes"><code class="docutils literal notranslate"><span class="pre">Specimen.save_changes()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.SpecimenCollection"><code class="docutils literal notranslate"><span class="pre">SpecimenCollection</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.SpecimenCollection.BiCEP_fit"><code class="docutils literal notranslate"><span class="pre">SpecimenCollection.BiCEP_fit()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.SpecimenCollection.get_specimen_rhats"><code class="docutils literal notranslate"><span class="pre">SpecimenCollection.get_specimen_rhats()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.SpecimenCollection.histplot"><code class="docutils literal notranslate"><span class="pre">SpecimenCollection.histplot()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.SpecimenCollection.regplot"><code class="docutils literal notranslate"><span class="pre">SpecimenCollection.regplot()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.SpecimenCollection.save_magic_tables"><code class="docutils literal notranslate"><span class="pre">SpecimenCollection.save_magic_tables()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.ThellierData"><code class="docutils literal notranslate"><span class="pre">ThellierData</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.datamodel.ThellierData.switch_grouping"><code class="docutils literal notranslate"><span class="pre">ThellierData.switch_grouping()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-BiCEP.extract">BiCEP.extract module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.extract.extract_values"><code class="docutils literal notranslate"><span class="pre">extract_values()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.extract.get_sampler_success"><code class="docutils literal notranslate"><span class="pre">get_sampler_success()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.extract.run_site_fit"><code class="docutils literal notranslate"><span class="pre">run_site_fit()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-BiCEP.gui">BiCEP.gui module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI"><code class="docutils literal notranslate"><span class="pre">GUI</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI.activate_deactivate"><code class="docutils literal notranslate"><span class="pre">GUI.activate_deactivate()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI.display_sampler_diags"><code class="docutils literal notranslate"><span class="pre">GUI.display_sampler_diags()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI.display_site_plot"><code class="docutils literal notranslate"><span class="pre">GUI.display_site_plot()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI.display_specimen_plots"><code class="docutils literal notranslate"><span class="pre">GUI.display_specimen_plots()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI.display_specimen_ring"><code class="docutils literal notranslate"><span class="pre">GUI.display_specimen_ring()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI.enablerun"><code class="docutils literal notranslate"><span class="pre">GUI.enablerun()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI.full_auto_interpreter"><code class="docutils literal notranslate"><span class="pre">GUI.full_auto_interpreter()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI.get_sampler_diags"><code class="docutils literal notranslate"><span class="pre">GUI.get_sampler_diags()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI.get_site_dist"><code class="docutils literal notranslate"><span class="pre">GUI.get_site_dist()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI.on_change"><code class="docutils literal notranslate"><span class="pre">GUI.on_change()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI.run"><code class="docutils literal notranslate"><span class="pre">GUI.run()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI.save_figures"><code class="docutils literal notranslate"><span class="pre">GUI.save_figures()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI.save_magic_tables"><code class="docutils literal notranslate"><span class="pre">GUI.save_magic_tables()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI.save_temps"><code class="docutils literal notranslate"><span class="pre">GUI.save_temps()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#BiCEP.gui.GUI.save_to_netcdf"><code class="docutils literal notranslate"><span class="pre">GUI.save_to_netcdf()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-BiCEP">Module contents</a></li>
 </ul>
   </nav></div>
 
