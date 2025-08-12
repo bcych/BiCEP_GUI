@@ -169,13 +169,13 @@ class SpecimenCollection:
                 centroidlist.append(centroid)
                 i += 1
 
-        if model == None:
+        if type(model) == type(None):
             if i < 7:
-                model_circle = model_circle_slow
+                model = model_circle_slow
             else:
-                model_circle = model_circle_fast
+                model = model_circle_fast
         else:
-            model_circle = model
+            pass
 
         model_data = {
             "I": len(pTRMsList),

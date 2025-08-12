@@ -177,7 +177,7 @@ class GUI:
             min=3000, max=100000, value=30000, step=1000, description="n samples"
         )
         self.method_wid = widgets.Dropdown(
-            options=["Slow, more accurate", "Fast, less accurate"],
+            options=["Fast", "Slow"],
             description="Sampler:",
         )
         self.process_wid = widgets.Button(
@@ -605,9 +605,9 @@ class GUI:
         with self.output:
             self.process_wid.description = "Processing.."
 
-            if self.method_wid.value == "Slow, more accurate":
+            if self.method_wid.value == "Slow":
                 model = model_circle_slow
-            elif self.method_wid.value == "Fast, less accurate":
+            elif self.method_wid.value == "Fast":
                 model = model_circle_fast
 
             thellierData[self.site_wid.value].BiCEP_fit(
