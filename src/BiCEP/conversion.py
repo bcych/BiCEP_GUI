@@ -654,7 +654,7 @@ def generate_arai_plot_table(outputname, wd="./"):
     """
     Generates a DataFrame with Thellier Data for a Dataset, stores it as a csv.
 
-    Inputs
+    Parameters
     ------
     outputname: (str)
     name of file to output (no extension)

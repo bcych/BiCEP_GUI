@@ -10,7 +10,7 @@ def extract_values(fit, var):
     """
     Extracts the data for variable in the BiCEP fit to a 1d numpy array
 
-    Inputs
+    Parameters
     ------
     fit arviz InferenceData:
     site level BiCEP fit object
@@ -40,7 +40,7 @@ def get_sampler_success(site, abs_tol=16, perc_tol=40, acceptSkew=False):
     greater than zero and so this may artificially reduce the
     uncertainty in the mean value.
 
-    Inputs
+    Parameters
     ------
     site: BiCEP specimenCollection object
     site/sample used to check for success.
@@ -111,7 +111,7 @@ def run_site_fit(
     Runs a BiCEP fit to a site, automatically choosing
     specimen level interpretations.
 
-    Inputs
+    Parameters
     ------
     site: BiCEP specimenCollection object.
     site/specimen to run fit on

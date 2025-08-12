@@ -20,7 +20,7 @@ from cmdstanpy import CmdStanModel
 class ThellierData:
     """
     Class which supports several methods using the BiCEP method in pandas.
-    Inputs
+    Parameters
     ------
     datafile: string for file name in BiCEP format
     """
@@ -115,7 +115,7 @@ class SpecimenCollection:
     def BiCEP_fit(self, n_samples=30000, priorstd=5, model=None, **kwargs):
         """
         Performs the fitting routine using the BiCEP method for a given list of specimens from a single site.
-        Inputs
+        Parameters
         ------
         Specimenlist: iterable of specimen names (strings)
 
@@ -213,7 +213,7 @@ class SpecimenCollection:
         """
         Saves data from the currently displayed site to the GUI
 
-        Inputs
+        Parameters
         ------
         None
 
@@ -433,7 +433,7 @@ class SpecimenCollection:
         """
         Plots B vs k for all specimens in a site given a BiCEP or unpooled fit
 
-        Inputs
+        Parameters
         ------
         ax: matplotlib axis
         axes to plot to
@@ -518,7 +518,7 @@ class SpecimenCollection:
         """
         Plots a histogram of the site level paleointensity estimate.
 
-        Inputs
+        Parameters
         ------
         **kwargs:
         arguments to be passed to the histogram plot
@@ -649,7 +649,7 @@ class Specimen:
         Changes temperature range (interpretation for specimen).
         Recalculates SPD statistic and PCA for said specimen.
 
-        Inputs
+        Parameters
         ------
         lowerTemp: float
         Lower temperature (inclusive) for interpretation
@@ -686,7 +686,7 @@ class Specimen:
         """
         Commits temperature changes for use with the BiCEP method
 
-        Inputs
+        Parameters
         ------
         None
 
@@ -723,7 +723,7 @@ class Specimen:
         """
         Plots data onto the Arai plot.
 
-        Inputs
+        Parameters
         ------
         ax: matplotlib axis
         axis for plot to be plotted on to
@@ -815,7 +815,7 @@ class Specimen:
         """
         Plots data onto the Zijderveld plot. Does not fit a line to this data.
 
-        Inputs
+        Parameters
         ------
         ax: matplotlib axis
         axis for plot to be plotted on to
@@ -973,7 +973,7 @@ class Specimen:
         Performs scaling on the PTRM and NRM data. It performs the Taubin SVD circle fit
         to find the maximum likelihood circle fit to initialize the BiCEP method sampler.
 
-        Inputs
+        Parameters
         ------
         None
 
@@ -1086,7 +1086,7 @@ class Specimen:
         (using the BiCEP method) to the Arai plot data. Plots tangent
         to the circle as a slope if tangent=True
 
-        Inputs
+        Parameters
         ------
         ax: matplotlib axis
         axis to be used for plot.

@@ -11,7 +11,7 @@ def sufficient_statistics(ptrm, nrm):
     inputs list of ptrm and nrm data and computes sufficent statistcs
     needed for computations
 
-    Inputs
+    Parameters
     ------
     ptrm: list
     list of ptrm data
@@ -81,7 +81,7 @@ def bestfit_line(ptrm, nrm):
     Returns the slope and intercept of the best fit line to a set of
     pTRM and NRM data using York Regression
 
-    Inputs
+    Parameters
     ------
     ptrm: list or array
     list of pTRM data
@@ -105,7 +105,7 @@ def get_drat(IZZI, IZZI_trunc, P):
     """Calculates the difference ratio (DRAT) of pTRM checks
     (Selkin and Tauxe, 2000) to check for alteration
 
-    Inputs
+    Parameters
     ------
     IZZI: pandas.DataFrame
     DataFrame object in BiCEP format of all in field and
@@ -164,7 +164,7 @@ def get_mad(IZZI, pca):
     Calculates the free Maximum Angle of Deviation (MAD) of Kirshvink et
     al (1980)
 
-    Inputs
+    Parameters
     ------
     IZZI: pandas.DataFrame
     DataFrame object in BiCEP format of in field and
@@ -188,7 +188,7 @@ def get_mad(IZZI, pca):
 def get_dang(NRM_trunc_dirs, pca):
     """
     Calculates the Deviation Angle
-    Inputs
+    Parameters
     ------
     NRM_trunc_dirs: numpy.ndarray
     Vector directions for zero field measurements for specimen
@@ -217,7 +217,7 @@ def get_frac(IZZI, IZZI_trunc):
     """
     Calculates the NRM Fraction from VDS (Shaar and Tauxe, 2013)
 
-    Inputs
+    Parameters
     ------
     specimen: BiCEP specimen object
     specimen to obtain FRAC from
@@ -252,7 +252,7 @@ def auto_interpret(site, mad, dang, drat, mad_type="mad_free"):
     the Arai plot. Selects the interpretation that passes the
     criteria which has the highest FRAC.
 
-    Inputs
+    Parameters
     ------
     site: BiCEP specimenCollection object
     Site/sample to calculate interpretations for
@@ -340,7 +340,7 @@ def calculate_anisotropy_correction(IZZI):
     Calculates anisotropy correction factor for a
     paleointensity interpretation, given an s tensor
 
-    Inputs
+    Parameters
     ------
     IZZI: pandas.DataFrame
     DataFrame object in BiCEP format of in field and
@@ -386,7 +386,7 @@ def calculate_NLT_correction(IZZI, c):
     Calculates the correction for non linear TRM for a paleointensity interpretation,
     given the anisotropy and cooling rate corrections
 
-    Inputs
+    Parameters
     ------
     IZZI: pandas.DataFrame
     DataFrame object in BiCEP format of in field and

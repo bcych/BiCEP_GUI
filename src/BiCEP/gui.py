@@ -237,7 +237,7 @@ class GUI:
         """
         Runs the GUI after selecting a file.
 
-        Inputs:
+        Parameters:
         ------
         a: Button pressed object
         Has no practical use
@@ -304,7 +304,7 @@ class GUI:
         Displays a red circle around the currently selected
         specimen in the site plot of BiCEP GUI
 
-        Inputs:
+        Parameters:
         -------
         None
 
@@ -346,7 +346,7 @@ class GUI:
         """
         Displays specimen level plots on the BiCEP GUI
 
-        Inputs:
+        Parameters:
         -------
         None
 
@@ -397,7 +397,7 @@ class GUI:
         """
         Update GUI on changing one of our site, specimen, temperature dropdowns.
 
-        Inputs:
+        Parameters:
         -------
         change: Dropdown change object
         Gives us information about which object was changed (owner),
@@ -483,7 +483,7 @@ class GUI:
         """
         Saves changes to specimen temperatures
 
-        Inputs:
+        Parameters:
         ------
         a: Button pressed object
         has no practical use.
@@ -499,7 +499,7 @@ class GUI:
         """
         Returns useful sampler diagnostics for a particular MCMC fit with pystan
 
-        Inputs
+        Parameters
         ------
         fit: StanFit object
         model fit to site/sample
@@ -527,7 +527,7 @@ class GUI:
         Displays the worst R_hat and n_eff, B_anc
         and Category or Grade for the BiCEP fit
 
-        Inputs
+        Parameters
         ------
         fit: StanFit object
         model fit to site/sample
@@ -593,7 +593,7 @@ class GUI:
         """
         Runs the MCMC sampler and updates the GUI
 
-        Inputs:
+        Parameters:
         ------
         a: Button pressed object
         has no practical use.
@@ -644,7 +644,7 @@ class GUI:
         """
         Displays the site plots for BiCEP GUI
 
-        Inputs
+        Parameters
         ------
         fit: StanFit object
         BiCEP fit for that site/sample
@@ -705,7 +705,7 @@ class GUI:
         """
         Saves data from the currently displayed site to the GUI
 
-        Inputs:
+        Parameters:
         ------
         a: Button pressed object
         Has no practical use
@@ -725,7 +725,7 @@ class GUI:
         """
         Saves figures from GUI to file
 
-        Inputs:
+        Parameters:
         ------
         a: Button pressed object
         Has no practical use
@@ -751,7 +751,7 @@ class GUI:
         """
         Enables running the GUI after choosing a file
 
-        Inputs:
+        Parameters:
         ------
         a: Button pressed object
         Has no practical use
@@ -767,7 +767,7 @@ class GUI:
         """
         Function that excludes/includes a specimen depending on activation/deactivation
 
-        Inputs:
+        Parameters:
         ------
         a: interact object
         Has no practical use
@@ -800,7 +800,7 @@ class GUI:
         """
         Function that saves site fit to netCDF
 
-        Inputs:
+        Parameters:
         ------
         a: interact object
         Has no practical use
