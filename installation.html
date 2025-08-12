@@ -339,14 +339,24 @@ document.write(`
                   
   <section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h1>
+<p>This page is for those wanting to install BiCEP_GUI locally. For those wanting to use the Earthref JupyterHub site, see <a class="reference internal" href="jupyterhub.html"><span class="doc">JupyterHub Setup</span></a>.</p>
 <section id="conda-environment-setup-recommended">
 <h2>Conda Environment Setup (Recommended)<a class="headerlink" href="#conda-environment-setup-recommended" title="Link to this heading">#</a></h2>
 <p>Anaconda is a python environment manager that can manage different python packages in separate environments.For windows users in particular, we recommend using anaconda to manage the python environment. Instructions on how to install anaconda can be found at <a class="reference external" href="https://www.anaconda.com/docs/getting-started/anaconda/install">https://www.anaconda.com/docs/getting-started/anaconda/install</a></p>
 <p>If you already have anaconda installed, we recommend updating your conda version to ensure compatibility with your new environment. This can be done using the command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>update<span class="w"> </span>-n<span class="w"> </span>base<span class="w"> </span>conda
+</pre></div>
+</div>
 <p>If anaconda talks about having a broken environment, you may need to uninstall and reinstall anaconda, but try the following steps first.</p>
 <p>To create a new environment open a terminal window. In windows, after installing anaconda, you will have an application called “anaconda prompt” installed, which acts like a mac/linux terminal. Into your terminal, type:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>environment.yml
+</pre></div>
+</div>
 <p>This will install prerequisite packages for BiCEP_GUI, and may take a few minutes. This is highly recommended for windows users in particular, as it installs everything needed for the cmdstanpy package, which BiCEP_GUI relies on. However, the environment can be created manually if needed. If anaconda throws up any errors about the installation of particular packages, they can be deleted from the cmdstanpy file.</p>
 <p>Activate the conda environment using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>BiCEP
+</pre></div>
+</div>
 <p>This will have to be done every time you want to use BiCEP_GUI</p>
 </section>
 <section id="pip-environment-setup-optional">
@@ -376,15 +386,31 @@ VIRTUAL_ENVIRONMENT_PATH<span class="se">\S</span>cripts<span class="se">\a</spa
 </pre></div>
 </div>
 <p>Navigate to the BiCEP_GUI folder, and run the following commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>setuptools
+pip<span class="w"> </span>install<span class="w"> </span>./
+</pre></div>
+</div>
 <p>Finally, BiCEP_GUI is also dependent on some code from pmagpy. If you do not have an existing developer install of PmagPy</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pmagpy<span class="w"> </span>--no-deps
+</pre></div>
+</div>
 <p>With this, BiCEP_GUI should be installed</p>
 </section>
 <section id="first-time-launch-and-troubleshooting">
 <h2>First time launch and Troubleshooting<a class="headerlink" href="#first-time-launch-and-troubleshooting" title="Link to this heading">#</a></h2>
 <p>In your terminal window, type:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python
+</pre></div>
+</div>
 <p>This will launch a python prompt. Inside this prompt, type:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">BiCEP</span>
+</pre></div>
+</div>
 <p>If BiCEP has been installed correctly, you will get a series of messages about “compiling stan models”. This means that BiCEP GUI is creating the underlying C++ models that define the BiCEP method. If you installed through pip you may see messages about downloading and installing cmdstan. If this fails, see the <a class="reference external" href="https://mc-stan.org/docs/cmdstan-guide/installation.html#cpp-toolchain">cmdstanpy</a>. documentation for more info.</p>
 <p>If everything works, you can begin to use the GUI. To launch, navigate to the BiCEP_GUI folder run the command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>notebook
+</pre></div>
+</div>
 <p>Now open the BiCEP_GUI notebook and follow the instructions on the page <a class="reference internal" href="gui_usage_guide.html"><span class="doc">GUI usage guide</span></a>. You can also learn more about the deeper workings of the python package at <a class="reference internal" href="code_usage_guide.html"><span class="doc">BiCEP Examples Notebook</span></a>.</p>
 </section>
 </section>
