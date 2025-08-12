@@ -442,16 +442,17 @@ document.write(`
 <dt class="sig sig-object py" id="BiCEP.conversion.generate_arai_plot_table">
 <span class="sig-prename descclassname"><span class="pre">BiCEP.conversion.</span></span><span class="sig-name descname"><span class="pre">generate_arai_plot_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.conversion.generate_arai_plot_table" title="Link to this definition">#</a></dt>
 <dd><p>Generates a DataFrame with Thellier Data for a Dataset, stores it as a csv.</p>
-<section id="inputs">
-<h3>Inputs<a class="headerlink" href="#inputs" title="Link to this heading">#</a></h3>
-<p>outputname: (str)
-name of file to output (no extension)</p>
 <dl class="field-list simple">
-<dt class="field-odd">rtype<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>outputname</strong> (<em>(</em><em>str</em><em>)</em>)</p></li>
+<li><p><strong>extension</strong><strong>)</strong> (<em>name</em><em> of </em><em>file to output</em><em> (</em><em>no</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
 </dd>
 </dl>
-</section>
 </dd></dl>
 
 <dl class="py function">
@@ -513,22 +514,23 @@ Applications To Edge And Range Image Segmentation”,</p>
 for every possible interpretation with 4 or more points on
 the Arai plot. Selects the interpretation that passes the
 criteria which has the highest FRAC.</p>
-<section id="id1">
-<h3>Inputs<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<p>site: BiCEP specimenCollection object
-Site/sample to calculate interpretations for</p>
-<p>mad: float
-MAD_Coe criterion threshold</p>
-<p>dang: float
-DANG criterion threshold</p>
-<p>DRAT: float
-DRAT criterion threshold</p>
 <dl class="field-list simple">
-<dt class="field-odd">rtype<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>site</strong> (<em>BiCEP specimenCollection object</em>)</p></li>
+<li><p><strong>for</strong> (<em>Site/sample to calculate interpretations</em>)</p></li>
+<li><p><strong>mad</strong> (<em>float</em>)</p></li>
+<li><p><strong>threshold</strong> (<em>DRAT criterion</em>)</p></li>
+<li><p><strong>dang</strong> (<em>float</em>)</p></li>
+<li><p><strong>threshold</strong></p></li>
+<li><p><strong>DRAT</strong> (<em>float</em>)</p></li>
+<li><p><strong>threshold</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
 </dd>
 </dl>
-</section>
 </dd></dl>
 
 <dl class="py function">
@@ -536,18 +538,19 @@ DRAT criterion threshold</p>
 <span class="sig-prename descclassname"><span class="pre">BiCEP.criteria.</span></span><span class="sig-name descname"><span class="pre">bestfit_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ptrm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nrm</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.criteria.bestfit_line" title="Link to this definition">#</a></dt>
 <dd><p>Returns the slope and intercept of the best fit line to a set of
 pTRM and NRM data using York Regression</p>
-<section id="id2">
-<h3>Inputs<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<p>ptrm: list or array
-list of pTRM data</p>
-<p>nrm: list or array
-list of NRM data</p>
 <dl class="field-list simple">
-<dt class="field-odd">rtype<span class="colon">:</span></dt>
-<dd class="field-odd"><p>dictionary of slope and intercept for best fitting line.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ptrm</strong> (<em>list</em><em> or </em><em>array</em>)</p></li>
+<li><p><strong>data</strong> (<em>list</em><em> of </em><em>NRM</em>)</p></li>
+<li><p><strong>nrm</strong> (<em>list</em><em> or </em><em>array</em>)</p></li>
+<li><p><strong>data</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dictionary of slope and intercept for best fitting line.</p>
 </dd>
 </dl>
-</section>
 </dd></dl>
 
 <dl class="py function">
@@ -555,23 +558,25 @@ list of NRM data</p>
 <span class="sig-prename descclassname"><span class="pre">BiCEP.criteria.</span></span><span class="sig-name descname"><span class="pre">calculate_NLT_correction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">IZZI</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.criteria.calculate_NLT_correction" title="Link to this definition">#</a></dt>
 <dd><p>Calculates the correction for non linear TRM for a paleointensity interpretation,
 given the anisotropy and cooling rate corrections</p>
-<section id="id3">
-<h3>Inputs<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
-<p>IZZI: pandas.DataFrame
-DataFrame object in BiCEP format of in field and
-zero field measurements for a specimen (interpretation).</p>
-<p>c: float
-Combined Anisotropy and Cooling Rate correction-
-needed because the nonlinearity is applied after this.</p>
 <dl class="field-list simple">
-<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>IZZI</strong> (<em>pandas.DataFrame</em>)</p></li>
+<li><p><strong>and</strong> (<em>DataFrame object in BiCEP format</em><em> of </em><em>in field</em>)</p></li>
+<li><p><strong>(</strong><strong>interpretation</strong><strong>)</strong><strong>.</strong> (<em>zero field measurements for a specimen</em>)</p></li>
+<li><p><strong>c</strong> (<em>float</em>)</p></li>
+<li><p><strong>correction-</strong> (<em>Combined Anisotropy and Cooling Rate</em>)</p></li>
+<li><p><strong>this.</strong> (<em>needed because the nonlinearity is applied after</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
 <li><p><strong>c</strong> (<em>float</em>)</p></li>
 <li><p><em>NLT correction factor</em></p></li>
 </ul>
+</p>
 </dd>
 </dl>
-</section>
 </dd></dl>
 
 <dl class="py function">
@@ -579,32 +584,34 @@ needed because the nonlinearity is applied after this.</p>
 <span class="sig-prename descclassname"><span class="pre">BiCEP.criteria.</span></span><span class="sig-name descname"><span class="pre">calculate_anisotropy_correction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">IZZI</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.criteria.calculate_anisotropy_correction" title="Link to this definition">#</a></dt>
 <dd><p>Calculates anisotropy correction factor for a
 paleointensity interpretation, given an s tensor</p>
-<section id="id4">
-<h3>Inputs<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
-<p>IZZI: pandas.DataFrame
-DataFrame object in BiCEP format of in field and
-zero field measurements for a specimen (interpretation).</p>
 <dl class="field-list simple">
-<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>IZZI</strong> (<em>pandas.DataFrame</em>)</p></li>
+<li><p><strong>and</strong> (<em>DataFrame object in BiCEP format</em><em> of </em><em>in field</em>)</p></li>
+<li><p><strong>(</strong><strong>interpretation</strong><strong>)</strong><strong>.</strong> (<em>zero field measurements for a specimen</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
 <li><p><strong>c</strong> (<em>float</em>)</p></li>
 <li><p><em>Anisotropy correction factor</em></p></li>
 </ul>
+</p>
 </dd>
 </dl>
-</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="BiCEP.criteria.get_dang">
 <span class="sig-prename descclassname"><span class="pre">BiCEP.criteria.</span></span><span class="sig-name descname"><span class="pre">get_dang</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">NRM_trunc_dirs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pca</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.criteria.get_dang" title="Link to this definition">#</a></dt>
 <dd><p>Calculates the Deviation Angle
-Inputs
-——
-NRM_trunc_dirs: numpy.ndarray
-Vector directions for zero field measurements for specimen</p>
-<p>pca: scikitlearn.decomposition.PCA object
-pca used to fit the vector direction.</p>
+:param NRM_trunc_dirs:
+:type NRM_trunc_dirs: numpy.ndarray
+:param Vector directions for zero field measurements for specimen:
+:param pca:
+:type pca: scikitlearn.decomposition.PCA object
+:param pca used to fit the vector direction.:</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><ul class="simple">
@@ -621,46 +628,50 @@ pca used to fit the vector direction.</p>
 <span class="sig-prename descclassname"><span class="pre">BiCEP.criteria.</span></span><span class="sig-name descname"><span class="pre">get_drat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">IZZI</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">IZZI_trunc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">P</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.criteria.get_drat" title="Link to this definition">#</a></dt>
 <dd><p>Calculates the difference ratio (DRAT) of pTRM checks
 (Selkin and Tauxe, 2000) to check for alteration</p>
-<section id="id5">
-<h3>Inputs<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
-<p>IZZI: pandas.DataFrame
-DataFrame object in BiCEP format of all in field and
-zero field measurements for a specimen.</p>
-<p>IZZI_trunc: pandas.DataFrame
-DataFrame object- same as IZZI but truncated only for temperatures
-used in interpretation</p>
-<p>P: pandas.DataFrame
-DataFrame object containing pTRM checks up to the
-maximum temperature of an interpretation</p>
 <dl class="field-list simple">
-<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>IZZI</strong> (<em>pandas.DataFrame</em>)</p></li>
+<li><p><strong>and</strong> (<em>DataFrame object in BiCEP format</em><em> of </em><em>all in field</em>)</p></li>
+<li><p><strong>specimen.</strong> (<em>zero field measurements for a</em>)</p></li>
+<li><p><strong>IZZI_trunc</strong> (<em>pandas.DataFrame</em>)</p></li>
+<li><p><strong>temperatures</strong> (<em>DataFrame object- same as IZZI but truncated only for</em>)</p></li>
+<li><p><strong>interpretation</strong> (<em>maximum temperature</em><em> of </em><em>an</em>)</p></li>
+<li><p><strong>P</strong> (<em>pandas.DataFrame</em>)</p></li>
+<li><p><strong>the</strong> (<em>DataFrame object containing pTRM checks up to</em>)</p></li>
+<li><p><strong>interpretation</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
 <li><p><strong>absdiff</strong> (<em>float</em>)</p></li>
 <li><p><em>maximum DRAT for all pTRM check measurements.</em></p></li>
 <li><p><em>returns zero if the interpretation is not valid.</em></p></li>
 </ul>
+</p>
 </dd>
 </dl>
-</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="BiCEP.criteria.get_frac">
 <span class="sig-prename descclassname"><span class="pre">BiCEP.criteria.</span></span><span class="sig-name descname"><span class="pre">get_frac</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">IZZI</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">IZZI_trunc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.criteria.get_frac" title="Link to this definition">#</a></dt>
 <dd><p>Calculates the NRM Fraction from VDS (Shaar and Tauxe, 2013)</p>
-<section id="id6">
-<h3>Inputs<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
-<p>specimen: BiCEP specimen object
-specimen to obtain FRAC from</p>
 <dl class="field-list simple">
-<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>specimen</strong> (<em>BiCEP specimen object</em>)</p></li>
+<li><p><strong>from</strong> (<em>specimen to obtain FRAC</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
 <li><p><strong>FRAC</strong> (<em>float</em>)</p></li>
 <li><p><em>calculated FRAC</em></p></li>
 </ul>
+</p>
 </dd>
 </dl>
-</section>
 </dd></dl>
 
 <dl class="py function">
@@ -668,22 +679,24 @@ specimen to obtain FRAC from</p>
 <span class="sig-prename descclassname"><span class="pre">BiCEP.criteria.</span></span><span class="sig-name descname"><span class="pre">get_mad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">IZZI</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pca</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.criteria.get_mad" title="Link to this definition">#</a></dt>
 <dd><p>Calculates the free Maximum Angle of Deviation (MAD) of Kirshvink et
 al (1980)</p>
-<section id="id7">
-<h3>Inputs<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
-<p>IZZI: pandas.DataFrame
-DataFrame object in BiCEP format of in field and
-zero field measurements for a specimen (interpretation).</p>
-<p>pca: scikitlearn.decomposition.PCA object
-pca used to fit the vector direction.</p>
 <dl class="field-list simple">
-<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>IZZI</strong> (<em>pandas.DataFrame</em>)</p></li>
+<li><p><strong>and</strong> (<em>DataFrame object in BiCEP format</em><em> of </em><em>in field</em>)</p></li>
+<li><p><strong>(</strong><strong>interpretation</strong><strong>)</strong><strong>.</strong> (<em>zero field measurements for a specimen</em>)</p></li>
+<li><p><strong>pca</strong> (<em>scikitlearn.decomposition.PCA object</em>)</p></li>
+<li><p><strong>direction.</strong> (<em>pca used to fit the vector</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
 <li><p><strong>mad</strong> (<em>float</em>)</p></li>
 <li><p><em>maximum angle of deviation for that intepretation</em></p></li>
 </ul>
+</p>
 </dd>
 </dl>
-</section>
 </dd></dl>
 
 <dl class="py function">
@@ -691,18 +704,19 @@ pca used to fit the vector direction.</p>
 <span class="sig-prename descclassname"><span class="pre">BiCEP.criteria.</span></span><span class="sig-name descname"><span class="pre">sufficient_statistics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ptrm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nrm</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.criteria.sufficient_statistics" title="Link to this definition">#</a></dt>
 <dd><p>inputs list of ptrm and nrm data and computes sufficent statistcs
 needed for computations</p>
-<section id="id8">
-<h3>Inputs<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
-<p>ptrm: list
-list of ptrm data</p>
-<p>nrm: list
-list of nrm data</p>
 <dl class="field-list simple">
-<dt class="field-odd">rtype<span class="colon">:</span></dt>
-<dd class="field-odd"><p>dict containing mean ptrm and nrm, and covariances in xx, xy and yy.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ptrm</strong> (<em>list</em>)</p></li>
+<li><p><strong>data</strong> (<em>list</em><em> of </em><em>nrm</em>)</p></li>
+<li><p><strong>nrm</strong> (<em>list</em>)</p></li>
+<li><p><strong>data</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict containing mean ptrm and nrm, and covariances in xx, xy and yy.</p>
 </dd>
 </dl>
-</section>
 </dd></dl>
 
 </section>
@@ -730,12 +744,12 @@ list of nrm data</p>
 perform the BiCEP method, calculates all corrections for a specimen.
 Performs scaling on the PTRM and NRM data. It performs the Taubin SVD circle fit
 to find the maximum likelihood circle fit to initialize the BiCEP method sampler.</p>
-<section id="id9">
-<h3>Inputs<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
-<p>None</p>
 <dl class="field-list simple">
-<dt class="field-odd">returns<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
 <li><p><strong>minPTRM</strong> (<em>float</em>)</p></li>
 <li><p><em>Minimum scaled pTRM</em></p></li>
 <li><p><strong>maxNRM</strong> (<em>float</em>)</p></li>
@@ -755,9 +769,9 @@ to find the maximum likelihood circle fit to initialize the BiCEP method sampler
 <li><p><strong>NRMS</strong> (<em>numpy.ndarray()</em>)</p></li>
 <li><p><em>Scaled and translated NRM values.</em></p></li>
 </ul>
+</p>
 </dd>
 </dl>
-</section>
 </dd></dl>
 
 <dl class="py method">
@@ -773,36 +787,39 @@ overlapping</p>
 <span class="sig-name descname"><span class="pre">change_temps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lowerTemp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upperTemp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.datamodel.Specimen.change_temps" title="Link to this definition">#</a></dt>
 <dd><p>Changes temperature range (interpretation for specimen).
 Recalculates SPD statistic and PCA for said specimen.</p>
-<section id="id10">
-<h3>Inputs<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
-<p>lowerTemp: float
-Lower temperature (inclusive) for interpretation</p>
-<p>upperTemp: float
-Upper temperature (inclusive) for interpretation</p>
 <dl class="field-list simple">
-<dt class="field-odd">rtype<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lowerTemp</strong> (<em>float</em>)</p></li>
+<li><p><strong>interpretation</strong> (<em>Upper temperature</em><em> (</em><em>inclusive</em><em>) </em><em>for</em>)</p></li>
+<li><p><strong>upperTemp</strong> (<em>float</em>)</p></li>
+<li><p><strong>interpretation</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
 </dd>
 </dl>
-</section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="BiCEP.datamodel.Specimen.plot_arai">
 <span class="sig-name descname"><span class="pre">plot_arai</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.datamodel.Specimen.plot_arai" title="Link to this definition">#</a></dt>
 <dd><p>Plots data onto the Arai plot.</p>
-<section id="id11">
-<h3>Inputs<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
-<p>ax: matplotlib axis
-axis for plot to be plotted on to</p>
-<p>temps: bool
-if True, plots temperatures on the Arai plot</p>
 <dl class="field-list simple">
-<dt class="field-odd">rtype<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax</strong> (<em>matplotlib axis</em>)</p></li>
+<li><p><strong>to</strong> (<em>axis for plot to be plotted on</em>)</p></li>
+<li><p><strong>temps</strong> (<em>bool</em>)</p></li>
+<li><p><strong>True</strong> (<em>if</em>)</p></li>
+<li><p><strong>plot</strong> (<em>plots temperatures on the Arai</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
 </dd>
 </dl>
-</section>
 </dd></dl>
 
 <dl class="py method">
@@ -811,52 +828,57 @@ if True, plots temperatures on the Arai plot</p>
 <dd><p>Plots circle fits sampled from the posterior distribution
 (using the BiCEP method) to the Arai plot data. Plots tangent
 to the circle as a slope if tangent=True</p>
-<section id="id12">
-<h3>Inputs<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
-<p>ax: matplotlib axis
-axis to be used for plot.</p>
-<p>legend: bool
-If True plots a legend.</p>
-<p>linewidth: float
-Width of circle fit lines on plot</p>
-<p>title: str
-Title for plot</p>
-<p>tangent: bool
-If set to True, plots best fitting tangent to circle.</p>
-</section>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax</strong> (<em>matplotlib axis</em>)</p></li>
+<li><p><strong>plot.</strong> (<em>axis to be used for</em>)</p></li>
+<li><p><strong>legend</strong> (<em>bool</em>)</p></li>
+<li><p><strong>legend.</strong> (<em>If True plots a</em>)</p></li>
+<li><p><strong>linewidth</strong> (<em>float</em>)</p></li>
+<li><p><strong>plot</strong> (<em>Title for</em>)</p></li>
+<li><p><strong>title</strong> (<em>str</em>)</p></li>
+<li><p><strong>plot</strong></p></li>
+<li><p><strong>tangent</strong> (<em>bool</em>)</p></li>
+<li><p><strong>True</strong> (<em>If set to</em>)</p></li>
+<li><p><strong>circle.</strong> (<em>plots best fitting tangent to</em>)</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="BiCEP.datamodel.Specimen.plot_zijd">
 <span class="sig-name descname"><span class="pre">plot_zijd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.datamodel.Specimen.plot_zijd" title="Link to this definition">#</a></dt>
 <dd><p>Plots data onto the Zijderveld plot. Does not fit a line to this data.</p>
-<section id="id13">
-<h3>Inputs<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
-<p>ax: matplotlib axis
-axis for plot to be plotted on to</p>
-<p>temps: bool
-if True, plots temperature values as text on plot.</p>
 <dl class="field-list simple">
-<dt class="field-odd">rtype<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax</strong> (<em>matplotlib axis</em>)</p></li>
+<li><p><strong>to</strong> (<em>axis for plot to be plotted on</em>)</p></li>
+<li><p><strong>temps</strong> (<em>bool</em>)</p></li>
+<li><p><strong>True</strong> (<em>if</em>)</p></li>
+<li><p><strong>plot.</strong> (<em>plots temperature values as text on</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
 </dd>
 </dl>
-</section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="BiCEP.datamodel.Specimen.save_changes">
 <span class="sig-name descname"><span class="pre">save_changes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.datamodel.Specimen.save_changes" title="Link to this definition">#</a></dt>
 <dd><p>Commits temperature changes for use with the BiCEP method</p>
-<section id="id14">
-<h3>Inputs<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
-<p>None</p>
 <dl class="field-list simple">
-<dt class="field-odd">rtype<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
 </dd>
 </dl>
-</section>
 </dd></dl>
 
 </dd></dl>
@@ -882,9 +904,8 @@ if True, plots temperature values as text on plot.</p>
 <dt class="sig sig-object py" id="BiCEP.datamodel.SpecimenCollection.BiCEP_fit">
 <span class="sig-name descname"><span class="pre">BiCEP_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">priorstd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.datamodel.SpecimenCollection.BiCEP_fit" title="Link to this definition">#</a></dt>
 <dd><p>Performs the fitting routine using the BiCEP method for a given list of specimens from a single site.
-Inputs
-——
-Specimenlist: iterable of specimen names (strings)</p>
+:param Specimenlist:
+:type Specimenlist: iterable of specimen names (strings)</p>
 </dd></dl>
 
 <dl class="py method">
@@ -897,46 +918,50 @@ Specimenlist: iterable of specimen names (strings)</p>
 <dt class="sig sig-object py" id="BiCEP.datamodel.SpecimenCollection.histplot">
 <span class="sig-name descname"><span class="pre">histplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.datamodel.SpecimenCollection.histplot" title="Link to this definition">#</a></dt>
 <dd><p>Plots a histogram of the site level paleointensity estimate.</p>
-<section id="id15">
-<h3>Inputs<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
-<p><a href="#id16"><span class="problematic" id="id17">**</span></a>kwargs:
-arguments to be passed to the histogram plot</p>
 <dl class="field-list simple">
-<dt class="field-odd">rtype<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>**kwargs</strong></p></li>
+<li><p><strong>plot</strong> (<em>arguments to be passed to the histogram</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
 </dd>
 </dl>
-</section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="BiCEP.datamodel.SpecimenCollection.regplot">
 <span class="sig-name descname"><span class="pre">regplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.datamodel.SpecimenCollection.regplot" title="Link to this definition">#</a></dt>
 <dd><p>Plots B vs k for all specimens in a site given a BiCEP or unpooled fit</p>
-<section id="id18">
-<h3>Inputs<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
-<p>ax: matplotlib axis
-axes to plot to</p>
-<p>legend: bool
-If set to True, plots a legend</p>
-<p>title: str
-Title for plot. Does not plot title if set to None.</p>
-</section>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax</strong> (<em>matplotlib axis</em>)</p></li>
+<li><p><strong>to</strong> (<em>axes to plot</em>)</p></li>
+<li><p><strong>legend</strong> (<em>plots a</em>)</p></li>
+<li><p><strong>True</strong> (<em>If set to</em>)</p></li>
+<li><p><strong>legend</strong></p></li>
+<li><p><strong>title</strong> (<em>str</em>)</p></li>
+<li><p><strong>None.</strong> (<em>Title for plot. Does not plot title if set to</em>)</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="BiCEP.datamodel.SpecimenCollection.save_magic_tables">
 <span class="sig-name descname"><span class="pre">save_magic_tables</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.datamodel.SpecimenCollection.save_magic_tables" title="Link to this definition">#</a></dt>
 <dd><p>Saves data from the currently displayed site to the GUI</p>
-<section id="id19">
-<h3>Inputs<a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
-<p>None</p>
 <dl class="field-list simple">
-<dt class="field-odd">rtype<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
 </dd>
 </dl>
-</section>
 </dd></dl>
 
 </dd></dl>
@@ -946,9 +971,8 @@ Title for plot. Does not plot title if set to None.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">BiCEP.datamodel.</span></span><span class="sig-name descname"><span class="pre">ThellierData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datafile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.datamodel.ThellierData" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Class which supports several methods using the BiCEP method in pandas.
-Inputs
-——
-datafile: string for file name in BiCEP format</p>
+:param datafile:
+:type datafile: string for file name in BiCEP format</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="BiCEP.datamodel.ThellierData.switch_grouping">
 <span class="sig-name descname"><span class="pre">switch_grouping</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.datamodel.ThellierData.switch_grouping" title="Link to this definition">#</a></dt>
@@ -963,21 +987,23 @@ datafile: string for file name in BiCEP format</p>
 <dt class="sig sig-object py" id="BiCEP.extract.extract_values">
 <span class="sig-prename descclassname"><span class="pre">BiCEP.extract.</span></span><span class="sig-name descname"><span class="pre">extract_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.extract.extract_values" title="Link to this definition">#</a></dt>
 <dd><p>Extracts the data for variable in the BiCEP fit to a 1d numpy array</p>
-<section id="id20">
-<h3>Inputs<a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
-<p>fit arviz InferenceData:
-site level BiCEP fit object</p>
-<p>var str:
-name of variable in fit</p>
 <dl class="field-list simple">
-<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>InferenceData</strong> (<em>fit arviz</em>)</p></li>
+<li><p><strong>object</strong> (<em>site level BiCEP fit</em>)</p></li>
+<li><p><strong>str</strong> (<em>var</em>)</p></li>
+<li><p><strong>fit</strong> (<em>name</em><em> of </em><em>variable in</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
 <li><p><strong>values</strong> (<em>array</em>)</p></li>
 <li><p><em>1d array of values for that variable in the fit</em></p></li>
 </ul>
+</p>
 </dd>
 </dl>
-</section>
 </dd></dl>
 
 <dl class="py function">
@@ -993,25 +1019,27 @@ a result which cannot exclude zero. These results have a higher
 chance of being inaccurate because the mean is restricted to be
 greater than zero and so this may artificially reduce the
 uncertainty in the mean value.</p>
-<section id="id21">
-<h3>Inputs<a class="headerlink" href="#id21" title="Link to this heading">#</a></h3>
-<p>site: BiCEP specimenCollection object
-site/sample used to check for success.</p>
-<p>abs_tol: float
-absolute maximum limit for accurate specimen</p>
-<p>perc_tol: float
-absolute maximum percentage tolerance for accurate specimen</p>
-<p>acceptSkew: bool
-Whether we accept A- / B- results (default False)</p>
 <dl class="field-list simple">
-<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>site</strong> (<em>BiCEP specimenCollection object</em>)</p></li>
+<li><p><strong>success.</strong> (<em>site/sample used to check for</em>)</p></li>
+<li><p><strong>abs_tol</strong> (<em>float</em>)</p></li>
+<li><p><strong>specimen</strong> (<em>absolute maximum percentage tolerance for accurate</em>)</p></li>
+<li><p><strong>perc_tol</strong> (<em>float</em>)</p></li>
+<li><p><strong>specimen</strong></p></li>
+<li><p><strong>acceptSkew</strong> (<em>bool</em>)</p></li>
+<li><p><strong>False</strong><strong>)</strong> (<em>Whether we accept A- / B- results</em><em> (</em><em>default</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
 <li><p><strong>True/False</strong> (<em>bool</em>)</p></li>
 <li><p><em>Whether the site has a successful result or not (an A or a B)</em></p></li>
 </ul>
+</p>
 </dd>
 </dl>
-</section>
 </dd></dl>
 
 <dl class="py function">
@@ -1019,16 +1047,17 @@ Whether we accept A- / B- results (default False)</p>
 <span class="sig-prename descclassname"><span class="pre">BiCEP.extract.</span></span><span class="sig-name descname"><span class="pre">run_site_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">site</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_specs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_nc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.extract.run_site_fit" title="Link to this definition">#</a></dt>
 <dd><p>Runs a BiCEP fit to a site, automatically choosing
 specimen level interpretations.</p>
-<section id="id22">
-<h3>Inputs<a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
-<p>site: BiCEP specimenCollection object.
-site/specimen to run fit on</p>
 <dl class="field-list simple">
-<dt class="field-odd">rtype<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>site</strong> (<em>BiCEP specimenCollection object.</em>)</p></li>
+<li><p><strong>on</strong> (<em>site/specimen to run fit</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
 </dd>
 </dl>
-</section>
 </dd></dl>
 
 </section>
@@ -1042,8 +1071,8 @@ site/specimen to run fit on</p>
 <dt class="sig sig-object py" id="BiCEP.gui.GUI.activate_deactivate">
 <span class="sig-name descname"><span class="pre">activate_deactivate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.gui.GUI.activate_deactivate" title="Link to this definition">#</a></dt>
 <dd><p>Function that excludes/includes a specimen depending on activation/deactivation</p>
-<section id="id23">
-<h3>Inputs:<a class="headerlink" href="#id23" title="Link to this heading">#</a></h3>
+<section id="parameters">
+<h3>Parameters:<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h3>
 <p>a: interact object
 Has no practical use</p>
 <dl class="field-list simple">
@@ -1059,43 +1088,46 @@ Has no practical use</p>
 <span class="sig-name descname"><span class="pre">display_sampler_diags</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.gui.GUI.display_sampler_diags" title="Link to this definition">#</a></dt>
 <dd><p>Displays the worst R_hat and n_eff, B_anc
 and Category or Grade for the BiCEP fit</p>
-<section id="id24">
-<h3>Inputs<a class="headerlink" href="#id24" title="Link to this heading">#</a></h3>
-<p>fit: StanFit object
-model fit to site/sample</p>
-</section>
-<section id="returns">
-<h3>Returns:<a class="headerlink" href="#returns" title="Link to this heading">#</a></h3>
-<p>None</p>
-</section>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fit</strong> (<em>StanFit object</em>)</p></li>
+<li><p><strong>site/sample</strong> (<em>model fit to</em>)</p></li>
+<li><p><strong>Returns</strong></p></li>
+<li><p><strong>--------</strong></p></li>
+<li><p><strong>None</strong></p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="BiCEP.gui.GUI.display_site_plot">
 <span class="sig-name descname"><span class="pre">display_site_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.gui.GUI.display_site_plot" title="Link to this definition">#</a></dt>
 <dd><p>Displays the site plots for BiCEP GUI</p>
-<section id="id25">
-<h3>Inputs<a class="headerlink" href="#id25" title="Link to this heading">#</a></h3>
-<p>fit: StanFit object
-BiCEP fit for that site/sample</p>
 <dl class="field-list simple">
-<dt class="field-odd">rtype<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fit</strong> (<em>StanFit object</em>)</p></li>
+<li><p><strong>site/sample</strong> (<em>BiCEP fit for that</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
 </dd>
 </dl>
-</section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="BiCEP.gui.GUI.display_specimen_plots">
 <span class="sig-name descname"><span class="pre">display_specimen_plots</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.gui.GUI.display_specimen_plots" title="Link to this definition">#</a></dt>
 <dd><p>Displays specimen level plots on the BiCEP GUI</p>
-<section id="id26">
-<h3>Inputs:<a class="headerlink" href="#id26" title="Link to this heading">#</a></h3>
+<section id="id1">
+<h3>Parameters:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>None</p>
 </section>
-<section id="id27">
-<h3>Returns:<a class="headerlink" href="#id27" title="Link to this heading">#</a></h3>
+<section id="returns">
+<h3>Returns:<a class="headerlink" href="#returns" title="Link to this heading">#</a></h3>
 <p>None</p>
 </section>
 </dd></dl>
@@ -1105,8 +1137,8 @@ BiCEP fit for that site/sample</p>
 <span class="sig-name descname"><span class="pre">display_specimen_ring</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.gui.GUI.display_specimen_ring" title="Link to this definition">#</a></dt>
 <dd><p>Displays a red circle around the currently selected
 specimen in the site plot of BiCEP GUI</p>
-<section id="id28">
-<h3>Inputs:<a class="headerlink" href="#id28" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h3>Parameters:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>None</p>
 <dl class="field-list simple">
 <dt class="field-odd">rtype<span class="colon">:</span></dt>
@@ -1120,8 +1152,8 @@ specimen in the site plot of BiCEP GUI</p>
 <dt class="sig sig-object py" id="BiCEP.gui.GUI.enablerun">
 <span class="sig-name descname"><span class="pre">enablerun</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.gui.GUI.enablerun" title="Link to this definition">#</a></dt>
 <dd><p>Enables running the GUI after choosing a file</p>
-<section id="id29">
-<h3>Inputs:<a class="headerlink" href="#id29" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3>Parameters:<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>a: Button pressed object
 Has no practical use</p>
 <dl class="field-list simple">
@@ -1141,34 +1173,36 @@ Has no practical use</p>
 <dt class="sig sig-object py" id="BiCEP.gui.GUI.get_sampler_diags">
 <span class="sig-name descname"><span class="pre">get_sampler_diags</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">site</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.gui.GUI.get_sampler_diags" title="Link to this definition">#</a></dt>
 <dd><p>Returns useful sampler diagnostics for a particular MCMC fit with pystan</p>
-<section id="id30">
-<h3>Inputs<a class="headerlink" href="#id30" title="Link to this heading">#</a></h3>
-<p>fit: StanFit object
-model fit to site/sample</p>
 <dl class="field-list simple">
-<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>fit</strong> (<em>StanFit object</em>)</p></li>
+<li><p><strong>site/sample</strong> (<em>model fit to</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
 <li><p><strong>rhat_worst</strong> (<em>float</em>)</p></li>
 <li><p><em>worst rhat of all parameters</em></p></li>
 <li><p><strong>n_eff_int_site</strong> (<em>float</em>)</p></li>
 <li><p><em>Effective number of pseudosamples of B_anc</em></p></li>
 </ul>
+</p>
 </dd>
 </dl>
-</section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="BiCEP.gui.GUI.get_site_dist">
 <span class="sig-name descname"><span class="pre">get_site_dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.gui.GUI.get_site_dist" title="Link to this definition">#</a></dt>
 <dd><p>Runs the MCMC sampler and updates the GUI</p>
-<section id="id31">
-<h3>Inputs:<a class="headerlink" href="#id31" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3>Parameters:<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>a: Button pressed object
 has no practical use.</p>
 </section>
-<section id="id32">
-<h3>Returns:<a class="headerlink" href="#id32" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3>Returns:<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>None</p>
 </section>
 </dd></dl>
@@ -1177,8 +1211,8 @@ has no practical use.</p>
 <dt class="sig sig-object py" id="BiCEP.gui.GUI.on_change">
 <span class="sig-name descname"><span class="pre">on_change</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">change</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.gui.GUI.on_change" title="Link to this definition">#</a></dt>
 <dd><p>Update GUI on changing one of our site, specimen, temperature dropdowns.</p>
-<section id="id33">
-<h3>Inputs:<a class="headerlink" href="#id33" title="Link to this heading">#</a></h3>
+<section id="id6">
+<h3>Parameters:<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>change: Dropdown change object
 Gives us information about which object was changed (owner),
 the type of change (name, either value for a value change,
@@ -1188,8 +1222,8 @@ many operations, as the changing the site widget’s value changes
 the specimen widgets options, which then changes it’s options.
 This is the reason for the numerous if statements in this function.</p>
 </section>
-<section id="id34">
-<h3>Returns:<a class="headerlink" href="#id34" title="Link to this heading">#</a></h3>
+<section id="id7">
+<h3>Returns:<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <p>None</p>
 </section>
 </dd></dl>
@@ -1198,8 +1232,8 @@ This is the reason for the numerous if statements in this function.</p>
 <dt class="sig sig-object py" id="BiCEP.gui.GUI.run">
 <span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.gui.GUI.run" title="Link to this definition">#</a></dt>
 <dd><p>Runs the GUI after selecting a file.</p>
-<section id="id35">
-<h3>Inputs:<a class="headerlink" href="#id35" title="Link to this heading">#</a></h3>
+<section id="id8">
+<h3>Parameters:<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <p>a: Button pressed object
 Has no practical use</p>
 <dl class="field-list simple">
@@ -1214,8 +1248,8 @@ Has no practical use</p>
 <dt class="sig sig-object py" id="BiCEP.gui.GUI.save_figures">
 <span class="sig-name descname"><span class="pre">save_figures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.gui.GUI.save_figures" title="Link to this definition">#</a></dt>
 <dd><p>Saves figures from GUI to file</p>
-<section id="id36">
-<h3>Inputs:<a class="headerlink" href="#id36" title="Link to this heading">#</a></h3>
+<section id="id9">
+<h3>Parameters:<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <p>a: Button pressed object
 Has no practical use</p>
 <dl class="field-list simple">
@@ -1230,8 +1264,8 @@ Has no practical use</p>
 <dt class="sig sig-object py" id="BiCEP.gui.GUI.save_magic_tables">
 <span class="sig-name descname"><span class="pre">save_magic_tables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.gui.GUI.save_magic_tables" title="Link to this definition">#</a></dt>
 <dd><p>Saves data from the currently displayed site to the GUI</p>
-<section id="id37">
-<h3>Inputs:<a class="headerlink" href="#id37" title="Link to this heading">#</a></h3>
+<section id="id10">
+<h3>Parameters:<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <p>a: Button pressed object
 Has no practical use</p>
 <dl class="field-list simple">
@@ -1246,13 +1280,13 @@ Has no practical use</p>
 <dt class="sig sig-object py" id="BiCEP.gui.GUI.save_temps">
 <span class="sig-name descname"><span class="pre">save_temps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.gui.GUI.save_temps" title="Link to this definition">#</a></dt>
 <dd><p>Saves changes to specimen temperatures</p>
-<section id="id38">
-<h3>Inputs:<a class="headerlink" href="#id38" title="Link to this heading">#</a></h3>
+<section id="id11">
+<h3>Parameters:<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
 <p>a: Button pressed object
 has no practical use.</p>
 </section>
-<section id="id39">
-<h3>Returns:<a class="headerlink" href="#id39" title="Link to this heading">#</a></h3>
+<section id="id12">
+<h3>Returns:<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
 <p>None</p>
 </section>
 </dd></dl>
@@ -1261,8 +1295,8 @@ has no practical use.</p>
 <dt class="sig sig-object py" id="BiCEP.gui.GUI.save_to_netcdf">
 <span class="sig-name descname"><span class="pre">save_to_netcdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BiCEP.gui.GUI.save_to_netcdf" title="Link to this definition">#</a></dt>
 <dd><p>Function that saves site fit to netCDF</p>
-<section id="id40">
-<h3>Inputs:<a class="headerlink" href="#id40" title="Link to this heading">#</a></h3>
+<section id="id13">
+<h3>Parameters:<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
 <p>a: interact object
 Has no practical use</p>
 <dl class="field-list simple">
