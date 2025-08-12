@@ -380,14 +380,7 @@ document.write(`
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[2], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">BiCEP</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">conversion</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> generate_arai_plot_table
-<span class="ansi-green-intense-fg ansi-bold">      2</span> project<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">example_magic_files/</span><span style="color: rgb(175,0,0)">&#39;</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> fname <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">BiCEP_converted</span><span style="color: rgb(175,0,0)">&#39;</span>
-
-<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named &#39;BiCEP&#39;
+Data conversion finished- check thellier_convert.log for errors
 </pre></div></div>
 </div>
 <p>When imported, BiCEP data is stored internally as a set of nested objects, one for the dataset which contains a object for each site (a set of samples expected to have been magnetized in the same field), or each sample (an object collected in the field) which are described using a SpecimenCollection object. Each of these SpecimenCollection objects contains an object for each specimen, which is a subsample that a set of independent measurements are made on. To make the data class, we can
@@ -491,11 +484,19 @@ black circles represent the component of the magnetization in the x,y plane, whe
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/code_usage_guide_10_0.png" src="_images/code_usage_guide_10_0.png" />
+<img alt="_images/code_usage_guide_10_1.png" src="_images/code_usage_guide_10_1.png" />
 </div>
 </div>
 <p>Both our Arai plot and Zijderveld plot are a straight line. Because we’re plotting magnetization lost in zero field, against magnetization gained in a known field, the ratio of our two lines is the ratio of the Ancient field to the Lab field which is a little under 2. We can check the lab field using the <code class="docutils literal notranslate"><span class="pre">B_lab</span></code> attribute of the specimen.</p>
@@ -513,7 +514,7 @@ black circles represent the component of the magnetization in the x,y plane, whe
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-20.0
+np.float64(20.0)
 </pre></div></div>
 </div>
 <p>The lab field was 20 μT. If we expect a value of 36.4 μT, then a slope of about 1.8 is what we might expect. Let’s look at another specimen.</p>
@@ -530,11 +531,19 @@ black circles represent the component of the magnetization in the x,y plane, whe
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/code_usage_guide_14_0.png" src="_images/code_usage_guide_14_0.png" />
+<img alt="_images/code_usage_guide_14_1.png" src="_images/code_usage_guide_14_1.png" />
 </div>
 </div>
 <p>The data for this specimen do not follow a straight line. Although the line slope appears to start out at a reasonable value, it quickly becomes shallower at higher temperatures. If we were to fit a line to these data we might end up with an underestimate of the paleointensity, and there is no reason to suggest which temperature range to pick for our intensity data. Some strict selection criteria might exclude this specimen, others might include it, but could include an incorrect temperature
@@ -554,99 +563,56 @@ range, which could give a biased paleointensity estimate.</p>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+19:21:10 - cmdstanpy - INFO - CmdStan start processing
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "eaa24a5b35c44e9682521db9c6cd3e4c", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "25963bef4d6942fb9d5a79b6e8cd5bec", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "67bc191d8ff542828f8d0f6f8e0bc253", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "abac589531c14ce882942b4fc9ef09f6", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 
-
-
-Gradient evaluation took 9.3e-05 secondsGradient evaluation took 9e-05 seconds
-Gradient evaluation took 9.3e-05 seconds
-
-1000 transitions using 10 leapfrog steps per transition would take 0.93 seconds.1000 transitions using 10 leapfrog steps per transition would take 0.93 seconds.
-
-Adjust your expectations accordingly!Adjust your expectations accordingly!
-
-1000 transitions using 10 leapfrog steps per transition would take 0.9 seconds.
-
-
-
-
-Adjust your expectations accordingly!
-
-
-
-Gradient evaluation took 7.7e-05 seconds
-1000 transitions using 10 leapfrog steps per transition would take 0.77 seconds.
-Adjust your expectations accordingly!
-
-
-Iteration:     1 / 30000 [  0%]  (Warmup)
-Iteration:     1 / 30000 [  0%]  (Warmup)
-Iteration:     1 / 30000 [  0%]  (Warmup)
-Iteration:     1 / 30000 [  0%]  (Warmup)
-Iteration:  3000 / 30000 [ 10%]  (Warmup)
-Iteration:  3000 / 30000 [ 10%]  (Warmup)
-Iteration:  3000 / 30000 [ 10%]  (Warmup)
-Iteration:  3000 / 30000 [ 10%]  (Warmup)
-Iteration:  6000 / 30000 [ 20%]  (Warmup)
-Iteration:  6000 / 30000 [ 20%]  (Warmup)
-Iteration:  6000 / 30000 [ 20%]  (Warmup)
-Iteration:  6000 / 30000 [ 20%]  (Warmup)
-Iteration:  9000 / 30000 [ 30%]  (Warmup)
-Iteration:  9000 / 30000 [ 30%]  (Warmup)
-Iteration:  9000 / 30000 [ 30%]  (Warmup)
-Iteration:  9000 / 30000 [ 30%]  (Warmup)
-Iteration: 12000 / 30000 [ 40%]  (Warmup)
-Iteration: 12000 / 30000 [ 40%]  (Warmup)
-Iteration: 12000 / 30000 [ 40%]  (Warmup)
-Iteration: 12000 / 30000 [ 40%]  (Warmup)
-Iteration: 15000 / 30000 [ 50%]  (Warmup)
-Iteration: 15001 / 30000 [ 50%]  (Sampling)
-Iteration: 15000 / 30000 [ 50%]  (Warmup)
-Iteration: 15001 / 30000 [ 50%]  (Sampling)
-Iteration: 15000 / 30000 [ 50%]  (Warmup)
-Iteration: 15001 / 30000 [ 50%]  (Sampling)
-Iteration: 15000 / 30000 [ 50%]  (Warmup)
-Iteration: 15001 / 30000 [ 50%]  (Sampling)
-Iteration: 18000 / 30000 [ 60%]  (Sampling)
-Iteration: 18000 / 30000 [ 60%]  (Sampling)
-Iteration: 18000 / 30000 [ 60%]  (Sampling)
-Iteration: 18000 / 30000 [ 60%]  (Sampling)
-Iteration: 21000 / 30000 [ 70%]  (Sampling)
-Iteration: 21000 / 30000 [ 70%]  (Sampling)
-Iteration: 21000 / 30000 [ 70%]  (Sampling)
-Iteration: 21000 / 30000 [ 70%]  (Sampling)
-Iteration: 24000 / 30000 [ 80%]  (Sampling)
-Iteration: 24000 / 30000 [ 80%]  (Sampling)
-Iteration: 24000 / 30000 [ 80%]  (Sampling)
-Iteration: 24000 / 30000 [ 80%]  (Sampling)
-Iteration: 27000 / 30000 [ 90%]  (Sampling)
-Iteration: 27000 / 30000 [ 90%]  (Sampling)
-Iteration: 27000 / 30000 [ 90%]  (Sampling)
-Iteration: 27000 / 30000 [ 90%]  (Sampling)
-Iteration: 30000 / 30000 [100%]  (Sampling)
-
- Elapsed Time: 6.1765 seconds (Warm-up)
-               5.81397 seconds (Sampling)
-               11.9905 seconds (Total)
-
-Iteration: 30000 / 30000 [100%]  (Sampling)
-
- Elapsed Time: 6.30353 seconds (Warm-up)
-               5.76041 seconds (Sampling)
-               12.0639 seconds (Total)
-
-Iteration: 30000 / 30000 [100%]  (Sampling)
-
- Elapsed Time: 6.33612 seconds (Warm-up)
-               5.77055 seconds (Sampling)
-               12.1067 seconds (Total)
-
-Iteration: 30000 / 30000 [100%]  (Sampling)
-
- Elapsed Time: 6.29428 seconds (Warm-up)
-               5.82775 seconds (Sampling)
-               12.122 seconds (Total)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+19:21:44 - cmdstanpy - INFO - CmdStan done processing.
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
 
 </pre></div></div>
 </div>
@@ -655,8 +621,12 @@ Iteration: 30000 / 30000 [100%]  (Sampling)
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-WARNING:pystan:621 of 60000 iterations ended with a divergence (1.03 %).
-WARNING:pystan:Try running with adapt_delta larger than 0.8 to remove the divergences.
+19:21:45 - cmdstanpy - WARNING - Some chains may have failed to converge.
+        Chain 1 had 138 divergent transitions (0.5%)
+        Chain 2 had 92 divergent transitions (0.3%)
+        Chain 3 had 178 divergent transitions (0.6%)
+        Chain 4 had 171 divergent transitions (0.6%)
+        Use the &#34;diagnose()&#34; method on the CmdStanMCMC object to see further information.
 </pre></div></div>
 </div>
 <p>We can use the <code class="docutils literal notranslate"><span class="pre">specimen.plot_circ()</span></code> method to draw a circle under the Arai plot data. The <code class="docutils literal notranslate"><span class="pre">tangent=True</span></code> argument shows the tangent to the circle used to calculate the paleointensity for this specimen.</p>
@@ -673,11 +643,19 @@ WARNING:pystan:Try running with adapt_delta larger than 0.8 to remove the diverg
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/code_usage_guide_19_0.png" src="_images/code_usage_guide_19_0.png" />
+<img alt="_images/code_usage_guide_19_1.png" src="_images/code_usage_guide_19_1.png" />
 </div>
 </div>
 <p>We notice that this tangent is slightly less than the initial slope, how does this help us?</p>
@@ -779,8 +757,8 @@ vary, but 15 is considered a high value by any metric). Although we have already
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-hw126a7 DRAT: 15.8
-hw126a8 DRAT: 38.4
+hw126a7 DRAT: 0.0
+hw126a8 DRAT: 0.0
 </pre></div></div>
 </div>
 <p>We now run the BiCEP method again with these changes in place, and plot up our site results with the results for these two specimens.</p>
@@ -795,99 +773,56 @@ hw126a8 DRAT: 38.4
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+19:21:47 - cmdstanpy - INFO - CmdStan start processing
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "fbbb712d277544f4911751e20dcdbbcd", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "bb488df9e6c1443b84c35acd16e90943", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "34fb984585ca4159a9ec7eb5e78d54fc", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "bd6be99227a7473a985b53ec769c9c03", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 
-
-
-
-Gradient evaluation took 8.6e-05 secondsGradient evaluation took 8.6e-05 seconds
-Gradient evaluation took 8.6e-05 secondsGradient evaluation took 8.6e-05 seconds
-
-
-1000 transitions using 10 leapfrog steps per transition would take 0.86 seconds.1000 transitions using 10 leapfrog steps per transition would take 0.86 seconds.1000 transitions using 10 leapfrog steps per transition would take 0.86 seconds.1000 transitions using 10 leapfrog steps per transition would take 0.86 seconds.
-
-Adjust your expectations accordingly!Adjust your expectations accordingly!
-
-
-Adjust your expectations accordingly!
-
-Adjust your expectations accordingly!
-
-
-
-
-
-
-
-
-Iteration:     1 / 30000 [  0%]  (Warmup)
-Iteration:     1 / 30000 [  0%]  (Warmup)
-Iteration:     1 / 30000 [  0%]  (Warmup)
-Iteration:     1 / 30000 [  0%]  (Warmup)
-Iteration:  3000 / 30000 [ 10%]  (Warmup)
-Iteration:  3000 / 30000 [ 10%]  (Warmup)
-Iteration:  3000 / 30000 [ 10%]  (Warmup)
-Iteration:  3000 / 30000 [ 10%]  (Warmup)
-Iteration:  6000 / 30000 [ 20%]  (Warmup)
-Iteration:  6000 / 30000 [ 20%]  (Warmup)
-Iteration:  6000 / 30000 [ 20%]  (Warmup)
-Iteration:  6000 / 30000 [ 20%]  (Warmup)
-Iteration:  9000 / 30000 [ 30%]  (Warmup)
-Iteration:  9000 / 30000 [ 30%]  (Warmup)
-Iteration:  9000 / 30000 [ 30%]  (Warmup)
-Iteration:  9000 / 30000 [ 30%]  (Warmup)
-Iteration: 12000 / 30000 [ 40%]  (Warmup)
-Iteration: 12000 / 30000 [ 40%]  (Warmup)
-Iteration: 12000 / 30000 [ 40%]  (Warmup)
-Iteration: 12000 / 30000 [ 40%]  (Warmup)
-Iteration: 15000 / 30000 [ 50%]  (Warmup)
-Iteration: 15001 / 30000 [ 50%]  (Sampling)
-Iteration: 15000 / 30000 [ 50%]  (Warmup)
-Iteration: 15001 / 30000 [ 50%]  (Sampling)
-Iteration: 15000 / 30000 [ 50%]  (Warmup)
-Iteration: 15001 / 30000 [ 50%]  (Sampling)
-Iteration: 15000 / 30000 [ 50%]  (Warmup)
-Iteration: 15001 / 30000 [ 50%]  (Sampling)
-Iteration: 18000 / 30000 [ 60%]  (Sampling)
-Iteration: 18000 / 30000 [ 60%]  (Sampling)
-Iteration: 18000 / 30000 [ 60%]  (Sampling)
-Iteration: 18000 / 30000 [ 60%]  (Sampling)
-Iteration: 21000 / 30000 [ 70%]  (Sampling)
-Iteration: 21000 / 30000 [ 70%]  (Sampling)
-Iteration: 21000 / 30000 [ 70%]  (Sampling)
-Iteration: 21000 / 30000 [ 70%]  (Sampling)
-Iteration: 24000 / 30000 [ 80%]  (Sampling)
-Iteration: 24000 / 30000 [ 80%]  (Sampling)
-Iteration: 24000 / 30000 [ 80%]  (Sampling)
-Iteration: 24000 / 30000 [ 80%]  (Sampling)
-Iteration: 27000 / 30000 [ 90%]  (Sampling)
-Iteration: 27000 / 30000 [ 90%]  (Sampling)
-Iteration: 27000 / 30000 [ 90%]  (Sampling)
-Iteration: 27000 / 30000 [ 90%]  (Sampling)
-Iteration: 30000 / 30000 [100%]  (Sampling)
-
- Elapsed Time: 5.14039 seconds (Warm-up)
-               5.03166 seconds (Sampling)
-               10.172 seconds (Total)
-
-Iteration: 30000 / 30000 [100%]  (Sampling)
-
- Elapsed Time: 4.9614 seconds (Warm-up)
-               5.34939 seconds (Sampling)
-               10.3108 seconds (Total)
-
-Iteration: 30000 / 30000 [100%]  (Sampling)
-
- Elapsed Time: 5.48773 seconds (Warm-up)
-               5.04629 seconds (Sampling)
-               10.534 seconds (Total)
-
-Iteration: 30000 / 30000 [100%]  (Sampling)
-
- Elapsed Time: 5.46583 seconds (Warm-up)
-               5.2271 seconds (Sampling)
-               10.6929 seconds (Total)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+19:22:23 - cmdstanpy - INFO - CmdStan done processing.
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
 
 </pre></div></div>
 </div>
@@ -896,8 +831,12 @@ Iteration: 30000 / 30000 [100%]  (Sampling)
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-WARNING:pystan:457 of 60000 iterations ended with a divergence (0.762 %).
-WARNING:pystan:Try running with adapt_delta larger than 0.8 to remove the divergences.
+19:22:23 - cmdstanpy - WARNING - Some chains may have failed to converge.
+        Chain 1 had 684 divergent transitions (2.3%)
+        Chain 2 had 213 divergent transitions (0.7%)
+        Chain 3 had 889 divergent transitions (3.0%)
+        Chain 4 had 838 divergent transitions (2.8%)
+        Use the &#34;diagnose()&#34; method on the CmdStanMCMC object to see further information.
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -949,7 +888,7 @@ data from the Arai plot, without having to use some kind of “length of the lin
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">BiCEP.criteria</span><span class="w"> </span><span class="kn">import</span> <span class="n">auto_interpret</span>
 <span class="c1">#Example of auto_interpreting BiCEP_data</span>
 <span class="c1">#Get samples where MAD_coe &lt; 5, DANG &lt; 10, DRAT &lt; 10</span>
-<span class="n">auto_interpret</span><span class="p">(</span><span class="n">site</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="n">mad_type</span><span class="o">=</span><span class="s1">&#39;mad_coe&#39;</span><span class="p">)</span>
+<span class="n">auto_interpret</span><span class="p">(</span><span class="n">site</span><span class="p">,</span><span class="n">mad</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">dang</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">drat</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">mad_type</span><span class="o">=</span><span class="s1">&#39;mad_coe&#39;</span><span class="p">)</span>
 <span class="n">site</span><span class="o">.</span><span class="n">BiCEP_fit</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -957,99 +896,56 @@ data from the Arai plot, without having to use some kind of “length of the lin
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+19:22:30 - cmdstanpy - INFO - CmdStan start processing
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "bc6cc6877a7c418b9771b0eb9c14e04c", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d98bc67b247e4a7eb86aefe1aece88d3", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "004342217393413db3e98b9216f5787c", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8387a748fac942418a60f8ad3c5ae31a", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 
-
-
-
-Gradient evaluation took 8.1e-05 secondsGradient evaluation took 8e-05 secondsGradient evaluation took 8.4e-05 seconds
-Gradient evaluation took 8e-05 seconds
-
-
-1000 transitions using 10 leapfrog steps per transition would take 0.84 seconds.1000 transitions using 10 leapfrog steps per transition would take 0.8 seconds.
-
-Adjust your expectations accordingly!Adjust your expectations accordingly!
-
-
-
-
-1000 transitions using 10 leapfrog steps per transition would take 0.8 seconds.1000 transitions using 10 leapfrog steps per transition would take 0.81 seconds.
-
-
-Adjust your expectations accordingly!Adjust your expectations accordingly!
-
-
-
-
-
-Iteration:     1 / 30000 [  0%]  (Warmup)
-Iteration:     1 / 30000 [  0%]  (Warmup)
-Iteration:     1 / 30000 [  0%]  (Warmup)
-Iteration:     1 / 30000 [  0%]  (Warmup)
-Iteration:  3000 / 30000 [ 10%]  (Warmup)
-Iteration:  3000 / 30000 [ 10%]  (Warmup)
-Iteration:  3000 / 30000 [ 10%]  (Warmup)
-Iteration:  6000 / 30000 [ 20%]  (Warmup)
-Iteration:  6000 / 30000 [ 20%]  (Warmup)
-Iteration:  6000 / 30000 [ 20%]  (Warmup)
-Iteration:  9000 / 30000 [ 30%]  (Warmup)
-Iteration:  9000 / 30000 [ 30%]  (Warmup)
-Iteration:  9000 / 30000 [ 30%]  (Warmup)
-Iteration:  3000 / 30000 [ 10%]  (Warmup)
-Iteration: 12000 / 30000 [ 40%]  (Warmup)
-Iteration: 12000 / 30000 [ 40%]  (Warmup)
-Iteration: 12000 / 30000 [ 40%]  (Warmup)
-Iteration: 15000 / 30000 [ 50%]  (Warmup)
-Iteration: 15001 / 30000 [ 50%]  (Sampling)
-Iteration: 15000 / 30000 [ 50%]  (Warmup)
-Iteration: 15001 / 30000 [ 50%]  (Sampling)
-Iteration:  6000 / 30000 [ 20%]  (Warmup)
-Iteration: 15000 / 30000 [ 50%]  (Warmup)
-Iteration: 15001 / 30000 [ 50%]  (Sampling)
-Iteration: 18000 / 30000 [ 60%]  (Sampling)
-Iteration:  9000 / 30000 [ 30%]  (Warmup)
-Iteration: 21000 / 30000 [ 70%]  (Sampling)
-Iteration: 18000 / 30000 [ 60%]  (Sampling)
-Iteration: 12000 / 30000 [ 40%]  (Warmup)
-Iteration: 24000 / 30000 [ 80%]  (Sampling)
-Iteration: 18000 / 30000 [ 60%]  (Sampling)
-Iteration: 15000 / 30000 [ 50%]  (Warmup)
-Iteration: 15001 / 30000 [ 50%]  (Sampling)
-Iteration: 27000 / 30000 [ 90%]  (Sampling)
-Iteration: 21000 / 30000 [ 70%]  (Sampling)
-Iteration: 30000 / 30000 [100%]  (Sampling)
-
- Elapsed Time: 6.28287 seconds (Warm-up)
-               4.6757 seconds (Sampling)
-               10.9586 seconds (Total)
-
-Iteration: 18000 / 30000 [ 60%]  (Sampling)
-Iteration: 24000 / 30000 [ 80%]  (Sampling)
-Iteration: 21000 / 30000 [ 70%]  (Sampling)
-Iteration: 21000 / 30000 [ 70%]  (Sampling)
-Iteration: 27000 / 30000 [ 90%]  (Sampling)
-Iteration: 24000 / 30000 [ 80%]  (Sampling)
-Iteration: 24000 / 30000 [ 80%]  (Sampling)
-Iteration: 30000 / 30000 [100%]  (Sampling)
-
- Elapsed Time: 6.70603 seconds (Warm-up)
-               8.74848 seconds (Sampling)
-               15.4545 seconds (Total)
-
-Iteration: 27000 / 30000 [ 90%]  (Sampling)
-Iteration: 27000 / 30000 [ 90%]  (Sampling)
-Iteration: 30000 / 30000 [100%]  (Sampling)
-
- Elapsed Time: 9.9997 seconds (Warm-up)
-               8.29991 seconds (Sampling)
-               18.2996 seconds (Total)
-
-Iteration: 30000 / 30000 [100%]  (Sampling)
-
- Elapsed Time: 6.22894 seconds (Warm-up)
-               14.4571 seconds (Sampling)
-               20.686 seconds (Total)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+19:23:21 - cmdstanpy - INFO - CmdStan done processing.
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
 
 </pre></div></div>
 </div>
@@ -1058,8 +954,12 @@ Iteration: 30000 / 30000 [100%]  (Sampling)
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-WARNING:pystan:3266 of 60000 iterations ended with a divergence (5.44 %).
-WARNING:pystan:Try running with adapt_delta larger than 0.8 to remove the divergences.
+19:23:21 - cmdstanpy - WARNING - Some chains may have failed to converge.
+        Chain 1 had 614 divergent transitions (2.0%)
+        Chain 2 had 953 divergent transitions (3.2%)
+        Chain 3 had 838 divergent transitions (2.8%)
+        Chain 4 had 1639 divergent transitions (5.5%)
+        Use the &#34;diagnose()&#34; method on the CmdStanMCMC object to see further information.
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1099,7 +999,7 @@ WARNING:pystan:Try running with adapt_delta larger than 0.8 to remove the diverg
 <img alt="_images/code_usage_guide_34_0.png" src="_images/code_usage_guide_34_0.png" />
 </div>
 </div>
-<p>Notice that to satisfy MAD and DRAT, even less points from specimen hw126a7 were selected. This has led to the enormous error bars on the estimate from this specimen, seen in the bottom left figure. Sometimes this causes problems with the model fit if the number of points is too small. If this is the case, then try setting the <code class="docutils literal notranslate"><span class="pre">specimen.active</span></code> attribute to False for that specimen.</p>
+<p>Notice that to satisfy MAD and DRAT, even fewer points from specimen hw126a7 were selected. This has led to the enormous error bars on the estimate from this specimen, seen in the bottom left figure. Sometimes this causes problems with the model fit if the number of points is too small. If this is the case, then try setting the <code class="docutils literal notranslate"><span class="pre">specimen.active</span></code> attribute to False for that specimen.</p>
 </section>
 <section id="Automating,-diagnostics-and-saving-fits">
 <h1>Automating, diagnostics and saving fits<a class="headerlink" href="#Automating,-diagnostics-and-saving-fits" title="Link to this heading">#</a></h1>
@@ -1119,7 +1019,7 @@ WARNING:pystan:Try running with adapt_delta larger than 0.8 to remove the diverg
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-hw126 successful! Estimated intensity 35.9 with bounds of 34.1 - 37.3 μT
+hw126 successful! Estimated intensity 35.8 with bounds of 34.1 - 37.3 μT
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1133,7 +1033,7 @@ True
 </div>
 <p>We can automate the entire process of getting obtaining a paleointensity and checking whether it’s successful using the <code class="docutils literal notranslate"><span class="pre">run_site_fit()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">extract</span></code> module. The <code class="docutils literal notranslate"><span class="pre">save_nc</span></code> argument can be used to save to netcdf if the result passes.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">BiCEP.extract</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_site_fit</span>
@@ -1144,99 +1044,40 @@ True
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+19:23:39 - cmdstanpy - INFO - CmdStan start processing
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "9b5828512c91479198def5b35ff0cdf2", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "6ff2ca09c21448e4b2638bb62b345f9b", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a630b92b208e4e5582946076a1cd84b8", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b57494f476674e77a25708ff0102886c", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-
-
-
-
-Gradient evaluation took 6.3e-05 secondsGradient evaluation took 6.3e-05 secondsGradient evaluation took 6.2e-05 seconds
-
-Gradient evaluation took 6.3e-05 seconds
-
-1000 transitions using 10 leapfrog steps per transition would take 0.63 seconds.
-Adjust your expectations accordingly!1000 transitions using 10 leapfrog steps per transition would take 0.62 seconds.1000 transitions using 10 leapfrog steps per transition would take 0.63 seconds.
-
-
-1000 transitions using 10 leapfrog steps per transition would take 0.63 seconds.Adjust your expectations accordingly!
-
-Adjust your expectations accordingly!Adjust your expectations accordingly!
-
-
-
-
-
-
-
-
-
-Iteration:    1 / 10000 [  0%]  (Warmup)
-Iteration:    1 / 10000 [  0%]  (Warmup)
-Iteration:    1 / 10000 [  0%]  (Warmup)
-Iteration:    1 / 10000 [  0%]  (Warmup)
-Iteration: 1000 / 10000 [ 10%]  (Warmup)
-Iteration: 1000 / 10000 [ 10%]  (Warmup)
-Iteration: 1000 / 10000 [ 10%]  (Warmup)
-Iteration: 1000 / 10000 [ 10%]  (Warmup)
-Iteration: 2000 / 10000 [ 20%]  (Warmup)
-Iteration: 2000 / 10000 [ 20%]  (Warmup)
-Iteration: 2000 / 10000 [ 20%]  (Warmup)
-Iteration: 2000 / 10000 [ 20%]  (Warmup)
-Iteration: 3000 / 10000 [ 30%]  (Warmup)
-Iteration: 3000 / 10000 [ 30%]  (Warmup)
-Iteration: 3000 / 10000 [ 30%]  (Warmup)
-Iteration: 3000 / 10000 [ 30%]  (Warmup)
-Iteration: 4000 / 10000 [ 40%]  (Warmup)
-Iteration: 4000 / 10000 [ 40%]  (Warmup)
-Iteration: 4000 / 10000 [ 40%]  (Warmup)
-Iteration: 4000 / 10000 [ 40%]  (Warmup)
-Iteration: 5000 / 10000 [ 50%]  (Warmup)
-Iteration: 5001 / 10000 [ 50%]  (Sampling)
-Iteration: 5000 / 10000 [ 50%]  (Warmup)
-Iteration: 5001 / 10000 [ 50%]  (Sampling)
-Iteration: 5000 / 10000 [ 50%]  (Warmup)
-Iteration: 5001 / 10000 [ 50%]  (Sampling)
-Iteration: 6000 / 10000 [ 60%]  (Sampling)
-Iteration: 5000 / 10000 [ 50%]  (Warmup)
-Iteration: 5001 / 10000 [ 50%]  (Sampling)
-Iteration: 6000 / 10000 [ 60%]  (Sampling)
-Iteration: 6000 / 10000 [ 60%]  (Sampling)
-Iteration: 7000 / 10000 [ 70%]  (Sampling)
-Iteration: 7000 / 10000 [ 70%]  (Sampling)
-Iteration: 7000 / 10000 [ 70%]  (Sampling)
-Iteration: 8000 / 10000 [ 80%]  (Sampling)
-Iteration: 8000 / 10000 [ 80%]  (Sampling)
-Iteration: 8000 / 10000 [ 80%]  (Sampling)
-Iteration: 9000 / 10000 [ 90%]  (Sampling)
-Iteration: 9000 / 10000 [ 90%]  (Sampling)
-Iteration: 6000 / 10000 [ 60%]  (Sampling)
-Iteration: 10000 / 10000 [100%]  (Sampling)
-
- Elapsed Time: 2.25586 seconds (Warm-up)
-               1.56384 seconds (Sampling)
-               3.8197 seconds (Total)
-
-Iteration: 9000 / 10000 [ 90%]  (Sampling)
-Iteration: 10000 / 10000 [100%]  (Sampling)
-
- Elapsed Time: 2.44759 seconds (Warm-up)
-               1.61338 seconds (Sampling)
-               4.06097 seconds (Total)
-
-Iteration: 10000 / 10000 [100%]  (Sampling)
-
- Elapsed Time: 2.44193 seconds (Warm-up)
-               1.75164 seconds (Sampling)
-               4.19356 seconds (Total)
-
-Iteration: 7000 / 10000 [ 70%]  (Sampling)
-Iteration: 8000 / 10000 [ 80%]  (Sampling)
-Iteration: 9000 / 10000 [ 90%]  (Sampling)
-Iteration: 10000 / 10000 [100%]  (Sampling)
-
- Elapsed Time: 2.62792 seconds (Warm-up)
-               6.00081 seconds (Sampling)
-               8.62873 seconds (Total)
 
 </pre></div></div>
 </div>
@@ -1245,8 +1086,28 @@ Iteration: 10000 / 10000 [100%]  (Sampling)
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-WARNING:pystan:830 of 20000 iterations ended with a divergence (4.15 %).
-WARNING:pystan:Try running with adapt_delta larger than 0.8 to remove the divergences.
+19:23:49 - cmdstanpy - INFO - CmdStan done processing.
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+19:23:50 - cmdstanpy - WARNING - Some chains may have failed to converge.
+        Chain 1 had 79 divergent transitions (0.8%)
+        Chain 2 had 55 divergent transitions (0.5%)
+        Chain 3 had 21 divergent transitions (0.2%)
+        Chain 4 had 69 divergent transitions (0.7%)
+        Use the &#34;diagnose()&#34; method on the CmdStanMCMC object to see further information.
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1254,7 +1115,7 @@ WARNING:pystan:Try running with adapt_delta larger than 0.8 to remove the diverg
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-hw126 successful! Estimated intensity 35.8 with bounds of 34.1 - 37.4 μT
+hw126 successful! Estimated intensity 35.9 with bounds of 34.3 - 37.4 μT
 </pre></div></div>
 </div>
 <p>You should see a file called <code class="docutils literal notranslate"><span class="pre">hw126.nc</span></code> has appeared in the folder. This is our saved fit that can be reopened by the GUI next time.</p>
@@ -1263,7 +1124,7 @@ hw126 successful! Estimated intensity 35.8 with bounds of 34.1 - 37.4 μT
 <h1>Advanced user options - tweaks and accessing raw data<a class="headerlink" href="#Advanced-user-options---tweaks-and-accessing-raw-data" title="Link to this heading">#</a></h1>
 <p>For each site, BiCEP creates a <code class="docutils literal notranslate"><span class="pre">fit</span></code> attribute which contains all the information for the fit to that specimen. This is an <code class="docutils literal notranslate"><span class="pre">arviz.InferenceData</span></code> object</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">site</span><span class="o">.</span><span class="n">fit</span>
@@ -1271,7 +1132,7 @@ hw126 successful! Estimated intensity 35.8 with bounds of 34.1 - 37.4 μT
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1282,8 +1143,8 @@ hw126 successful! Estimated intensity 35.8 with bounds of 34.1 - 37.4 μT
               <ul class="xr-sections group-sections">
 
             <li class = "xr-section-item">
-                  <input id="idata_posteriorf179f4be-da79-4d14-a884-b94a72de60be" class="xr-section-summary-in" type="checkbox">
-                  <label for="idata_posteriorf179f4be-da79-4d14-a884-b94a72de60be" class = "xr-section-summary">posterior</label>
+                  <input id="idata_posterior06a6b9a5-7388-4bda-abff-fedb1e6e5082" class="xr-section-summary-in" type="checkbox">
+                  <label for="idata_posterior06a6b9a5-7388-4bda-abff-fedb1e6e5082" class = "xr-section-summary">posterior</label>
                   <div class="xr-section-inline-details"></div>
                   <div class="xr-section-details">
                       <ul id="xr-dataset-coord-list" class="xr-var-list">
@@ -1307,30 +1168,80 @@ hw126 successful! Estimated intensity 35.8 with bounds of 34.1 - 37.4 μT
  */
 
 :root {
-  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
-  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
-  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
-  --xr-border-color: var(--jp-border-color2, #e0e0e0);
-  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
-  --xr-background-color: var(--jp-layout-color0, white);
-  --xr-background-color-row-even: var(--jp-layout-color1, white);
-  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+  --xr-font-color0: var(
+    --jp-content-font-color0,
+    var(--pst-color-text-base rgba(0, 0, 0, 1))
+  );
+  --xr-font-color2: var(
+    --jp-content-font-color2,
+    var(--pst-color-text-base, rgba(0, 0, 0, 0.54))
+  );
+  --xr-font-color3: var(
+    --jp-content-font-color3,
+    var(--pst-color-text-base, rgba(0, 0, 0, 0.38))
+  );
+  --xr-border-color: var(
+    --jp-border-color2,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 10))
+  );
+  --xr-disabled-color: var(
+    --jp-layout-color3,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 40))
+  );
+  --xr-background-color: var(
+    --jp-layout-color0,
+    var(--pst-color-on-background, white)
+  );
+  --xr-background-color-row-even: var(
+    --jp-layout-color1,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 5))
+  );
+  --xr-background-color-row-odd: var(
+    --jp-layout-color2,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 15))
+  );
 }
 
-html[theme=dark],
+html[theme="dark"],
+html[data-theme="dark"],
+body[data-theme="dark"],
 body.vscode-dark {
-  --xr-font-color0: rgba(255, 255, 255, 1);
-  --xr-font-color2: rgba(255, 255, 255, 0.54);
-  --xr-font-color3: rgba(255, 255, 255, 0.38);
-  --xr-border-color: #1F1F1F;
-  --xr-disabled-color: #515151;
-  --xr-background-color: #111111;
-  --xr-background-color-row-even: #111111;
-  --xr-background-color-row-odd: #313131;
+  --xr-font-color0: var(
+    --jp-content-font-color0,
+    var(--pst-color-text-base, rgba(255, 255, 255, 1))
+  );
+  --xr-font-color2: var(
+    --jp-content-font-color2,
+    var(--pst-color-text-base, rgba(255, 255, 255, 0.54))
+  );
+  --xr-font-color3: var(
+    --jp-content-font-color3,
+    var(--pst-color-text-base, rgba(255, 255, 255, 0.38))
+  );
+  --xr-border-color: var(
+    --jp-border-color2,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 10))
+  );
+  --xr-disabled-color: var(
+    --jp-layout-color3,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 40))
+  );
+  --xr-background-color: var(
+    --jp-layout-color0,
+    var(--pst-color-on-background, #111111)
+  );
+  --xr-background-color-row-even: var(
+    --jp-layout-color1,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 5))
+  );
+  --xr-background-color-row-odd: var(
+    --jp-layout-color2,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 15))
+  );
 }
 
 .xr-wrap {
-  display: block;
+  display: block !important;
   min-width: 300px;
   max-width: 700px;
 }
@@ -1367,7 +1278,7 @@ body.vscode-dark {
 .xr-sections {
   padding-left: 0 !important;
   display: grid;
-  grid-template-columns: 150px auto auto 1fr 20px 20px;
+  grid-template-columns: 150px auto auto 1fr 0 20px 0 20px;
 }
 
 .xr-section-item {
@@ -1375,16 +1286,23 @@ body.vscode-dark {
 }
 
 .xr-section-item input {
-  display: none;
+  display: inline-block;
+  opacity: 0;
+  height: 0;
 }
 
 .xr-section-item input + label {
   color: var(--xr-disabled-color);
+  border: 2px solid transparent !important;
 }
 
 .xr-section-item input:enabled + label {
   cursor: pointer;
   color: var(--xr-font-color2);
+}
+
+.xr-section-item input:focus + label {
+  border: 2px solid var(--xr-font-color0) !important;
 }
 
 .xr-section-item input:enabled + label:hover {
@@ -1408,7 +1326,7 @@ body.vscode-dark {
 
 .xr-section-summary-in + label:before {
   display: inline-block;
-  content: '►';
+  content: "►";
   font-size: 11px;
   width: 15px;
   text-align: center;
@@ -1419,7 +1337,7 @@ body.vscode-dark {
 }
 
 .xr-section-summary-in:checked + label:before {
-  content: '▼';
+  content: "▼";
 }
 
 .xr-section-summary-in:checked + label > span {
@@ -1491,15 +1409,15 @@ body.vscode-dark {
 }
 
 .xr-dim-list:before {
-  content: '(';
+  content: "(";
 }
 
 .xr-dim-list:after {
-  content: ')';
+  content: ")";
 }
 
 .xr-dim-list li:not(:last-child):after {
-  content: ',';
+  content: ",";
   padding-right: 5px;
 }
 
@@ -1516,7 +1434,9 @@ body.vscode-dark {
 .xr-var-item label,
 .xr-var-item > .xr-var-name span {
   background-color: var(--xr-background-color-row-even);
+  border-color: var(--xr-background-color-row-odd);
   margin-bottom: 0;
+  padding-top: 2px;
 }
 
 .xr-var-item > .xr-var-name:hover span {
@@ -1527,6 +1447,7 @@ body.vscode-dark {
 .xr-var-list > li:nth-child(odd) > label,
 .xr-var-list > li:nth-child(odd) > .xr-var-name span {
   background-color: var(--xr-background-color-row-odd);
+  border-color: var(--xr-background-color-row-even);
 }
 
 .xr-var-name {
@@ -1545,6 +1466,11 @@ body.vscode-dark {
 
 .xr-var-preview {
   grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
 }
 
 .xr-var-name,
@@ -1568,14 +1494,23 @@ body.vscode-dark {
 }
 
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   display: none;
-  background-color: var(--xr-background-color) !important;
-  padding-bottom: 5px !important;
+  border-top: 2px dotted var(--xr-background-color);
+  padding-bottom: 20px !important;
+  padding-top: 10px !important;
+}
+
+.xr-var-attrs-in + label,
+.xr-var-data-in + label,
+.xr-index-data-in + label {
+  padding: 0 1px;
 }
 
 .xr-var-attrs-in:checked ~ .xr-var-attrs,
-.xr-var-data-in:checked ~ .xr-var-data {
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
   display: block;
 }
 
@@ -1583,15 +1518,24 @@ body.vscode-dark {
   float: right;
 }
 
+.xr-var-data > pre,
+.xr-index-data > pre,
+.xr-var-data > table > tbody > tr {
+  background-color: transparent !important;
+}
+
 .xr-var-name span,
 .xr-var-data,
+.xr-index-name div,
+.xr-index-data,
 .xr-attrs {
   padding-left: 25px !important;
 }
 
 .xr-attrs,
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   grid-column: 1 / -1;
 }
 
@@ -1629,7 +1573,8 @@ dl.xr-attrs {
 }
 
 .xr-icon-database,
-.xr-icon-file-text2 {
+.xr-icon-file-text2,
+.xr-no-icon {
   display: inline-block;
   vertical-align: middle;
   width: 1em;
@@ -1638,409 +1583,341 @@ dl.xr-attrs {
   stroke: currentColor;
   fill: currentColor;
 }
-</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
-Dimensions:             (chain: 4, draw: 5000, k_dim_0: 11, dist_to_edge_dim_0: 11, int_real_dim_0: 11, phi_dim_0: 11, R_dim_0: 11, x_c_dim_0: 11, y_c_dim_0: 11)
+
+.xr-var-attrs-in:checked + label > .xr-icon-file-text2,
+.xr-var-data-in:checked + label > .xr-icon-database,
+.xr-index-data-in:checked + label > .xr-icon-database {
+  color: var(--xr-font-color0);
+  filter: drop-shadow(1px 1px 5px var(--xr-font-color2));
+  stroke-width: 0.8px;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 23MB
+Dimensions:             (chain: 4, draw: 10000, k_dim_0: 10,
+                         dist_to_edge_dim_0: 10, int_real_dim_0: 10,
+                         phi_dim_0: 10, R_dim_0: 10, x_c_dim_0: 10,
+                         y_c_dim_0: 10)
 Coordinates:
-  * chain               (chain) int64 0 1 2 3
-  * draw                (draw) int64 0 1 2 3 4 5 ... 4995 4996 4997 4998 4999
-  * k_dim_0             (k_dim_0) int64 0 1 2 3 4 5 6 7 8 9 10
-  * dist_to_edge_dim_0  (dist_to_edge_dim_0) int64 0 1 2 3 4 5 6 7 8 9 10
-  * int_real_dim_0      (int_real_dim_0) int64 0 1 2 3 4 5 6 7 8 9 10
-  * phi_dim_0           (phi_dim_0) int64 0 1 2 3 4 5 6 7 8 9 10
-  * R_dim_0             (R_dim_0) int64 0 1 2 3 4 5 6 7 8 9 10
-  * x_c_dim_0           (x_c_dim_0) int64 0 1 2 3 4 5 6 7 8 9 10
-  * y_c_dim_0           (y_c_dim_0) int64 0 1 2 3 4 5 6 7 8 9 10
+  * chain               (chain) int64 32B 0 1 2 3
+  * draw                (draw) int64 80kB 0 1 2 3 4 ... 9995 9996 9997 9998 9999
+  * k_dim_0             (k_dim_0) int64 80B 0 1 2 3 4 5 6 7 8 9
+  * dist_to_edge_dim_0  (dist_to_edge_dim_0) int64 80B 0 1 2 3 4 5 6 7 8 9
+  * int_real_dim_0      (int_real_dim_0) int64 80B 0 1 2 3 4 5 6 7 8 9
+  * phi_dim_0           (phi_dim_0) int64 80B 0 1 2 3 4 5 6 7 8 9
+  * R_dim_0             (R_dim_0) int64 80B 0 1 2 3 4 5 6 7 8 9
+  * x_c_dim_0           (x_c_dim_0) int64 80B 0 1 2 3 4 5 6 7 8 9
+  * y_c_dim_0           (y_c_dim_0) int64 80B 0 1 2 3 4 5 6 7 8 9
 Data variables:
-    int_site            (chain, draw) float64 35.48 36.2 35.33 ... 35.33 35.42
-    sd_site             (chain, draw) float64 1.59 2.008 1.705 ... 0.8371 0.8883
-    k                   (chain, draw, k_dim_0) float64 0.07466 0.3593 ... 0.1162
-    dist_to_edge        (chain, draw, dist_to_edge_dim_0) float64 0.682 ... 0...
-    c                   (chain, draw) float64 -11.33 -12.31 ... -11.25 -10.5
-    int_real            (chain, draw, int_real_dim_0) float64 36.53 ... 34.98
-    phi                 (chain, draw, phi_dim_0) float64 0.7908 ... 0.6747
-    R                   (chain, draw, R_dim_0) float64 13.39 2.783 ... 8.607
-    x_c                 (chain, draw, x_c_dim_0) float64 9.9 2.438 ... 6.832
-    y_c                 (chain, draw, y_c_dim_0) float64 10.01 2.353 ... 5.465
+    int_site            (chain, draw) float64 320kB 36.5 34.2 ... 36.33 37.26
+    sd_site             (chain, draw) float64 320kB 0.7572 1.624 ... 1.103 2.213
+    k                   (chain, draw, k_dim_0) float64 3MB 0.01835 ... -0.1276
+    dist_to_edge        (chain, draw, dist_to_edge_dim_0) float64 3MB 0.6975 ...
+    c                   (chain, draw) float64 320kB -16.08 -18.26 ... -23.17
+    int_real            (chain, draw, int_real_dim_0) float64 3MB 36.86 ... 3...
+    phi                 (chain, draw, phi_dim_0) float64 3MB 0.7863 ... 0.796
+    R                   (chain, draw, R_dim_0) float64 3MB 54.5 2.967 ... -7.838
+    x_c                 (chain, draw, x_c_dim_0) float64 3MB 39.0 ... -4.96
+    y_c                 (chain, draw, y_c_dim_0) float64 3MB 39.07 ... -5.066
 Attributes:
-    created_at:                 2024-03-27T13:28:47.732522
-    arviz_version:              0.11.4
-    inference_library:          pystan
-    inference_library_version:  2.19.0.0
-    args:                       [{&quot;random_seed&quot;: &quot;1740123703&quot;, &quot;chain_id&quot;: 0,...
-    inits:                      [[151.70018429346518, 0.14569268341277394, 1....
-    step_size:                  [0.147714, 0.151201, 0.0444113, 0.122605]
-    metric:                     [&#x27;diag_e&#x27;, &#x27;diag_e&#x27;, &#x27;diag_e&#x27;, &#x27;diag_e&#x27;]
-    inv_metric:                 [[0.000731634, 0.185483, 0.00248795, 0.000809...
-    adaptation_info:            [&#x27;# Adaptation terminated\n# Step size = 0.14...
-    stan_code:                  \nfunctions {\nreal likelihood_lpdf(data vect...</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-fddbaa05-dbb9-4aaa-989f-778007c689aa' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-fddbaa05-dbb9-4aaa-989f-778007c689aa' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>chain</span>: 4</li><li><span class='xr-has-index'>draw</span>: 5000</li><li><span class='xr-has-index'>k_dim_0</span>: 11</li><li><span class='xr-has-index'>dist_to_edge_dim_0</span>: 11</li><li><span class='xr-has-index'>int_real_dim_0</span>: 11</li><li><span class='xr-has-index'>phi_dim_0</span>: 11</li><li><span class='xr-has-index'>R_dim_0</span>: 11</li><li><span class='xr-has-index'>x_c_dim_0</span>: 11</li><li><span class='xr-has-index'>y_c_dim_0</span>: 11</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-d4726408-3b60-4c4c-9af0-010f12552329' class='xr-section-summary-in' type='checkbox'  checked><label for='section-d4726408-3b60-4c4c-9af0-010f12552329' class='xr-section-summary' >Coordinates: <span>(9)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>chain</span></div><div class='xr-var-dims'>(chain)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2 3</div><input id='attrs-bffdacf4-c9de-4df8-9a85-ffb0998ebaa0' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-bffdacf4-c9de-4df8-9a85-ffb0998ebaa0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-dadc2681-fb8f-4992-81e8-2240f4b88f47' class='xr-var-data-in' type='checkbox'><label for='data-dadc2681-fb8f-4992-81e8-2240f4b88f47' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0, 1, 2, 3])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>draw</span></div><div class='xr-var-dims'>(draw)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 ... 4996 4997 4998 4999</div><input id='attrs-a9065741-988c-4e38-810d-2dd7d3caf281' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-a9065741-988c-4e38-810d-2dd7d3caf281' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-34e513db-70f9-47e3-8aab-9d4f55d135d0' class='xr-var-data-in' type='checkbox'><label for='data-34e513db-70f9-47e3-8aab-9d4f55d135d0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([   0,    1,    2, ..., 4997, 4998, 4999])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>k_dim_0</span></div><div class='xr-var-dims'>(k_dim_0)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 5 6 7 8 9 10</div><input id='attrs-7b35dc90-2084-4ca4-bb28-ff3912314296' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-7b35dc90-2084-4ca4-bb28-ff3912314296' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cd935fb8-4925-44ae-ae8d-536a1fb33cb8' class='xr-var-data-in' type='checkbox'><label for='data-cd935fb8-4925-44ae-ae8d-536a1fb33cb8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>dist_to_edge_dim_0</span></div><div class='xr-var-dims'>(dist_to_edge_dim_0)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 5 6 7 8 9 10</div><input id='attrs-75033b6c-884b-4875-b6f6-3d0039f71ae4' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-75033b6c-884b-4875-b6f6-3d0039f71ae4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0ccabae5-0b03-47eb-80a8-77e9d90fcf08' class='xr-var-data-in' type='checkbox'><label for='data-0ccabae5-0b03-47eb-80a8-77e9d90fcf08' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>int_real_dim_0</span></div><div class='xr-var-dims'>(int_real_dim_0)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 5 6 7 8 9 10</div><input id='attrs-5ee3fba1-074a-4745-bd56-2408df53c08d' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-5ee3fba1-074a-4745-bd56-2408df53c08d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4295b0b3-6b76-45a5-ab3c-1e3ab398d0d5' class='xr-var-data-in' type='checkbox'><label for='data-4295b0b3-6b76-45a5-ab3c-1e3ab398d0d5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>phi_dim_0</span></div><div class='xr-var-dims'>(phi_dim_0)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 5 6 7 8 9 10</div><input id='attrs-c5302c7a-9dd7-4ccc-b8d9-291a0d71c55e' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-c5302c7a-9dd7-4ccc-b8d9-291a0d71c55e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ac2edd8e-4ea8-407c-9219-d5df2bdb139c' class='xr-var-data-in' type='checkbox'><label for='data-ac2edd8e-4ea8-407c-9219-d5df2bdb139c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>R_dim_0</span></div><div class='xr-var-dims'>(R_dim_0)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 5 6 7 8 9 10</div><input id='attrs-451bede3-fb26-489b-9f42-9753d7b613c4' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-451bede3-fb26-489b-9f42-9753d7b613c4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-32bd3e6b-3fc0-4854-a46a-d240cf8d6f20' class='xr-var-data-in' type='checkbox'><label for='data-32bd3e6b-3fc0-4854-a46a-d240cf8d6f20' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x_c_dim_0</span></div><div class='xr-var-dims'>(x_c_dim_0)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 5 6 7 8 9 10</div><input id='attrs-f6511cd1-e0ae-4501-a01d-7711648b3ac8' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-f6511cd1-e0ae-4501-a01d-7711648b3ac8' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cf1d1a06-8c61-4228-bf53-82da59aa8ab7' class='xr-var-data-in' type='checkbox'><label for='data-cf1d1a06-8c61-4228-bf53-82da59aa8ab7' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y_c_dim_0</span></div><div class='xr-var-dims'>(y_c_dim_0)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 5 6 7 8 9 10</div><input id='attrs-f709f3b7-80c2-4307-9e51-ef4dfc82bc8f' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-f709f3b7-80c2-4307-9e51-ef4dfc82bc8f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a8218a1b-e834-4a49-8a6d-9fc0662280bc' class='xr-var-data-in' type='checkbox'><label for='data-a8218a1b-e834-4a49-8a6d-9fc0662280bc' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-d85af397-d87b-4aee-807a-537905692cea' class='xr-section-summary-in' type='checkbox'  checked><label for='section-d85af397-d87b-4aee-807a-537905692cea' class='xr-section-summary' >Data variables: <span>(10)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>int_site</span></div><div class='xr-var-dims'>(chain, draw)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>35.48 36.2 35.33 ... 35.33 35.42</div><input id='attrs-7f66c60b-52de-40f0-9bd9-cc18eb8a879d' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-7f66c60b-52de-40f0-9bd9-cc18eb8a879d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a58941a7-0134-44ed-890c-0fe99776a145' class='xr-var-data-in' type='checkbox'><label for='data-a58941a7-0134-44ed-890c-0fe99776a145' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[35.47530621576275 , 36.20462516790315 , 35.33470016330967 , ...,
-        35.72805633953152 , 35.646273830951785, 36.38750186501885 ],
-       [37.39345031991611 , 36.69322839941203 , 39.186998713811036, ...,
-        35.87794789574819 , 34.943241834137915, 36.440394982790004],
-       [36.85900205272213 , 36.323966885727835, 35.86013348817063 , ...,
-        34.61420554566425 , 35.85893258986497 , 35.35026218031889 ],
-       [36.35067901040376 , 35.31095451609967 , 37.723756140070286, ...,
-        35.282174326948606, 35.33040651029831 , 35.416260872446756]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>sd_site</span></div><div class='xr-var-dims'>(chain, draw)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.59 2.008 1.705 ... 0.8371 0.8883</div><input id='attrs-77960c5d-ad33-42f4-b81d-62edb5833a63' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-77960c5d-ad33-42f4-b81d-62edb5833a63' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3ec59039-6eb7-44ca-ab0a-94059099b47b' class='xr-var-data-in' type='checkbox'><label for='data-3ec59039-6eb7-44ca-ab0a-94059099b47b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[1.590277324440304, 2.007825921593589, 1.705099868647273, ...,
-        0.813695489392881, 1.467935667050146, 1.315882959330576],
-       [1.101376415190976, 3.009644729539023, 3.426709463274277, ...,
-        1.918133816592692, 1.466459714086753, 2.609202480777291],
-       [1.168252213041771, 1.606206969532018, 1.428192551557228, ...,
-        3.414701384788797, 2.100113227620129, 1.856644689800659],
-       [1.464287156799024, 1.008033182347457, 3.010468036638955, ...,
-        0.877894819851982, 0.837138841533364, 0.888299572368028]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>k</span></div><div class='xr-var-dims'>(chain, draw, k_dim_0)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.07466 0.3593 ... -0.1539 0.1162</div><input id='attrs-18b88886-1af1-4bd9-8e8a-fd5d995835e9' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-18b88886-1af1-4bd9-8e8a-fd5d995835e9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4535c6d7-ce01-410a-9d0e-2c5d38955b16' class='xr-var-data-in' type='checkbox'><label for='data-4535c6d7-ce01-410a-9d0e-2c5d38955b16' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[ 7.466000256580087e-02,  3.593432492699885e-01,
-          3.484849094915591e-01, ..., -3.306160786056812e-02,
-         -1.730408230724130e-01,  2.575314351185705e-01],
-        [ 1.291180022334931e-02,  3.430135835121284e-01,
-          4.710216163190057e-01, ..., -9.891391277264620e-02,
-         -6.713530332495597e-02,  1.644299451310610e-01],
-        [ 5.441946015305053e-02,  3.253098507590246e-01,
-          3.436497530521044e-01, ..., -2.004705794023764e-03,
-         -1.316189279049756e-01,  2.537625335916176e-01],
+    created_at:                 2025-08-12T18:23:50.607928+00:00
+    arviz_version:              0.21.0
+    inference_library:          cmdstanpy
+    inference_library_version:  1.2.5</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-d906ac73-188b-4d8a-9a87-1b1657d336af' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-d906ac73-188b-4d8a-9a87-1b1657d336af' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>chain</span>: 4</li><li><span class='xr-has-index'>draw</span>: 10000</li><li><span class='xr-has-index'>k_dim_0</span>: 10</li><li><span class='xr-has-index'>dist_to_edge_dim_0</span>: 10</li><li><span class='xr-has-index'>int_real_dim_0</span>: 10</li><li><span class='xr-has-index'>phi_dim_0</span>: 10</li><li><span class='xr-has-index'>R_dim_0</span>: 10</li><li><span class='xr-has-index'>x_c_dim_0</span>: 10</li><li><span class='xr-has-index'>y_c_dim_0</span>: 10</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-61369cfa-2420-4735-b532-a2462685720e' class='xr-section-summary-in' type='checkbox'  checked><label for='section-61369cfa-2420-4735-b532-a2462685720e' class='xr-section-summary' >Coordinates: <span>(9)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>chain</span></div><div class='xr-var-dims'>(chain)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2 3</div><input id='attrs-0f0c6502-52a8-4eb7-aea6-d02e76cd1f37' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-0f0c6502-52a8-4eb7-aea6-d02e76cd1f37' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bade6e7b-169a-4b7c-8d9d-eab2a31696da' class='xr-var-data-in' type='checkbox'><label for='data-bade6e7b-169a-4b7c-8d9d-eab2a31696da' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0, 1, 2, 3])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>draw</span></div><div class='xr-var-dims'>(draw)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 ... 9996 9997 9998 9999</div><input id='attrs-4649f796-acfd-4fad-9a61-3c7089af827d' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-4649f796-acfd-4fad-9a61-3c7089af827d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6c7eeaa0-a607-477f-92b8-8396714a5c4e' class='xr-var-data-in' type='checkbox'><label for='data-6c7eeaa0-a607-477f-92b8-8396714a5c4e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([   0,    1,    2, ..., 9997, 9998, 9999], shape=(10000,))</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>k_dim_0</span></div><div class='xr-var-dims'>(k_dim_0)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 5 6 7 8 9</div><input id='attrs-fbba6bf2-373d-461b-b7bd-e8c0e041b684' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-fbba6bf2-373d-461b-b7bd-e8c0e041b684' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c1182808-5dcb-4082-980a-55e0f7a79580' class='xr-var-data-in' type='checkbox'><label for='data-c1182808-5dcb-4082-980a-55e0f7a79580' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>dist_to_edge_dim_0</span></div><div class='xr-var-dims'>(dist_to_edge_dim_0)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 5 6 7 8 9</div><input id='attrs-68f5ce54-4674-4665-93d8-afc8d76a1dac' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-68f5ce54-4674-4665-93d8-afc8d76a1dac' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f0058229-ff8f-46a8-b9df-a38b6838daa7' class='xr-var-data-in' type='checkbox'><label for='data-f0058229-ff8f-46a8-b9df-a38b6838daa7' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>int_real_dim_0</span></div><div class='xr-var-dims'>(int_real_dim_0)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 5 6 7 8 9</div><input id='attrs-e5ce5491-38f0-48c3-a4fc-9830866adf30' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-e5ce5491-38f0-48c3-a4fc-9830866adf30' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b4cb0ea0-1c8d-49dc-8a4d-92bffd762949' class='xr-var-data-in' type='checkbox'><label for='data-b4cb0ea0-1c8d-49dc-8a4d-92bffd762949' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>phi_dim_0</span></div><div class='xr-var-dims'>(phi_dim_0)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 5 6 7 8 9</div><input id='attrs-865d5662-ec40-42a6-9301-61aba89ca356' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-865d5662-ec40-42a6-9301-61aba89ca356' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1c816c10-1020-4496-afdb-fc40ef2e238c' class='xr-var-data-in' type='checkbox'><label for='data-1c816c10-1020-4496-afdb-fc40ef2e238c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>R_dim_0</span></div><div class='xr-var-dims'>(R_dim_0)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 5 6 7 8 9</div><input id='attrs-9708f610-fe3f-4228-ac5e-9f3419bb8294' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-9708f610-fe3f-4228-ac5e-9f3419bb8294' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a3a48ede-b28a-4a80-92be-b176d282d942' class='xr-var-data-in' type='checkbox'><label for='data-a3a48ede-b28a-4a80-92be-b176d282d942' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x_c_dim_0</span></div><div class='xr-var-dims'>(x_c_dim_0)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 5 6 7 8 9</div><input id='attrs-beac467f-721a-4bd4-bd6a-069c2dcaa98d' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-beac467f-721a-4bd4-bd6a-069c2dcaa98d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2ff9d4b3-f2a6-453d-88f8-19adea7419fe' class='xr-var-data-in' type='checkbox'><label for='data-2ff9d4b3-f2a6-453d-88f8-19adea7419fe' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y_c_dim_0</span></div><div class='xr-var-dims'>(y_c_dim_0)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 5 6 7 8 9</div><input id='attrs-231fd97a-d072-4f9e-b2a1-ca1a771a1443' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-231fd97a-d072-4f9e-b2a1-ca1a771a1443' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1c91efaa-d7a3-478f-8e8f-8b8a053df04e' class='xr-var-data-in' type='checkbox'><label for='data-1c91efaa-d7a3-478f-8e8f-8b8a053df04e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-b9a5c0f3-6b47-4824-a9aa-c72cd3bf1c2b' class='xr-section-summary-in' type='checkbox'  checked><label for='section-b9a5c0f3-6b47-4824-a9aa-c72cd3bf1c2b' class='xr-section-summary' >Data variables: <span>(10)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>int_site</span></div><div class='xr-var-dims'>(chain, draw)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>36.5 34.2 36.32 ... 36.33 37.26</div><input id='attrs-7ac6d167-510a-4eeb-a729-482491cf3934' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-7ac6d167-510a-4eeb-a729-482491cf3934' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cc8129d7-94a9-496c-8d6b-7afc82f0f175' class='xr-var-data-in' type='checkbox'><label for='data-cc8129d7-94a9-496c-8d6b-7afc82f0f175' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[36.4977, 34.2017, 36.3226, ..., 35.7798, 36.0096, 35.4299],
+       [36.827 , 36.4198, 34.0576, ..., 35.3379, 35.7266, 36.4886],
+       [35.493 , 36.6538, 35.79  , ..., 35.6682, 35.9937, 36.4254],
+       [36.6561, 35.4657, 37.0806, ..., 35.1644, 36.3285, 37.2612]],
+      shape=(4, 10000))</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>sd_site</span></div><div class='xr-var-dims'>(chain, draw)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.7572 1.624 3.225 ... 1.103 2.213</div><input id='attrs-7dd81dda-1644-4183-80ec-55da7b6b8a07' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-7dd81dda-1644-4183-80ec-55da7b6b8a07' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4ba1fd96-e830-4ec4-8a28-2cb6c602a851' class='xr-var-data-in' type='checkbox'><label for='data-4ba1fd96-e830-4ec4-8a28-2cb6c602a851' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[0.757206, 1.62438 , 3.22452 , ..., 1.36494 , 1.90146 , 1.86815 ],
+       [1.45887 , 1.41425 , 1.52028 , ..., 1.74294 , 2.35597 , 1.82271 ],
+       [2.23533 , 0.900743, 1.25724 , ..., 1.16217 , 1.7356  , 0.553311],
+       [3.43942 , 2.42982 , 1.48544 , ..., 1.55284 , 1.10321 , 2.21313 ]],
+      shape=(4, 10000))</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>k</span></div><div class='xr-var-dims'>(chain, draw, k_dim_0)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.01835 0.337 ... -0.06641 -0.1276</div><input id='attrs-b38a1ade-761c-40bb-8223-9b37add02ae5' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-b38a1ade-761c-40bb-8223-9b37add02ae5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-489d0cf2-f155-4c56-b178-6f8291950d29' class='xr-var-data-in' type='checkbox'><label for='data-489d0cf2-f155-4c56-b178-6f8291950d29' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[ 1.83477e-02,  3.37019e-01,  4.32233e-01, ...,  7.17499e-03,
+          5.46733e-04, -1.12214e-01],
+        [ 7.72085e-02,  3.18349e-01,  3.81747e-01, ..., -3.18338e-02,
+         -1.20265e-01, -1.45062e-01],
+        [ 3.68983e-02,  3.76259e-01,  2.76920e-01, ..., -7.27898e-03,
+         -1.92277e-02, -1.56140e-01],
         ...,
-        [-5.714440110989226e-02,  3.651316899292332e-01,
-          6.060333935334007e-01, ..., -8.170472556366269e-02,
-         -1.572565352263702e-01,  5.163761735071891e-01],
-        [ 3.338287526447090e-02,  3.005354756737987e-01,
-          3.653695410556715e-01, ..., -6.886355781454014e-02,
-         -1.262717228556390e-01,  6.797887738115201e-01],
-        [ 7.401757755592027e-03,  3.448085670473749e-01,
-          4.045094405613449e-01, ..., -2.515874122035578e-02,
-         -1.200559131608044e-01,  4.662851604562669e-01]],
+        [ 1.95842e-02,  2.82486e-01,  3.57004e-01, ..., -6.29515e-02,
+         -1.43722e-01, -1.65220e-01],
+        [-1.79720e-02,  3.78225e-01,  2.24665e-01, ..., -1.89587e-02,
+         -1.28820e-01, -1.36761e-01],
+        [ 3.58457e-02,  3.74074e-01,  3.83742e-01, ...,  7.92929e-03,
+         -1.20870e-01, -2.11174e-01]],
 
+       [[ 3.75149e-02,  3.05107e-01,  3.17356e-01, ..., -1.80268e-02,
+         -5.63212e-02, -2.91254e-02],
+        [ 4.08837e-03,  3.26285e-01,  3.79208e-01, ..., -6.17128e-03,
+         -6.18114e-02, -1.05549e-01],
+        [ 3.23776e-02,  3.17421e-01,  3.91406e-01, ..., -2.76009e-02,
+         -1.15427e-01, -1.93895e-01],
 ...
+        [-9.54077e-03,  3.18113e-01,  4.21588e-01, ..., -3.88341e-02,
+         -1.11022e-01, -1.44113e-01],
+        [ 5.47108e-02,  3.47408e-01,  3.56644e-01, ..., -1.75755e-02,
+         -6.55450e-02, -1.04757e-01],
+        [-2.75972e-02,  3.47177e-01,  4.64920e-01, ..., -5.51888e-03,
+         -4.94127e-02, -5.61858e-02]],
 
-       [[ 7.853190122558966e-03,  3.304473373749639e-01,
-          4.163998842892783e-01, ..., -1.101183590007510e-01,
-         -4.936592776505297e-02,  2.063710002241646e-01],
-        [-2.023775640803391e-02,  3.198849517194481e-01,
-          4.064693119837731e-01, ..., -7.782999216204495e-02,
-         -1.604928983553573e-01,  3.148218557700340e-01],
-        [ 5.727139797098667e-02,  3.917381370799954e-01,
-          2.886810486905636e-01, ..., -1.493815015444583e-02,
-         -9.498437030398200e-02,  5.060623904751519e-01],
+       [[ 5.28950e-02,  3.43898e-01,  3.85070e-01, ...,  6.29879e-04,
+         -4.52535e-02, -1.40333e-01],
+        [ 1.31691e-01,  3.48224e-01,  3.37088e-01, ..., -2.57052e-02,
+         -6.86586e-02, -1.69372e-01],
+        [ 1.56000e-02,  3.63638e-01,  4.04150e-01, ...,  1.22358e-02,
+         -9.07226e-02, -2.52137e-02],
         ...,
-        [ 1.001697631797393e-01,  3.054012448589213e-01,
-          5.254520499244051e-01, ..., -1.399472625524000e-01,
-         -1.734229413558423e-01,  3.770544027695566e-01],
-        [ 5.315852004383173e-02,  3.332974804074050e-01,
-          4.247208556122323e-01, ..., -1.448573404355851e-01,
-         -9.276225712454211e-02,  5.680217719767956e-01],
-        [ 8.126811220107102e-02,  3.378137499247758e-01,
-          4.479372945519709e-01, ..., -7.290091084511641e-02,
-         -1.539263788952943e-01,  1.161807701286988e-01]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>dist_to_edge</span></div><div class='xr-var-dims'>(chain, draw, dist_to_edge_dim_0)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.682 0.6053 ... 0.7348 0.1421</div><input id='attrs-6a21de08-5f0b-49f6-80f7-d19c4b84e3e5' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-6a21de08-5f0b-49f6-80f7-d19c4b84e3e5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-50c7c0a6-f9fc-46e9-9b8f-3685d7c45267' class='xr-var-data-in' type='checkbox'><label for='data-50c7c0a6-f9fc-46e9-9b8f-3685d7c45267' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[0.682027506676956, 0.605346081476405, 0.61040376971754 , ...,
-         0.703228582387456, 0.750947916699182, 0.143780149825935],
-        [0.69591115057297 , 0.599564079177928, 0.589057211955752, ...,
-         0.736581439267607, 0.735154651303315, 0.142898302086567],
-        [0.680962444532882, 0.610385364879846, 0.595340281072572, ...,
-         0.705043686897052, 0.746041582668661, 0.144416299200756],
+        [ 4.32213e-02,  3.28507e-01,  2.76834e-01, ...,  3.73611e-02,
+         -9.21663e-02, -1.41003e-01],
+        [ 1.85485e-02,  3.14668e-01,  5.58641e-01, ..., -5.51346e-02,
+         -6.02712e-02, -7.53856e-02],
+        [ 3.73359e-02,  3.70368e-01,  2.98420e-01, ...,  7.33024e-02,
+         -6.64097e-02, -1.27585e-01]]], shape=(4, 10000, 10))</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>dist_to_edge</span></div><div class='xr-var-dims'>(chain, draw, dist_to_edge_dim_0)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.6975 0.6035 ... 0.7202 0.7482</div><input id='attrs-f3a26e77-9092-4a32-bf7f-59f3a7bc4c77' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-f3a26e77-9092-4a32-bf7f-59f3a7bc4c77' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f111330a-6a59-4e04-821d-2a4b9e09bceb' class='xr-var-data-in' type='checkbox'><label for='data-f111330a-6a59-4e04-821d-2a4b9e09bceb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[0.697545, 0.603518, 0.590005, ..., 0.703924, 0.705586,
+         0.741424],
+        [0.679517, 0.604079, 0.591771, ..., 0.708039, 0.734576,
+         0.738287],
+        [0.689874, 0.602198, 0.607157, ..., 0.711001, 0.706012,
+         0.744426],
         ...,
-        [0.707718579477289, 0.601590261491078, 0.566332799373606, ...,
-         0.703853219159293, 0.74446515805047 , 0.140879489834572],
-        [0.685727017612768, 0.607095796165613, 0.590696022160226, ...,
-         0.730972014386482, 0.737009607860527, 0.139371909529748],
-        [0.692342659438421, 0.60587882635213 , 0.591450527202868, ...,
-         0.709057440735817, 0.73977628108699 , 0.138505261251955]],
+        [0.689112, 0.610823, 0.604755, ..., 0.718039, 0.736715,
+         0.746308],
+        [0.697521, 0.600785, 0.613927, ..., 0.710984, 0.745861,
+         0.742974],
+        [0.684814, 0.598865, 0.595792, ..., 0.701235, 0.730013,
+         0.761007]],
 
-       [[0.698001637606354, 0.6015541769097  , 0.577312679540446, ...,
-         0.705396644155324, 0.727295171315574, 0.146690327144014],
-        [0.687458299033726, 0.60667776457411 , 0.592672329751661, ...,
-         0.707901924939436, 0.72773058609463 , 0.137436769207363],
-        [0.686472522713711, 0.609555695490719, 0.59444360828057 , ...,
-         0.706688244124092, 0.736969179198594, 0.1446662904269  ],
+       [[0.68386 , 0.604364, 0.592533, ..., 0.712623, 0.722919,
+         0.732228],
+        [0.688173, 0.606436, 0.598703, ..., 0.708705, 0.721467,
+         0.747256],
+        [0.683451, 0.603843, 0.589022, ..., 0.707826, 0.72303 ,
+         0.743746],
 ...
-        [0.695898228734162, 0.603879677070869, 0.602754641592079, ...,
-         0.723065721546495, 0.754459953599274, 0.146373061657402],
-        [0.684684584542447, 0.605515553912285, 0.582177457235235, ...,
-         0.718675360545659, 0.736030284130141, 0.135101133624859],
-        [0.678172443903572, 0.600506890720743, 0.588582031664797, ...,
-         0.711645302632281, 0.717771876639215, 0.144168632998023]],
+        [0.698115, 0.601414, 0.593366, ..., 0.710051, 0.725787,
+         0.730221],
+        [0.687062, 0.608421, 0.596282, ..., 0.703528, 0.720476,
+         0.745906],
+        [0.702626, 0.605697, 0.592113, ..., 0.713964, 0.713278,
+         0.72822 ]],
 
-       [[0.690176105947168, 0.601450589783009, 0.59131123057804 , ...,
-         0.728575107637534, 0.725298240009879, 0.143237875108868],
-        [0.69700795837202 , 0.5980874220632  , 0.590659405371915, ...,
-         0.725912587221059, 0.753174394447193, 0.13957506619825 ],
-        [0.683739322418362, 0.596626665047623, 0.599017923874786, ...,
-         0.703347713348276, 0.730219150488131, 0.140064724936567],
+       [[0.692174, 0.605549, 0.580272, ..., 0.707702, 0.71591 ,
+         0.741368],
+        [0.673901, 0.598074, 0.604281, ..., 0.714309, 0.722642,
+         0.75243 ],
+        [0.700453, 0.602409, 0.579061, ..., 0.710519, 0.718565,
+         0.715625],
         ...,
-        [0.669174920664814, 0.605683819887175, 0.585292567572585, ...,
-         0.730929238964719, 0.739943754181961, 0.143077177445832],
-        [0.681677590245855, 0.606041268553813, 0.593213521644742, ...,
-         0.731288873505934, 0.741214186869349, 0.141070789960187],
-        [0.669641881774367, 0.602358968683509, 0.596579984242407, ...,
-         0.719343214663603, 0.734795309083423, 0.142059919340269]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>c</span></div><div class='xr-var-dims'>(chain, draw)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-11.33 -12.31 ... -11.25 -10.5</div><input id='attrs-69a098f1-847e-4f0b-928f-72eb168c2c1f' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-69a098f1-847e-4f0b-928f-72eb168c2c1f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-150392bb-5c31-47cc-b505-1ff9159f2c8c' class='xr-var-data-in' type='checkbox'><label for='data-150392bb-5c31-47cc-b505-1ff9159f2c8c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[-11.33254390352577 , -12.312340936880949, -18.287801857923462,
-        ..., -13.928544131270455, -13.489582868415042,
-        -18.747446712175456],
-       [-16.409812353759722, -20.578858194474666, -30.514826501398158,
-        ..., -12.952735021434417, -11.48753143139464 ,
-         -7.898176934341558],
-       [-21.436656523670127, -20.566797119266162, -20.224904539023477,
-        ...,  -9.87825757013199 , -17.19282079874764 ,
-        -16.67277517992497 ],
-       [-19.719627027196136, -12.118861453567918, -19.81552752952966 ,
-        ..., -11.840683398092379, -11.253891051794602,
-        -10.500231945288748]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>int_real</span></div><div class='xr-var-dims'>(chain, draw, int_real_dim_0)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>36.53 32.39 28.67 ... 37.27 34.98</div><input id='attrs-49fdefc7-b6d6-43ee-a293-31f6b45208db' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-49fdefc7-b6d6-43ee-a293-31f6b45208db' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-da2f24a1-9b41-4160-9222-c5e3f7bdf59b' class='xr-var-data-in' type='checkbox'><label for='data-da2f24a1-9b41-4160-9222-c5e3f7bdf59b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[ 36.53021360878778 ,  32.385093479280776,  28.667586873829343,
-         ...,  35.73500858438247 ,  37.668273736668176,
-          30.96647044469029 ],
-        [ 36.606344728048704,  32.36249691406649 ,  28.189558387787827,
-         ...,  38.833663153035616,  37.851087042898726,
-          32.292370911671604],
-        [ 36.322161539141334,  32.18333347778065 ,  27.878262477402473,
-         ...,  36.54143287962051 ,  37.75521693098808 ,
-          29.98693820753384 ],
+        [0.686993, 0.60003 , 0.603324, ..., 0.700508, 0.723172,
+         0.75143 ],
+        [0.692581, 0.607661, 0.580684, ..., 0.713998, 0.716477,
+         0.726811],
+        [0.686158, 0.60384 , 0.608105, ..., 0.718525, 0.720153,
+         0.748222]]], shape=(4, 10000, 10))</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>c</span></div><div class='xr-var-dims'>(chain, draw)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-16.08 -18.26 ... -15.1 -23.17</div><input id='attrs-b9b4d7d8-3f43-4b6f-8fec-e0757b418bfe' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-b9b4d7d8-3f43-4b6f-8fec-e0757b418bfe' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-aeb9658d-4cdc-4b19-bb3a-85c7da4f993f' class='xr-var-data-in' type='checkbox'><label for='data-aeb9658d-4cdc-4b19-bb3a-85c7da4f993f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[-16.0812 , -18.2578 ,  -2.6955 , ..., -17.3378 , -11.2183 ,
+        -15.9182 ],
+       [-17.8348 , -24.3989 , -13.0336 , ..., -11.6405 , -13.2784 ,
+        -21.2234 ],
+       [-13.5699 , -15.8908 , -15.7251 , ..., -15.0354 , -16.2262 ,
+        -15.7836 ],
+       [-22.5969 ,  -9.78089, -20.358  , ..., -19.3579 , -15.1032 ,
+        -23.1681 ]], shape=(4, 10000))</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>int_real</span></div><div class='xr-var-dims'>(chain, draw, int_real_dim_0)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>36.86 32.1 28.4 ... 37.36 38.29</div><input id='attrs-bdacbe7c-609a-4366-87a9-5440f42d5a27' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-bdacbe7c-609a-4366-87a9-5440f42d5a27' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-505cd98b-4799-4cfe-8b57-eac716badfc4' class='xr-var-data-in' type='checkbox'><label for='data-505cd98b-4799-4cfe-8b57-eac716badfc4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[36.8602, 32.0997, 28.402 , ..., 36.1545, 38.3043, 38.1164],
+        [36.3435, 31.5962, 27.9871, ..., 36.0161, 37.663 , 36.298 ],
+        [37.1541, 32.9084, 27.529 , ..., 36.1242, 37.2094, 37.3846],
         ...,
-        [ 36.88478867776304 ,  32.034283803322445,  27.799507681138884,
-         ...,  36.45774756353465 ,  37.387857444675404,
-          28.386372368784713],
-        [ 36.35860077738985 ,  32.13620414442411 ,  27.764641438552076,
-         ...,  37.46297345981474 ,  37.602806178187606,
-          28.81920284440752 ],
-        [ 36.810216402326716,  32.27222200853681 ,  28.00958213889901 ,
-         ...,  36.2884351303764  ,  38.20966147098763 ,
-          27.96583916682062 ]],
+        [37.6268, 31.9365, 30.1975, ..., 36.4193, 37.9501, 38.4136],
+        [36.1763, 32.4391, 27.7848, ..., 36.3325, 38.2308, 38.8194],
+        [35.5684, 31.8202, 27.6918, ..., 35.7576, 38.6205, 38.6714]],
 
+       [[36.0984, 31.9778, 27.3209, ..., 36.5403, 37.5817, 38.2747],
+        [35.602 , 32.0422, 27.8606, ..., 36.8534, 37.8977, 40.2096],
+        [36.4715, 31.9208, 27.548 , ..., 34.7791, 36.8485, 35.3314],
+        ...,
+        [36.3855, 31.8415, 28.2424, ..., 36.0315, 38.192 , 38.4678],
+        [36.2597, 32.427 , 26.9053, ..., 36.2087, 37.4771, 38.3734],
+        [37.3029, 32.0992, 28.0352, ..., 36.2394, 37.8821, 37.4181]],
+
+       [[35.9644, 32.2836, 27.642 , ..., 36.6559, 36.5029, 37.057 ],
+        [37.3574, 32.0924, 27.7501, ..., 36.1247, 38.5478, 38.1156],
+        [35.6661, 32.2955, 27.3873, ..., 36.472 , 36.6574, 36.3941],
+        ...,
+        [36.4275, 32.0273, 28.1212, ..., 36.3772, 37.3182, 35.9966],
+        [36.5407, 32.4078, 27.39  , ..., 36.1397, 37.8817, 39.5556],
+        [36.4633, 31.6944, 28.9387, ..., 36.3524, 37.2446, 37.751 ]],
+
+       [[37.1221, 32.128 , 27.5198, ..., 36.1778, 36.8092, 37.627 ],
+        [36.0156, 32.2748, 28.088 , ..., 36.1854, 38.7618, 37.736 ],
+        [36.6913, 31.959 , 27.281 , ..., 36.3761, 36.6721, 37.7472],
+        ...,
+        [36.5329, 31.6408, 27.8299, ..., 36.1132, 37.35  , 38.2398],
+        [36.8949, 32.1588, 28.1992, ..., 36.1054, 36.9569, 37.0871],
+        [36.5378, 32.1608, 28.1264, ..., 36.7244, 37.3606, 38.2931]]],
+      shape=(4, 10000, 10))</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>phi</span></div><div class='xr-var-dims'>(chain, draw, phi_dim_0)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.7863 0.7721 ... 0.8048 0.796</div><input id='attrs-0b713052-6c7e-4814-9be5-178559b09e93' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-0b713052-6c7e-4814-9be5-178559b09e93' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-dc5f3257-fe08-4583-868e-d809dac69b86' class='xr-var-data-in' type='checkbox'><label for='data-dc5f3257-fe08-4583-868e-d809dac69b86' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[0.786275, 0.772119, 0.727709, ..., 0.789153, 0.792326,
+         0.798335],
+        [0.793333, 0.780023, 0.735024, ..., 0.79107 , 0.800767,
+         0.822743],
+        [0.782304, 0.759688, 0.743241, ..., 0.789572, 0.806822,
+         0.808021],
+        ...,
+        [0.775984, 0.774667, 0.69739 , ..., 0.785504, 0.796971,
+         0.794452],
+        [0.795639, 0.766863, 0.738635, ..., 0.786697, 0.793288,
+         0.789199],
+        [0.804108, 0.77649 , 0.740304, ..., 0.794672, 0.788216,
+         0.791108]],
+
+       [[0.796715, 0.774022, 0.747023, ..., 0.783846, 0.801847,
+         0.796263],
+        [0.803637, 0.773015, 0.737279, ..., 0.77958 , 0.797662,
+         0.771608],
+        [0.791575, 0.774912, 0.742898, ..., 0.808538, 0.811688,
+         0.836186],
 ...
+        [0.79218 , 0.773247, 0.732647, ..., 0.786083, 0.805363,
+         0.826898],
+        [0.790628, 0.767345, 0.745763, ..., 0.789358, 0.797872,
+         0.779806],
+        [0.791689, 0.77847 , 0.718422, ..., 0.786424, 0.806348,
+         0.803149]],
 
-       [[ 36.326264732589735,  31.304287238193638,  27.61382289581685 ,
-         ...,  37.939812177724235,  37.66395363234445 ,
-          31.48640543181778 ],
-        [ 36.53144750587692 ,  31.3315109200752  ,  28.349992939493653,
-         ...,  37.63648205444313 ,  38.03843050823706 ,
-          31.092119487495125],
-        [ 36.767240391774614,  32.56043223820788 ,  27.212208815814723,
-         ...,  37.15715909031189 ,  37.52689676254254 ,
-          30.500651126985648],
+       [[0.782735, 0.771679, 0.743408, ..., 0.788832, 0.812222,
+         0.804792],
+        [0.797864, 0.7694  , 0.733235, ..., 0.788726, 0.786391,
+         0.803348],
+        [0.788571, 0.774315, 0.747751, ..., 0.786098, 0.814084,
+         0.8032  ],
         ...,
-        [ 36.35930986033491 ,  31.989357919835285,  30.267236291377476,
-         ...,  37.80704486537618 ,  37.832812311917316,
-          31.589799080629213],
-        [ 36.47083525221718 ,  32.013010454423   ,  30.19080828027667 ,
-         ...,  36.43712665979566 ,  36.91079332834062 ,
-          29.88870093195837 ],
-        [ 35.7438248777454  ,  32.198860298481215,  28.868019336396976,
-         ...,  37.567683679526176,  37.26751930339625 ,
-          34.98480623751454 ]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>phi</span></div><div class='xr-var-dims'>(chain, draw, phi_dim_0)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.7908 0.7677 ... 0.8096 0.6747</div><input id='attrs-a60024b3-2b5f-4aa4-8d6c-e8568efd63f6' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-a60024b3-2b5f-4aa4-8d6c-e8568efd63f6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-179fbcd0-0229-40c5-9783-f408c1fd2257' class='xr-var-data-in' type='checkbox'><label for='data-179fbcd0-0229-40c5-9783-f408c1fd2257' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[0.790771345330656, 0.767695461332533, 0.723089445709305, ...,
-         0.826994825668704, 0.804245313532395, 0.734855088596735],
-        [0.789730449380127, 0.76804424159975 , 0.731440316412935, ...,
-         0.785464573196539, 0.801826069588193, 0.714049179328789],
-        [0.793626888560237, 0.7708185853779  , 0.736963396381679, ...,
-         0.815866056927455, 0.803093349207178, 0.750867833928637],
+        [0.790735, 0.779317, 0.737828, ..., 0.789724, 0.804936,
+         0.79672 ],
+        [0.785804, 0.7712  , 0.73127 , ..., 0.789833, 0.810222,
+         0.812012],
+        [0.790668, 0.771168, 0.732555, ..., 0.781334, 0.804796,
+         0.796024]]], shape=(4, 10000, 10))</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>R</span></div><div class='xr-var-dims'>(chain, draw, R_dim_0)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>54.5 2.967 2.314 ... -15.06 -7.838</div><input id='attrs-489b3d07-9b2b-4ee3-b762-7d2e60b5802a' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-489b3d07-9b2b-4ee3-b762-7d2e60b5802a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-78fabcb8-5efa-44d0-8f02-60b93555eb54' class='xr-var-data-in' type='checkbox'><label for='data-78fabcb8-5efa-44d0-8f02-60b93555eb54' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[ 5.45026e+01,  2.96719e+00,  2.31357e+00, ...,  1.39373e+02,
+          1.82905e+03, -8.91152e+00],
+        [ 1.29519e+01,  3.14121e+00,  2.61954e+00, ..., -3.14132e+01,
+         -8.31500e+00, -6.89359e+00],
+        [ 2.71016e+01,  2.65774e+00,  3.61116e+00, ..., -1.37382e+02,
+         -5.20084e+01, -6.40452e+00],
         ...,
-        [0.785941675235571, 0.773138760668207, 0.738371431440649, ...,
-         0.817010235906425, 0.807978204446875, 0.778266949890538],
-        [0.793125592205912, 0.771551026849053, 0.738996190096757, ...,
-         0.803427868004038, 0.805114424128652, 0.77070245112223 ],
-        [0.786953577247355, 0.769440160892732, 0.734625247961855, ...,
-         0.819332680820834, 0.797113602684481, 0.785729432214863]],
+        [ 5.10616e+01,  3.54000e+00,  2.80109e+00, ..., -1.58852e+01,
+         -6.95789e+00, -6.05253e+00],
+        [-5.56422e+01,  2.64393e+00,  4.45107e+00, ..., -5.27463e+01,
+         -7.76277e+00, -7.31202e+00],
+        [ 2.78973e+01,  2.67327e+00,  2.60592e+00, ...,  1.26115e+02,
+         -8.27337e+00, -4.73543e+00]],
 
-       [[0.78161058509719 , 0.76853024957999 , 0.742035859246717, ...,
-         0.80773773558293 , 0.806847181230277, 0.698119374146483],
-        [0.788466452065759, 0.76225076902998 , 0.750300366237072, ...,
-         0.804912608758947, 0.814815625908462, 0.715321418210965],
-        [0.803409255550137, 0.758342064060258, 0.74902168813673 , ...,
-         0.803905149612538, 0.797814950790367, 0.765199068993915],
+       [[ 2.66561e+01,  3.27754e+00,  3.15104e+00, ..., -5.54728e+01,
+         -1.77553e+01, -3.43343e+01],
+        [ 2.44597e+02,  3.06480e+00,  2.63707e+00, ..., -1.62041e+02,
+         -1.61782e+01, -9.47431e+00],
+        [ 3.08855e+01,  3.15039e+00,  2.55489e+00, ..., -3.62307e+01,
+         -8.66351e+00, -5.15743e+00],
 ...
-        [0.784624559606819, 0.772192251870418, 0.738762966389151, ...,
-         0.795575261747091, 0.81278181568012 , 0.68238985726028 ],
-        [0.7999413495569  , 0.7825452636409  , 0.7437107120019  , ...,
-         0.808508867631189, 0.805997154869789, 0.766936436709031],
-        [0.794434275987399, 0.777613659503591, 0.749138329201384, ...,
-         0.816116687388485, 0.793624881862073, 0.742570401876425]],
+        [-1.04813e+02,  3.14354e+00,  2.37199e+00, ..., -2.57506e+01,
+         -9.00719e+00, -6.93901e+00],
+        [ 1.82779e+01,  2.87846e+00,  2.80391e+00, ..., -5.68972e+01,
+         -1.52567e+01, -9.54587e+00],
+        [-3.62356e+01,  2.88037e+00,  2.15091e+00, ..., -1.81196e+02,
+         -2.02377e+01, -1.77981e+01]],
 
-       [[0.793570416014165, 0.784663351171017, 0.741708563649814, ...,
-         0.797106734722755, 0.8043026200315  , 0.726579492513296],
-        [0.790754457868109, 0.784228717396404, 0.728620129394629, ...,
-         0.801118797500547, 0.799358572535589, 0.732841154385349],
-        [0.787537665383935, 0.764997635707058, 0.749010399309368, ...,
-         0.807522858221179, 0.80612397636656 , 0.742400378787707],
+       [[ 1.89054e+01,  2.90784e+00,  2.59693e+00, ...,  1.58761e+03,
+         -2.20977e+01, -7.12592e+00],
+        [ 7.59351e+00,  2.87171e+00,  2.96658e+00, ..., -3.89026e+01,
+         -1.45648e+01, -5.90415e+00],
+        [ 6.41025e+01,  2.74999e+00,  2.47433e+00, ...,  8.17272e+01,
+         -1.10226e+01, -3.96610e+01],
         ...,
-        [0.793115842223216, 0.773840269425828, 0.696254242271355, ...,
-         0.798858956977568, 0.802067398628691, 0.724951949691256],
-        [0.791584681533648, 0.773470814151441, 0.697498631864034, ...,
-         0.817292551164199, 0.814390610166271, 0.752504795374362],
-        [0.801649668900926, 0.770577523215477, 0.719634345248144, ...,
-         0.802033140143088, 0.809588357731439, 0.674680438089448]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>R</span></div><div class='xr-var-dims'>(chain, draw, R_dim_0)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>13.39 2.783 2.87 ... -6.497 8.607</div><input id='attrs-5812567e-30fc-40c5-80e2-eb2d48cdbaf4' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-5812567e-30fc-40c5-80e2-eb2d48cdbaf4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f0da7cf1-aa21-4c8b-ae00-434d11cb852a' class='xr-var-data-in' type='checkbox'><label for='data-f0da7cf1-aa21-4c8b-ae00-434d11cb852a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[ 1.339405258014370e+01,  2.782854560455820e+00,
-          2.869564715037457e+00, ..., -3.024656284767925e+01,
-         -5.778983145390647e+00,  3.883021113673320e+00],
-        [ 7.744853410848400e+01,  2.915336441667890e+00,
-          2.123044814407704e+00, ..., -1.010980126019786e+01,
-         -1.489529279639485e+01,  6.081617306403265e+00],
-        [ 1.837577949482735e+01,  3.073992372707941e+00,
-          2.909939527436178e+00, ..., -4.988263130585564e+02,
-         -7.597691425673714e+00,  3.940692055074250e+00],
+        [ 2.31368e+01,  3.04407e+00,  3.61227e+00, ...,  2.67658e+01,
+         -1.08499e+01, -7.09202e+00],
+        [ 5.39127e+01,  3.17796e+00,  1.79006e+00, ..., -1.81374e+01,
+         -1.65917e+01, -1.32651e+01],
+        [ 2.67839e+01,  2.70001e+00,  3.35098e+00, ...,  1.36421e+01,
+         -1.50580e+01, -7.83790e+00]]], shape=(4, 10000, 10))</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>x_c</span></div><div class='xr-var-dims'>(chain, draw, x_c_dim_0)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>39.0 2.558 2.168 ... -9.94 -4.96</div><input id='attrs-394a0682-88bd-4683-b532-27c61c9c6596' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-394a0682-88bd-4683-b532-27c61c9c6596' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f2d98a70-183c-4b55-8dd2-91ebda577cee' class='xr-var-data-in' type='checkbox'><label for='data-f2d98a70-183c-4b55-8dd2-91ebda577cee' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[  38.9981 ,    2.55818,    2.1681 , ...,   98.6768 ,
+         1284.84   ,   -5.70191],
+        [   9.56211,    2.66252,    2.3822 , ...,  -21.5883 ,
+           -5.27716,   -4.18692],
+        [  19.7122 ,    2.36362,    3.10586, ...,  -96.2367 ,
+          -35.4909 ,   -3.91073],
         ...,
-        [-1.749952717287101e+01,  2.738737906298442e+00,
-          1.650074089431982e+00, ..., -1.223919416045061e+01,
-         -6.359036198785020e+00,  1.936572698945564e+00],
-        [ 2.995547843250911e+01,  3.327394204487860e+00,
-          2.736955021238701e+00, ..., -1.452146870908340e+01,
-         -7.919429444573722e+00,  1.471045181274592e+00],
-        [ 1.351030434959183e+02,  2.900159959954258e+00,
-          2.472130189624950e+00, ..., -3.974761659342902e+01,
-         -8.329452283292268e+00,  2.144610390391762e+00]],
+        [  36.9361 ,    2.9664 ,    2.61065, ...,  -10.7237 ,
+           -4.34783,   -3.71794],
+        [ -38.4519 ,    2.33649,    3.745  , ...,  -36.7467 ,
+           -4.9224 ,   -4.62733],
+        [  19.829  ,    2.33427,    2.36371, ...,   88.8369 ,
+           -5.3189 ,   -2.79425]],
 
+       [[  19.1122 ,    2.77597,    2.74671, ...,  -38.7813 ,
+          -11.844  ,  -23.5007 ],
+        [ 170.25   ,    2.6279 ,    2.39545, ..., -114.741  ,
+          -10.7947 ,   -6.25547],
+        [  22.1843 ,    2.68234,    2.31553, ...,  -24.5305 ,
+           -5.46523,   -2.95849],
 ...
+        [ -73.1197 ,    2.68006,    2.20446, ...,  -17.6942 ,
+           -5.73777,   -4.20435],
+        [  13.34   ,    2.50971,    2.49768, ...,  -39.5773 ,
+          -10.1497 ,   -6.25722],
+        [ -24.967  ,    2.48204,    2.06507, ..., -127.489  ,
+          -13.5136 ,  -11.8541 ]],
 
-       [[ 1.273367872665420e+02,  3.026200809919930e+00,
-          2.401537651017422e+00, ..., -9.081137869055787e+00,
-         -2.025688658702608e+01,  4.845642066539285e+00],
-        [-4.941259198094821e+01,  3.126123922443966e+00,
-          2.460210329580605e+00, ..., -1.284851729032636e+01,
-         -6.230805289501582e+00,  3.176399546829633e+00],
-        [ 1.746072272422255e+01,  2.552725673976934e+00,
-          3.464030647442663e+00, ..., -6.694269301493023e+01,
-         -1.052804789671883e+01,  1.976040936496151e+00],
+       [[  13.8944 ,    2.51819,    2.33895, ..., 1119.25   ,
+          -14.7083 ,   -4.42616],
+        [   5.77262,    2.49245,    2.6532 , ...,  -26.9132 ,
+           -9.77818,   -3.57684],
+        [  45.677  ,    2.39663,    2.23881, ...,   58.2514 ,
+           -7.07408,  -27.044  ],
         ...,
-        [ 9.983052452721216e+00,  3.274380890169408e+00,
-          1.903123225314025e+00, ..., -7.145548842911975e+00,
-         -5.766249794761146e+00,  2.652137178759235e+00],
-        [ 1.881165990278609e+01,  3.000322711043760e+00,
-          2.354487628252930e+00, ..., -6.903343641357810e+00,
-         -1.078024652480594e+01,  1.760495898810110e+00],
-        [ 1.230494929580536e+01,  2.960211063707974e+00,
-          2.232455328374042e+00, ..., -1.371724973539188e+01,
-         -6.496612258255180e+00,  8.607276392575583e+00]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>x_c</span></div><div class='xr-var-dims'>(chain, draw, x_c_dim_0)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>9.9 2.438 2.609 ... -3.974 6.832</div><input id='attrs-76f18a5d-ec27-4e80-933c-059d284f724e' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-76f18a5d-ec27-4e80-933c-059d284f724e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-314c6554-0949-44c2-a747-4ca0a5bc66fe' class='xr-var-data-in' type='checkbox'><label for='data-314c6554-0949-44c2-a747-4ca0a5bc66fe' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[ 9.899667411401030e+00,  2.437854518227931e+00,
-          2.609158610533229e+00, ..., -2.000350570249583e+01,
-         -3.487721971246479e+00,  2.987596291072272e+00],
-        [ 5.501656254019534e+01,  2.528165197364825e+00,
-          2.018381928318804e+00, ..., -6.627427126981362e+00,
-         -9.846897851253292e+00,  4.703967745499675e+00],
-        [ 1.336381317456286e+01,  2.642953674338658e+00,
-          2.595704201242419e+00, ..., -3.413315648587600e+02,
-         -4.758363564809489e+00,  2.986610642943234e+00],
+        [  16.7558 ,    2.59239,    3.11925, ...,   19.3374 ,
+           -7.01945,   -4.43243],
+        [  38.5961 ,    2.71457,    1.76461, ...,  -12.2655 ,
+          -10.9434 ,   -8.62686],
+        [  19.3216 ,    2.36918,    2.94345, ...,   10.1957 ,
+           -9.93986,   -4.95961]]], shape=(4, 10000, 10))</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>y_c</span></div><div class='xr-var-dims'>(chain, draw, y_c_dim_0)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>39.07 2.491 1.931 ... -10.33 -5.066</div><input id='attrs-bd5731b2-0a35-449f-8037-fc5b94625088' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-bd5731b2-0a35-449f-8037-fc5b94625088' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-542e1fbf-e090-4923-8f22-80f965f5a069' class='xr-var-data-in' type='checkbox'><label for='data-542e1fbf-e090-4923-8f22-80f965f5a069' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[  39.0666 ,    2.49112,    1.93134, ...,   99.4206 ,
+         1302.76   ,   -5.85138],
+        [   9.71507,    2.63405,    2.15352, ...,  -21.8346 ,
+           -5.44191,   -4.51193],
+        [  19.5906 ,    2.24511,    2.85444, ...,  -97.0435 ,
+          -37.0451 ,   -4.0918 ],
         ...,
-        [-1.186714652823309e+01,  2.390746807623729e+00,
-          1.639178518944277e+00, ..., -7.894834733173369e+00,
-         -3.879451773089634e+00,  1.479418703527211e+00],
-        [ 2.149853179518732e+01,  2.820360790052892e+00,
-          2.459616775046710e+00, ..., -9.573964332116299e+00,
-         -4.977623441889333e+00,  1.155347831301683e+00],
-        [ 9.587236861379191e+01,  2.518388644760578e+00,
-          2.273428121462471e+00, ..., -2.665197423555286e+01,
-         -5.303471134770243e+00,  1.613871668386699e+00]],
+        [  36.2472 ,    2.90341,    2.1873 , ...,  -10.726  ,
+           -4.44965,   -3.78589],
+        [ -39.2476 ,    2.25144,    3.41016, ...,  -36.8423 ,
+           -5.0007 ,   -4.66264],
+        [  20.5852 ,    2.29305,    2.15959, ...,   90.5002 ,
+           -5.34897,   -2.82634]],
 
+       [[  19.5498 ,    2.71352,    2.54359, ...,  -38.6612 ,
+          -12.2402 ,  -24.017  ],
+        [ 176.577  ,    2.56361,    2.17534, ..., -113.413  ,
+          -11.0628 ,   -6.08528],
+        [  22.4601 ,    2.62666,    2.12662, ...,  -25.6929 ,
+           -5.76042,   -3.27536],
 ...
+        [ -74.1182 ,    2.61571,    1.98335, ...,  -17.7185 ,
+           -5.97157,   -4.56864],
+        [  13.4802 ,    2.42069,    2.30714, ...,  -39.892  ,
+          -10.4061 ,   -6.18762],
+        [ -25.2831 ,    2.44789,    1.80545, ..., -127.751  ,
+          -14.092  ,  -12.2826 ]],
 
-       [[ 8.978589553101412e+01,  2.567021105779566e+00,
-          2.206673622977558e+00, ..., -5.836597891660182e+00,
-         -1.354737841825451e+01,  3.728943656762362e+00],
-        [-3.426211763583834e+01,  2.636492931590121e+00,
-          2.276235257566534e+00, ..., -8.436165433512649e+00,
-         -3.818821843372677e+00,  2.464686726431204e+00],
-        [ 1.280259284562705e+01,  2.271892371342285e+00,
-          2.975626687367294e+00, ..., -4.579062865450670e+01,
-         -6.783042727294503e+00,  1.559247984076956e+00],
+       [[  13.8206 ,    2.45003,    2.15033, ..., 1126.96   ,
+          -15.5193 ,   -4.60126],
+        [   5.91836,    2.41394,    2.3899 , ...,  -27.0929 ,
+           -9.79761,   -3.70761],
+        [  45.9678 ,    2.34409,    2.07628, ...,   58.3331 ,
+           -7.49204,  -28.0244 ],
         ...,
-        [ 7.473906887645565e+00,  2.775146580680945e+00,
-          1.909236766739669e+00, ..., -4.474356190780584e+00,
-         -3.494399344843348e+00,  2.092305393802325e+00],
-        [ 1.369833373024688e+01,  2.580318064316836e+00,
-          2.259269137972144e+00, ..., -4.222909036259529e+00,
-         -6.889905698158736e+00,  1.388104148735176e+00],
-        [ 9.024118299721296e+00,  2.556174335834699e+00,
-          2.127566914375123e+00, ..., -9.036752719139354e+00,
-         -3.974481290448988e+00,  6.832414512249905e+00]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>y_c</span></div><div class='xr-var-dims'>(chain, draw, y_c_dim_0)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>10.01 2.353 2.303 ... -4.172 5.465</div><input id='attrs-c012ebe7-5a5b-4e3c-84ae-8f5d5856ab91' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-c012ebe7-5a5b-4e3c-84ae-8f5d5856ab91' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-75aba783-8c69-4070-80a7-d242aefe4347' class='xr-var-data-in' type='checkbox'><label for='data-75aba783-8c69-4070-80a7-d242aefe4347' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[ 1.000662859080087e+01,  2.353033985718354e+00,
-          2.302709708141324e+00, ..., -2.174093740207586e+01,
-         -3.621730761976517e+00,  2.699888297187571e+00],
-        [ 5.549533467875048e+01,  2.441906305793792e+00,
-          1.811527475044425e+00, ..., -6.628307437651891e+00,
-         -1.017585942292147e+01,  4.076430057002357e+00],
-        [ 1.358557730752548e+01,  2.566989518586371e+00,
-          2.355696549980833e+00, ..., -3.627913475146607e+02,
-         -4.929815590490652e+00,  2.787161124446458e+00],
-        ...,
-        [-1.188005341379476e+01,  2.332835607231044e+00,
-          1.491828837292171e+00, ..., -8.410450354630896e+00,
-         -4.058726636733095e+00,  1.458467653505297e+00],
-        [ 2.183338274495958e+01,  2.743314888811416e+00,
-          2.241327014637264e+00, ..., -9.925573336276925e+00,
-         -5.177877903307974e+00,  1.121879937899422e+00],
-        [ 9.617107588804262e+01,  2.439267637022586e+00,
-          2.053546051361614e+00, ..., -2.852510070211414e+01,
-         -5.429215020710594e+00,  1.614941273470726e+00]],
-
-...
-
-       [[ 9.126552642742222e+01,  2.563251318199006e+00,
-          2.021815013724626e+00, ..., -5.974899976945124e+00,
-         -1.406952313868211e+01,  3.314197078761465e+00],
-        [-3.463113370608384e+01,  2.630333659487176e+00,
-          2.031393411395308e+00, ..., -8.705668128647980e+00,
-         -3.926963197056226e+00,  2.218334279318437e+00],
-        [ 1.285749273346446e+01,  2.181037644873692e+00,
-          2.766588062996063e+00, ..., -4.786302532652189e+01,
-         -7.070203639228628e+00,  1.430611370882935e+00],
-        ...,
-        [ 7.590168894637248e+00,  2.711727052998022e+00,
-          1.595941141401196e+00, ..., -4.596464004141436e+00,
-         -3.612883285178360e+00,  1.853505175660594e+00],
-        [ 1.386888097980603e+01,  2.519488011541049e+00,
-          1.893315882602442e+00, ..., -4.501255305894201e+00,
-         -7.301463534978198e+00,  1.299662550089454e+00],
-        [ 9.322301493620820e+00,  2.481507203397542e+00,
-          1.864644691325177e+00, ..., -9.342519693033466e+00,
-         -4.171574406340354e+00,  5.465253684121734e+00]]])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-219c48dd-d760-4ede-b3df-deaa1317c5e4' class='xr-section-summary-in' type='checkbox'  ><label for='section-219c48dd-d760-4ede-b3df-deaa1317c5e4' class='xr-section-summary' >Attributes: <span>(11)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>created_at :</span></dt><dd>2024-03-27T13:28:47.732522</dd><dt><span>arviz_version :</span></dt><dd>0.11.4</dd><dt><span>inference_library :</span></dt><dd>pystan</dd><dt><span>inference_library_version :</span></dt><dd>2.19.0.0</dd><dt><span>args :</span></dt><dd>[{&quot;random_seed&quot;: &quot;1740123703&quot;, &quot;chain_id&quot;: 0, &quot;init&quot;: &quot;user&quot;, &quot;init_radius&quot;: 2.0, &quot;enable_random_init&quot;: false, &quot;append_samples&quot;: false, &quot;method&quot;: &quot;SAMPLING&quot;, &quot;iter&quot;: 10000, &quot;warmup&quot;: 5000, &quot;thin&quot;: 1, &quot;refresh&quot;: 1000, &quot;test_grad&quot;: false, &quot;sampler_t&quot;: &quot;NUTS&quot;, &quot;control&quot;: {&quot;adapt_engaged&quot;: true, &quot;adapt_gamma&quot;: 0.05, &quot;adapt_delta&quot;: 0.8, &quot;adapt_kappa&quot;: 0.75, &quot;adapt_init_buffer&quot;: 75, &quot;adapt_term_buffer&quot;: 50, &quot;adapt_window&quot;: 25, &quot;adapt_t0&quot;: 10.0, &quot;stepsize&quot;: 1.0, &quot;stepsize_jitter&quot;: 0.0}}, {&quot;random_seed&quot;: &quot;1740123703&quot;, &quot;chain_id&quot;: 1, &quot;init&quot;: &quot;user&quot;, &quot;init_radius&quot;: 2.0, &quot;enable_random_init&quot;: false, &quot;append_samples&quot;: false, &quot;method&quot;: &quot;SAMPLING&quot;, &quot;iter&quot;: 10000, &quot;warmup&quot;: 5000, &quot;thin&quot;: 1, &quot;refresh&quot;: 1000, &quot;test_grad&quot;: false, &quot;sampler_t&quot;: &quot;NUTS&quot;, &quot;control&quot;: {&quot;adapt_engaged&quot;: true, &quot;adapt_gamma&quot;: 0.05, &quot;adapt_delta&quot;: 0.8, &quot;adapt_kappa&quot;: 0.75, &quot;adapt_init_buffer&quot;: 75, &quot;adapt_term_buffer&quot;: 50, &quot;adapt_window&quot;: 25, &quot;adapt_t0&quot;: 10.0, &quot;stepsize&quot;: 1.0, &quot;stepsize_jitter&quot;: 0.0}}, {&quot;random_seed&quot;: &quot;1740123703&quot;, &quot;chain_id&quot;: 2, &quot;init&quot;: &quot;user&quot;, &quot;init_radius&quot;: 2.0, &quot;enable_random_init&quot;: false, &quot;append_samples&quot;: false, &quot;method&quot;: &quot;SAMPLING&quot;, &quot;iter&quot;: 10000, &quot;warmup&quot;: 5000, &quot;thin&quot;: 1, &quot;refresh&quot;: 1000, &quot;test_grad&quot;: false, &quot;sampler_t&quot;: &quot;NUTS&quot;, &quot;control&quot;: {&quot;adapt_engaged&quot;: true, &quot;adapt_gamma&quot;: 0.05, &quot;adapt_delta&quot;: 0.8, &quot;adapt_kappa&quot;: 0.75, &quot;adapt_init_buffer&quot;: 75, &quot;adapt_term_buffer&quot;: 50, &quot;adapt_window&quot;: 25, &quot;adapt_t0&quot;: 10.0, &quot;stepsize&quot;: 1.0, &quot;stepsize_jitter&quot;: 0.0}}, {&quot;random_seed&quot;: &quot;1740123703&quot;, &quot;chain_id&quot;: 3, &quot;init&quot;: &quot;user&quot;, &quot;init_radius&quot;: 2.0, &quot;enable_random_init&quot;: false, &quot;append_samples&quot;: false, &quot;method&quot;: &quot;SAMPLING&quot;, &quot;iter&quot;: 10000, &quot;warmup&quot;: 5000, &quot;thin&quot;: 1, &quot;refresh&quot;: 1000, &quot;test_grad&quot;: false, &quot;sampler_t&quot;: &quot;NUTS&quot;, &quot;control&quot;: {&quot;adapt_engaged&quot;: true, &quot;adapt_gamma&quot;: 0.05, &quot;adapt_delta&quot;: 0.8, &quot;adapt_kappa&quot;: 0.75, &quot;adapt_init_buffer&quot;: 75, &quot;adapt_term_buffer&quot;: 50, &quot;adapt_window&quot;: 25, &quot;adapt_t0&quot;: 10.0, &quot;stepsize&quot;: 1.0, &quot;stepsize_jitter&quot;: 0.0}}]</dd><dt><span>inits :</span></dt><dd>[[151.70018429346518, 0.14569268341277394, 1.3055181448695068, 1.4749318355899947, -0.7136735587268723, -1.5374663752606643, 0.32659507360643536, 1.9295403053706819, 1.7858916137305454, 1.168268922935765, -0.38503583013689213, 0.05581037737414807, 1.3465363959791743, 0.686881804858551, 0.6031349145927334, 0.5982421975602081, 0.7074054252944251, 0.6940047596969237, 0.7169314848654054, 0.7139566769585599, 0.7079362412698629, 0.717734751597618, 0.7388191303778147, 0.1377258986127552, 1.103950676945857, 36.62868537574278, 32.127980592548184, 27.550051923790715, 38.46063970032929, 35.16905455640524, 36.46790149122083, 36.23007264895051, 36.28828107881769, 38.344843240271736, 38.274495444603296, 31.696787685280157, 0.7894254059137421, 0.7716789430060031, 0.7428602967167011, 0.7172721538214923, 0.7925808593670506, 0.7944007321978873, 0.8111324648054936, 0.7873066739389413, 0.7917981106533943, 0.7962661402598282, 0.7232740903654105, 0.7659793959431755, 0.6779974340983596, -1.4012008540486038, -0.6504207286032246, 3.0618955422611602, 0.5182581556947011, 0.5599443954558373, 0.8559673037326724, -2.5971608918693856, 17.917814697723404, 0.7426460977854371, 1.0231823884224813, 0.918239935874345, -0.59140866124727, 0.042943760295694924, 2.6366782627710887, 0.8655127416440838, 0.8773073386174292, 1.1037342688212177, -1.3204225684264552, 13.048083162101353, 0.6599645446610277, 1.031456964112949, 0.8933843042208848, -0.5431191392607715, 0.037457831072474086, 2.6748298669035493, 0.8812384139373104, 0.9236643199271878, 1.1079553068157528, -1.3374329357118873, 13.334823268072885, 0.5826677027538948], [35.57630473884818, 6.65789908407185, 1.2880945386253906, -0.24586859771269354, -1.8992832504857142, 0.9500142679089807, 1.8341844257618583, 1.6454630445269038, 0.7629917495033194, 0.3450961064911753, -1.6200254109325751, 0.253233604961117, -0.6673508590982173, 0.686881804858551, 0.6031349145927334, 0.5982421975602081, 0.7074054252944251, 0.6940047596969237, 0.7169314848654054, 0.7139566769585599, 0.7079362412698629, 0.717734751597618, 0.7388191303778147, 0.1377258986127552, -1.5244951039117662, 36.62868537574278, 32.127980592548184, 27.550051923790715, 38.46063970032929, 35.16905455640524, 36.46790149122083, 36.23007264895051, 36.28828107881769, 38.344843240271736, 38.274495444603296, 31.696787685280157, 0.7894254059137421, 0.7716789430060031, 0.7428602967167011, 0.7172721538214923, 0.7925808593670506, 0.7944007321978873, 0.8111324648054936, 0.7873066739389413, 0.7917981106533943, 0.7962661402598282, 0.7232740903654105, 0.7763405324792115, -4.067213175260944, -0.5265144099724275, 1.0526157698673726, 0.5452014453697227, 0.6077316675851056, 1.310630161664218, 2.89774350156446, -0.6172742682007348, 3.9489229723422605, -1.4984621453118188, 1.0304792536852214, -2.4828465249429588, 0.05283016066734559, 1.3263548410189587, 0.8699347163945947, 0.9282079440954845, 1.3942879314997818, 2.5447300169360934, 0.0705802088573134, 3.278514728988524, -1.0200661551373573, 1.0388128398361922, -2.415638907124318, 0.0485164882910978, 1.1569172153288823, 0.882522298804475, 0.9450727379298167, 1.467962203600158, 2.5544618902599074, 0.07148945965660575, 3.3505622204966943, -0.9005932334988663], [189.50572110397235, 0.19215489987560164, -0.39827204973036245, -0.4568695050155638, 0.14458656517530066, 1.5064708765393569, -1.487999876946206, 1.7706779503628165, -0.19456824880692625, -0.06966850813082037, 1.6574783579181593, 0.05656984488712924, -0.8301773999795581, 0.686881804858551, 0.6031349145927334, 0.5982421975602081, 0.7074054252944251, 0.6940047596969237, 0.7169314848654054, 0.7139566769585599, 0.7079362412698629, 0.717734751597618, 0.7388191303778147, 0.1377258986127552, 1.1754670129577458, 36.62868537574278, 32.127980592548184, 27.550051923790715, 38.46063970032929, 35.16905455640524, 36.46790149122083, 36.23007264895051, 36.28828107881769, 38.344843240271736, 38.274495444603296, 31.696787685280157, 0.7894254059137421, 0.7716789430060031, 0.7428602967167011, 0.7172721538214923, 0.7925808593670506, 0.7944007321978873, 0.8111324648054936, 0.7873066739389413, 0.7917981106533943, 0.7962661402598282, 0.7232740903654105, -2.5108465449107427, -2.188808815256632, 6.916271914942947, 0.6638030748375207, -0.6720430663289308, 0.5647554372013823, -5.139584727374089, -14.353687581801598, 0.6033261280443075, 17.677262541469684, -1.2045618201900263, -1.284533304416931, -1.1365173179420818, 5.534716756943556, 1.0333449603879112, 0.015417320711852284, 0.8980939650241597, -3.0478316179309073, -9.630570521108147, 0.9281336267315443, 12.879845710021778, -0.7997458870708093, -1.2949214504352686, -1.1057531846051358, 5.082797730326998, 0.9013384179513301, 0.015640402733230044, 0.9144116120130034, -3.2088792544072806, -9.667400947803209, 0.9400903247297298, 13.162888688665229, -0.7060774742766899], [73.27862895535736, 0.2425303162623582, 0.8749760274067233, -1.1227418466265306, 0.3285375462166167, -0.9477258555146044, 0.4868070994808389, -1.7170598002463313, 0.265564638580456, -1.0120995487275353, 0.2166486804521579, -1.9494634250429712, -0.8059130820019753, 0.686881804858551, 0.6031349145927334, 0.5982421975602081, 0.7074054252944251, 0.6940047596969237, 0.7169314848654054, 0.7139566769585599, 0.7079362412698629, 0.717734751597618, 0.7388191303778147, 0.1377258986127552, 0.2786387409842255, 36.62868537574278, 32.127980592548184, 27.550051923790715, 38.46063970032929, 35.16905455640524, 36.46790149122083, 36.23007264895051, 36.28828107881769, 38.344843240271736, 38.274495444603296, 31.696787685280157, 0.7894254059137421, 0.7716789430060031, 0.7428602967167011, 0.7172721538214923, 0.7925808593670506, 0.7944007321978873, 0.8111324648054936, 0.7873066739389413, 0.7917981106533943, 0.7962661402598282, 0.7232740903654105, 1.1428884548572444, -0.8906766974123843, 3.04379213735487, -1.0551574531614012, 2.0542017589029857, -0.5823908985910327, 3.7655615798299817, -0.9880451001655445, 4.615767785490058, -0.5129616627600784, -1.2408285984338308, 1.2886218611711218, -0.20609295244731557, 2.6824925951338146, -0.2620664949396373, 1.9292675009026525, 0.09427426191490004, 3.084944604609728, -0.1976885003883469, 3.7471422621119723, 0.15796027554654365, -0.8269330169294573, 1.299043071746385, -0.20051426836674693, 2.4634625172209477, -0.22858833110123358, 1.9571831745740784, 0.09598714963708817, 3.247953293905437, -0.19844452536174295, 3.795414889128071, 0.16143155524232802, -0.7300803735647821]]</dd><dt><span>step_size :</span></dt><dd>[0.147714, 0.151201, 0.0444113, 0.122605]</dd><dt><span>metric :</span></dt><dd>[&#x27;diag_e&#x27;, &#x27;diag_e&#x27;, &#x27;diag_e&#x27;, &#x27;diag_e&#x27;]</dd><dt><span>inv_metric :</span></dt><dd>[[0.000731634, 0.185483, 0.00248795, 0.000809694, 0.00670389, 0.00299424, 0.00131013, 0.00185218, 0.00253011, 0.00207297, 0.00271311, 0.0028932, 0.208174, 0.000218792, 5.51703e-05, 0.00037921, 0.000218774, 0.000108449, 0.000143318, 0.000196102, 0.000161979, 0.000199901, 0.000218206, 0.00123878, 22.1116, 0.380192, 0.0882452, 0.653923, 0.45346, 0.165356, 0.433388, 0.507747, 0.424044, 0.616886, 0.748487, 22.9312], [0.000664502, 0.167684, 0.00250079, 0.000798932, 0.00667572, 0.00319047, 0.00139325, 0.00196187, 0.00240887, 0.00192116, 0.00264118, 0.0029235, 0.239945, 0.000227718, 5.39921e-05, 0.000363897, 0.000224595, 0.000118116, 0.000143147, 0.000179002, 0.000155204, 0.000198735, 0.000224294, 0.00154044, 21.1143, 0.34456, 0.0921756, 0.639673, 0.427456, 0.161545, 0.406715, 0.510551, 0.369881, 0.639541, 0.780944, 19.7191], [0.000696627, 0.145257, 0.00285368, 0.000825974, 0.00628712, 0.00296105, 0.00129381, 0.00186857, 0.00227009, 0.00203152, 0.00264508, 0.00290269, 0.437371, 0.000241721, 5.6306e-05, 0.000370889, 0.000222979, 0.000105084, 0.000130909, 0.000180864, 0.000154523, 0.000190534, 0.000212034, 0.00142541, 21.3023, 0.377368, 0.0906615, 0.669248, 0.438335, 0.175474, 0.413522, 0.577077, 0.39072, 0.576174, 0.754146, 55.4061], [0.00075162, 0.178746, 0.0025348, 0.000961028, 0.0063366, 0.00339179, 0.00125303, 0.00194205, 0.00234943, 0.00212905, 0.00290407, 0.00309647, 0.425087, 0.000226128, 6.31612e-05, 0.000347166, 0.000240373, 0.000102949, 0.000143497, 0.000176609, 0.000164528, 0.000217506, 0.000226507, 0.00174389, 23.7935, 0.352655, 0.0967972, 0.659476, 0.489661, 0.161655, 0.433996, 0.499487, 0.39198, 0.631627, 0.752306, 72.9534]]</dd><dt><span>adaptation_info :</span></dt><dd>[&#x27;# Adaptation terminated\n# Step size = 0.147714\n# Diagonal elements of inverse mass matrix:\n# 0.000731634, 0.185483, 0.00248795, 0.000809694, 0.00670389, 0.00299424, 0.00131013, 0.00185218, 0.00253011, 0.00207297, 0.00271311, 0.0028932, 0.208174, 0.000218792, 5.51703e-05, 0.00037921, 0.000218774, 0.000108449, 0.000143318, 0.000196102, 0.000161979, 0.000199901, 0.000218206, 0.00123878, 22.1116, 0.380192, 0.0882452, 0.653923, 0.45346, 0.165356, 0.433388, 0.507747, 0.424044, 0.616886, 0.748487, 22.9312\n&#x27;, &#x27;# Adaptation terminated\n# Step size = 0.151201\n# Diagonal elements of inverse mass matrix:\n# 0.000664502, 0.167684, 0.00250079, 0.000798932, 0.00667572, 0.00319047, 0.00139325, 0.00196187, 0.00240887, 0.00192116, 0.00264118, 0.0029235, 0.239945, 0.000227718, 5.39921e-05, 0.000363897, 0.000224595, 0.000118116, 0.000143147, 0.000179002, 0.000155204, 0.000198735, 0.000224294, 0.00154044, 21.1143, 0.34456, 0.0921756, 0.639673, 0.427456, 0.161545, 0.406715, 0.510551, 0.369881, 0.639541, 0.780944, 19.7191\n&#x27;, &#x27;# Adaptation terminated\n# Step size = 0.0444113\n# Diagonal elements of inverse mass matrix:\n# 0.000696627, 0.145257, 0.00285368, 0.000825974, 0.00628712, 0.00296105, 0.00129381, 0.00186857, 0.00227009, 0.00203152, 0.00264508, 0.00290269, 0.437371, 0.000241721, 5.6306e-05, 0.000370889, 0.000222979, 0.000105084, 0.000130909, 0.000180864, 0.000154523, 0.000190534, 0.000212034, 0.00142541, 21.3023, 0.377368, 0.0906615, 0.669248, 0.438335, 0.175474, 0.413522, 0.577077, 0.39072, 0.576174, 0.754146, 55.4061\n&#x27;, &#x27;# Adaptation terminated\n# Step size = 0.122605\n# Diagonal elements of inverse mass matrix:\n# 0.00075162, 0.178746, 0.0025348, 0.000961028, 0.0063366, 0.00339179, 0.00125303, 0.00194205, 0.00234943, 0.00212905, 0.00290407, 0.00309647, 0.425087, 0.000226128, 6.31612e-05, 0.000347166, 0.000240373, 0.000102949, 0.000143497, 0.000176609, 0.000164528, 0.000217506, 0.000226507, 0.00174389, 23.7935, 0.352655, 0.0967972, 0.659476, 0.489661, 0.161655, 0.433996, 0.499487, 0.39198, 0.631627, 0.752306, 72.9534\n&#x27;]</dd><dt><span>stan_code :</span></dt><dd>
-functions {
-real likelihood_lpdf(data vector PTRM, data vector NRM, data int N, real R, real x_c, real y_c)
-  {
-
-    return -N/2. *log(sum(square(sqrt(square(PTRM-x_c)+square(NRM-y_c)) - sqrt(square(R)))));
-  }
-}
-data {
-  int I; // Number of observations for all specimens
-  int M; // Number of specimens
-  vector[I] PTRM; //PTRM data all specimens
-  vector[I] NRM; //NRM data all specimens
-  int N[M]; // Group sizes
-  vector[M] PTRMmax;
-  vector[M] B_labs;
-  vector[M] dmax;
-  vector[M] centroid;
-  real priorstd;
-
-}
-parameters {
-  real&lt;lower=0,upper=250&gt; int_site;
-  real&lt;lower=0&gt; sd_site;
-  vector[M] k; //Scale of possible k values based on distance to data.
-  //R cannot be &gt; dist_to_edge or we have the issue that we could fit our data to a circle on the other side
-  vector&lt;lower=0&gt;[M] dist_to_edge; //distance to edge of circle where data are located
-  real c; //&quot;Slope Angle&quot; for linear regression
-  //real sq; //&quot;Square&quot; coefficient for linear regression
-  vector[M] int_real;
-
-
-}
-transformed parameters {
-  vector&lt;lower=0&gt;[M] phi= pi()/2-atan(int_real .*PTRMmax ./ B_labs);
-  vector[M] R = 1 ./ k;
-  vector[M] x_c=cos(phi) .* (dist_to_edge+R);
-  vector[M] y_c=sin(phi) .* (dist_to_edge+R);
-
-}
-
-model {
-  int pos;
-  pos = 1;
-  dist_to_edge ~ uniform(0, 2. *centroid); //dont expect data to be &gt;&gt;1 ever really.
-  k ~ uniform(to_vector(N) ./ -dmax,to_vector(N) ./dmax); //stops fitting wrong side of circle
-  c ~ cauchy(0,20);
-  sd_site ~ normal(0,priorstd);
-  int_real ~ normal(int_site + k*c,sd_site);
-  //target+=-log(sd_site);
-  for (m in 1:M) {
-
-    target+=likelihood_lpdf(segment(PTRM, pos, N[m])|segment(NRM, pos, N[m]),N[m],R[m],x_c[m],y_c[m]);
-    pos = pos + N[m];
-    }
-}
-</dd></dl></div></li></ul></div></div><br></div>
+        [  16.9356 ,    2.56105,    2.83576, ...,   19.5054 ,
+           -7.29924,   -4.53395],
+        [  38.6274 ,    2.63856,    1.58322, ...,  -12.3748 ,
+          -11.5006 ,   -9.09872],
+        [  19.5264 ,    2.3027 ,    2.64772, ...,   10.1132 ,
+          -10.3331 ,   -5.06614]]], shape=(4, 10000, 10))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-27b85727-5ace-46df-9644-a2a9839b2b12' class='xr-section-summary-in' type='checkbox'  ><label for='section-27b85727-5ace-46df-9644-a2a9839b2b12' class='xr-section-summary' >Indexes: <span>(9)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>chain</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-5ee00bfb-9d2c-46c2-b225-4465b53cff7a' class='xr-index-data-in' type='checkbox'/><label for='index-5ee00bfb-9d2c-46c2-b225-4465b53cff7a' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([0, 1, 2, 3], dtype=&#x27;int64&#x27;, name=&#x27;chain&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>draw</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-d3422cce-41e6-4467-b905-bb38e5f83154' class='xr-index-data-in' type='checkbox'/><label for='index-d3422cce-41e6-4467-b905-bb38e5f83154' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([   0,    1,    2,    3,    4,    5,    6,    7,    8,    9,
+       ...
+       9990, 9991, 9992, 9993, 9994, 9995, 9996, 9997, 9998, 9999],
+      dtype=&#x27;int64&#x27;, name=&#x27;draw&#x27;, length=10000))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>k_dim_0</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-43a495d0-0e60-480d-83c5-80d1fd02f688' class='xr-index-data-in' type='checkbox'/><label for='index-43a495d0-0e60-480d-83c5-80d1fd02f688' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], dtype=&#x27;int64&#x27;, name=&#x27;k_dim_0&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>dist_to_edge_dim_0</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-a0a130bd-824d-4aee-9649-140da74b93e7' class='xr-index-data-in' type='checkbox'/><label for='index-a0a130bd-824d-4aee-9649-140da74b93e7' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], dtype=&#x27;int64&#x27;, name=&#x27;dist_to_edge_dim_0&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>int_real_dim_0</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-830b2ce0-8d02-4764-b90c-57e048a4fdb1' class='xr-index-data-in' type='checkbox'/><label for='index-830b2ce0-8d02-4764-b90c-57e048a4fdb1' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], dtype=&#x27;int64&#x27;, name=&#x27;int_real_dim_0&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>phi_dim_0</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-0ff29a68-2819-4386-b20a-96f9fdd654bb' class='xr-index-data-in' type='checkbox'/><label for='index-0ff29a68-2819-4386-b20a-96f9fdd654bb' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], dtype=&#x27;int64&#x27;, name=&#x27;phi_dim_0&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>R_dim_0</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-842020b9-7afa-40e8-9758-758c71eebe5e' class='xr-index-data-in' type='checkbox'/><label for='index-842020b9-7afa-40e8-9758-758c71eebe5e' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], dtype=&#x27;int64&#x27;, name=&#x27;R_dim_0&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>x_c_dim_0</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-547406c6-3a16-47cd-82a7-a16a89a91e0a' class='xr-index-data-in' type='checkbox'/><label for='index-547406c6-3a16-47cd-82a7-a16a89a91e0a' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], dtype=&#x27;int64&#x27;, name=&#x27;x_c_dim_0&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>y_c_dim_0</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-b3621607-da77-44c0-aa97-a39ab2de68d9' class='xr-index-data-in' type='checkbox'/><label for='index-b3621607-da77-44c0-aa97-a39ab2de68d9' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], dtype=&#x27;int64&#x27;, name=&#x27;y_c_dim_0&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-5e03218a-c5a4-43a1-83a7-37a20e8ccd94' class='xr-section-summary-in' type='checkbox'  checked><label for='section-5e03218a-c5a4-43a1-83a7-37a20e8ccd94' class='xr-section-summary' >Attributes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>created_at :</span></dt><dd>2025-08-12T18:23:50.607928+00:00</dd><dt><span>arviz_version :</span></dt><dd>0.21.0</dd><dt><span>inference_library :</span></dt><dd>cmdstanpy</dd><dt><span>inference_library_version :</span></dt><dd>1.2.5</dd></dl></div></li></ul></div></div><br></div>
                       </ul>
                   </div>
             </li>
 
             <li class = "xr-section-item">
-                  <input id="idata_sample_stats0fa92149-27e4-48bc-aab0-a5c0ba48238e" class="xr-section-summary-in" type="checkbox">
-                  <label for="idata_sample_stats0fa92149-27e4-48bc-aab0-a5c0ba48238e" class = "xr-section-summary">sample_stats</label>
+                  <input id="idata_sample_stats38ef1af5-f3fe-4bac-9f1b-f99a72e41933" class="xr-section-summary-in" type="checkbox">
+                  <label for="idata_sample_stats38ef1af5-f3fe-4bac-9f1b-f99a72e41933" class = "xr-section-summary">sample_stats</label>
                   <div class="xr-section-inline-details"></div>
                   <div class="xr-section-details">
                       <ul id="xr-dataset-coord-list" class="xr-var-list">
@@ -2064,30 +1941,80 @@ model {
  */
 
 :root {
-  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
-  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
-  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
-  --xr-border-color: var(--jp-border-color2, #e0e0e0);
-  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
-  --xr-background-color: var(--jp-layout-color0, white);
-  --xr-background-color-row-even: var(--jp-layout-color1, white);
-  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+  --xr-font-color0: var(
+    --jp-content-font-color0,
+    var(--pst-color-text-base rgba(0, 0, 0, 1))
+  );
+  --xr-font-color2: var(
+    --jp-content-font-color2,
+    var(--pst-color-text-base, rgba(0, 0, 0, 0.54))
+  );
+  --xr-font-color3: var(
+    --jp-content-font-color3,
+    var(--pst-color-text-base, rgba(0, 0, 0, 0.38))
+  );
+  --xr-border-color: var(
+    --jp-border-color2,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 10))
+  );
+  --xr-disabled-color: var(
+    --jp-layout-color3,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 40))
+  );
+  --xr-background-color: var(
+    --jp-layout-color0,
+    var(--pst-color-on-background, white)
+  );
+  --xr-background-color-row-even: var(
+    --jp-layout-color1,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 5))
+  );
+  --xr-background-color-row-odd: var(
+    --jp-layout-color2,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 15))
+  );
 }
 
-html[theme=dark],
+html[theme="dark"],
+html[data-theme="dark"],
+body[data-theme="dark"],
 body.vscode-dark {
-  --xr-font-color0: rgba(255, 255, 255, 1);
-  --xr-font-color2: rgba(255, 255, 255, 0.54);
-  --xr-font-color3: rgba(255, 255, 255, 0.38);
-  --xr-border-color: #1F1F1F;
-  --xr-disabled-color: #515151;
-  --xr-background-color: #111111;
-  --xr-background-color-row-even: #111111;
-  --xr-background-color-row-odd: #313131;
+  --xr-font-color0: var(
+    --jp-content-font-color0,
+    var(--pst-color-text-base, rgba(255, 255, 255, 1))
+  );
+  --xr-font-color2: var(
+    --jp-content-font-color2,
+    var(--pst-color-text-base, rgba(255, 255, 255, 0.54))
+  );
+  --xr-font-color3: var(
+    --jp-content-font-color3,
+    var(--pst-color-text-base, rgba(255, 255, 255, 0.38))
+  );
+  --xr-border-color: var(
+    --jp-border-color2,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 10))
+  );
+  --xr-disabled-color: var(
+    --jp-layout-color3,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 40))
+  );
+  --xr-background-color: var(
+    --jp-layout-color0,
+    var(--pst-color-on-background, #111111)
+  );
+  --xr-background-color-row-even: var(
+    --jp-layout-color1,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 5))
+  );
+  --xr-background-color-row-odd: var(
+    --jp-layout-color2,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 15))
+  );
 }
 
 .xr-wrap {
-  display: block;
+  display: block !important;
   min-width: 300px;
   max-width: 700px;
 }
@@ -2124,7 +2051,7 @@ body.vscode-dark {
 .xr-sections {
   padding-left: 0 !important;
   display: grid;
-  grid-template-columns: 150px auto auto 1fr 20px 20px;
+  grid-template-columns: 150px auto auto 1fr 0 20px 0 20px;
 }
 
 .xr-section-item {
@@ -2132,16 +2059,23 @@ body.vscode-dark {
 }
 
 .xr-section-item input {
-  display: none;
+  display: inline-block;
+  opacity: 0;
+  height: 0;
 }
 
 .xr-section-item input + label {
   color: var(--xr-disabled-color);
+  border: 2px solid transparent !important;
 }
 
 .xr-section-item input:enabled + label {
   cursor: pointer;
   color: var(--xr-font-color2);
+}
+
+.xr-section-item input:focus + label {
+  border: 2px solid var(--xr-font-color0) !important;
 }
 
 .xr-section-item input:enabled + label:hover {
@@ -2165,7 +2099,7 @@ body.vscode-dark {
 
 .xr-section-summary-in + label:before {
   display: inline-block;
-  content: '►';
+  content: "►";
   font-size: 11px;
   width: 15px;
   text-align: center;
@@ -2176,7 +2110,7 @@ body.vscode-dark {
 }
 
 .xr-section-summary-in:checked + label:before {
-  content: '▼';
+  content: "▼";
 }
 
 .xr-section-summary-in:checked + label > span {
@@ -2248,15 +2182,15 @@ body.vscode-dark {
 }
 
 .xr-dim-list:before {
-  content: '(';
+  content: "(";
 }
 
 .xr-dim-list:after {
-  content: ')';
+  content: ")";
 }
 
 .xr-dim-list li:not(:last-child):after {
-  content: ',';
+  content: ",";
   padding-right: 5px;
 }
 
@@ -2273,7 +2207,9 @@ body.vscode-dark {
 .xr-var-item label,
 .xr-var-item > .xr-var-name span {
   background-color: var(--xr-background-color-row-even);
+  border-color: var(--xr-background-color-row-odd);
   margin-bottom: 0;
+  padding-top: 2px;
 }
 
 .xr-var-item > .xr-var-name:hover span {
@@ -2284,6 +2220,7 @@ body.vscode-dark {
 .xr-var-list > li:nth-child(odd) > label,
 .xr-var-list > li:nth-child(odd) > .xr-var-name span {
   background-color: var(--xr-background-color-row-odd);
+  border-color: var(--xr-background-color-row-even);
 }
 
 .xr-var-name {
@@ -2302,6 +2239,11 @@ body.vscode-dark {
 
 .xr-var-preview {
   grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
 }
 
 .xr-var-name,
@@ -2325,14 +2267,23 @@ body.vscode-dark {
 }
 
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   display: none;
-  background-color: var(--xr-background-color) !important;
-  padding-bottom: 5px !important;
+  border-top: 2px dotted var(--xr-background-color);
+  padding-bottom: 20px !important;
+  padding-top: 10px !important;
+}
+
+.xr-var-attrs-in + label,
+.xr-var-data-in + label,
+.xr-index-data-in + label {
+  padding: 0 1px;
 }
 
 .xr-var-attrs-in:checked ~ .xr-var-attrs,
-.xr-var-data-in:checked ~ .xr-var-data {
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
   display: block;
 }
 
@@ -2340,15 +2291,24 @@ body.vscode-dark {
   float: right;
 }
 
+.xr-var-data > pre,
+.xr-index-data > pre,
+.xr-var-data > table > tbody > tr {
+  background-color: transparent !important;
+}
+
 .xr-var-name span,
 .xr-var-data,
+.xr-index-name div,
+.xr-index-data,
 .xr-attrs {
   padding-left: 25px !important;
 }
 
 .xr-attrs,
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   grid-column: 1 / -1;
 }
 
@@ -2386,7 +2346,8 @@ dl.xr-attrs {
 }
 
 .xr-icon-database,
-.xr-icon-file-text2 {
+.xr-icon-file-text2,
+.xr-no-icon {
   display: inline-block;
   vertical-align: middle;
   width: 1em;
@@ -2395,128 +2356,60 @@ dl.xr-attrs {
   stroke: currentColor;
   fill: currentColor;
 }
-</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
-Dimensions:          (chain: 4, draw: 5000)
+
+.xr-var-attrs-in:checked + label > .xr-icon-file-text2,
+.xr-var-data-in:checked + label > .xr-icon-database,
+.xr-index-data-in:checked + label > .xr-icon-database {
+  color: var(--xr-font-color0);
+  filter: drop-shadow(1px 1px 5px var(--xr-font-color2));
+  stroke-width: 0.8px;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 2MB
+Dimensions:          (chain: 4, draw: 10000)
 Coordinates:
-  * chain            (chain) int64 0 1 2 3
-  * draw             (draw) int64 0 1 2 3 4 5 ... 4994 4995 4996 4997 4998 4999
+  * chain            (chain) int64 32B 0 1 2 3
+  * draw             (draw) int64 80kB 0 1 2 3 4 5 ... 9995 9996 9997 9998 9999
 Data variables:
-    acceptance_rate  (chain, draw) float64 0.8815 0.7724 ... 0.4925 0.4491
-    step_size        (chain, draw) float64 0.1477 0.1477 ... 0.1226 0.1226
-    tree_depth       (chain, draw) int64 5 5 5 5 5 5 5 5 5 ... 5 5 5 5 4 5 3 5 5
-    n_steps          (chain, draw) int64 31 31 31 31 31 31 ... 31 15 31 14 31 31
-    diverging        (chain, draw) bool False False False ... True False False
-    energy           (chain, draw) float64 -452.8 -449.3 ... -438.8 -452.7
-    lp               (chain, draw) float64 471.5 467.0 468.1 ... 465.9 469.4
+    lp               (chain, draw) float64 320kB 455.8 451.5 ... 455.9 441.6
+    acceptance_rate  (chain, draw) float64 320kB 0.9691 0.941 ... 0.9784 0.3328
+    step_size        (chain, draw) float64 320kB 0.1824 0.1824 ... 0.1846 0.1846
+    tree_depth       (chain, draw) int64 320kB 4 5 5 5 5 5 5 5 ... 4 5 5 4 5 5 5
+    n_steps          (chain, draw) int64 320kB 31 31 31 31 31 ... 31 31 31 31 31
+    diverging        (chain, draw) bool 40kB False False False ... False False
+    energy           (chain, draw) float64 320kB -438.0 -442.5 ... -439.5 -431.0
 Attributes:
-    created_at:                 2024-03-27T13:28:47.741787
-    arviz_version:              0.11.4
-    inference_library:          pystan
-    inference_library_version:  2.19.0.0
-    args:                       [{&quot;random_seed&quot;: &quot;1740123703&quot;, &quot;chain_id&quot;: 0,...
-    inits:                      [[151.70018429346518, 0.14569268341277394, 1....
-    step_size:                  [0.147714, 0.151201, 0.0444113, 0.122605]
-    metric:                     [&#x27;diag_e&#x27;, &#x27;diag_e&#x27;, &#x27;diag_e&#x27;, &#x27;diag_e&#x27;]
-    inv_metric:                 [[0.000731634, 0.185483, 0.00248795, 0.000809...
-    adaptation_info:            [&#x27;# Adaptation terminated\n# Step size = 0.14...
-    stan_code:                  \nfunctions {\nreal likelihood_lpdf(data vect...</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-176dcc37-e8c2-458e-9b54-70d37ec2703d' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-176dcc37-e8c2-458e-9b54-70d37ec2703d' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>chain</span>: 4</li><li><span class='xr-has-index'>draw</span>: 5000</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-700330ad-305b-49d2-9dd3-ead38cbd4fb9' class='xr-section-summary-in' type='checkbox'  checked><label for='section-700330ad-305b-49d2-9dd3-ead38cbd4fb9' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>chain</span></div><div class='xr-var-dims'>(chain)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2 3</div><input id='attrs-e370d509-ae76-44f9-855b-05808dc1b7b9' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-e370d509-ae76-44f9-855b-05808dc1b7b9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bc18348c-ccf2-4ec2-a3b7-28a4e08f498f' class='xr-var-data-in' type='checkbox'><label for='data-bc18348c-ccf2-4ec2-a3b7-28a4e08f498f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0, 1, 2, 3])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>draw</span></div><div class='xr-var-dims'>(draw)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 ... 4996 4997 4998 4999</div><input id='attrs-2b2bbf59-b47c-48cd-bf02-43db62c9eedb' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-2b2bbf59-b47c-48cd-bf02-43db62c9eedb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a20e13bd-e75e-45da-9299-83a11e374379' class='xr-var-data-in' type='checkbox'><label for='data-a20e13bd-e75e-45da-9299-83a11e374379' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([   0,    1,    2, ..., 4997, 4998, 4999])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-f361919e-1131-4c60-a1a8-7e0c61601751' class='xr-section-summary-in' type='checkbox'  checked><label for='section-f361919e-1131-4c60-a1a8-7e0c61601751' class='xr-section-summary' >Data variables: <span>(7)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>acceptance_rate</span></div><div class='xr-var-dims'>(chain, draw)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.8815 0.7724 ... 0.4925 0.4491</div><input id='attrs-a3ebb3fa-f4af-4efe-8279-3d76f173c315' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-a3ebb3fa-f4af-4efe-8279-3d76f173c315' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-299de0af-14d2-44e8-87d9-b128dbea2019' class='xr-var-data-in' type='checkbox'><label for='data-299de0af-14d2-44e8-87d9-b128dbea2019' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[0.881517570966216, 0.772442814721007, 0.991322098193284, ...,
-        0.881718290438178, 1.               , 0.998834536910661],
-       [0.145024034582654, 0.475039226567681, 0.943217219276832, ...,
-        0.929782699780685, 0.966692965677538, 0.818480371986345],
-       [0.941943160222191, 0.953929657534522, 0.955276614081797, ...,
-        0.989484352841308, 0.986822030702018, 0.991240415274156],
-       [0.964839034273703, 0.789164031573087, 0.44492891030742 , ...,
-        0.711842874922287, 0.492490300438511, 0.449055390599447]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>step_size</span></div><div class='xr-var-dims'>(chain, draw)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.1477 0.1477 ... 0.1226 0.1226</div><input id='attrs-970d8e58-1eb4-428d-a133-aa15dc622767' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-970d8e58-1eb4-428d-a133-aa15dc622767' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f3d1bd4e-cc72-461a-8d4d-023b945c4906' class='xr-var-data-in' type='checkbox'><label for='data-f3d1bd4e-cc72-461a-8d4d-023b945c4906' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[0.147713723242597, 0.147713723242597, 0.147713723242597, ...,
-        0.147713723242597, 0.147713723242597, 0.147713723242597],
-       [0.151200652397585, 0.151200652397585, 0.151200652397585, ...,
-        0.151200652397585, 0.151200652397585, 0.151200652397585],
-       [0.044411279308218, 0.044411279308218, 0.044411279308218, ...,
-        0.044411279308218, 0.044411279308218, 0.044411279308218],
-       [0.122605183212535, 0.122605183212535, 0.122605183212535, ...,
-        0.122605183212535, 0.122605183212535, 0.122605183212535]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>tree_depth</span></div><div class='xr-var-dims'>(chain, draw)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>5 5 5 5 5 5 5 5 ... 5 5 5 4 5 3 5 5</div><input id='attrs-8652009c-1b5c-47ff-8840-deb049cd358f' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-8652009c-1b5c-47ff-8840-deb049cd358f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ace3ffce-f203-4528-a5a1-26986442e18c' class='xr-var-data-in' type='checkbox'><label for='data-ace3ffce-f203-4528-a5a1-26986442e18c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[5, 5, 5, ..., 5, 5, 5],
-       [4, 5, 5, ..., 5, 5, 5],
-       [6, 5, 5, ..., 7, 7, 7],
-       [5, 5, 5, ..., 3, 5, 5]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>n_steps</span></div><div class='xr-var-dims'>(chain, draw)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>31 31 31 31 31 ... 15 31 14 31 31</div><input id='attrs-909e73c2-ce83-412e-8243-71fd3637a82a' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-909e73c2-ce83-412e-8243-71fd3637a82a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ab9c0107-9ded-4b7a-bf9e-952b27359b37' class='xr-var-data-in' type='checkbox'><label for='data-ab9c0107-9ded-4b7a-bf9e-952b27359b37' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[ 31,  31,  31, ...,  31,  31,  31],
-       [ 15,  31,  31, ...,  31,  31,  31],
-       [113,  44,  56, ..., 127, 127, 127],
-       [ 31,  31,  31, ...,  14,  31,  31]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>diverging</span></div><div class='xr-var-dims'>(chain, draw)</div><div class='xr-var-dtype'>bool</div><div class='xr-var-preview xr-preview'>False False False ... False False</div><input id='attrs-fcb942d2-a542-4893-832f-b5564705c515' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-fcb942d2-a542-4893-832f-b5564705c515' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e735836b-c6ca-4406-80c8-c81a916c66fd' class='xr-var-data-in' type='checkbox'><label for='data-e735836b-c6ca-4406-80c8-c81a916c66fd' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[False, False, False, ..., False, False, False],
+    created_at:                 2025-08-12T18:23:50.613913+00:00
+    arviz_version:              0.21.0
+    inference_library:          cmdstanpy
+    inference_library_version:  1.2.5</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-38b83d64-4bb4-4c78-b5e1-1ff237511df1' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-38b83d64-4bb4-4c78-b5e1-1ff237511df1' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>chain</span>: 4</li><li><span class='xr-has-index'>draw</span>: 10000</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-a1b65532-a7ca-4056-92fe-0c8972cd3b32' class='xr-section-summary-in' type='checkbox'  checked><label for='section-a1b65532-a7ca-4056-92fe-0c8972cd3b32' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>chain</span></div><div class='xr-var-dims'>(chain)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2 3</div><input id='attrs-1b97c2d1-8b77-4701-8411-4fd8129f305b' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-1b97c2d1-8b77-4701-8411-4fd8129f305b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9ac6117b-1628-4608-8a66-e9623bbbc26c' class='xr-var-data-in' type='checkbox'><label for='data-9ac6117b-1628-4608-8a66-e9623bbbc26c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0, 1, 2, 3])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>draw</span></div><div class='xr-var-dims'>(draw)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 ... 9996 9997 9998 9999</div><input id='attrs-65fe60cb-c3fd-4691-a961-ddca687be1d2' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-65fe60cb-c3fd-4691-a961-ddca687be1d2' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9082307d-1433-48ca-b9e5-0a8f17fb9a92' class='xr-var-data-in' type='checkbox'><label for='data-9082307d-1433-48ca-b9e5-0a8f17fb9a92' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([   0,    1,    2, ..., 9997, 9998, 9999], shape=(10000,))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-31a5dd19-e0b0-41d5-815c-21ba39e2af00' class='xr-section-summary-in' type='checkbox'  checked><label for='section-31a5dd19-e0b0-41d5-815c-21ba39e2af00' class='xr-section-summary' >Data variables: <span>(7)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>lp</span></div><div class='xr-var-dims'>(chain, draw)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>455.8 451.5 450.3 ... 455.9 441.6</div><input id='attrs-bc58aacd-d7ac-4da4-9f80-8a81a234e344' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-bc58aacd-d7ac-4da4-9f80-8a81a234e344' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-47ef2b0d-21af-4f86-9c6f-1f881596d7ed' class='xr-var-data-in' type='checkbox'><label for='data-47ef2b0d-21af-4f86-9c6f-1f881596d7ed' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[455.805, 451.478, 450.303, ..., 443.278, 445.157, 450.04 ],
+       [448.474, 448.186, 448.89 , ..., 448.447, 448.657, 456.951],
+       [448.382, 454.939, 448.659, ..., 454.089, 454.14 , 458.505],
+       [449.564, 443.727, 446.883, ..., 452.326, 455.897, 441.568]],
+      shape=(4, 10000))</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>acceptance_rate</span></div><div class='xr-var-dims'>(chain, draw)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.9691 0.941 ... 0.9784 0.3328</div><input id='attrs-5b9e2316-b44a-4d46-9233-50864b7a28bf' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-5b9e2316-b44a-4d46-9233-50864b7a28bf' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d4873427-93fa-41b2-a9aa-f9dd6f9dcd82' class='xr-var-data-in' type='checkbox'><label for='data-d4873427-93fa-41b2-a9aa-f9dd6f9dcd82' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[0.969051, 0.941032, 0.824237, ..., 0.909056, 0.704401, 0.922582],
+       [0.976227, 1.      , 0.829086, ..., 0.744463, 0.785643, 0.930751],
+       [0.972075, 0.940094, 0.87217 , ..., 0.922485, 0.945976, 0.966526],
+       [0.845398, 0.756874, 0.928666, ..., 0.855886, 0.97843 , 0.332781]],
+      shape=(4, 10000))</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>step_size</span></div><div class='xr-var-dims'>(chain, draw)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.1824 0.1824 ... 0.1846 0.1846</div><input id='attrs-db5362a2-3823-4f26-90fb-352675134f57' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-db5362a2-3823-4f26-90fb-352675134f57' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8ed9b0ed-45b6-4889-849e-a36ffa8c7328' class='xr-var-data-in' type='checkbox'><label for='data-8ed9b0ed-45b6-4889-849e-a36ffa8c7328' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[0.182397, 0.182397, 0.182397, ..., 0.182397, 0.182397, 0.182397],
+       [0.173173, 0.173173, 0.173173, ..., 0.173173, 0.173173, 0.173173],
+       [0.146456, 0.146456, 0.146456, ..., 0.146456, 0.146456, 0.146456],
+       [0.184594, 0.184594, 0.184594, ..., 0.184594, 0.184594, 0.184594]],
+      shape=(4, 10000))</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>tree_depth</span></div><div class='xr-var-dims'>(chain, draw)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>4 5 5 5 5 5 5 5 ... 5 4 5 5 4 5 5 5</div><input id='attrs-75104022-8f3f-4634-a5fc-6be0c07fe8e4' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-75104022-8f3f-4634-a5fc-6be0c07fe8e4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3d6ad744-cef6-452b-b52d-d0239c582574' class='xr-var-data-in' type='checkbox'><label for='data-3d6ad744-cef6-452b-b52d-d0239c582574' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[4, 5, 5, ..., 5, 4, 5],
+       [5, 5, 5, ..., 5, 5, 5],
+       [5, 5, 5, ..., 5, 5, 5],
+       [4, 5, 5, ..., 5, 5, 5]], shape=(4, 10000))</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>n_steps</span></div><div class='xr-var-dims'>(chain, draw)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>31 31 31 31 31 ... 31 31 31 31 31</div><input id='attrs-efd2fd72-1e90-4f22-8258-7404c20c1618' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-efd2fd72-1e90-4f22-8258-7404c20c1618' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bd9e9409-b1df-4be1-9f6d-d295fdaaa977' class='xr-var-data-in' type='checkbox'><label for='data-bd9e9409-b1df-4be1-9f6d-d295fdaaa977' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[31, 31, 31, ..., 31, 31, 31],
+       [31, 31, 31, ..., 31, 31, 31],
+       [31, 31, 31, ..., 31, 31, 31],
+       [15, 31, 31, ..., 31, 31, 31]], shape=(4, 10000))</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>diverging</span></div><div class='xr-var-dims'>(chain, draw)</div><div class='xr-var-dtype'>bool</div><div class='xr-var-preview xr-preview'>False False False ... False False</div><input id='attrs-803f91e0-29bd-4235-8db9-5fb7c2e60812' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-803f91e0-29bd-4235-8db9-5fb7c2e60812' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ff526f20-62d7-45a7-97fc-94e3430ce775' class='xr-var-data-in' type='checkbox'><label for='data-ff526f20-62d7-45a7-97fc-94e3430ce775' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[False, False, False, ..., False, False, False],
        [False, False, False, ..., False, False, False],
-       [ True,  True,  True, ..., False, False, False],
-       [False, False, False, ...,  True, False, False]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>energy</span></div><div class='xr-var-dims'>(chain, draw)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-452.8 -449.3 ... -438.8 -452.7</div><input id='attrs-4b83e977-9184-4050-9aa8-76360b2e7f03' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-4b83e977-9184-4050-9aa8-76360b2e7f03' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-52d2e36b-e470-42b8-b413-ad1796a52007' class='xr-var-data-in' type='checkbox'><label for='data-52d2e36b-e470-42b8-b413-ad1796a52007' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[-452.8163474220427 , -449.3233838292994 , -452.6279510576671 ,
-        ..., -448.93827438779164, -455.2196852756802 ,
-        -455.97367672034255],
-       [-446.4587119809884 , -444.5081967377338 , -445.32039676308926,
-        ..., -445.50610971089225, -440.0888905224673 ,
-        -440.41999545991723],
-       [-435.63613270744474, -440.68848183958295, -440.4577057837253 ,
-        ..., -436.3917753566444 , -437.43504925827165,
-        -434.44952626164735],
-       [-452.61963926529336, -450.02767094536915, -450.0544249887613 ,
-        ..., -449.12449377456556, -438.7561016920771 ,
-        -452.7049499456679 ]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lp</span></div><div class='xr-var-dims'>(chain, draw)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>471.5 467.0 468.1 ... 465.9 469.4</div><input id='attrs-6d6ffb31-25a0-4e86-8638-df57060bbaf0' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-6d6ffb31-25a0-4e86-8638-df57060bbaf0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b7c4e916-05d4-4132-9155-369fccf224d3' class='xr-var-data-in' type='checkbox'><label for='data-b7c4e916-05d4-4132-9155-369fccf224d3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[471.5120065378044 , 466.9911165073522 , 468.08586333109116, ...,
-        464.1911335127485 , 472.0602702231535 , 470.97860810499384],
-       [463.023362218707  , 468.82108686625105, 459.36774375845454, ...,
-        461.02529118745076, 460.1136374535003 , 458.8234304771186 ],
-       [456.1935014429648 , 460.6581778068578 , 452.5949116159459 , ...,
-        462.4629763102821 , 459.6735425443743 , 458.8060792213643 ],
-       [468.6565566987149 , 467.7089746767401 , 470.0847899099257 , ...,
-        458.9465390815475 , 465.89296989466095, 469.4164186375879 ]])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-647683e2-489e-4058-9266-5fd64b425ec6' class='xr-section-summary-in' type='checkbox'  ><label for='section-647683e2-489e-4058-9266-5fd64b425ec6' class='xr-section-summary' >Attributes: <span>(11)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>created_at :</span></dt><dd>2024-03-27T13:28:47.741787</dd><dt><span>arviz_version :</span></dt><dd>0.11.4</dd><dt><span>inference_library :</span></dt><dd>pystan</dd><dt><span>inference_library_version :</span></dt><dd>2.19.0.0</dd><dt><span>args :</span></dt><dd>[{&quot;random_seed&quot;: &quot;1740123703&quot;, &quot;chain_id&quot;: 0, &quot;init&quot;: &quot;user&quot;, &quot;init_radius&quot;: 2.0, &quot;enable_random_init&quot;: false, &quot;append_samples&quot;: false, &quot;method&quot;: &quot;SAMPLING&quot;, &quot;iter&quot;: 10000, &quot;warmup&quot;: 5000, &quot;thin&quot;: 1, &quot;refresh&quot;: 1000, &quot;test_grad&quot;: false, &quot;sampler_t&quot;: &quot;NUTS&quot;, &quot;control&quot;: {&quot;adapt_engaged&quot;: true, &quot;adapt_gamma&quot;: 0.05, &quot;adapt_delta&quot;: 0.8, &quot;adapt_kappa&quot;: 0.75, &quot;adapt_init_buffer&quot;: 75, &quot;adapt_term_buffer&quot;: 50, &quot;adapt_window&quot;: 25, &quot;adapt_t0&quot;: 10.0, &quot;stepsize&quot;: 1.0, &quot;stepsize_jitter&quot;: 0.0}}, {&quot;random_seed&quot;: &quot;1740123703&quot;, &quot;chain_id&quot;: 1, &quot;init&quot;: &quot;user&quot;, &quot;init_radius&quot;: 2.0, &quot;enable_random_init&quot;: false, &quot;append_samples&quot;: false, &quot;method&quot;: &quot;SAMPLING&quot;, &quot;iter&quot;: 10000, &quot;warmup&quot;: 5000, &quot;thin&quot;: 1, &quot;refresh&quot;: 1000, &quot;test_grad&quot;: false, &quot;sampler_t&quot;: &quot;NUTS&quot;, &quot;control&quot;: {&quot;adapt_engaged&quot;: true, &quot;adapt_gamma&quot;: 0.05, &quot;adapt_delta&quot;: 0.8, &quot;adapt_kappa&quot;: 0.75, &quot;adapt_init_buffer&quot;: 75, &quot;adapt_term_buffer&quot;: 50, &quot;adapt_window&quot;: 25, &quot;adapt_t0&quot;: 10.0, &quot;stepsize&quot;: 1.0, &quot;stepsize_jitter&quot;: 0.0}}, {&quot;random_seed&quot;: &quot;1740123703&quot;, &quot;chain_id&quot;: 2, &quot;init&quot;: &quot;user&quot;, &quot;init_radius&quot;: 2.0, &quot;enable_random_init&quot;: false, &quot;append_samples&quot;: false, &quot;method&quot;: &quot;SAMPLING&quot;, &quot;iter&quot;: 10000, &quot;warmup&quot;: 5000, &quot;thin&quot;: 1, &quot;refresh&quot;: 1000, &quot;test_grad&quot;: false, &quot;sampler_t&quot;: &quot;NUTS&quot;, &quot;control&quot;: {&quot;adapt_engaged&quot;: true, &quot;adapt_gamma&quot;: 0.05, &quot;adapt_delta&quot;: 0.8, &quot;adapt_kappa&quot;: 0.75, &quot;adapt_init_buffer&quot;: 75, &quot;adapt_term_buffer&quot;: 50, &quot;adapt_window&quot;: 25, &quot;adapt_t0&quot;: 10.0, &quot;stepsize&quot;: 1.0, &quot;stepsize_jitter&quot;: 0.0}}, {&quot;random_seed&quot;: &quot;1740123703&quot;, &quot;chain_id&quot;: 3, &quot;init&quot;: &quot;user&quot;, &quot;init_radius&quot;: 2.0, &quot;enable_random_init&quot;: false, &quot;append_samples&quot;: false, &quot;method&quot;: &quot;SAMPLING&quot;, &quot;iter&quot;: 10000, &quot;warmup&quot;: 5000, &quot;thin&quot;: 1, &quot;refresh&quot;: 1000, &quot;test_grad&quot;: false, &quot;sampler_t&quot;: &quot;NUTS&quot;, &quot;control&quot;: {&quot;adapt_engaged&quot;: true, &quot;adapt_gamma&quot;: 0.05, &quot;adapt_delta&quot;: 0.8, &quot;adapt_kappa&quot;: 0.75, &quot;adapt_init_buffer&quot;: 75, &quot;adapt_term_buffer&quot;: 50, &quot;adapt_window&quot;: 25, &quot;adapt_t0&quot;: 10.0, &quot;stepsize&quot;: 1.0, &quot;stepsize_jitter&quot;: 0.0}}]</dd><dt><span>inits :</span></dt><dd>[[151.70018429346518, 0.14569268341277394, 1.3055181448695068, 1.4749318355899947, -0.7136735587268723, -1.5374663752606643, 0.32659507360643536, 1.9295403053706819, 1.7858916137305454, 1.168268922935765, -0.38503583013689213, 0.05581037737414807, 1.3465363959791743, 0.686881804858551, 0.6031349145927334, 0.5982421975602081, 0.7074054252944251, 0.6940047596969237, 0.7169314848654054, 0.7139566769585599, 0.7079362412698629, 0.717734751597618, 0.7388191303778147, 0.1377258986127552, 1.103950676945857, 36.62868537574278, 32.127980592548184, 27.550051923790715, 38.46063970032929, 35.16905455640524, 36.46790149122083, 36.23007264895051, 36.28828107881769, 38.344843240271736, 38.274495444603296, 31.696787685280157, 0.7894254059137421, 0.7716789430060031, 0.7428602967167011, 0.7172721538214923, 0.7925808593670506, 0.7944007321978873, 0.8111324648054936, 0.7873066739389413, 0.7917981106533943, 0.7962661402598282, 0.7232740903654105, 0.7659793959431755, 0.6779974340983596, -1.4012008540486038, -0.6504207286032246, 3.0618955422611602, 0.5182581556947011, 0.5599443954558373, 0.8559673037326724, -2.5971608918693856, 17.917814697723404, 0.7426460977854371, 1.0231823884224813, 0.918239935874345, -0.59140866124727, 0.042943760295694924, 2.6366782627710887, 0.8655127416440838, 0.8773073386174292, 1.1037342688212177, -1.3204225684264552, 13.048083162101353, 0.6599645446610277, 1.031456964112949, 0.8933843042208848, -0.5431191392607715, 0.037457831072474086, 2.6748298669035493, 0.8812384139373104, 0.9236643199271878, 1.1079553068157528, -1.3374329357118873, 13.334823268072885, 0.5826677027538948], [35.57630473884818, 6.65789908407185, 1.2880945386253906, -0.24586859771269354, -1.8992832504857142, 0.9500142679089807, 1.8341844257618583, 1.6454630445269038, 0.7629917495033194, 0.3450961064911753, -1.6200254109325751, 0.253233604961117, -0.6673508590982173, 0.686881804858551, 0.6031349145927334, 0.5982421975602081, 0.7074054252944251, 0.6940047596969237, 0.7169314848654054, 0.7139566769585599, 0.7079362412698629, 0.717734751597618, 0.7388191303778147, 0.1377258986127552, -1.5244951039117662, 36.62868537574278, 32.127980592548184, 27.550051923790715, 38.46063970032929, 35.16905455640524, 36.46790149122083, 36.23007264895051, 36.28828107881769, 38.344843240271736, 38.274495444603296, 31.696787685280157, 0.7894254059137421, 0.7716789430060031, 0.7428602967167011, 0.7172721538214923, 0.7925808593670506, 0.7944007321978873, 0.8111324648054936, 0.7873066739389413, 0.7917981106533943, 0.7962661402598282, 0.7232740903654105, 0.7763405324792115, -4.067213175260944, -0.5265144099724275, 1.0526157698673726, 0.5452014453697227, 0.6077316675851056, 1.310630161664218, 2.89774350156446, -0.6172742682007348, 3.9489229723422605, -1.4984621453118188, 1.0304792536852214, -2.4828465249429588, 0.05283016066734559, 1.3263548410189587, 0.8699347163945947, 0.9282079440954845, 1.3942879314997818, 2.5447300169360934, 0.0705802088573134, 3.278514728988524, -1.0200661551373573, 1.0388128398361922, -2.415638907124318, 0.0485164882910978, 1.1569172153288823, 0.882522298804475, 0.9450727379298167, 1.467962203600158, 2.5544618902599074, 0.07148945965660575, 3.3505622204966943, -0.9005932334988663], [189.50572110397235, 0.19215489987560164, -0.39827204973036245, -0.4568695050155638, 0.14458656517530066, 1.5064708765393569, -1.487999876946206, 1.7706779503628165, -0.19456824880692625, -0.06966850813082037, 1.6574783579181593, 0.05656984488712924, -0.8301773999795581, 0.686881804858551, 0.6031349145927334, 0.5982421975602081, 0.7074054252944251, 0.6940047596969237, 0.7169314848654054, 0.7139566769585599, 0.7079362412698629, 0.717734751597618, 0.7388191303778147, 0.1377258986127552, 1.1754670129577458, 36.62868537574278, 32.127980592548184, 27.550051923790715, 38.46063970032929, 35.16905455640524, 36.46790149122083, 36.23007264895051, 36.28828107881769, 38.344843240271736, 38.274495444603296, 31.696787685280157, 0.7894254059137421, 0.7716789430060031, 0.7428602967167011, 0.7172721538214923, 0.7925808593670506, 0.7944007321978873, 0.8111324648054936, 0.7873066739389413, 0.7917981106533943, 0.7962661402598282, 0.7232740903654105, -2.5108465449107427, -2.188808815256632, 6.916271914942947, 0.6638030748375207, -0.6720430663289308, 0.5647554372013823, -5.139584727374089, -14.353687581801598, 0.6033261280443075, 17.677262541469684, -1.2045618201900263, -1.284533304416931, -1.1365173179420818, 5.534716756943556, 1.0333449603879112, 0.015417320711852284, 0.8980939650241597, -3.0478316179309073, -9.630570521108147, 0.9281336267315443, 12.879845710021778, -0.7997458870708093, -1.2949214504352686, -1.1057531846051358, 5.082797730326998, 0.9013384179513301, 0.015640402733230044, 0.9144116120130034, -3.2088792544072806, -9.667400947803209, 0.9400903247297298, 13.162888688665229, -0.7060774742766899], [73.27862895535736, 0.2425303162623582, 0.8749760274067233, -1.1227418466265306, 0.3285375462166167, -0.9477258555146044, 0.4868070994808389, -1.7170598002463313, 0.265564638580456, -1.0120995487275353, 0.2166486804521579, -1.9494634250429712, -0.8059130820019753, 0.686881804858551, 0.6031349145927334, 0.5982421975602081, 0.7074054252944251, 0.6940047596969237, 0.7169314848654054, 0.7139566769585599, 0.7079362412698629, 0.717734751597618, 0.7388191303778147, 0.1377258986127552, 0.2786387409842255, 36.62868537574278, 32.127980592548184, 27.550051923790715, 38.46063970032929, 35.16905455640524, 36.46790149122083, 36.23007264895051, 36.28828107881769, 38.344843240271736, 38.274495444603296, 31.696787685280157, 0.7894254059137421, 0.7716789430060031, 0.7428602967167011, 0.7172721538214923, 0.7925808593670506, 0.7944007321978873, 0.8111324648054936, 0.7873066739389413, 0.7917981106533943, 0.7962661402598282, 0.7232740903654105, 1.1428884548572444, -0.8906766974123843, 3.04379213735487, -1.0551574531614012, 2.0542017589029857, -0.5823908985910327, 3.7655615798299817, -0.9880451001655445, 4.615767785490058, -0.5129616627600784, -1.2408285984338308, 1.2886218611711218, -0.20609295244731557, 2.6824925951338146, -0.2620664949396373, 1.9292675009026525, 0.09427426191490004, 3.084944604609728, -0.1976885003883469, 3.7471422621119723, 0.15796027554654365, -0.8269330169294573, 1.299043071746385, -0.20051426836674693, 2.4634625172209477, -0.22858833110123358, 1.9571831745740784, 0.09598714963708817, 3.247953293905437, -0.19844452536174295, 3.795414889128071, 0.16143155524232802, -0.7300803735647821]]</dd><dt><span>step_size :</span></dt><dd>[0.147714, 0.151201, 0.0444113, 0.122605]</dd><dt><span>metric :</span></dt><dd>[&#x27;diag_e&#x27;, &#x27;diag_e&#x27;, &#x27;diag_e&#x27;, &#x27;diag_e&#x27;]</dd><dt><span>inv_metric :</span></dt><dd>[[0.000731634, 0.185483, 0.00248795, 0.000809694, 0.00670389, 0.00299424, 0.00131013, 0.00185218, 0.00253011, 0.00207297, 0.00271311, 0.0028932, 0.208174, 0.000218792, 5.51703e-05, 0.00037921, 0.000218774, 0.000108449, 0.000143318, 0.000196102, 0.000161979, 0.000199901, 0.000218206, 0.00123878, 22.1116, 0.380192, 0.0882452, 0.653923, 0.45346, 0.165356, 0.433388, 0.507747, 0.424044, 0.616886, 0.748487, 22.9312], [0.000664502, 0.167684, 0.00250079, 0.000798932, 0.00667572, 0.00319047, 0.00139325, 0.00196187, 0.00240887, 0.00192116, 0.00264118, 0.0029235, 0.239945, 0.000227718, 5.39921e-05, 0.000363897, 0.000224595, 0.000118116, 0.000143147, 0.000179002, 0.000155204, 0.000198735, 0.000224294, 0.00154044, 21.1143, 0.34456, 0.0921756, 0.639673, 0.427456, 0.161545, 0.406715, 0.510551, 0.369881, 0.639541, 0.780944, 19.7191], [0.000696627, 0.145257, 0.00285368, 0.000825974, 0.00628712, 0.00296105, 0.00129381, 0.00186857, 0.00227009, 0.00203152, 0.00264508, 0.00290269, 0.437371, 0.000241721, 5.6306e-05, 0.000370889, 0.000222979, 0.000105084, 0.000130909, 0.000180864, 0.000154523, 0.000190534, 0.000212034, 0.00142541, 21.3023, 0.377368, 0.0906615, 0.669248, 0.438335, 0.175474, 0.413522, 0.577077, 0.39072, 0.576174, 0.754146, 55.4061], [0.00075162, 0.178746, 0.0025348, 0.000961028, 0.0063366, 0.00339179, 0.00125303, 0.00194205, 0.00234943, 0.00212905, 0.00290407, 0.00309647, 0.425087, 0.000226128, 6.31612e-05, 0.000347166, 0.000240373, 0.000102949, 0.000143497, 0.000176609, 0.000164528, 0.000217506, 0.000226507, 0.00174389, 23.7935, 0.352655, 0.0967972, 0.659476, 0.489661, 0.161655, 0.433996, 0.499487, 0.39198, 0.631627, 0.752306, 72.9534]]</dd><dt><span>adaptation_info :</span></dt><dd>[&#x27;# Adaptation terminated\n# Step size = 0.147714\n# Diagonal elements of inverse mass matrix:\n# 0.000731634, 0.185483, 0.00248795, 0.000809694, 0.00670389, 0.00299424, 0.00131013, 0.00185218, 0.00253011, 0.00207297, 0.00271311, 0.0028932, 0.208174, 0.000218792, 5.51703e-05, 0.00037921, 0.000218774, 0.000108449, 0.000143318, 0.000196102, 0.000161979, 0.000199901, 0.000218206, 0.00123878, 22.1116, 0.380192, 0.0882452, 0.653923, 0.45346, 0.165356, 0.433388, 0.507747, 0.424044, 0.616886, 0.748487, 22.9312\n&#x27;, &#x27;# Adaptation terminated\n# Step size = 0.151201\n# Diagonal elements of inverse mass matrix:\n# 0.000664502, 0.167684, 0.00250079, 0.000798932, 0.00667572, 0.00319047, 0.00139325, 0.00196187, 0.00240887, 0.00192116, 0.00264118, 0.0029235, 0.239945, 0.000227718, 5.39921e-05, 0.000363897, 0.000224595, 0.000118116, 0.000143147, 0.000179002, 0.000155204, 0.000198735, 0.000224294, 0.00154044, 21.1143, 0.34456, 0.0921756, 0.639673, 0.427456, 0.161545, 0.406715, 0.510551, 0.369881, 0.639541, 0.780944, 19.7191\n&#x27;, &#x27;# Adaptation terminated\n# Step size = 0.0444113\n# Diagonal elements of inverse mass matrix:\n# 0.000696627, 0.145257, 0.00285368, 0.000825974, 0.00628712, 0.00296105, 0.00129381, 0.00186857, 0.00227009, 0.00203152, 0.00264508, 0.00290269, 0.437371, 0.000241721, 5.6306e-05, 0.000370889, 0.000222979, 0.000105084, 0.000130909, 0.000180864, 0.000154523, 0.000190534, 0.000212034, 0.00142541, 21.3023, 0.377368, 0.0906615, 0.669248, 0.438335, 0.175474, 0.413522, 0.577077, 0.39072, 0.576174, 0.754146, 55.4061\n&#x27;, &#x27;# Adaptation terminated\n# Step size = 0.122605\n# Diagonal elements of inverse mass matrix:\n# 0.00075162, 0.178746, 0.0025348, 0.000961028, 0.0063366, 0.00339179, 0.00125303, 0.00194205, 0.00234943, 0.00212905, 0.00290407, 0.00309647, 0.425087, 0.000226128, 6.31612e-05, 0.000347166, 0.000240373, 0.000102949, 0.000143497, 0.000176609, 0.000164528, 0.000217506, 0.000226507, 0.00174389, 23.7935, 0.352655, 0.0967972, 0.659476, 0.489661, 0.161655, 0.433996, 0.499487, 0.39198, 0.631627, 0.752306, 72.9534\n&#x27;]</dd><dt><span>stan_code :</span></dt><dd>
-functions {
-real likelihood_lpdf(data vector PTRM, data vector NRM, data int N, real R, real x_c, real y_c)
-  {
-
-    return -N/2. *log(sum(square(sqrt(square(PTRM-x_c)+square(NRM-y_c)) - sqrt(square(R)))));
-  }
-}
-data {
-  int I; // Number of observations for all specimens
-  int M; // Number of specimens
-  vector[I] PTRM; //PTRM data all specimens
-  vector[I] NRM; //NRM data all specimens
-  int N[M]; // Group sizes
-  vector[M] PTRMmax;
-  vector[M] B_labs;
-  vector[M] dmax;
-  vector[M] centroid;
-  real priorstd;
-
-}
-parameters {
-  real&lt;lower=0,upper=250&gt; int_site;
-  real&lt;lower=0&gt; sd_site;
-  vector[M] k; //Scale of possible k values based on distance to data.
-  //R cannot be &gt; dist_to_edge or we have the issue that we could fit our data to a circle on the other side
-  vector&lt;lower=0&gt;[M] dist_to_edge; //distance to edge of circle where data are located
-  real c; //&quot;Slope Angle&quot; for linear regression
-  //real sq; //&quot;Square&quot; coefficient for linear regression
-  vector[M] int_real;
-
-
-}
-transformed parameters {
-  vector&lt;lower=0&gt;[M] phi= pi()/2-atan(int_real .*PTRMmax ./ B_labs);
-  vector[M] R = 1 ./ k;
-  vector[M] x_c=cos(phi) .* (dist_to_edge+R);
-  vector[M] y_c=sin(phi) .* (dist_to_edge+R);
-
-}
-
-model {
-  int pos;
-  pos = 1;
-  dist_to_edge ~ uniform(0, 2. *centroid); //dont expect data to be &gt;&gt;1 ever really.
-  k ~ uniform(to_vector(N) ./ -dmax,to_vector(N) ./dmax); //stops fitting wrong side of circle
-  c ~ cauchy(0,20);
-  sd_site ~ normal(0,priorstd);
-  int_real ~ normal(int_site + k*c,sd_site);
-  //target+=-log(sd_site);
-  for (m in 1:M) {
-
-    target+=likelihood_lpdf(segment(PTRM, pos, N[m])|segment(NRM, pos, N[m]),N[m],R[m],x_c[m],y_c[m]);
-    pos = pos + N[m];
-    }
-}
-</dd></dl></div></li></ul></div></div><br></div>
+       [False, False, False, ..., False, False, False],
+       [False, False, False, ..., False, False, False]], shape=(4, 10000))</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>energy</span></div><div class='xr-var-dims'>(chain, draw)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-438.0 -442.5 ... -439.5 -431.0</div><input id='attrs-84c59719-36a9-4034-8824-3ef28ac75a06' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-84c59719-36a9-4034-8824-3ef28ac75a06' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b614e51a-dd38-4447-9856-ca9100d7bd42' class='xr-var-data-in' type='checkbox'><label for='data-b614e51a-dd38-4447-9856-ca9100d7bd42' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[-438.017, -442.458, -436.812, ..., -427.45 , -423.89 , -431.633],
+       [-427.897, -432.709, -426.636, ..., -422.201, -436.194, -436.847],
+       [-436.593, -431.605, -433.958, ..., -433.46 , -437.903, -438.896],
+       [-431.851, -429.798, -427.946, ..., -433.911, -439.546, -430.961]],
+      shape=(4, 10000))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c2103986-ada6-419a-8385-2e2214ec01f2' class='xr-section-summary-in' type='checkbox'  ><label for='section-c2103986-ada6-419a-8385-2e2214ec01f2' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>chain</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-d6a2ce00-3d9e-4441-b74f-b8a640a8d190' class='xr-index-data-in' type='checkbox'/><label for='index-d6a2ce00-3d9e-4441-b74f-b8a640a8d190' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([0, 1, 2, 3], dtype=&#x27;int64&#x27;, name=&#x27;chain&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>draw</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-abf2d9a3-70db-43ee-b47b-0adaec873a20' class='xr-index-data-in' type='checkbox'/><label for='index-abf2d9a3-70db-43ee-b47b-0adaec873a20' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([   0,    1,    2,    3,    4,    5,    6,    7,    8,    9,
+       ...
+       9990, 9991, 9992, 9993, 9994, 9995, 9996, 9997, 9998, 9999],
+      dtype=&#x27;int64&#x27;, name=&#x27;draw&#x27;, length=10000))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-018ad140-442f-460e-ac81-bd9d8c4a8444' class='xr-section-summary-in' type='checkbox'  checked><label for='section-018ad140-442f-460e-ac81-bd9d8c4a8444' class='xr-section-summary' >Attributes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>created_at :</span></dt><dd>2025-08-12T18:23:50.613913+00:00</dd><dt><span>arviz_version :</span></dt><dd>0.21.0</dd><dt><span>inference_library :</span></dt><dd>cmdstanpy</dd><dt><span>inference_library_version :</span></dt><dd>1.2.5</dd></dl></div></li></ul></div></div><br></div>
                       </ul>
                   </div>
             </li>
@@ -2827,7 +2720,8 @@ dl.xr-attrs {
   grid-template-columns: 125px auto;
 }
 
-.xr-attrs dt, dd {
+.xr-attrs dt,
+.xr-attrs dd {
   padding: 0;
   margin: 0;
   float: left;
@@ -2876,7 +2770,7 @@ dl.xr-attrs {
 <p><code class="docutils literal notranslate"><span class="pre">y_c</span></code> : predicted <span class="math notranslate nohighlight">\(y_{c}\)</span> for each specimen (see Cych et al 2021.)</p>
 <p>Let’s extract <code class="docutils literal notranslate"><span class="pre">int_site</span></code> and plot a histogram. It should look the same as the result from <code class="docutils literal notranslate"><span class="pre">site.histplot()</span></code></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">BiCEP.extract</span><span class="w"> </span><span class="kn">import</span> <span class="n">extract_values</span>
@@ -2897,7 +2791,7 @@ dl.xr-attrs {
 <p>The <span class="math notranslate nohighlight">\(\hat{R}\)</span> sampler diagnostics can be obtained using the <code class="docutils literal notranslate"><span class="pre">site.get_specimen_rhats()</span></code> method. This gives the worst <span class="math notranslate nohighlight">\(\hat{R}\)</span> value from all of the specimens.</p>
 <p>To check this for each specimen, we can check the <code class="docutils literal notranslate"><span class="pre">specimen.rhat</span></code> attribute.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Worst r_hat:&#39;</span><span class="p">,</span><span class="n">site</span><span class="o">.</span><span class="n">get_specimen_rhats</span><span class="p">())</span>
@@ -2911,15 +2805,15 @@ dl.xr-attrs {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Worst r_hat: 1.004103724194034
-hw126a2 r_hat: 1.0020031809118801
-hw126a7 r_hat: 1.0013509131780258
+Worst r_hat: 1.0004317552003188
+hw126a2 r_hat: 1.0001539525687053
+hw126a7 r_hat: 1.000453824652979
 </pre></div></div>
 </div>
 <p>On this run, hw126a7 was the source of the largest <span class="math notranslate nohighlight">\(\hat{R}\)</span> - even though this is the worst, we find $ 1.0 &lt; <span class="math">\hat{R}</span> &lt; 1.1 $ - which indicates that there were no problems with the sampling (may change between runs).</p>
 <p>Sometimes, high <span class="math notranslate nohighlight">\(\hat{R}\)</span> can be caused by sampling issues that can be fixed by using a different parameterization of the model. This is an optional parameter in <code class="docutils literal notranslate"><span class="pre">site.BiCEP_fit()</span></code>. The two models are <code class="docutils literal notranslate"><span class="pre">BiCEP.model_circle_fast</span></code> and <code class="docutils literal notranslate"><span class="pre">BiCEP.model_circle_slow</span></code> (found in the root BiCEP package). Default behaviour is to use the slow model when the number of specimens is less than 7 and the fast model when the number of specimens is greater than 7. The slow model can give more detailed
 results, but sometimes may perform worse. Try the other if the default doesn’t seem to be working. Other parameters for BiCEP_fit include <code class="docutils literal notranslate"><span class="pre">n_samples</span></code> which controls the number of samples (default 30000). Upping this number will take longer but improve the fit.</p>
-<p>This can be done by calling the <code class="docutils literal notranslate"><span class="pre">data.switch_grouping()</span></code> method. It doesn’t work on an individual sample/site basis (you can edit that in the csv file easily though).</p>
+<p>This can be done by calling the <code class="docutils literal notranslate"><span class="pre">data.switch_grouping()</span></code> method. It doesn’t work on an individual sample/site basis (but this can be edited in the csv files BiCEP uses).</p>
 </section>
 
 
