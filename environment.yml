@@ -1,0 +1,21 @@
+name: BiCEP
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.8
+  - numpy
+  - matplotlib
+  - scipy
+  - netcdf4
+  - scikit-learn
+  - tornado
+  - future
+  - pandas
+  - ipympl
+  - cmdstanpy
+  - ipyfilechooser
+  - voila
+  - arviz
+  - cartopy
+  - jupyter

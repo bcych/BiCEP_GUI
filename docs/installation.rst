@@ -1,6 +1,8 @@
 Installation
 ============
 
+This page is for those wanting to install BiCEP_GUI locally. For those wanting to use the Earthref JupyterHub site, see :doc:`jupyterhub`.
+
 ====================================
 Conda Environment Setup (Recommended)
 ====================================
@@ -10,6 +12,7 @@ Anaconda is a python environment manager that can manage different python packag
 If you already have anaconda installed, we recommend updating your conda version to ensure compatibility with your new environment. This can be done using the command:
 
 .. code-block:: bash
+
    conda update -n base conda
 
 If anaconda talks about having a broken environment, you may need to uninstall and reinstall anaconda, but try the following steps first.
@@ -17,13 +20,15 @@ If anaconda talks about having a broken environment, you may need to uninstall a
 To create a new environment open a terminal window. In windows, after installing anaconda, you will have an application called "anaconda prompt" installed, which acts like a mac/linux terminal. Into your terminal, type:
 
 .. code-block:: bash
-   conda create -f environment.yml
+
+   conda env create -f environment.yml
 
 This will install prerequisite packages for BiCEP_GUI, and may take a few minutes. This is highly recommended for windows users in particular, as it installs everything needed for the cmdstanpy package, which BiCEP_GUI relies on. However, the environment can be created manually if needed. If anaconda throws up any errors about the installation of particular packages, they can be deleted from the cmdstanpy file. 
 
 Activate the conda environment using:
 
 .. code-block:: bash
+
    conda activate BiCEP
 
 This will have to be done every time you want to use BiCEP_GUI
@@ -71,13 +76,15 @@ BiCEP GUI can either be downloaded using git, or as a zip file from the github p
 
 Navigate to the BiCEP_GUI folder, and run the following commands:
 
-.. code-block:: bash
+.. code-block:: bash 
+
    pip install --upgrade setuptools
    pip install ./
 
 Finally, BiCEP_GUI is also dependent on some code from pmagpy. If you do not have an existing developer install of PmagPy
 
-.. code-block:: bash
+.. code-block:: bash 
+
    pip install --upgrade pmagpy --no-deps
 
 With this, BiCEP_GUI should be installed
@@ -88,12 +95,14 @@ First time launch and Troubleshooting
 
 In your terminal window, type:
 
-.. code-block:: bash
+.. code-block:: bash 
+
    python
 
 This will launch a python prompt. Inside this prompt, type:
 
-.. code-block:: python3
+.. code-block:: python3 
+
    import BiCEP
 
 If BiCEP has been installed correctly, you will get a series of messages about "compiling stan models". This means that BiCEP GUI is creating the underlying C++ models that define the BiCEP method. If you installed through pip you may see messages about downloading and installing cmdstan. If this fails, see the `cmdstanpy`_. documentation for more info.
@@ -102,7 +111,8 @@ If BiCEP has been installed correctly, you will get a series of messages about "
 
 If everything works, you can begin to use the GUI. To launch, navigate to the BiCEP_GUI folder run the command:
 
-.. code-block:: bash
+.. code-block:: bash 
+
    jupyter notebook
 
 Now open the BiCEP_GUI notebook and follow the instructions on the page :doc:`gui_usage_guide`. You can also learn more about the deeper workings of the python package at :doc:`code_usage_guide`.
