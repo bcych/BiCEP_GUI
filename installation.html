@@ -299,7 +299,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -315,6 +317,17 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conda-environment-setup-recommended">Conda Environment Setup (Recommended)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pip-environment-setup-optional">Pip Environment Setup (Optional)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-bicep-gui">Installing BiCEP GUI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-time-launch-and-troubleshooting">First time launch and Troubleshooting</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -326,42 +339,54 @@ document.write(`
                   
   <section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h1>
-<p>First, install setuptools.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>setuptools
-</pre></div>
-</div>
-<p>Then, clone the repository:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/bcych/BiCEP_GUI.git
-</pre></div>
-</div>
-<p>It may be best to create a new anaconda environment or pip virtual environment to install BiCEP_GUI into, to avoid conflicts with existing installations.</p>
-<p>For a new anaconda environment (in Windows use the anaconda shell for this step).</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>BiCEP
-conda<span class="w"> </span>activate<span class="w"> </span>BiCEP
-</pre></div>
-</div>
-<p>For a new pip virtual environment (replace VIRTUAL_ENVIRONMENT_PATH with the path where you want to put your virtual environment)</p>
+<section id="conda-environment-setup-recommended">
+<h2>Conda Environment Setup (Recommended)<a class="headerlink" href="#conda-environment-setup-recommended" title="Link to this heading">#</a></h2>
+<p>Anaconda is a python environment manager that can manage different python packages in separate environments.For windows users in particular, we recommend using anaconda to manage the python environment. Instructions on how to install anaconda can be found at <a class="reference external" href="https://www.anaconda.com/docs/getting-started/anaconda/install">https://www.anaconda.com/docs/getting-started/anaconda/install</a></p>
+<p>If you already have anaconda installed, we recommend updating your conda version to ensure compatibility with your new environment. This can be done using the command:</p>
+<p>If anaconda talks about having a broken environment, you may need to uninstall and reinstall anaconda, but try the following steps first.</p>
+<p>To create a new environment open a terminal window. In windows, after installing anaconda, you will have an application called “anaconda prompt” installed, which acts like a mac/linux terminal. Into your terminal, type:</p>
+<p>This will install prerequisite packages for BiCEP_GUI, and may take a few minutes. This is highly recommended for windows users in particular, as it installs everything needed for the cmdstanpy package, which BiCEP_GUI relies on. However, the environment can be created manually if needed. If anaconda throws up any errors about the installation of particular packages, they can be deleted from the cmdstanpy file.</p>
+<p>Activate the conda environment using:</p>
+<p>This will have to be done every time you want to use BiCEP_GUI</p>
+</section>
+<section id="pip-environment-setup-optional">
+<h2>Pip Environment Setup (Optional)<a class="headerlink" href="#pip-environment-setup-optional" title="Link to this heading">#</a></h2>
+<p>NOTE: The steps in this section are optional if you installed the anaconda environment.</p>
+<p>If you don’t want to deal with anaconda, and are not on windows, a simple pip virtual environment may be a simpler way to deal with using BiCEP_GUI. You can create a pip virtual environment in the following way, renaming VIRTUAL_ENVIRONMENT_PATH to the name of a directory where you want all of your python packages to be installed:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>VIRTUAL_ENVIRONMENT_PATH
-<span class="nb">source</span><span class="w"> </span>VIRTUAL_ENVIRONMENT_PATH/bin/activate
 </pre></div>
 </div>
-<p>Or on Windows:</p>
+<p>To enter this environment, use the command (again replacing VIRTUAL_ENVIRONMENT_PATH with the folder your environment is located in):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>VIRTUAL_ENVIRONMENT_PATH/bin/activate
+</pre></div>
+</div>
+<p>This command has to be executed every time you want to use BiCEP GUI, so it may make sense to create an alias for it.</p>
+<p>On windows you need to use the command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>py<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>VIRTUAL_ENVIRONMENT_PATH
 VIRTUAL_ENVIRONMENT_PATH<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
 </pre></div>
 </div>
-<p>Navigate to the directory and install the <cite>build</cite> module with pip.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>build
+<p>However, we highly recommend using conda on Windows.</p>
+</section>
+<section id="installing-bicep-gui">
+<h2>Installing BiCEP GUI<a class="headerlink" href="#installing-bicep-gui" title="Link to this heading">#</a></h2>
+<p>BiCEP GUI is installed through pip. If you set up the environment correctly, pip should be on your system already.</p>
+<p>BiCEP GUI can either be downloaded using git, or as a zip file from the github page. To clone the repository using git, use the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/bcych/BiCEP_GUI.git
 </pre></div>
 </div>
-<p>Build the project</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>build
-</pre></div>
-</div>
-<p>Install the package:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>./
-</pre></div>
-</div>
+<p>Navigate to the BiCEP_GUI folder, and run the following commands:</p>
+<p>Finally, BiCEP_GUI is also dependent on some code from pmagpy. If you do not have an existing developer install of PmagPy</p>
+<p>With this, BiCEP_GUI should be installed</p>
+</section>
+<section id="first-time-launch-and-troubleshooting">
+<h2>First time launch and Troubleshooting<a class="headerlink" href="#first-time-launch-and-troubleshooting" title="Link to this heading">#</a></h2>
+<p>In your terminal window, type:</p>
+<p>This will launch a python prompt. Inside this prompt, type:</p>
+<p>If BiCEP has been installed correctly, you will get a series of messages about “compiling stan models”. This means that BiCEP GUI is creating the underlying C++ models that define the BiCEP method. If you installed through pip you may see messages about downloading and installing cmdstan. If this fails, see the <a class="reference external" href="https://mc-stan.org/docs/cmdstan-guide/installation.html#cpp-toolchain">cmdstanpy</a>. documentation for more info.</p>
+<p>If everything works, you can begin to use the GUI. To launch, navigate to the BiCEP_GUI folder run the command:</p>
+<p>Now open the BiCEP_GUI notebook and follow the instructions on the page <a class="reference internal" href="gui_usage_guide.html"><span class="doc">GUI usage guide</span></a>. You can also learn more about the deeper workings of the python package at <a class="reference internal" href="code_usage_guide.html"><span class="doc">BiCEP Examples Notebook</span></a>.</p>
+</section>
 </section>
 
 
@@ -399,6 +424,24 @@ VIRTUAL_ENVIRONMENT_PATH<span class="se">\S</span>cripts<span class="se">\a</spa
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conda-environment-setup-recommended">Conda Environment Setup (Recommended)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pip-environment-setup-optional">Pip Environment Setup (Optional)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-bicep-gui">Installing BiCEP GUI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-time-launch-and-troubleshooting">First time launch and Troubleshooting</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
