@@ -166,10 +166,6 @@
 
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">BiCEP Examples Notebook</a></li>
-
-
-
-
 <li class="toctree-l1 has-children"><a class="reference internal" href="modules.html">BiCEP</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="BiCEP.html">BiCEP package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="BiCEP.models.html">BiCEP.models package</a></li>
@@ -325,16 +321,24 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">BiCEP Examples Notebook</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Library-import">Library import</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Data-conversion">Data conversion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Data-processing-and-analysis">Data processing and analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Looking-at-site-and-specimen-data">Looking at site and specimen data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#The-BiCEP-method--accounting-for-bias">The BiCEP method- accounting for bias</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Data-manipulation-and-choosing-interpretations.">Data manipulation and choosing interpretations.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Auto-Interpreting-With-BiCEP">Auto Interpreting With BiCEP</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Data-conversion">Data conversion</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Data-processing-and-analysis">Data processing and analysis</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Automating,-diagnostics-and-saving-fits">Automating, diagnostics and saving fits</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Advanced-user-options---tweaks-and-accessing-raw-data">Advanced user options - tweaks and accessing raw data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Automating,-diagnostics-and-saving-fits">Automating, diagnostics and saving fits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Advanced-user-options---tweaks-and-accessing-raw-data">Advanced user options - tweaks and accessing raw data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#The-%22fit%22-object">The “fit” object</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Getting-Sampler-Diagnostics">Getting Sampler Diagnostics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Choosing-models-and-MCMC-sampling-options">Choosing models and MCMC sampling options</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Using-BiCEP-to-group-by-sample-instead-of-site">Using BiCEP to group by sample instead of site</a></li>
 </ul>
-
+</li>
+</ul>
             </nav>
         </div>
     </div>
@@ -360,9 +364,8 @@ document.write(`
 </div>
 </div>
 </section>
-</section>
 <section id="Data-conversion">
-<h1>Data conversion<a class="headerlink" href="#Data-conversion" title="Link to this heading">#</a></h1>
+<h2>Data conversion<a class="headerlink" href="#Data-conversion" title="Link to this heading">#</a></h2>
 <p>We can produce a data file that BiCEP can read internally from the magic format using the <code class="docutils literal notranslate"><span class="pre">generate_arai_plot_table</span></code> function in the <code class="docutils literal notranslate"><span class="pre">conversion</span></code> module. We will specify an output name of <code class="docutils literal notranslate"><span class="pre">BiCEP_converted.csv</span></code>. This gets dumped in the folder with the datafiles. For your convenience, we have included a set of MagIC formatted data to convert to the BiCEP format. This may take a few minutes</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -436,7 +439,9 @@ FreshTRM        (24 specimens)
 </div>
 </section>
 <section id="Data-processing-and-analysis">
-<h1>Data processing and analysis<a class="headerlink" href="#Data-processing-and-analysis" title="Link to this heading">#</a></h1>
+<h2>Data processing and analysis<a class="headerlink" href="#Data-processing-and-analysis" title="Link to this heading">#</a></h2>
+<section id="Looking-at-site-and-specimen-data">
+<h3>Looking at site and specimen data<a class="headerlink" href="#Looking-at-site-and-specimen-data" title="Link to this heading">#</a></h3>
 <p>We can index for our sites and specimens using a key for the site name. Let’s look at site “hw126” and print out the object to see the specimens. This site is a lava flow erupted in Hawaii in 1935 and originally analyzed by Cromwell et al (2015). Because this eruption occurred in the age of instrumentation, we know that the original field this lava flow was erupted in was approximately 36.4 μT.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
@@ -548,6 +553,9 @@ Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits
 </div>
 <p>The data for this specimen do not follow a straight line. Although the line slope appears to start out at a reasonable value, it quickly becomes shallower at higher temperatures. If we were to fit a line to these data we might end up with an underestimate of the paleointensity, and there is no reason to suggest which temperature range to pick for our intensity data. Some strict selection criteria might exclude this specimen, others might include it, but could include an incorrect temperature
 range, which could give a biased paleointensity estimate.</p>
+</section>
+<section id="The-BiCEP-method--accounting-for-bias">
+<h3>The BiCEP method- accounting for bias<a class="headerlink" href="#The-BiCEP-method--accounting-for-bias" title="Link to this heading">#</a></h3>
 <p>BiCEP works differently. It fits a circle to a scaled set of paleointensity data and uses the tangent joining the circle center and the origin. BiCEP generates many circle fits from a probability distribution. Let’s look at the circle fits that BiCEP samples from the posterior distribution, and the median tangent which we use to fit the line. BiCEP fits are performed at a site level for a reason which will become apparent later. We can use the method <code class="docutils literal notranslate"><span class="pre">site.BiCEP_fit()</span></code> to fit the BiCEP method
 (this may take several minutes depending on the speed of your processor and memory available) and plot the circle and tangent fits to the data.</p>
 <div class="nbinput docutils container">
@@ -706,6 +714,9 @@ to give us our unbiased paleointensity estimate. In the case of the plotted spec
 </div>
 </div>
 <p>We can see that our estimate for <span class="math notranslate nohighlight">\(B_{\textrm{anc}}\)</span> is close to the median value of this distribution, and well within the 95% confidence interval denoted by the black line. Our estimate is accurate and precise, with a 95% confidence interval of ~4 μT.</p>
+</section>
+<section id="Data-manipulation-and-choosing-interpretations.">
+<h3>Data manipulation and choosing interpretations.<a class="headerlink" href="#Data-manipulation-and-choosing-interpretations." title="Link to this heading">#</a></h3>
 <p>You might notice that some of our specimens have larger error bars on their <span class="math notranslate nohighlight">\(\vec{k}\)</span> estimates than others in our BiCEP fitting figure. Let’s investigate what’s going on with these specimens.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
@@ -878,6 +889,9 @@ hw126a8 DRAT: 0.0
 </div>
 <p>We notice from our histogram that doing this data manipulation has very slightly improved our accuracy and precision- but the overall distribution has not changed vary much. We notice from our Arai plot for specimen hw126a7 that the uncertainty in our circle fits has become much larger by excluding these temperature steps. This is because we assume the uncertainty in the circle fit for the whole Arai plot, rather than just the segment we’re looking at. In this way, we are penalized for excluding
 data from the Arai plot, without having to use some kind of “length of the line” criterion.</p>
+</section>
+<section id="Auto-Interpreting-With-BiCEP">
+<h3>Auto Interpreting With BiCEP<a class="headerlink" href="#Auto-Interpreting-With-BiCEP" title="Link to this heading">#</a></h3>
 <p>Specimens can be auto-interpreted using the <code class="docutils literal notranslate"><span class="pre">auto_interpret</span></code> function from the <code class="docutils literal notranslate"><span class="pre">criteria</span></code> module. This function allows us to auto-interpret by first applying minimal criteria, (MAD, DANG and DRAT) to ensure that we have an interpretation which is origin-trending and for which there is no alteration. Within these specimens, we then take the interpretation that maximizes FRAC.</p>
 <p>We only use specimens for which DANG and DRAT are &lt;10 and MAD <span class="math notranslate nohighlight">\(_{\text{Coe}}\)</span>&lt;5 and a minimum number of steps of four. For more information see Paterson et al (2014) . For information on MAD <span class="math notranslate nohighlight">\(_{\text{Coe}}\)</span>, please refer to Cych et. al. (2023).</p>
 <p>The following functions show how one can auto interpret data using BiCEP. You do not need to rerun these analyses to plot the figures as the BiCEP fits are saved in <code class="docutils literal notranslate"><span class="pre">.nc</span></code> files in this folder, and the interpretation temperatures are saved to a <code class="docutils literal notranslate"><span class="pre">.redo</span></code> file.</p>
@@ -1001,8 +1015,9 @@ data from the Arai plot, without having to use some kind of “length of the lin
 </div>
 <p>Notice that to satisfy MAD and DRAT, even fewer points from specimen hw126a7 were selected. This has led to the enormous error bars on the estimate from this specimen, seen in the bottom left figure. Sometimes this causes problems with the model fit if the number of points is too small. If this is the case, then try setting the <code class="docutils literal notranslate"><span class="pre">specimen.active</span></code> attribute to False for that specimen.</p>
 </section>
+</section>
 <section id="Automating,-diagnostics-and-saving-fits">
-<h1>Automating, diagnostics and saving fits<a class="headerlink" href="#Automating,-diagnostics-and-saving-fits" title="Link to this heading">#</a></h1>
+<h2>Automating, diagnostics and saving fits<a class="headerlink" href="#Automating,-diagnostics-and-saving-fits" title="Link to this heading">#</a></h2>
 <p>We can test whether a fit has yielded a successful paleointensity using the <code class="docutils literal notranslate"><span class="pre">get_sampler_succcess()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">extract</span></code> module. Check the docstring to see options - but by default this only accepts things which are an A or a B grade.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
@@ -1121,7 +1136,9 @@ hw126 successful! Estimated intensity 35.9 with bounds of 34.3 - 37.4 μT
 <p>You should see a file called <code class="docutils literal notranslate"><span class="pre">hw126.nc</span></code> has appeared in the folder. This is our saved fit that can be reopened by the GUI next time.</p>
 </section>
 <section id="Advanced-user-options---tweaks-and-accessing-raw-data">
-<h1>Advanced user options - tweaks and accessing raw data<a class="headerlink" href="#Advanced-user-options---tweaks-and-accessing-raw-data" title="Link to this heading">#</a></h1>
+<h2>Advanced user options - tweaks and accessing raw data<a class="headerlink" href="#Advanced-user-options---tweaks-and-accessing-raw-data" title="Link to this heading">#</a></h2>
+<section id="The-%22fit%22-object">
+<h3>The “fit” object<a class="headerlink" href="#The-%22fit%22-object" title="Link to this heading">#</a></h3>
 <p>For each site, BiCEP creates a <code class="docutils literal notranslate"><span class="pre">fit</span></code> attribute which contains all the information for the fit to that specimen. This is an <code class="docutils literal notranslate"><span class="pre">arviz.InferenceData</span></code> object</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
@@ -2788,6 +2805,9 @@ dl.xr-attrs {
 <img alt="_images/code_usage_guide_44_0.png" src="_images/code_usage_guide_44_0.png" />
 </div>
 </div>
+</section>
+<section id="Getting-Sampler-Diagnostics">
+<h3>Getting Sampler Diagnostics<a class="headerlink" href="#Getting-Sampler-Diagnostics" title="Link to this heading">#</a></h3>
 <p>The <span class="math notranslate nohighlight">\(\hat{R}\)</span> sampler diagnostics can be obtained using the <code class="docutils literal notranslate"><span class="pre">site.get_specimen_rhats()</span></code> method. This gives the worst <span class="math notranslate nohighlight">\(\hat{R}\)</span> value from all of the specimens.</p>
 <p>To check this for each specimen, we can check the <code class="docutils literal notranslate"><span class="pre">specimen.rhat</span></code> attribute.</p>
 <div class="nbinput docutils container">
@@ -2811,9 +2831,17 @@ hw126a7 r_hat: 1.000453824652979
 </pre></div></div>
 </div>
 <p>On this run, hw126a7 was the source of the largest <span class="math notranslate nohighlight">\(\hat{R}\)</span> - even though this is the worst, we find $ 1.0 &lt; <span class="math">\hat{R}</span> &lt; 1.1 $ - which indicates that there were no problems with the sampling (may change between runs).</p>
+</section>
+<section id="Choosing-models-and-MCMC-sampling-options">
+<h3>Choosing models and MCMC sampling options<a class="headerlink" href="#Choosing-models-and-MCMC-sampling-options" title="Link to this heading">#</a></h3>
 <p>Sometimes, high <span class="math notranslate nohighlight">\(\hat{R}\)</span> can be caused by sampling issues that can be fixed by using a different parameterization of the model. This is an optional parameter in <code class="docutils literal notranslate"><span class="pre">site.BiCEP_fit()</span></code>. The two models are <code class="docutils literal notranslate"><span class="pre">BiCEP.model_circle_fast</span></code> and <code class="docutils literal notranslate"><span class="pre">BiCEP.model_circle_slow</span></code> (found in the root BiCEP package). Default behaviour is to use the slow model when the number of specimens is less than 7 and the fast model when the number of specimens is greater than 7. The slow model can give more detailed
 results, but sometimes may perform worse. Try the other if the default doesn’t seem to be working. Other parameters for BiCEP_fit include <code class="docutils literal notranslate"><span class="pre">n_samples</span></code> which controls the number of samples (default 30000). Upping this number will take longer but improve the fit.</p>
+</section>
+<section id="Using-BiCEP-to-group-by-sample-instead-of-site">
+<h3>Using BiCEP to group by sample instead of site<a class="headerlink" href="#Using-BiCEP-to-group-by-sample-instead-of-site" title="Link to this heading">#</a></h3>
 <p>This can be done by calling the <code class="docutils literal notranslate"><span class="pre">data.switch_grouping()</span></code> method. It doesn’t work on an individual sample/site basis (but this can be edited in the csv files BiCEP uses).</p>
+</section>
+</section>
 </section>
 
 
@@ -2861,16 +2889,24 @@ results, but sometimes may perform worse. Try the other if the default doesn’t
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">BiCEP Examples Notebook</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Library-import">Library import</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Data-conversion">Data conversion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Data-processing-and-analysis">Data processing and analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Looking-at-site-and-specimen-data">Looking at site and specimen data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#The-BiCEP-method--accounting-for-bias">The BiCEP method- accounting for bias</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Data-manipulation-and-choosing-interpretations.">Data manipulation and choosing interpretations.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Auto-Interpreting-With-BiCEP">Auto Interpreting With BiCEP</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Data-conversion">Data conversion</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Data-processing-and-analysis">Data processing and analysis</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Automating,-diagnostics-and-saving-fits">Automating, diagnostics and saving fits</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Advanced-user-options---tweaks-and-accessing-raw-data">Advanced user options - tweaks and accessing raw data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Automating,-diagnostics-and-saving-fits">Automating, diagnostics and saving fits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Advanced-user-options---tweaks-and-accessing-raw-data">Advanced user options - tweaks and accessing raw data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#The-%22fit%22-object">The “fit” object</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Getting-Sampler-Diagnostics">Getting Sampler Diagnostics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Choosing-models-and-MCMC-sampling-options">Choosing models and MCMC sampling options</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Using-BiCEP-to-group-by-sample-instead-of-site">Using BiCEP to group by sample instead of site</a></li>
 </ul>
-
+</li>
+</ul>
   </nav></div>
 
 </div></div>
