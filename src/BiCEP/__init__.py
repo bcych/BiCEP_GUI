@@ -22,7 +22,7 @@ slow_path_2 = slow_path + ".stan"
 fast_ref_2 = resources.files(pkg) / fast_path_2
 slow_ref_2 = resources.files(pkg) / slow_path_2
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 
 if not fast_ref.exists() or slow_ref.exists():
     with resources.as_file(fast_ref_2) as fast_subpath:
