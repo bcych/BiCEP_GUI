@@ -486,7 +486,13 @@ class SpecimenCollection:
         Finds the worst Rhat va; for each specimen and assigns it to that specimen
         """
         try:
+            rhats_orig = az.rhat(self.fit).to_dataset()
+        except AttributeError:
             rhats_orig = az.rhat(self.fit)
+        except (TypeError, ValueError) as e:
+            worst_rhat = 1.00
+            print("Error caught:", e)
+        try:
             rhats = rhats_orig.to_stacked_array("rhats", sample_dims=[]).values
             worst_rhat = rhats[(1 - rhats) ** 2 == max((1 - rhats) ** 2)][0]
             specrhatsarray = []
@@ -509,7 +515,7 @@ class SpecimenCollection:
                 except IndexError:
                     worst_rhat_spec = np.nan
                 spec.rhat = worst_rhat_spec
-        except (TypeError, ValueError) as e:
+        except (TypeError, ValueError,UnboundLocalError) as e:
             worst_rhat = 1.00
             print("Error caught:", e)
         return worst_rhat
