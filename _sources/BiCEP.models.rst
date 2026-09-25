@@ -6,5 +6,5 @@ Module contents
 
 .. automodule:: BiCEP.models
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
